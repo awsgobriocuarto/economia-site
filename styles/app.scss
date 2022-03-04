@@ -1,4 +1,11 @@
 @import "./custom";
 @import "~bootstrap";
 
-@import "./components/base";
+// base
+@import "./base/base";
+@import "./base/fonts";
+@import "./base/typography";
+
+// components
+@import "./components/carousel";
+@import "./components/navbar";

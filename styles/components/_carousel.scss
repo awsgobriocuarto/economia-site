@@ -1,0 +1,65 @@
+.carousel {
+  &-inner {
+  }
+  &-item {
+    background-color: darken($secondary, 20%);
+    img {
+      height: 500px;
+      object-fit: cover;
+      filter: grayscale(1);
+      opacity: 0.4;
+    }
+  }
+  &-indicators {
+    justify-content: start;
+    [data-bs-target] {
+      margin-left: 4px;
+      margin-right: 4px;
+    }
+  }
+  &-caption {
+    bottom: 0;
+    padding-top: 4rem;
+    text-align: left;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    h5 {
+      text-transform: uppercase;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+  }
+  &-control-prev {
+    // background-color: green;
+  }
+  &-control-next {
+    // background-color: yellow;
+  }
+}
+
+@media (max-width: 767px) {
+  .carousel {
+    &-inner {
+    }
+    &-item {
+      img {
+        height: 400px;
+      }
+    }
+    &-caption {
+      padding-top: 0rem;
+      p {
+        font-size: 1.1rem;
+        margin-bottom: 24px;
+      }
+    }
+  }
+}

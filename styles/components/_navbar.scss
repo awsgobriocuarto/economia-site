@@ -1,0 +1,21 @@
+.navbar {
+  padding: 20px 0;
+  // font-family: "Univia", sans-serif;
+  &-nav {
+    .nav-item {
+      .nav-link {
+        padding: 0.4rem 0.8rem;
+        font-weight: 400;
+        text-transform: uppercase;
+        font-size: 0.94rem;
+        letter-spacing: 0.01rem;
+        // color: $primary;
+        // color: rgba($info, 0.8);
+        // &:hover {
+        //   color: rgba($info, 1);
+        //   text-decoration: underline;
+        // }
+      }
+    }
+  }
+}
