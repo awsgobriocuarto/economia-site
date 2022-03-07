@@ -1,5 +1,7 @@
 import Head from "next/head";
 import React from "react";
+import { News } from "../../components/elements/news/News";
+import { Header } from "../../components/layouts/Header";
 
 export default function Noticias() {
   return (
@@ -8,9 +10,11 @@ export default function Noticias() {
         <title>Sec. de Economia Río Cuarto</title>
       </Head>
 
-      <div className="container py-5">
-        <h1>Noticias</h1>
-      </div>
+      <Header
+        title="Novedades"
+        subtitle="Lorem ipsum dolor sit amet consectetur"
+      />
+      <News />
     </>
   );
 }

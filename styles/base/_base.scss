@@ -15,53 +15,10 @@ section {
   padding-bottom: 80px;
 
   h2 {
-    text-align: center;
     font-weight: 300;
     letter-spacing: 0.08rem;
     margin-bottom: 60px;
     text-transform: uppercase;
-  }
-}
-
-.panel {
-  text-decoration: none;
-  display: block;
-  color: $gray-700;
-  // border: 1px solid $gray-200;
-  box-shadow: 0 0 8px $gray-200;
-  margin-bottom: 30px;
-  background-color: #fff;
-  &:hover {
-    color: $gray-900;
-    // border: 1px solid $gray-300;
-    box-shadow: 0 0 8px $gray-300;
-
-    .panel-item {
-      .icon {
-        border-color: $gray-500;
-      }
-    }
-  }
-  .panel-item {
-    padding: 1.6rem;
-    display: flex;
-    align-items: center;
-    border-radius: 6px;
-    .icon {
-      margin-right: 20px;
-      border: 1px solid $gray-300;
-      padding: 16px;
-      border-radius: 50%;
-      img {
-        height: 42px;
-      }
-    }
-    p {
-      margin-bottom: 0;
-      text-transform: uppercase;
-      font-weight: 600;
-      font-size: 1.3rem;
-    }
   }
 }
 

@@ -1,13 +1,14 @@
 .navbar {
-  padding: 20px 0;
-  // font-family: "Univia", sans-serif;
+  padding: 40px 0;
+  font-family: "Univia", sans-serif;
   &-nav {
     .nav-item {
       .nav-link {
         padding: 0.4rem 0.8rem;
-        font-weight: 400;
+        font-weight: 500;
+        color: $secondary;
         text-transform: uppercase;
-        font-size: 0.94rem;
+        font-size: 0.9rem;
         letter-spacing: 0.01rem;
         // color: $primary;
         // color: rgba($info, 0.8);
@@ -15,6 +16,36 @@
         //   color: rgba($info, 1);
         //   text-decoration: underline;
         // }
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .fas {
+          padding-bottom: 2px;
+          margin-left: 6px;
+          // color: $primary;
+        }
+
+        &:hover,
+        &:active {
+          color: $primary;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .navbar {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    &-nav {
+      .nav-item {
+        .nav-link {
+          justify-content: start;
+          border-bottom: 1px solid lighten($color: $primary, $amount: 30);
+          padding-left: 0;
+        }
       }
     }
   }
