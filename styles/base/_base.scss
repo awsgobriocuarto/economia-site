@@ -22,20 +22,6 @@ section {
   }
 }
 
-.news {
-  background-color: #eee;
-  .card {
-    .card-image {
-      background-color: darken($secondary, 20%);
-      img {
-        width: 100%;
-        filter: grayscale(1);
-        opacity: 0.4;
-      }
-    }
-  }
-}
-
 footer {
   background-color: #ddd;
   position: absolute;
@@ -48,5 +34,15 @@ footer {
 
   p {
     margin-bottom: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    h2 {
+      margin-bottom: 40px;
+    }
   }
 }

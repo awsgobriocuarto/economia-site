@@ -47,3 +47,35 @@
     }
   }
 }
+
+@media (max-width: 767px) {
+  .panel {
+    margin-bottom: 15px;
+    .panel-item {
+      padding: 1.2rem;
+      border-right: 12px solid $gray-300;
+      border-radius: 6px;
+
+      display: grid;
+      grid-template-columns: 74px 1fr;
+      align-items: center;
+      .icon {
+        border: 1px solid $gray-300;
+        border-radius: 9999px;
+        height: 60px;
+        width: 60px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      p {
+        margin-bottom: 0;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 1.26rem;
+        letter-spacing: -0.04rem;
+      }
+    }
+  }
+}

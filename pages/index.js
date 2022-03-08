@@ -5,7 +5,6 @@ import { News } from "../components/elements/news/News";
 import { Panel } from "../components/elements/panel/Panel";
 
 export default function Home({ items }) {
-  console.log(items);
   return (
     <>
       <Head>
