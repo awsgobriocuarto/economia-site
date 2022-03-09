@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Header = ({ title, subtitle }) => {
+export default function Header() {
   return (
     <header>
       <div className="container">
@@ -9,4 +9,4 @@ export const Header = ({ title, subtitle }) => {
       </div>
     </header>
   );
-};
+}
