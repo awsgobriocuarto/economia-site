@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { News } from "../../components/elements/news/News";
+import Posts from "../../components/elements/posts/Posts";
 import Header from "../../components/Header";
 
 export default function Noticias() {
@@ -13,7 +13,7 @@ export default function Noticias() {
         title="Novedades"
         subtitle="Lorem ipsum dolor sit amet consectetur"
       />
-      <News />
+      <Posts />
     </>
   );
 }

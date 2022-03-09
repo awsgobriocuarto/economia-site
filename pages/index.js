@@ -1,8 +1,10 @@
 import Head from "next/head";
 import getListItems from "../services/getListItems";
 import { Carousel } from "../components/elements/carousel/Carousel";
-import { News } from "../components/elements/news/News";
+import Posts from "../components/elements/posts/Posts";
 import { Panel } from "../components/elements/panel/Panel";
+import Calendar from "../components/elements/calendar/Calendar";
+import Cta from "../components/elements/cta/Cta";
 
 export default function Home({ items }) {
   return (
@@ -16,7 +18,15 @@ export default function Home({ items }) {
       <div className="container">
         <Panel items={items} title="Gestiones Disponibles" />
       </div>
-      <News />
+      <Posts />
+      <Cta
+        title="Lorem ipsum dolor sit."
+        text="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias,
+            quis."
+        cta="Link"
+        url="/servicios"
+      />
+      <Calendar />
     </>
   );
 }
