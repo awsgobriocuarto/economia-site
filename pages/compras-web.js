@@ -1,7 +1,6 @@
 import Head from "next/head";
-import React from "react";
 import { Panel } from "../components/elements/panel/Panel";
-import { Header } from "../components/layouts/Header";
+import Header from "../components/Header";
 import getListItems from "../services/getListItems";
 
 export default function comprasWeb({ items = [] }) {

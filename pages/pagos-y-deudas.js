@@ -1,6 +1,6 @@
 import Head from "next/head";
 import getListItems from "../services/getListItems";
-import { Header } from "../components/layouts/Header";
+import Header from "../components/Header";
 import { Panel } from "../components/elements/panel/Panel";
 
 export default function pagosYDeudas({ items }) {
