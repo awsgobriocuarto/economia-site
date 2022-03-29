@@ -3,7 +3,7 @@ import getListItems from "../services/getListItems";
 import { Carousel } from "../components/elements/carousel/Carousel";
 import Posts from "../components/elements/posts/Posts";
 import { Panel } from "../components/elements/panel/Panel";
-import Calendar from "../components/elements/calendar/Calendar";
+import Expirations from "../components/elements/expirations/Expirations";
 import Cta from "../components/elements/cta/Cta";
 
 export default function Home({ items }) {
@@ -26,7 +26,7 @@ export default function Home({ items }) {
         cta="Link"
         url="/servicios"
       />
-      <Calendar />
+      <Expirations />
     </>
   );
 }

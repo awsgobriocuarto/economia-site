@@ -1,6 +1,10 @@
 import Head from "next/head";
 import Layout from "../components/Layout";
 
+import moment from "moment";
+import locale from "moment/locale/es";
+moment.updateLocale("es", locale);
+
 import "../styles/app.scss";
 
 function MyApp({ Component, pageProps }) {

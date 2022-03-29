@@ -1,5 +1,6 @@
 import Link from "next/link";
 import PropTypes from "prop-types";
+import moment from "moment";
 
 export default function PostCard({ post }) {
   return (
@@ -10,7 +11,7 @@ export default function PostCard({ post }) {
             <img src={post.main_picture.small} alt="" />
           </div>
           <div className="card-body">
-            <small>{post.publication_date}</small>
+            <small>{moment(post.publication_date).format("DD/MM/YYYY")}</small>
             <h5 className="card-title">{post.title}</h5>
             <p className="card-text">{post.excerpt}</p>
             <Link href={`/noticias/${post.slug}?id=${post.id}`}>

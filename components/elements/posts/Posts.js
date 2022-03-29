@@ -23,13 +23,13 @@ export default function News() {
             <PostCard key={post.id} post={post} />
           ))}
         </div>
-        {posts.length >= 4 && (
+        {/* {posts.length >= 4 && (
           <div className="text-center">
             <Link href="/noticias">
               <a className="btn btn-sm btn-light">ver más noticias</a>
             </Link>
           </div>
-        )}
+        )} */}
       </div>
     </section>
   );

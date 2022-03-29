@@ -10,7 +10,7 @@ export default function Cta({ title, text, cta, url, urlExternal = false }) {
           <p className="cta-text">{text}</p>
         </div>
         <div className="cta-button">
-          <a href="" className="btn btn-lg btn-secondary text-white">
+          <a href="" className="btn btn-lg btn-primary text-white">
             {cta}
           </a>
         </div>

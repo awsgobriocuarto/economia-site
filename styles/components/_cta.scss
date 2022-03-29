@@ -1,5 +1,5 @@
 .cta {
-  background-color: $primary;
+  background-color: $secondary;
   padding-top: 40px;
   padding-bottom: 40px;
   .container {
@@ -25,5 +25,26 @@
   }
   &-button {
     text-transform: uppercase;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .cta {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    .container {
+      display: flex;
+      flex-direction: column;
+    }
+    &-body {
+      text-align: center;
+    }
+    &-title {
+      font-size: 1.8rem;
+    }
+    &-text {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+    }
   }
 }

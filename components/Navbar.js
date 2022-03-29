@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-      <div className="container">
+      <div className="container-fluid">
         <Link href="/">
           <a className="navbar-brand">Economía</a>
         </Link>
@@ -74,18 +74,13 @@ export default function Navbar() {
                     <a className="dropdown-item">Medios de Pago</a>
                   </Link>
                 </li>
-                <li>
-                  <Link href="/institucional">
-                    <a className="dropdown-item">Institucional</a>
-                  </Link>
-                </li>
               </ul>
             </li>
             <li className="nav-item">
               <a
                 href="https://admin.toteminsight.com/progressiveApp/5f04b1401320d01ab4a513f6/index.jade"
                 target="_blank"
-                className="nav-link bg-secondary text-white"
+                className="nav-link special"
               >
                 Turnos Web <i className="fas fa-calendar-alt"></i>
               </a>
