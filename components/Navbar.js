@@ -5,7 +5,7 @@ export default function Navbar() {
     <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
       <div className="container">
         <Link href="/">
-          <a className="navbar-brand">Logo</a>
+          <a className="navbar-brand">Economía</a>
         </Link>
 
         <button
