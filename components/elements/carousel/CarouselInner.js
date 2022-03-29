@@ -12,7 +12,13 @@ export const CarouselInner = () => {
         <div className="carousel-caption">
           <h5 className="display-4">First slide label</h5>
           <p>Some representative placeholder content for the first slide.</p>
-          <button className="btn btn-light">Button</button>
+          <a
+            href="https://app.riocuarto.gov.ar:8443/gestiontributaria/servlet/com.recursos.suscripcioncdingreso"
+            target="_blank"
+            className="btn btn-light"
+          >
+            Button
+          </a>
         </div>
       </div>
       <div className="carousel-item">

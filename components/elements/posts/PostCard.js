@@ -13,7 +13,7 @@ export default function PostCard({ post }) {
             <small>{post.publication_date}</small>
             <h5 className="card-title">{post.title}</h5>
             <p className="card-text">{post.excerpt}</p>
-            <Link href={`/noticias/${post.slug}`}>
+            <Link href={`/noticias/${post.slug}?id=${post.id}`}>
               <a className="btn btn-dark btn-sm text-white">ver más</a>
             </Link>
           </div>

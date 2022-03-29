@@ -29,7 +29,7 @@ export default function Navbar() {
             </li>
             <li className="nav-item">
               <Link href="/servicios">
-                <a className="nav-link">Servicios</a>
+                <a className="nav-link">Trámites y Mis Servicios</a>
               </Link>
             </li>
             <li className="nav-item">
@@ -38,27 +38,19 @@ export default function Navbar() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link href="/tramites">
-                <a className="nav-link">Trámites</a>
+              <Link href="/estadisticas">
+                <a className="nav-link">Estadísticas</a>
               </Link>
             </li>
             <li className="nav-item">
-              <a
-                href="http://transparencia.riocuarto.gov.ar/"
-                target="_blank"
-                className="nav-link"
-              >
-                Transparencia
-              </a>
+              <Link href="/legislacion">
+                <a className="nav-link">Legislación</a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a
-                href="https://admin.toteminsight.com/progressiveApp/5f04b1401320d01ab4a513f6/index.jade"
-                target="_blank"
-                className="nav-link"
-              >
-                Turnos Web <i className="fas fa-calendar-alt"></i>
-              </a>
+              <Link href="/ods">
+                <a className="nav-link">ODS</a>
+              </Link>
             </li>
             <li className="nav-item dropdown">
               <a
@@ -73,8 +65,8 @@ export default function Navbar() {
               </a>
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
-                  <Link href="/legislacion">
-                    <a className="dropdown-item">Legislacion</a>
+                  <Link href="/institucional">
+                    <a className="dropdown-item">Institucional</a>
                   </Link>
                 </li>
                 <li>
@@ -83,11 +75,20 @@ export default function Navbar() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/tutoriales">
-                    <a className="dropdown-item">Tutoriales</a>
+                  <Link href="/institucional">
+                    <a className="dropdown-item">Institucional</a>
                   </Link>
                 </li>
               </ul>
+            </li>
+            <li className="nav-item">
+              <a
+                href="https://admin.toteminsight.com/progressiveApp/5f04b1401320d01ab4a513f6/index.jade"
+                target="_blank"
+                className="nav-link bg-secondary text-white"
+              >
+                Turnos Web <i className="fas fa-calendar-alt"></i>
+              </a>
             </li>
           </ul>
         </div>
