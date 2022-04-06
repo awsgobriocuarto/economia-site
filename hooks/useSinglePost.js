@@ -17,10 +17,10 @@ export default function useSinglePost({ id }) {
             setPost(post);
             setIsError(false);
           }
-
           setLoading(false);
         })
         .catch((err) => {
+          console.log(err);
           setLoading(false);
           setIsError(true);
         });

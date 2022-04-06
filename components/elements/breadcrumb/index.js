@@ -7,28 +7,28 @@ const convertBreadcrumb = (string) => {
     .replace(/-/g, " ")
     .replace(/oe/g, "ö")
     .replace(/ae/g, "ä")
-    .replace(/ue/g, "ü");
-  // .toLowerCase();
+    .replace(/ue/g, "ü")
+    .toLowerCase();
 };
 
-const Breadcrumbs = () => {
+const Breadcrumbs = ({ title }) => {
   const router = useRouter();
   const [breadcrumbs, setBreadcrumbs] = useState(null);
 
+  const linkPath = router.asPath.split("/");
+  linkPath.shift();
+
+  console.log(linkPath[0]);
+  console.log(title);
+
   useEffect(() => {
     if (router) {
-      const linkPath = router.asPath.split("/");
-      linkPath.shift();
-
       const pathArray = linkPath.map((path, i) => {
         return {
           breadcrumb: path,
           href: "/" + linkPath.slice(0, i + 1).join("/"),
         };
       });
-
-      //console.log(pathArray);
-
       setBreadcrumbs(pathArray);
     }
   }, [router]);
@@ -48,7 +48,11 @@ const Breadcrumbs = () => {
             return (
               <li key={breadcrumb.href} className="breadcrumb-item">
                 {breadcrumbs.length - 1 === i ? (
-                  <>{convertBreadcrumb(breadcrumb.breadcrumb)}</>
+                  linkPath[0] !== "noticias" ? (
+                    <>{convertBreadcrumb(breadcrumb.breadcrumb)}</>
+                  ) : (
+                    ""
+                  )
                 ) : (
                   <Link href={breadcrumb.href}>
                     <a>{convertBreadcrumb(breadcrumb.breadcrumb)}</a>

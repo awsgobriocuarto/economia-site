@@ -1,5 +1,5 @@
-import { useEffect } from "react";
 import { useRouter } from "next/router";
+import Image from "next/image";
 import Head from "next/head";
 import Header from "../../components/Header";
 import useSinglePost from "../../hooks/useSinglePost";
@@ -21,7 +21,8 @@ export default function Noticias() {
   console.log({ loading, isError, post });
 
   if (isError) {
-    return router.push("/");
+    // return router.push("/");
+    // ("Contenido no encontrado");
   }
 
   return (
@@ -35,21 +36,32 @@ export default function Noticias() {
         subtitle="Lorem ipsum dolor sit amet consectetur"
       />
 
-      <div className="container py-5">
-        {loading ? (
-          <Spinner />
-        ) : (
-          <>
-            {!isError ? (
-              <>
-                <h1>Detalle de la Noticia</h1>
-                <p>{post?.title}</p>
-              </>
-            ) : (
-              "error"
-            )}
-          </>
-        )}
+      <div className="posts detail">
+        <div className="container py-5">
+          <div className="row">
+            <div className="col-md-8">
+              {loading ? (
+                <Spinner />
+              ) : (
+                <>
+                  {!isError ? (
+                    <>
+                      <img src={post?.media.main_picture.large} alt="" />
+
+                      <h1>{post?.title}</h1>
+                      <p className="lead">{post?.excerpt}</p>
+                      <div
+                        dangerouslySetInnerHTML={{ __html: post?.body }}
+                      ></div>
+                    </>
+                  ) : (
+                    "Contenido no encontrado"
+                  )}
+                </>
+              )}
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );

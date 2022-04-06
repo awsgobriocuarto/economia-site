@@ -1,9 +1,7 @@
 import React from "react";
 import Breadcrumbs from "./elements/breadcrumb";
-// import { Breadcrumb } from "./elements/breadcrumb";
 
-export default function Header({ title, subtitle, breadcrumbs }) {
-  // console.log(breadcrumbs);
+export default function Header({ title, subtitle }) {
   return (
     <>
       <header>
@@ -12,7 +10,6 @@ export default function Header({ title, subtitle, breadcrumbs }) {
           <p className="lead">{subtitle}</p>
         </div>
       </header>
-      {/* <Breadcrumb breadcrumbs={breadcrumbs} /> */}
       <Breadcrumbs />
     </>
   );

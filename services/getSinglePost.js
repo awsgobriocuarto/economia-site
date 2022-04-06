@@ -3,7 +3,7 @@ export async function getSinglePost({ id } = {}) {
 
   return await fetch(apiURL, {
     headers: {
-      "Portal-Id": 2,
+      "Portal-Id": 3,
     },
   })
     .then((res) => res.json())
