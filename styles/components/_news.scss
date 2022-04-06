@@ -10,8 +10,11 @@
         opacity: 0.4;
       }
     }
-    small {
-      // color: green;
+    &-body {
+      padding: 20px;
+    }
+    &-pretitle {
+      font-size: 0.8rem;
     }
     &-title {
       color: $primary;
@@ -22,6 +25,7 @@
       -webkit-box-orient: vertical;
     }
     &-text {
+      margin-bottom: 20px;
       overflow: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;

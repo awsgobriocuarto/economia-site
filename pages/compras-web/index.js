@@ -1,7 +1,7 @@
 import Head from "next/head";
-import { Panel } from "../components/elements/panel/Panel";
-import Header from "../components/Header";
-import getListItems from "../services/getListItems";
+import { Panel } from "../../components/elements/panel/Panel";
+import Header from "../../components/Header";
+import getListItems from "../../services/getListItems";
 
 export default function comprasWeb({ items = [] }) {
   return (
@@ -13,9 +13,11 @@ export default function comprasWeb({ items = [] }) {
         title="Compras Web"
         subtitle="Lorem ipsum dolor sit amet consectetur"
       />
-      <div className="container py-5">
-        <Panel items={items} />
-      </div>
+      <section>
+        <div className="container">
+          <Panel items={items} />
+        </div>
+      </section>
     </>
   );
 }

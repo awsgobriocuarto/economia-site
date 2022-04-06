@@ -12,7 +12,9 @@ export default function mediosDePago() {
         title="Medios de Pago"
         subtitle="Lorem ipsum dolor sit amet consectetur"
       />
-      <div className="container py-5"></div>
+      <section>
+        <div className="container">detalle</div>
+      </section>
     </>
   );
 }

@@ -10,7 +10,7 @@ export default function News() {
     return <Spinner />;
   }
 
-  if (posts.length == 0) {
+  if (posts?.length == 0) {
     return "";
   }
 
@@ -19,7 +19,7 @@ export default function News() {
       <div className="container">
         <h2>Novedades</h2>
         <div className="row mb-5">
-          {posts.map((post) => (
+          {posts?.map((post) => (
             <PostCard key={post.id} post={post} />
           ))}
         </div>

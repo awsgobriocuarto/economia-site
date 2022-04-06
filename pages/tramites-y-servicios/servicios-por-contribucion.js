@@ -1,18 +1,20 @@
 import Head from "next/head";
-import Header from "../components/Header";
+import Header from "../../components/Header";
 
 export default function serviciosPorContribucion() {
   return (
     <>
       <Head>
-        <title>Sec. de Economia Río Cuarto - Pagos y Deudas</title>
+        <title>Sec. de Economia Río Cuarto - Servicios por Contribución</title>
       </Head>
 
       <Header
         title="Servicios por Contribución"
         subtitle="Lorem ipsum dolor sit amet consectetur"
       />
-      <div className="container py-5"></div>
+      <section>
+        <div className="container">detalle</div>
+      </section>
     </>
   );
 }

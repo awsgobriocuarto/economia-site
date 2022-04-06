@@ -3,7 +3,7 @@ import { PanelItem } from "./PanelItem";
 
 export const Panel = ({ items, title = "" }) => {
   return (
-    <section>
+    <>
       {title && <h2>{title}</h2>}
 
       <div className="row">
@@ -11,7 +11,7 @@ export const Panel = ({ items, title = "" }) => {
           <PanelItem key={item.id} item={item} />
         ))}
       </div>
-    </section>
+    </>
   );
 };
 

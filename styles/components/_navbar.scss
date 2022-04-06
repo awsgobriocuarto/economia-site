@@ -1,20 +1,26 @@
 .navbar {
-  padding: 40px 40px;
+  padding: 20px 15px;
   font-family: "Univia", sans-serif;
+  z-index: 9999;
   .navbar-brand {
+    padding: 0;
+    width: 180px;
+    line-height: 0;
   }
   .navbar-toggler {
     border: none;
+    margin-bottom: 0;
   }
   &-nav {
     .nav-item {
       .nav-link {
-        padding: 0.4rem 0.6rem;
+        padding: 0.4rem 0.8rem;
         font-weight: 500;
         color: $secondary;
         text-transform: uppercase;
-        font-size: 0.86rem;
-        letter-spacing: 0.014rem;
+        font-size: 0.9rem;
+        letter-spacing: 0.02rem;
+        text-align: center;
         // }
         display: flex;
         align-items: center;
@@ -32,12 +38,26 @@
       .special {
         background: $secondary;
         color: white;
+        margin-left: 0.8rem;
+        &:hover,
+        &:active {
+          background: $primary;
+          color: white;
+        }
       }
     }
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 767px) {
+  .navbar {
+    .navbar-brand {
+      width: 160px;
+    }
+  }
+}
+
+@media (max-width: 1199px) {
   .navbar {
     padding: 10px 0px;
     .navbar-brand {
@@ -50,13 +70,31 @@
         .nav-link {
           justify-content: start;
           border-bottom: 1px solid lighten($color: $primary, $amount: 30);
-          // padding-left: 0;
         }
         .special {
-          // background: white;
-          // color: $secondary;
           margin-top: 6px;
           border-bottom: none;
+          margin-left: 0rem;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1329px) {
+  .navbar {
+    font-family: "Univia", sans-serif;
+    z-index: 9999;
+    .navbar-brand {
+    }
+    .navbar-toggler {
+      border: none;
+    }
+    &-nav {
+      .nav-item {
+        .nav-link {
+          padding: 0.4rem 0.4rem;
+          letter-spacing: 0rem;
         }
       }
     }

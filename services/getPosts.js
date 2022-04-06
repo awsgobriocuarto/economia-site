@@ -23,5 +23,8 @@ export function getPosts({ page = 1, limit = 9 } = {}) {
     },
   })
     .then((res) => res.json())
-    .then(fromApiResponseToPosts);
+    .then(fromApiResponseToPosts)
+    .catch((error) => {
+      console.error("Error: ", error);
+    });
 }

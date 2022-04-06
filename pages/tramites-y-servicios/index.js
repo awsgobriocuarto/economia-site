@@ -1,24 +1,26 @@
 import Head from "next/head";
-import { Panel } from "../components/elements/panel/Panel";
-import Header from "../components/Header";
+import { Panel } from "../../components/elements/panel/Panel";
+import Header from "../../components/Header";
 
-import getListItems from "../services/getListItems";
+import getListItems from "../../services/getListItems";
 
 export default function servicios({ items }) {
   return (
     <>
       <Head>
-        <title>Sec. de Economia Río Cuarto - Servicios</title>
+        <title>Sec. de Economia Río Cuarto - Tramites y Servicios</title>
       </Head>
 
       <Header
-        title="Servicios"
+        title="Tramites y Servicios"
         subtitle="Lorem ipsum dolor sit amet consectetur"
       />
 
-      <div className="container py-5">
-        <Panel items={items} />
-      </div>
+      <section>
+        <div className="container">
+          <Panel items={items} />
+        </div>
+      </section>
     </>
   );
 }

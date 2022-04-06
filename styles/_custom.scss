@@ -7,13 +7,22 @@
 // $font-family-base: "Roboto", sans-serif;
 
 //## Lato
-// @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap");
-// $font-family-base: "Lato", sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap");
+$font-family-base: "Lato", sans-serif;
 
 //## Univia
 // $font-family-base: "Univia", sans-serif;
 
-$primary: #eb7e39;
-$secondary: #003fa2;
+$blue: #003fa2 !default;
+$purple: #8c78cf !default;
+$red: #dd463c !default;
+$orange: #eb7e39 !default;
+$yellow: #f1bd4a !default;
+$green: #4eba74 !default;
+$cyan: #4ba6de !default;
+
+$primary: $orange;
+$secondary: $blue;
+$info: $cyan;
 
 // $enable-rounded: false;

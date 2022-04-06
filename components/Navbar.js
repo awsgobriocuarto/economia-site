@@ -1,11 +1,15 @@
 import Link from "next/link";
+import Image from "next/image";
+import Logo from "../assets/logo-economia.svg";
 
 export default function Navbar() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <nav className="navbar navbar-expand-xl navbar-light bg-light sticky-top">
       <div className="container-fluid">
         <Link href="/">
-          <a className="navbar-brand">Economía</a>
+          <a className="navbar-brand">
+            <Image src={Logo} alt="logo economia" />
+          </a>
         </Link>
 
         <button
@@ -28,8 +32,8 @@ export default function Navbar() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link href="/servicios">
-                <a className="nav-link">Trámites y Mis Servicios</a>
+              <Link href="/tramites-y-servicios">
+                <a className="nav-link">Trámites y Servicios</a>
               </Link>
             </li>
             <li className="nav-item">
@@ -61,7 +65,7 @@ export default function Navbar() {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Otras Consultas
+                + Info
               </a>
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>

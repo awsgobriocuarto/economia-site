@@ -13,11 +13,12 @@ export default function Home({ items }) {
         <title>Sec. de Economia Río Cuarto</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <Carousel />
-      <div className="container">
-        <Panel items={items} title="Gestiones Disponibles" />
-      </div>
+      <section>
+        <div className="container">
+          <Panel items={items} title="Gestiones Disponibles" />
+        </div>
+      </section>
       <Posts />
       <Cta
         title="Lorem ipsum dolor sit."

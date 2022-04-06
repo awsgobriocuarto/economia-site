@@ -3,6 +3,11 @@ import getListItems from "../services/getListItems";
 import Header from "../components/Header";
 import { Panel } from "../components/elements/panel/Panel";
 
+const breadcrumbs = [
+  { breadcrumb1: true, title: "german" },
+  { breadcrumb2: true, title: "sayago" },
+];
+
 export default function pagosYDeudas({ items }) {
   return (
     <>
@@ -13,10 +18,13 @@ export default function pagosYDeudas({ items }) {
       <Header
         title="Pagos y Deudas"
         subtitle="Lorem ipsum dolor sit amet consectetur"
+        breadcrumbs={breadcrumbs}
       />
-      <div className="container py-5">
-        <Panel items={items} />
-      </div>
+      <section>
+        <div className="container">
+          <Panel items={items} />
+        </div>
+      </section>
     </>
   );
 }
