@@ -1,7 +1,9 @@
 import Head from "next/head";
 import Header from "../../components/Header";
+import getListRegulations from "../../services/getListRegulations";
 
-export default function NormativaDeCompras() {
+export default function NormativaDeCompras({ items }) {
+  console.log(items);
   return (
     <>
       <Head>
@@ -12,9 +14,36 @@ export default function NormativaDeCompras() {
         title="Normativa de Compras"
         subtitle="Lorem ipsum dolor sit amet consectetur"
       />
-      <section>
-        <div className="container">Listado similar a Legislación</div>
+      <section className="legislations">
+        <div className="container">
+          <ul>
+            {items.map((item) => (
+              <li key={item.id}>
+                {item.title}
+                <a
+                  href={item.url}
+                  className="btn btn-secondary"
+                  target="_blank"
+                >
+                  descargar
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </section>
     </>
   );
+}
+
+export async function getStaticProps() {
+  const response = await getListRegulations.list();
+  const items = response;
+  console.log(response);
+  return {
+    props: {
+      items,
+    },
+    revalidate: 1,
+  };
 }

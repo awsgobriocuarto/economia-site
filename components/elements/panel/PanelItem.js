@@ -14,7 +14,10 @@ export const PanelItem = ({ item }) => {
                 <div className="icon">
                   <i className={`fas fa-2x ${item.iconUrl}`}></i>
                 </div>
-                <p>{item.title}</p>
+                <p>
+                  {item.title}
+                  {item.urlExternal && <span className="text-danger">*</span>}
+                </p>
               </div>
             </a>
           </Link>

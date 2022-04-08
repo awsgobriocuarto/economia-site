@@ -6,8 +6,8 @@
     img {
       height: 500px;
       object-fit: cover;
-      filter: grayscale(1);
-      opacity: 0.4;
+      // filter: grayscale(1);
+      // opacity: 0.4;
     }
   }
   &-indicators {
@@ -22,6 +22,13 @@
     padding-top: 4rem;
     text-align: left;
     height: 100%;
+    background: rgb(2, 0, 36);
+    background: linear-gradient(
+      90deg,
+      rgba(2, 0, 36, 0) 0%,
+      rgba(2, 0, 36, 0.3) 10%,
+      rgba(2, 0, 36, 0) 100%
+    );
 
     display: flex;
     flex-direction: column;
@@ -30,6 +37,7 @@
 
     h5 {
       text-transform: uppercase;
+      font-weight: 400;
     }
 
     p {
@@ -56,6 +64,7 @@
     }
     &-caption {
       padding-top: 0rem;
+      justify-content: end;
       p {
         font-size: 1.1rem;
         margin-bottom: 24px;
