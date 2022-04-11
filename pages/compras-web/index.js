@@ -20,7 +20,9 @@ export default function comprasWeb({ items = [] }) {
 }
 
 export async function getStaticProps() {
-  const response = await getListItems.list();
+  const url =
+    "https://docs.google.com/spreadsheets/d/e/2PACX-1vTksvNMhYA0ZsL3Xy0Xb8sqi4r7kbRwSQZo-HafVvS8Aup5PVJ7c_n-y642TYhZzWZ_DoAu4pZzIv2G/pub?output=csv";
+  const response = await getListItems.list({ url });
   const items = response.filter((i) =>
     i.page.toLowerCase().includes("compras-web")
   );

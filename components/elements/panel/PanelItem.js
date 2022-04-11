@@ -16,7 +16,7 @@ export const PanelItem = ({ item }) => {
                 </div>
                 <p>
                   {item.title}
-                  {item.urlExternal && <span className="text-danger">*</span>}
+                  {/* {item.urlExternal && <span className="text-danger">*</span>} */}
                 </p>
               </div>
             </a>

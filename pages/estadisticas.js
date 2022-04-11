@@ -4,12 +4,12 @@ import Header from "../components/Header";
 import getListEstatistics from "../services/getListEstatistics";
 
 export default function Estadisticas({
-  items,
   ejercicios,
   ejecuciones,
   presupuesto,
   recaudacion,
   informes,
+  deudas,
 }) {
   return (
     <>
@@ -21,7 +21,7 @@ export default function Estadisticas({
       <section className="legislations">
         <div className="container">
           {ejercicios.length ? (
-            <div className="mb-5">
+            <div className="">
               <h3>Cuenta general del ejercicio</h3>
               <ul>
                 {ejercicios.map((item) => (
@@ -42,7 +42,7 @@ export default function Estadisticas({
             ""
           )}
           {ejecuciones.length ? (
-            <div className="mb-5">
+            <div className="">
               <h3>Ejecución Presupuestaria</h3>
               <ul>
                 {ejecuciones.map((item) => (
@@ -63,7 +63,7 @@ export default function Estadisticas({
             ""
           )}
           {presupuesto.length ? (
-            <div className="mb-5">
+            <div className="">
               <h3>Presupuesto</h3>
               <ul>
                 {presupuesto.map((item) => (
@@ -84,7 +84,7 @@ export default function Estadisticas({
             ""
           )}
           {recaudacion.length ? (
-            <div className="mb-5">
+            <div className="">
               <h3>Recaudación</h3>
               <ul>
                 {recaudacion.map((item) => (
@@ -105,7 +105,7 @@ export default function Estadisticas({
             ""
           )}
           {informes.length ? (
-            <div className="mb-5">
+            <div className="">
               <h3>Informes Trimestrales</h3>
               <ul>
                 {informes.map((item) => (
@@ -125,6 +125,37 @@ export default function Estadisticas({
           ) : (
             ""
           )}
+          {deudas.length ? (
+            <div className="">
+              <h3>Deudas</h3>
+              <ul>
+                {deudas.map((item) => (
+                  <li key={item.id}>
+                    {item.title}
+                    <a
+                      href={item.url}
+                      className="btn btn-secondary"
+                      target="_blank"
+                    >
+                      descargar
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : (
+            ""
+          )}
+          <div>
+            <h3>Informes Anteriores</h3>
+            <a
+              href="http://transparencia.riocuarto.gov.ar/"
+              target="_blank"
+              className="btn btn-secondary"
+            >
+              Consultar
+            </a>
+          </div>
         </div>
       </section>
     </>
@@ -147,7 +178,10 @@ export async function getStaticProps() {
     i.category.toLowerCase().includes("recaudacion")
   );
   const informes = response.filter((i) =>
-    i.category.toLowerCase().includes("informe")
+    i.category.toLowerCase().includes("informes")
+  );
+  const deudas = response.filter((i) =>
+    i.category.toLowerCase().includes("deudas")
   );
   return {
     props: {
@@ -157,6 +191,7 @@ export async function getStaticProps() {
       presupuesto,
       recaudacion,
       informes,
+      deudas,
     },
     revalidate: 1,
   };
