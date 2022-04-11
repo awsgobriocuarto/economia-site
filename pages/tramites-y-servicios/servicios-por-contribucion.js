@@ -10,10 +10,7 @@ export default function serviciosPorContribucion({ items1, items2 }) {
         <title>Sec. de Economia Río Cuarto - Servicios por Contribución</title>
       </Head>
 
-      <Header
-        title="Servicios por Contribución"
-        subtitle="Lorem ipsum dolor sit amet consectetur"
-      />
+      <Header title="Servicios por Contribución" subtitle="" />
       <section>
         <div className="container">
           <h4 className="mb-3">Comercio e Industria</h4>

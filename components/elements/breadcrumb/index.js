@@ -18,8 +18,8 @@ const Breadcrumbs = ({ title }) => {
   const linkPath = router.asPath.split("/");
   linkPath.shift();
 
-  console.log(linkPath[0]);
-  console.log(title);
+  // console.log(linkPath[0]);
+  // console.log(title);
 
   useEffect(() => {
     if (router) {

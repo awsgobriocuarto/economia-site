@@ -10,10 +10,7 @@ export default function GuiaDeTramites({ items }) {
         <title>Sec. de Economia Río Cuarto - Guía de Trámites</title>
       </Head>
 
-      <Header
-        title="Guía de Trámites"
-        subtitle="Lorem ipsum dolor sit amet consectetur"
-      />
+      <Header title="Guía de Trámites" subtitle="" />
       <section>
         <div className="container">
           {items.map((item) => (

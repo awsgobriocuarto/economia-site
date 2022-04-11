@@ -10,10 +10,7 @@ export default function NormativaDeCompras({ items }) {
         <title>Sec. de Economia Río Cuarto - Normativa de Compras</title>
       </Head>
 
-      <Header
-        title="Normativa de Compras"
-        subtitle="Lorem ipsum dolor sit amet consectetur"
-      />
+      <Header title="Normativa de Compras" subtitle="" />
       <section className="legislations">
         <div className="container">
           <ul>
@@ -39,7 +36,6 @@ export default function NormativaDeCompras({ items }) {
 export async function getStaticProps() {
   const response = await getListRegulations.list();
   const items = response;
-  console.log(response);
   return {
     props: {
       items,

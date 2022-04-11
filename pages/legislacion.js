@@ -17,10 +17,7 @@ export default function Legislacion() {
         <title>Sec. de Economia Río Cuarto - Legislación</title>
       </Head>
 
-      <Header
-        title="Legislacion"
-        subtitle="Lorem ipsum dolor sit amet consectetur"
-      />
+      <Header title="Legislacion" subtitle="" />
       <section className="legislations">
         <div className="container">
           <div className="row">

@@ -9,10 +9,7 @@ export default function mediosDePago() {
         <title>Sec. de Economia Río Cuarto - Medios de Pago</title>
       </Head>
 
-      <Header
-        title="Medios de Pago"
-        subtitle="Lorem ipsum dolor sit amet consectetur"
-      />
+      <Header title="Medios de Pago" subtitle="" />
       <section className="medios-pagos">
         <div className="container">
           <h5>Pagá Online a través de "Pagos 360"</h5>

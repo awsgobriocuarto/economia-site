@@ -11,10 +11,7 @@ export default function servicios({ items }) {
         <title>Sec. de Economia Río Cuarto - Tramites y Servicios</title>
       </Head>
 
-      <Header
-        title="Tramites y Servicios"
-        subtitle="Lorem ipsum dolor sit amet consectetur"
-      />
+      <Header title="Tramites y Servicios" subtitle="" />
 
       <section>
         <div className="container">

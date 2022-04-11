@@ -9,10 +9,7 @@ export default function comprasWeb({ items = [] }) {
       <Head>
         <title>Sec. de Economia Río Cuarto - Compras Web</title>
       </Head>
-      <Header
-        title="Compras Web"
-        subtitle="Lorem ipsum dolor sit amet consectetur"
-      />
+      <Header title="Compras Web" subtitle="" />
       <section>
         <div className="container">
           <Panel items={items} />

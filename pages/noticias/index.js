@@ -9,10 +9,7 @@ export default function Noticias() {
         <title>Sec. de Economia Río Cuarto</title>
       </Head>
 
-      <Header
-        title="Novedades"
-        subtitle="Lorem ipsum dolor sit amet consectetur"
-      />
+      <Header title="Novedades" subtitle="" />
       <Posts />
     </>
   );

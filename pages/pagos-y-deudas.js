@@ -10,10 +10,7 @@ export default function pagosYDeudas({ items }) {
         <title>Sec. de Economia Río Cuarto - Pagos y Deudas</title>
       </Head>
 
-      <Header
-        title="Pagos y Deudas"
-        subtitle="Lorem ipsum dolor sit amet consectetur"
-      />
+      <Header title="Pagos y Deudas" subtitle="" />
       <section>
         <div className="container">
           <Panel items={items} />

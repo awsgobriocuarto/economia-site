@@ -31,10 +31,7 @@ export default function Noticias() {
         <title>Sec. de Economia Río Cuarto</title>
       </Head>
 
-      <Header
-        title="Novedad"
-        subtitle="Lorem ipsum dolor sit amet consectetur"
-      />
+      <Header title="Novedad" subtitle="" />
 
       <div className="posts detail">
         <div className="container py-5">
