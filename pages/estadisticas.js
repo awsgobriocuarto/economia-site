@@ -127,7 +127,7 @@ export default function Estadisticas({
           )}
           {deudas.length ? (
             <div className="">
-              <h3>Deudas</h3>
+              <h3>Reporte de Deuda Municipal</h3>
               <ul>
                 {deudas.map((item) => (
                   <li key={item.id}>

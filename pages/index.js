@@ -14,6 +14,7 @@ export default function Home({ items }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Carousel />
+
       <section>
         <div className="container">
           <Panel items={items} title="Gestiones Disponibles" />

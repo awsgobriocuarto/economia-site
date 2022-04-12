@@ -5,7 +5,7 @@ import Logo from "../assets/logo-economia.svg";
 export default function Navbar() {
   return (
     <nav className="navbar navbar-expand-xl navbar-light bg-light sticky-top">
-      <div className="container-fluid">
+      <div className="container">
         <Link href="/">
           <a className="navbar-brand">
             <Image src={Logo} alt="logo economia" />
@@ -26,6 +26,11 @@ export default function Navbar() {
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ms-auto">
+            <li className="nav-item">
+              <Link href="/institucional">
+                <a className="nav-link">Institucional</a>
+              </Link>
+            </li>
             <li className="nav-item">
               <Link href="/pagos-y-deudas">
                 <a className="nav-link">Pagos y Deudas</a>
@@ -50,35 +55,6 @@ export default function Navbar() {
               <Link href="/legislacion">
                 <a className="nav-link">Legislación</a>
               </Link>
-            </li>
-            <li className="nav-item">
-              <Link href="/ods">
-                <a className="nav-link">ODS</a>
-              </Link>
-            </li>
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                + Info
-              </a>
-              <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li>
-                  <Link href="/institucional">
-                    <a className="dropdown-item">Institucional</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/medios-de-pago">
-                    <a className="dropdown-item">Medios de Pago</a>
-                  </Link>
-                </li>
-              </ul>
             </li>
             <li className="nav-item">
               <a

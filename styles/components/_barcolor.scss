@@ -1,0 +1,35 @@
+.barcolor {
+  top: 110px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+.barcolor .item {
+  height: 6px;
+}
+.barcolor .item-1 {
+  background-color: $blue;
+}
+.barcolor .item-2 {
+  background-color: $purple;
+}
+.barcolor .item-3 {
+  background-color: $red;
+}
+.barcolor .item-4 {
+  background-color: $orange;
+}
+.barcolor .item-5 {
+  background-color: $yellow;
+}
+.barcolor .item-6 {
+  background-color: $green;
+}
+
+@media (max-width: 767px) {
+  .barcolor {
+    top: 83px;
+  }
+  .barcolor .item {
+    height: 4px;
+  }
+}

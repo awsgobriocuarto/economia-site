@@ -51,28 +51,41 @@ export default function GuiaDeTramites({ items }) {
               </div>
             </div>
           ))}
-          {/* <hr />
-          <form
-            action="http://tramites.riocuarto.gov.ar/lista.php"
-            method="post"
-            target="_blank"
-          >
-            <input
-              type="hidden"
-              id="textobuscado"
-              name="textobuscado"
-              value="economia"
-            />
-            <input
-              type="hidden"
-              id="menulateral"
-              name="menulateral"
-              value="1"
-            />
-            <li className="list-group-item">
-              <button type="submit">Economia</button>
-            </li>
-          </form> */}
+          <div className="banner secondary">
+            <div>
+              <h3>Consulta la guía de trámites completa</h3>
+              <p className="lead">
+                Accede ahora al listado de todo los trámites de la Secretaría de
+                Economía
+              </p>
+            </div>
+            <div>
+              <form
+                action="http://tramites.riocuarto.gov.ar/lista.php"
+                method="post"
+                target="_blank"
+              >
+                <input
+                  type="hidden"
+                  id="textobuscado"
+                  name="textobuscado"
+                  value="economia"
+                />
+                <input
+                  type="hidden"
+                  id="menulateral"
+                  name="menulateral"
+                  value="1"
+                />
+                <button
+                  type="submit"
+                  className="btn btn-primary text-white text-uppercase"
+                >
+                  Guía de Trámites
+                </button>
+              </form>
+            </div>
+          </div>
         </div>
       </section>
     </>

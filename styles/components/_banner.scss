@@ -1,0 +1,45 @@
+.banner {
+  margin: 40px 0;
+  border-radius: 8px;
+  padding: 30px;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &.primary {
+    background-color: $primary;
+  }
+  &.secondary {
+    background-color: $secondary;
+  }
+  &.info {
+    background-color: $info;
+  }
+  &.warning {
+    background-color: $warning;
+  }
+  &.success {
+    background-color: $success;
+  }
+  &.danger {
+    background-color: $danger;
+  }
+  h3 {
+    margin-bottom: 0;
+  }
+  .lead {
+    margin-bottom: 0;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .banner {
+    text-align: center;
+    flex-direction: column;
+    .lead {
+      margin-bottom: 20px;
+    }
+  }
+}

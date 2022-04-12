@@ -1,6 +1,5 @@
 import Head from "next/head";
-import Link from "next/link";
-import Header from "../components/Header";
+import Header from "../../components/Header";
 
 export default function mediosDePago() {
   return (
@@ -19,7 +18,7 @@ export default function mediosDePago() {
               <div className="logo">
                 <img
                   className="img-fluid"
-                  src="./images/mdp-pago-mis-cuentas.png"
+                  src="../images/mdp-pago-mis-cuentas.png"
                   alt="pago mis cuentas"
                 />
               </div>
@@ -28,7 +27,7 @@ export default function mediosDePago() {
               <div className="logo">
                 <img
                   className="img-fluid"
-                  src="./images/mdp-link.png"
+                  src="../images/mdp-link.png"
                   alt="link"
                 />
               </div>
@@ -37,7 +36,7 @@ export default function mediosDePago() {
               <div className="logo">
                 <img
                   className="img-fluid"
-                  src="./images/mdp-debin.png"
+                  src="../images/mdp-debin.png"
                   alt="debin"
                 />
               </div>
@@ -46,7 +45,7 @@ export default function mediosDePago() {
               <div className="logo">
                 <img
                   className="img-fluid"
-                  src="./images/mdp-interbanking.png"
+                  src="../images/mdp-interbanking.png"
                   alt="interbanking"
                 />
               </div>
@@ -55,7 +54,7 @@ export default function mediosDePago() {
               <div className="logo">
                 <img
                   className="img-fluid"
-                  src="./images/mdp-visa.png"
+                  src="../images/mdp-visa.png"
                   alt="visa"
                 />
               </div>
@@ -64,7 +63,7 @@ export default function mediosDePago() {
               <div className="logo">
                 <img
                   className="img-fluid"
-                  src="./images/mdp-visa-debito.png"
+                  src="../images/mdp-visa-debito.png"
                   alt="visa debito"
                 />
               </div>
@@ -73,7 +72,7 @@ export default function mediosDePago() {
               <div className="logo">
                 <img
                   className="img-fluid"
-                  src="./images/mdp-cordobesa.png"
+                  src="../images/mdp-cordobesa.png"
                   alt="cordobesa"
                 />
               </div>
@@ -82,7 +81,7 @@ export default function mediosDePago() {
               <div className="logo">
                 <img
                   className="img-fluid"
-                  src="./images/mdp-mastercard.png"
+                  src="../images/mdp-mastercard.png"
                   alt="mastercard"
                 />
               </div>
@@ -95,7 +94,7 @@ export default function mediosDePago() {
               <div className="logo">
                 <img
                   className="img-fluid"
-                  src="./images/mdp-bancor.png"
+                  src="../images/mdp-bancor.png"
                   alt="banco de cordoba"
                 />
               </div>
@@ -104,7 +103,7 @@ export default function mediosDePago() {
               <div className="logo">
                 <img
                   className="img-fluid"
-                  src="./images/mdp-supervielle.png"
+                  src="../images/mdp-supervielle.png"
                   alt="banco supervielle"
                 />
               </div>
@@ -113,7 +112,7 @@ export default function mediosDePago() {
               <div className="logo">
                 <img
                   className="img-fluid"
-                  src="./images/mdp-credicoop.png"
+                  src="../images/mdp-credicoop.png"
                   alt="banco credicoop"
                 />
               </div>
@@ -122,7 +121,7 @@ export default function mediosDePago() {
               <div className="logo">
                 <img
                   className="img-fluid"
-                  src="./images/mdp-banco-ciudad.png"
+                  src="../images/mdp-banco-ciudad.png"
                   alt="banco ciudad"
                 />
               </div>
@@ -134,7 +133,7 @@ export default function mediosDePago() {
               <div className="logo">
                 <img
                   className="img-fluid"
-                  src="./images/mdp-cobro-express.png"
+                  src="../images/mdp-cobro-express.png"
                   alt="cobro express"
                 />
               </div>
@@ -143,7 +142,7 @@ export default function mediosDePago() {
               <div className="logo">
                 <img
                   className="img-fluid"
-                  src="./images/mdp-rapipago.png"
+                  src="../images/mdp-rapipago.png"
                   alt="rapipago"
                 />
               </div>

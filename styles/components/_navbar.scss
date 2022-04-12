@@ -14,12 +14,12 @@
   &-nav {
     .nav-item {
       .nav-link {
-        padding: 0.4rem 0.8rem;
+        padding: 0.4rem 0.6rem;
         font-weight: 500;
         color: $secondary;
         text-transform: uppercase;
         font-size: 0.9rem;
-        letter-spacing: 0.02rem;
+        letter-spacing: 0.01rem;
         text-align: center;
         // }
         display: flex;
@@ -81,10 +81,8 @@
   }
 }
 
-@media (min-width: 1200px) and (max-width: 1329px) {
+@media (min-width: 1200px) and (max-width: 1399px) {
   .navbar {
-    font-family: "Univia", sans-serif;
-    z-index: 9999;
     .navbar-brand {
     }
     .navbar-toggler {
