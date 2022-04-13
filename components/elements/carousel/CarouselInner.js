@@ -29,11 +29,14 @@ export const CarouselInner = () => {
         </div>
       </div>
       <div className="carousel-item">
-        <img src="./images/slide-2.png" alt="" className="d-block w-100" />
+        <img src="./images/slide-3.png" alt="" className="d-block w-100" />
         <div className="carousel-caption">
           <h5 className="display-4">Modernización</h5>
-          <p>Avanza la Modernización del Estado Municipal</p>
-          <button className="btn btn-light">Button</button>
+          <p>
+            Capacitamos a empleados municipales sobre el nuevos sistema de
+            gestión
+          </p>
+          {/* <button className="btn btn-light">Button</button> */}
         </div>
       </div>
     </div>
