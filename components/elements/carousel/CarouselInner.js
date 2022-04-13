@@ -33,8 +33,8 @@ export const CarouselInner = () => {
         <div className="carousel-caption">
           <h5 className="display-4">Modernización</h5>
           <p>
-            Capacitamos a empleados municipales sobre el nuevos sistema de
-            gestión
+            Capacitación de empleados sobre el nuevos sistema de gestión
+            municipal
           </p>
           {/* <button className="btn btn-light">Button</button> */}
         </div>
