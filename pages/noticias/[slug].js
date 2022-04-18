@@ -18,7 +18,10 @@ export default function Noticias() {
   // }
 
   const { loading, isError, post } = useSinglePost({ id });
-  console.log({ loading, isError, post });
+  console.log({ loading });
+
+  const src = { src: post?.media.main_picture.large.lenght };
+  console.log(src);
 
   if (isError) {
     // return router.push("/");
@@ -44,8 +47,7 @@ export default function Noticias() {
                   {!isError ? (
                     <>
                       <img src={post?.media.main_picture.large} alt="" />
-
-                      <h1>{post?.title}</h1>
+                      <h2>{post?.title}</h2>
                       <p className="lead">{post?.excerpt}</p>
                       <div
                         dangerouslySetInnerHTML={{ __html: post?.body }}

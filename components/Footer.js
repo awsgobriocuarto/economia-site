@@ -33,6 +33,15 @@ export default function Footer() {
               <i className="fab fa-lg fa-instagram "></i>
             </a>
           </li>
+          <li>
+            <a
+              href="https://twitter.com/pabloantonetti"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              <i className="fab fa-lg fa-twitter "></i>
+            </a>
+          </li>
         </ul>
       </div>
     </footer>

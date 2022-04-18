@@ -57,6 +57,11 @@ export default function Navbar() {
               </Link>
             </li>
             <li className="nav-item">
+              <Link href="/ods">
+                <a className="nav-link">ODS</a>
+              </Link>
+            </li>
+            <li className="nav-item">
               <a
                 href="https://admin.toteminsight.com/progressiveApp/5f04b1401320d01ab4a513f6/index.jade"
                 target="_blank"

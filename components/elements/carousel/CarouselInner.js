@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 export const CarouselInner = () => {
   return (
@@ -13,19 +14,25 @@ export const CarouselInner = () => {
             target="_blank"
             className="btn btn-light"
           >
-            Button
+            Adherite Ahora
           </a>
         </div>
       </div>
       <div className="carousel-item">
-        <img src="./images/slide-2.png" alt="" className="d-block w-100" />
+        <img src="./images/slide-4.png" alt="" className="d-block w-100" />
         <div className="carousel-caption">
-          <h5 className="display-4">Firma de convenio</h5>
-          <p>
-            Vinculación institucional con el Consejo Profesional de Ciencias
-            Económicas
-          </p>
-          <button className="btn btn-light">Button</button>
+          <h5 className="display-4">Trámites Online</h5>
+          <p>Todos tus gestiones en un sólo lugar</p>
+          {/* <a
+            href="https://tramites.gobiernoriocuarto.gob.ar/"
+            target="_blank"
+            className="btn btn-light"
+          >
+            Ver más
+          </a> */}
+          <Link href="/tramites-y-servicios/guia-de-tramites">
+            <a className="btn btn-light">Ver Trámites</a>
+          </Link>
         </div>
       </div>
       <div className="carousel-item">
