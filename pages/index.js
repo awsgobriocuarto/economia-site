@@ -29,8 +29,8 @@ export default function Home({ items }) {
       />
       <Posts />
       <Cta
-        title="Objetivos de Desarrollo Sostenible"
-        text="Río Cuarto adecua su política de ejecución presupuestaria a los lineamientos que establece la ONU"
+        title="Río Cuarto adhiere a los Objetivos de Desarrollo Sostenible"
+        text="Adecuamos la política de ejecución presupuestaria a los lineamientos que establece la ONU"
         cta="Mas Información"
         url="/ods"
       />
