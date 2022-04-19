@@ -6,13 +6,13 @@ const officials = [
     id: 1,
     name: "Cr. Pablo Antonetti",
     position: "Secretario de Economía",
-    img: "./images/profile-man.jpg",
+    img: "./images/institucional-pablo-antonetti.png",
   },
   {
     id: 2,
     name: "Cra. Irina M. Terzaghi",
     position: "Subsecretaría de Hacienda",
-    img: "./images/profile-woman.jpg",
+    img: "./images/institucional-irina-therzagui.png",
   },
 ];
 const persons = [
@@ -20,19 +20,19 @@ const persons = [
     id: 1,
     name: "Lic. Miguel Carranza",
     position: "Dirección General de Administración",
-    img: "./images/profile-man.jpg",
+    img: "./images/institucional-miguel-carranza.png",
   },
   {
     id: 2,
     name: "Cr. Federico Scheurer",
     position: "Dirección General de Recursos",
-    img: "./images/profile-man.jpg",
+    img: "./images/institucional-federico-scheurer.png",
   },
   {
     id: 3,
     name: "Lic. Lorena Ricotto",
     position: "Dirección General de Gestión Financiera",
-    img: "./images/profile-woman.jpg",
+    img: "./images/institucional-lorena-ricotto.png",
   },
   {
     id: 4,
@@ -76,7 +76,7 @@ export default function Institucional() {
                   ))}
                 </div>
               </div>
-              <div className="institutional__group">
+              {/* <div className="institutional__group">
                 <div className="row justify-content-center">
                   {persons.map((person) => (
                     <div key={person.id} className="col-6">
@@ -94,7 +94,7 @@ export default function Institucional() {
                     </div>
                   ))}
                 </div>
-              </div>
+              </div> */}
             </div>
             <div className="col-md-8">
               <h4>Competencias de la Secretaría de Economía</h4>

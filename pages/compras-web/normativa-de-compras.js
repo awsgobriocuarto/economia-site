@@ -3,7 +3,6 @@ import Header from "../../components/Header";
 import getListRegulations from "../../services/getListRegulations";
 
 export default function NormativaDeCompras({ items }) {
-  console.log(items);
   return (
     <>
       <Head>

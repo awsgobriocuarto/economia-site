@@ -3,7 +3,6 @@ import Header from "../../components/Header";
 import getListFormalities from "../../services/getListFormalities";
 
 export default function GuiaDeTramites({ items }) {
-  console.log(items);
   return (
     <>
       <Head>

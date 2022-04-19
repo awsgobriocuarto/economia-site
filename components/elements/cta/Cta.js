@@ -1,4 +1,4 @@
-import React from "react";
+import Link from "next/link";
 import PropTypes from "prop-types";
 
 export default function Cta({ title, text, cta, url, urlExternal = false }) {
@@ -10,9 +10,20 @@ export default function Cta({ title, text, cta, url, urlExternal = false }) {
           <p className="cta-text">{text}</p>
         </div>
         <div className="cta-button">
-          <a href="" className="btn btn-lg btn-primary text-white">
-            {cta}
-          </a>
+          {urlExternal ? (
+            <a
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-lg btn-primary text-white"
+            >
+              {cta}
+            </a>
+          ) : (
+            <Link href={url}>
+              <a className="btn btn-lg btn-primary text-white">{cta}</a>
+            </Link>
+          )}
         </div>
       </div>
     </section>

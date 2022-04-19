@@ -21,3 +21,29 @@ header {
     margin-bottom: 0;
   }
 }
+
+@media (max-width: 767px) {
+  header {
+    min-height: 100px;
+    background: rgb(235, 126, 57);
+    background: linear-gradient(
+      -45deg,
+      rgba(235, 126, 57, 1) 0%,
+      rgba(0, 63, 162, 1) 100%
+    );
+
+    color: white;
+    display: flex;
+    align-items: center;
+
+    .display-6 {
+      text-transform: uppercase;
+      font-weight: 500;
+      font-size: 1.4rem;
+      margin-bottom: 0px;
+    }
+    .lead {
+      margin-bottom: 0;
+    }
+  }
+}

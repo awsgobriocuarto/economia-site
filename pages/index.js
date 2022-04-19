@@ -20,13 +20,19 @@ export default function Home({ items }) {
           <Panel items={items} title="Gestiones Disponibles" />
         </div>
       </section>
+      <Cta
+        title="0800 555 5454 (opción 3)"
+        text="Comunicate con nosotros de lunes a viernes de 7.30 a 13hs."
+        cta="llamar ahora"
+        url="tel:08004445454"
+        urlExternal
+      />
       <Posts />
       <Cta
-        title="Lorem ipsum dolor sit."
-        text="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias,
-            quis."
-        cta="Link"
-        url="/servicios"
+        title="Objetivos de Desarrollo Sostenible"
+        text="Río Cuarto adecua su política de ejecución presupuestaria a los lineamientos que establece la ONU"
+        cta="Mas Información"
+        url="/ods"
       />
       <Expirations />
     </>

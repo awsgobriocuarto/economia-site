@@ -1,3 +1,4 @@
+import React from "react";
 import Head from "next/head";
 import Spinner from "../components/elements/spinner/Spinner";
 import Header from "../components/Header";
@@ -5,11 +6,6 @@ import { useLegislations } from "../hooks/useLegislations";
 
 export default function Legislacion() {
   const { legislations, loading } = useLegislations();
-  console.log({ legislations, loading });
-
-  // if (loading) {
-  //   return <Spinner />;
-  // }
 
   return (
     <>
@@ -27,9 +23,9 @@ export default function Legislacion() {
               ) : (
                 <>
                   {legislations.map((Legislacion) => (
-                    <>
+                    <React.Fragment key={Legislacion._id}>
                       {Legislacion.documents.length ? (
-                        <div key={Legislacion._id}>
+                        <div>
                           <h3>{Legislacion.title}</h3>
                           <ul>
                             {Legislacion.documents.map((document) => (
@@ -49,7 +45,7 @@ export default function Legislacion() {
                       ) : (
                         ""
                       )}
-                    </>
+                    </React.Fragment>
                   ))}
                 </>
               )}

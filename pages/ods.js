@@ -56,11 +56,11 @@ export default function Ods() {
                 avances en la implementación de la Agenda 2030.
               </p>
               <h4 className="mt-5 mb-3">ODS: ¿Qué son y cómo conseguirlos?</h4>
-              <div class="ratio ratio-16x9">
+              <div className="ratio ratio-16x9">
                 <iframe
                   src="https://www.youtube.com/embed/MCKH5xk8X-g?rel=0"
                   title="YouTube video"
-                  allowfullscreen
+                  allowFullScreen
                 ></iframe>
               </div>
             </div>
