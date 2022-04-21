@@ -212,7 +212,7 @@ export default function Institucional() {
                   inmobiliario y actualización de padrones.
                 </li>
               </ol>
-              <h5>Dirección General de Recursos</h5>
+              <h5>Dirección General de Gestión Tributaria</h5>
               <ol className="mb-3">
                 <li>
                   {" "}
