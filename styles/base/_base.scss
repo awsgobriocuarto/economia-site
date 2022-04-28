@@ -36,6 +36,9 @@ footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    a {
+      text-decoration: none;
+    }
     h6 {
       margin-bottom: 4px;
     }
@@ -63,7 +66,7 @@ footer {
 
 @media (max-width: 767px) {
   body {
-    margin-bottom: 250px;
+    margin-bottom: 340px;
   }
   section {
     padding-top: 60px;
@@ -80,7 +83,7 @@ footer {
     width: 100%;
 
     .container {
-      height: 250px;
+      height: 340px;
       padding: 20px 0;
       display: flex;
       flex-direction: column;

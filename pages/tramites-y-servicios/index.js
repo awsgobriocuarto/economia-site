@@ -16,6 +16,25 @@ export default function servicios({ items }) {
       <section>
         <div className="container">
           <Panel items={items} />
+          <div className="banner secondary">
+            <div>
+              <h3>Cedulón Digital</h3>
+              <p className="lead">
+                Consulta la cantidad de contribuyentes que ya se adhirieron al
+                programa #AhoraDigital
+              </p>
+            </div>
+            <div>
+              <a
+                className="btn btn-primary text-white text-uppercase"
+                href="https://app.riocuarto.gov.ar:8443/gestiontributaria/servlet/com.recursos.statscedulon"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Consultar Datos
+              </a>
+            </div>
+          </div>
         </div>
       </section>
     </>
