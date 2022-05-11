@@ -55,6 +55,25 @@ export default function Ods() {
                 Cuarto pueda dar cuenta en el nivel local y regional de los
                 avances en la implementación de la Agenda 2030.
               </p>
+              <h4 className="mt-5 mb-3">
+                Presupuesto 2022 - Alineación a los ODS
+              </h4>
+              <a
+                href="https://drive.google.com/file/d/1-kxdS0qgjEc_8AOyEZUT4MNzmd8vAdB0/view?usp=sharing"
+                className="btn btn-primary text-white me-3"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Ord.148-E.29246 - Adhesión ODS
+              </a>
+              <a
+                href="https://drive.google.com/file/d/1-hcn2itm2OKLy8nc2i9uJkHKM5Mzh6VK/view?usp=sharing"
+                className="btn btn-primary text-white me-3"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Presupuesto 2022 - Alineación a los ODS
+              </a>
               <h4 className="mt-5 mb-3">ODS: ¿Qué son y cómo conseguirlos?</h4>
               <div className="ratio ratio-16x9">
                 <iframe
