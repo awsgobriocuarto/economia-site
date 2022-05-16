@@ -60,7 +60,7 @@ export default function Ods() {
               </h4>
               <a
                 href="https://drive.google.com/file/d/1-kxdS0qgjEc_8AOyEZUT4MNzmd8vAdB0/view?usp=sharing"
-                className="btn btn-primary text-white me-3"
+                className="btn btn-primary text-white me-3 mb-2"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -68,7 +68,7 @@ export default function Ods() {
               </a>
               <a
                 href="https://drive.google.com/file/d/1-hcn2itm2OKLy8nc2i9uJkHKM5Mzh6VK/view?usp=sharing"
-                className="btn btn-primary text-white me-3"
+                className="btn btn-primary text-white me-3 mb-2"
                 target="_blank"
                 rel="noopener noreferrer"
               >
