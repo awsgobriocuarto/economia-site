@@ -1,18 +1,24 @@
 import React, { useState } from "react";
+import { useSlides } from "../../../hooks/useSlides";
 import { CarouselControls } from "./CarouselControls";
 import { CarouselIndicators } from "./CarouselIndicators";
 import { CarouselInner } from "./CarouselInner";
 
 export const Carousel = () => {
-  const [indicators] = useState(true);
-  const [controls] = useState(true);
+  const { slides, loading } = useSlides();
+  // console.log(slides.length, loading);
+  const [showIndicators] = useState(true);
+  const [showControls] = useState(true);
   return (
     <>
-      <div id="carousel" className="carousel slide" data-bs-ride="carousel">
-        {indicators && <CarouselIndicators />}
-        <CarouselInner />
-        {controls && <CarouselControls />}
-      </div>
+      {loading && "cargando"}
+      {slides.length && (
+        <div id="carousel" className="carousel slide" data-bs-ride="carousel">
+          {showIndicators && <CarouselIndicators slides={slides} />}
+          <CarouselInner slides={slides} />
+          {showControls && <CarouselControls />}
+        </div>
+      )}
     </>
   );
 };

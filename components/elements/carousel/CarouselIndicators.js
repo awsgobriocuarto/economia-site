@@ -1,28 +1,21 @@
 import React from "react";
 
-export const CarouselIndicators = () => {
+export const CarouselIndicators = ({ slides }) => {
   return (
-    <div className="carousel-indicators">
-      <button
-        type="button"
-        data-bs-target="#carousel"
-        data-bs-slide-to="0"
-        className="active"
-        aria-current="true"
-        aria-label="Slide 1"
-      ></button>
-      <button
-        type="button"
-        data-bs-target="#carousel"
-        data-bs-slide-to="1"
-        aria-label="Slide 2"
-      ></button>
-      <button
-        type="button"
-        data-bs-target="#carousel"
-        data-bs-slide-to="2"
-        aria-label="Slide 3"
-      ></button>
-    </div>
+    <>
+      <div className="carousel-indicators">
+        {slides.map((slide, index) => (
+          <button
+            key={index}
+            type="button"
+            data-bs-target="#carousel"
+            data-bs-slide-to={index}
+            className={index === 0 ? "active" : ""}
+            aria-current={index === 0 ? "true" : "false"}
+            aria-label="Slide 1"
+          ></button>
+        ))}
+      </div>
+    </>
   );
 };

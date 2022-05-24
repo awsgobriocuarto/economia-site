@@ -27,7 +27,7 @@ export default function Home({ items }) {
         url="tel:08004445454"
         urlExternal
       />
-      <Posts />
+      <Posts limit={4} />
       <Cta
         title="Río Cuarto adhiere a los Objetivos de Desarrollo Sostenible"
         text="Adecuamos la política de ejecución presupuestaria a los lineamientos que establece la ONU"

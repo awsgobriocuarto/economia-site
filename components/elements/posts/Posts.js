@@ -3,8 +3,8 @@ import Spinner from "../spinner/Spinner";
 import { usePosts } from "../../../hooks/usePosts";
 import PostCard from "./PostCard";
 
-export default function News() {
-  const { loading, posts } = usePosts({ limit: 4 });
+export default function News({ limit }) {
+  const { loading, posts } = usePosts({ limit });
 
   if (loading) {
     return <Spinner />;
