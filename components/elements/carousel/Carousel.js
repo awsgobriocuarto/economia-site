@@ -6,7 +6,6 @@ import { CarouselInner } from "./CarouselInner";
 
 export const Carousel = () => {
   const { slides, loading } = useSlides();
-  // console.log(slides.length, loading);
   const [showIndicators] = useState(true);
   const [showControls] = useState(true);
   return (
