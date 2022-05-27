@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import Image from "next/image";
+import moment from "moment";
 import Head from "next/head";
 import Header from "../../components/Header";
 import useSinglePost from "../../hooks/useSinglePost";
@@ -20,6 +20,15 @@ export default function Noticias() {
     <>
       <Head>
         <title>Sec. de Economia Río Cuarto</title>
+        <meta property="og:locale" content="es_ES" />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={post?.title} />
+        <meta property="og:description" content={post?.excerpt} />
+        <meta property="og:image" content={post?.media.main_picture.large} />
+        <meta
+          property="og:image:secure_url"
+          content={post?.media.main_picture.large}
+        />
       </Head>
 
       <Header title="Novedad" subtitle="" />
@@ -27,7 +36,7 @@ export default function Noticias() {
       <div className="posts detail">
         <div className="container py-5">
           <div className="row">
-            <div className="col-md-8">
+            <div className="col-12 col-xl-10 col-xxl-8">
               {loading ? (
                 <Spinner />
               ) : (
@@ -43,6 +52,7 @@ export default function Noticias() {
                           alt=""
                         />
                       )}
+                      {moment(post?.publication_date).format("DD/MM/YYYY")}
                       <h2>{post?.title}</h2>
                       <p className="lead">{post?.excerpt}</p>
                       <div

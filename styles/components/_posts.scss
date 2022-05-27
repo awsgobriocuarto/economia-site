@@ -22,3 +22,30 @@
     }
   }
 }
+
+@media (max-width: 767px) {
+  .posts {
+    &.detail {
+      .cover {
+        width: 100%;
+        height: 260px;
+        object-fit: cover;
+        margin-bottom: 30px;
+      }
+      .lead {
+        font-weight: 400;
+      }
+      .gallery {
+        margin-bottom: 30px;
+        h5 {
+          margin-bottom: 15px;
+        }
+        .image {
+          width: 100%;
+          height: 260px;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}
