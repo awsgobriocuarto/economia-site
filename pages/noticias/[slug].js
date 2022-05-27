@@ -19,16 +19,12 @@ export default function Noticias() {
   return (
     <>
       <Head>
-        <title>Sec. de Economia Río Cuarto</title>
+        <title>{post?.title}</title>
         <meta property="og:locale" content="es_ES" />
         <meta property="og:type" content="article" />
         <meta property="og:title" content={post?.title} />
         <meta property="og:description" content={post?.excerpt} />
         <meta property="og:image" content={post?.media.main_picture.large} />
-        <meta
-          property="og:image:secure_url"
-          content={post?.media.main_picture.large}
-        />
       </Head>
 
       <Header title="Novedad" subtitle="" />
