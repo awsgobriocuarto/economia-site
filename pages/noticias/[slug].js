@@ -19,12 +19,15 @@ export default function Noticias() {
   return (
     <>
       <Head>
+        {/* Open Graph */}
+        <meta property="og:title" content={post?.title} key="ogtitle" />
+        <meta property="og:description" content={post?.excerpt} key="ogdesc" />
+        <meta
+          property="og:image"
+          content={post?.media.main_picture.large}
+          key="ogimage"
+        />
         <title>{post?.title}</title>
-        <meta property="og:locale" content="es_ES" />
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content={post?.title} />
-        <meta property="og:description" content={post?.excerpt} />
-        <meta property="og:image" content={post?.media.main_picture.large} />
       </Head>
 
       <Header title="Novedad" subtitle="" />
