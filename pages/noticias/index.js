@@ -6,7 +6,7 @@ export default function Noticias() {
   return (
     <>
       <Head>
-        <title>Sec. de Economia Río Cuarto</title>
+        <title>Sec. de Economia Río Cuarto - Novedades</title>
       </Head>
 
       <Header title="Novedades" subtitle="" />

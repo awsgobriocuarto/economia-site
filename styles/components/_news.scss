@@ -1,6 +1,8 @@
 .news {
   .card {
+    margin-bottom: 30px;
     .card-image {
+      position: relative;
       // background-color: darken($secondary, 20%);
       img {
         width: 100%;
@@ -12,6 +14,7 @@
     }
     &-body {
       padding: 20px;
+      min-height: 240px;
     }
     &-pretitle {
       font-size: 0.8rem;
@@ -31,6 +34,12 @@
       display: -webkit-box;
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
+    }
+
+    .btn {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
     }
   }
 }
