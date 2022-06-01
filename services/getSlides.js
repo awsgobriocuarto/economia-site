@@ -1,12 +1,24 @@
 const fromApiResponseToSlides = (apiResponse) => {
   const { data = [] } = apiResponse;
-  if (Array.isArray(data)) {
+
+  data.sort(function (a, b) {
+    if (a.id < b.id) {
+      return 1;
+    } else if (a.id > b.id) {
+      return -1;
+    }
+    return 0;
+  });
+
+  console.log(data);
+
+  if (Array.isArray(data.sort())) {
     const slides = data.map((slide) => {
       return {
         ...slide,
       };
     });
-    console.log(slides);
+
     return slides;
   }
   return [];
