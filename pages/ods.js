@@ -74,6 +74,14 @@ export default function Ods() {
               >
                 Presupuesto 2022 - Alineación a los ODS
               </a>
+              <a
+                href="https://drive.google.com/file/d/10DYdxwLWoIM53Bc52hp30oUXuUJ6uRP7/view?usp=sharing"
+                className="btn btn-primary text-white me-3 mb-2"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Agenda 2030 y ODS
+              </a>
               <h4 className="mt-5 mb-3">ODS: ¿Qué son y cómo conseguirlos?</h4>
               <div className="ratio ratio-16x9">
                 <iframe

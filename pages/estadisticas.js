@@ -2,6 +2,7 @@ import React from "react";
 import Head from "next/head";
 import Header from "../components/Header";
 import getListEstatistics from "../services/getListEstatistics";
+import DownloadItem from "../components/DownloadItem";
 
 export default function Estadisticas({
   ejercicios,
@@ -25,16 +26,11 @@ export default function Estadisticas({
               <h3>Cuenta general del ejercicio</h3>
               <ul>
                 {ejercicios.map((item) => (
-                  <li key={item.id}>
-                    {item.title}
-                    <a
-                      href={item.url}
-                      className="btn btn-secondary"
-                      target="_blank"
-                    >
-                      descargar
-                    </a>
-                  </li>
+                  <DownloadItem
+                    key={item.id}
+                    title={item.title}
+                    url={item.url}
+                  />
                 ))}
               </ul>
             </div>
@@ -46,16 +42,11 @@ export default function Estadisticas({
               <h3>Ejecución Presupuestaria</h3>
               <ul>
                 {ejecuciones.map((item) => (
-                  <li key={item.id}>
-                    {item.title}
-                    <a
-                      href={item.url}
-                      className="btn btn-secondary"
-                      target="_blank"
-                    >
-                      descargar
-                    </a>
-                  </li>
+                  <DownloadItem
+                    key={item.id}
+                    title={item.title}
+                    url={item.url}
+                  />
                 ))}
               </ul>
             </div>
@@ -67,16 +58,11 @@ export default function Estadisticas({
               <h3>Presupuesto</h3>
               <ul>
                 {presupuesto.map((item) => (
-                  <li key={item.id}>
-                    {item.title}
-                    <a
-                      href={item.url}
-                      className="btn btn-secondary"
-                      target="_blank"
-                    >
-                      descargar
-                    </a>
-                  </li>
+                  <DownloadItem
+                    key={item.id}
+                    title={item.title}
+                    url={item.url}
+                  />
                 ))}
               </ul>
             </div>
@@ -88,37 +74,11 @@ export default function Estadisticas({
               <h3>Recaudación</h3>
               <ul>
                 {recaudacion.map((item) => (
-                  <li key={item.id}>
-                    {item.title}
-                    <a
-                      href={item.url}
-                      className="btn btn-secondary"
-                      target="_blank"
-                    >
-                      descargar
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ) : (
-            ""
-          )}
-          {informes.length ? (
-            <div className="">
-              <h3>Informes Trimestrales</h3>
-              <ul>
-                {informes.map((item) => (
-                  <li key={item.id}>
-                    {item.title}
-                    <a
-                      href={item.url}
-                      className="btn btn-secondary"
-                      target="_blank"
-                    >
-                      descargar
-                    </a>
-                  </li>
+                  <DownloadItem
+                    key={item.id}
+                    title={item.title}
+                    url={item.url}
+                  />
                 ))}
               </ul>
             </div>
@@ -130,16 +90,27 @@ export default function Estadisticas({
               <h3>Reporte de Deuda Municipal</h3>
               <ul>
                 {deudas.map((item) => (
-                  <li key={item.id}>
-                    {item.title}
-                    <a
-                      href={item.url}
-                      className="btn btn-secondary"
-                      target="_blank"
-                    >
-                      descargar
-                    </a>
-                  </li>
+                  <DownloadItem
+                    key={item.id}
+                    title={item.title}
+                    url={item.url}
+                  />
+                ))}
+              </ul>
+            </div>
+          ) : (
+            ""
+          )}
+          {informes.length ? (
+            <div className="">
+              <h3>Informe Calificación de Riego</h3>
+              <ul>
+                {informes.map((item) => (
+                  <DownloadItem
+                    key={item.id}
+                    title={item.title}
+                    url={item.url}
+                  />
                 ))}
               </ul>
             </div>
