@@ -8,6 +8,7 @@ export const CarouselInner = ({ slides }) => {
         <div
           key={index}
           className={index === 0 ? "carousel-item active" : "carousel-item"}
+          data-bs-interval="4000"
         >
           <img src={slide.file} alt="" className="d-block w-100" />
           <div className="carousel-caption">
@@ -28,7 +29,7 @@ export const CarouselInner = ({ slides }) => {
                 ) : (
                   <>
                     <Link href={slide.href}>
-                      <a className="btn btn-light">Ver Trámites</a>
+                      <a className="btn btn-light">Ver más</a>
                     </Link>
                   </>
                 )}

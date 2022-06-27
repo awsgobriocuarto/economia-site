@@ -14,7 +14,11 @@ export const Carousel = () => {
     <>
       {loading && <Spinner />}
       {slides.length ? (
-        <div id="carousel" className="carousel slide" data-bs-ride="carousel">
+        <div
+          id="ecoCarousel"
+          className="carousel slide"
+          data-bs-ride="carousel"
+        >
           {showIndicators && <CarouselIndicators slides={slides} />}
           <CarouselInner slides={slides} />
           {showControls && <CarouselControls />}
