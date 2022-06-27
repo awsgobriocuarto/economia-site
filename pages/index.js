@@ -1,10 +1,10 @@
 import Head from "next/head";
 import getListItems from "../services/getListItems";
 import { Carousel } from "../components/elements/carousel/Carousel";
-import Posts from "../components/elements/posts/Posts";
 import { Panel } from "../components/elements/panel/Panel";
 import Expirations from "../components/elements/expirations/Expirations";
 import Cta from "../components/elements/cta/Cta";
+import PostsLatest from "../components/elements/posts/PostsLatest";
 
 export default function Home({ items }) {
   return (
@@ -27,7 +27,7 @@ export default function Home({ items }) {
         url="tel:08004445454"
         urlExternal
       />
-      <Posts limit={4} />
+      <PostsLatest limit={4} />
       <Cta
         title="Río Cuarto adhiere a los Objetivos de Desarrollo Sostenible"
         text="Adecuamos la política de ejecución presupuestaria a los lineamientos que establece la ONU"

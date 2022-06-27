@@ -1,10 +1,13 @@
-import Link from "next/link";
 import Spinner from "../spinner/Spinner";
 import { usePosts } from "../../../hooks/usePosts";
 import PostCard from "./PostCard";
 
-export default function News({ limit }) {
-  const { loading, posts } = usePosts({ limit });
+export default function Posts({ limit }) {
+  const { loading, posts, loadingNextPage, setPage } = usePosts({ limit });
+
+  const handleNextPage = () => {
+    setPage((prevPage) => prevPage + 1);
+  };
 
   if (loading) {
     return <Spinner />;
@@ -18,18 +21,24 @@ export default function News({ limit }) {
     <section className="news">
       <div className="container">
         <h2>Novedades</h2>
+        <p>Lorem ipsum dolor sit amet.</p>
         <div className="row mb-5">
           {posts?.map((post) => (
             <PostCard key={post.id} post={post} />
           ))}
         </div>
-        {/* {posts.length >= 4 && (
-          <div className="text-center">
-            <Link href="/noticias">
-              <a className="btn btn-sm btn-light">ver más noticias</a>
-            </Link>
-          </div>
-        )} */}
+        <div className="text-center">
+          {loadingNextPage ? (
+            <Spinner />
+          ) : (
+            <button
+              onClick={handleNextPage}
+              className="btn btn-sm btn-primary text-white"
+            >
+              Cargar mas noticias
+            </button>
+          )}
+        </div>
       </div>
     </section>
   );

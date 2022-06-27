@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import moment from "moment";
 import Head from "next/head";
@@ -5,16 +6,23 @@ import Header from "../../components/Header";
 import useSinglePost from "../../hooks/useSinglePost";
 import Spinner from "../../components/elements/spinner/Spinner";
 import PostGallery from "../../components/elements/posts/PostGallery";
+import PostsLatest from "../../components/elements/posts/PostsLatest";
 
 export default function Noticias() {
+  const [news, setNews] = useState(false);
   const router = useRouter();
   const id = router.query.id;
 
-  const { loading, isError, post } = useSinglePost({ id });
-  console.log({ loading });
+  const fullPath = `https://economiariocuarto.gob.ar${router.asPath}`;
+  console.log(fullPath);
 
-  // const src = { src: post?.media.main_picture.large.lenght };
-  // console.log(src);
+  const { loading, isError, post } = useSinglePost({ id });
+
+  useEffect(() => {
+    if (!loading) {
+      setNews(true);
+    }
+  }, [loading]);
 
   return (
     <>
@@ -67,6 +75,7 @@ export default function Noticias() {
           </div>
         </div>
       </div>
+      {news && <PostsLatest limit={4} />}
     </>
   );
 }

@@ -8,7 +8,7 @@ export const CarouselIndicators = ({ slides }) => {
           <button
             key={index}
             type="button"
-            data-bs-target="#carousel"
+            data-bs-target="#ecoCarousel"
             data-bs-slide-to={index}
             className={index === 0 ? "active" : ""}
             aria-current={index === 0 ? "true" : "false"}

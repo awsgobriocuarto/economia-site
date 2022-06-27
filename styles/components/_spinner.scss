@@ -1,0 +1,9 @@
+.spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &-border {
+    margin-right: 8px;
+  }
+}
