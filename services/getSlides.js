@@ -10,8 +10,6 @@ const fromApiResponseToSlides = (apiResponse) => {
     return 0;
   });
 
-  console.log(data);
-
   if (Array.isArray(data.sort())) {
     const slides = data.map((slide) => {
       return {

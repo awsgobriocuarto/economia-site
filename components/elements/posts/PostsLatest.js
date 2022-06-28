@@ -6,9 +6,9 @@ import PostCard from "./PostCard";
 export default function PostsLatest({ limit }) {
   const { loading, posts } = usePosts({ limit });
 
-  if (loading) {
-    return <Spinner />;
-  }
+  // if (loading) {
+  //   return <Spinner />;
+  // }
 
   if (posts?.length == 0) {
     return "";

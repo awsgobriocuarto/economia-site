@@ -1,6 +1,6 @@
 import Head from "next/head";
 import getListItems from "../services/getListItems";
-import { Carousel } from "../components/elements/carousel/Carousel";
+import { Slider } from "../components/elements/carousel";
 import { Panel } from "../components/elements/panel/Panel";
 import Expirations from "../components/elements/expirations/Expirations";
 import Cta from "../components/elements/cta/Cta";
@@ -13,7 +13,7 @@ export default function Home({ items }) {
         <title>Sec. de Economia Río Cuarto</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Carousel />
+      <Slider />
 
       <section>
         <div className="container">
