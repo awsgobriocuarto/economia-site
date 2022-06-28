@@ -11,10 +11,9 @@ import PostsLatest from "../../components/elements/posts/PostsLatest";
 export default function Noticias() {
   const [news, setNews] = useState(false);
   const router = useRouter();
-  const id = router.query.id;
+  const { id, slug } = router.query;
 
-  const fullPath = `https://economiariocuarto.gob.ar${router.asPath}`;
-  console.log(fullPath);
+  // console.log({ id, slug });
 
   const { loading, isError, post } = useSinglePost({ id });
 

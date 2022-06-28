@@ -1,5 +1,9 @@
-export async function getSinglePost({ id } = {}) {
+export async function getSinglePost({ id = null }) {
   const apiURL = `https://contenidos.gobiernoriocuarto.gob.ar/api/v1/posts/${id}`;
+
+  if (!id) {
+    return;
+  }
 
   return await fetch(apiURL, {
     headers: {

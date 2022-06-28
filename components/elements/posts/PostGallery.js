@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function PostGallery({ images }) {
-  console.log(images);
+  // console.log(images);
   return (
     <div className="gallery">
       <div
@@ -9,25 +9,6 @@ export default function PostGallery({ images }) {
         className="carousel slide"
         data-bs-ride="carousel"
       >
-        {/* <div className="carousel-indicators">
-          <button
-            type="button"
-            data-bs-target="#carouselExampleControls"
-            data-bs-slide-to="0"
-            className="active"
-            aria-current="true"
-            aria-label="Slide 1"
-          ></button>
-          {images.gallery.map((image, index) => (
-            <button
-              key={index}
-              type="button"
-              data-bs-target="#carouselExampleControls"
-              data-bs-slide-to={index + 1}
-              aria-label={index + 1}
-            ></button>
-          ))}
-        </div> */}
         <div className="carousel-inner">
           <div className="carousel-item active">
             <img src={images.main_picture.medium} className="image" alt="..." />
