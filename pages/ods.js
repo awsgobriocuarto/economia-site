@@ -11,8 +11,23 @@ export default function Ods() {
       <Header title="Ods" subtitle="Objetivos de Desarrollo Sostenible" />
       <div className="pages">
         <div className="container">
-          <div className="row">
-            <div className="col-md-8">
+          <div className="row justify-content-between">
+            <div className="col-md-3 order-md-1">
+              <a
+                href="http://c1871309.ferozo.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="./images/portal-ods.jpg"
+                  alt=""
+                  width={600}
+                  className="img-fluid"
+                />
+              </a>
+              <hr className="d-md-none my-4" />
+            </div>
+            <div className="col-md-8 order-md-0">
               <img
                 src="./images/ods-logo.png"
                 alt=""
