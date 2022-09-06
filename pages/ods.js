@@ -14,7 +14,7 @@ export default function Ods() {
           <div className="row justify-content-between">
             <div className="col-md-3 order-md-1">
               <a
-                href="http://c1871309.ferozo.com/"
+                href="https://odsriocuarto.gob.ar/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
