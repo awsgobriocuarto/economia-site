@@ -66,9 +66,9 @@ export default function Ods() {
                 ejecutando desde las diversas áreas que conforman el municipio
                 ya están vinculados con el ODS que corresponda. De esta manera
                 las acciones se ejecutan para consolidar el marco de metas para
-                los 17 ODS e indicadores de seguimiento que permite que la Río
-                Cuarto pueda dar cuenta en el nivel local y regional de los
-                avances en la implementación de la Agenda 2030.
+                los 17 ODS e indicadores de seguimiento que permite que la
+                ciudad de Río Cuarto pueda dar cuenta en el nivel local y
+                regional de los avances en la implementación de la Agenda 2030.
               </p>
               <h4 className="mt-5 mb-3">
                 Presupuesto 2022 - Alineación a los ODS
