@@ -1,18 +1,21 @@
 import Head from "next/head";
 import Header from "../components/Header";
+import InstitutionalCard from "../components/InstitutionalCard";
 
 const officials = [
   {
     id: 1,
     name: "Cr. Pablo Antonetti",
     position: "Secretario de Economía",
-    img: "./images/institucional-pablo-antonetti.png",
+    cv: "https://drive.google.com/drive/folders/12Bf7ksSDGDt5GWxwbhx4q6BgMtaZvqnB?usp=sharing",
+    img: "https://res.cloudinary.com/gobriocuarto/image/upload/v1666284223/Economia/Web/institucional-pablo-antonetti_vaw8r8.png",
   },
   {
     id: 2,
     name: "Cra. Irina M. Terzaghi",
     position: "Subsecretaría de Hacienda",
-    img: "./images/institucional-irina-therzagui.png",
+    cv: "https://drive.google.com/drive/folders/12Bf7ksSDGDt5GWxwbhx4q6BgMtaZvqnB?usp=sharing",
+    img: "https://res.cloudinary.com/gobriocuarto/image/upload/v1666284223/Economia/Web/institucional-irina-therzagui_yxure1.png",
   },
 ];
 const persons = [
@@ -20,25 +23,29 @@ const persons = [
     id: 1,
     name: "Lic. Miguel Carranza",
     position: "Dirección General de Administración",
-    img: "./images/institucional-miguel-carranza.png",
+    cv: "https://drive.google.com/drive/folders/12Bf7ksSDGDt5GWxwbhx4q6BgMtaZvqnB?usp=sharing",
+    img: "https://res.cloudinary.com/gobriocuarto/image/upload/v1666284223/Economia/Web/institucional-miguel-carranza_bgduhj.png",
   },
   {
     id: 2,
     name: "Cr. Federico Scheurer",
     position: "Dirección General de Recursos",
-    img: "./images/institucional-federico-scheurer.png",
+    cv: "https://drive.google.com/drive/folders/12Bf7ksSDGDt5GWxwbhx4q6BgMtaZvqnB?usp=sharing",
+    img: "https://res.cloudinary.com/gobriocuarto/image/upload/v1666284223/Economia/Web/institucional-federico-scheurer_ppoeqh.png",
   },
   {
     id: 3,
     name: "Lic. Lorena Ricotto",
     position: "Dirección General de Gestión Financiera",
-    img: "./images/institucional-lorena-ricotto.png",
+    cv: "https://drive.google.com/drive/folders/12Bf7ksSDGDt5GWxwbhx4q6BgMtaZvqnB?usp=sharing",
+    img: "https://res.cloudinary.com/gobriocuarto/image/upload/v1669128766/Economia/Web/institucional-lorena-ricotto_wcfllm.png",
   },
   {
     id: 4,
     name: "Cr. Hernán Avanzini",
     position: "Dirección de Gestión Tributaria",
-    img: "./images/profile-man.jpg",
+    cv: "https://drive.google.com/drive/folders/12Bf7ksSDGDt5GWxwbhx4q6BgMtaZvqnB?usp=sharing",
+    img: "https://res.cloudinary.com/gobriocuarto/image/upload/v1669128626/Economia/Web/institucional-hernan-avanzini_esn2h0.png",
   },
 ];
 
@@ -53,50 +60,28 @@ export default function Institucional() {
       <section className="institutional">
         <div className="container">
           <div className="row justify-content-betwenn">
-            <div className="col-md-4">
+            <div className="col-md-4 order-0 order-md-1">
               <h4 className="mb-3">Organigrama</h4>
               <div className="institutional__group">
                 <div className="row justify-content-center">
                   {officials.map((official) => (
                     <div key={official.id} className="col-6">
-                      <div className="card">
-                        <img
-                          src={
-                            official.img ? official.img : "./images/profile.jpg"
-                          }
-                          className="card-img-top"
-                          alt="..."
-                        />
-                        <div className="card-body">
-                          <h4 className="card-title">{official.name}</h4>
-                          <p className="card-text">{official.position}</p>
-                        </div>
-                      </div>
+                      <InstitutionalCard data={official} />
                     </div>
                   ))}
                 </div>
               </div>
-              {/* <div className="institutional__group">
+              <div className="institutional__group">
                 <div className="row justify-content-center">
                   {persons.map((person) => (
                     <div key={person.id} className="col-6">
-                      <div className="card">
-                        <img
-                          src={person.img ? person.img : "./images/profile.jpg"}
-                          className="card-img-top"
-                          alt="..."
-                        />
-                        <div className="card-body">
-                          <h4 className="card-title">{person.name}</h4>
-                          <p className="card-text">{person.position}</p>
-                        </div>
-                      </div>
+                      <InstitutionalCard data={person} />
                     </div>
                   ))}
                 </div>
-              </div> */}
+              </div>
             </div>
-            <div className="col-md-8">
+            <div className="col-md-8 order-1 order-md-0">
               <h4>Competencias de la Secretaría de Economía</h4>
               <p>
                 Compete a la Secretaría de Economía de la Municipalidad de Río

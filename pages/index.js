@@ -15,6 +15,28 @@ export default function Home({ items }) {
       </Head>
       <Slider />
 
+      <div className="container">
+        <div className="banner secondary mb-3">
+          <div>
+            <h3 className="mb-3 mb-sm-0">Domicio Tributario Electrónico</h3>
+            <p className="lead d-none d-sm-block">
+              Domicilio web, seguro y gratuito para recibir comunicaciones
+              oficiales del Gobierno de Río Cuarto
+            </p>
+          </div>
+          <div>
+            <a
+              className="btn btn-primary text-white text-uppercase"
+              href="http://cidi.riocuarto.gov.ar/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Adherite Ahora
+            </a>
+          </div>
+        </div>
+      </div>
+
       <section>
         <div className="container">
           <Panel items={items} title="Gestiones Disponibles" />
