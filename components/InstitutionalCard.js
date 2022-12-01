@@ -18,7 +18,7 @@ export default function InstitutionalCard({ data }) {
       <div className="card-body">
         <h4 className="card-title">{data.name}</h4>
         <p className="card-text">- {data.position}</p>
-        {!data.cv ? (
+        {data.cv ? (
           <a href={data.cv} target="_blank" rel="noopener noreferrer">
             cv
           </a>
