@@ -136,6 +136,7 @@ export default function Estadisticas({
 export async function getStaticProps() {
   const response = await getListEstatistics.list();
   const items = response;
+
   const ejercicios = response.filter((i) =>
     i.category.toLowerCase().includes("ejercicio")
   );

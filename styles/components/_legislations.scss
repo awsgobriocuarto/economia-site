@@ -8,25 +8,66 @@
   .scrollspy {
     padding-top: 0px;
   }
-  ul {
-    list-style: none;
-    padding-left: 0;
-    margin-bottom: 40px;
-    li {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background-color: $gray-300;
-      margin-bottom: 8px;
-      padding: 8px 8px 8px 12px;
-      border-radius: 4px;
+  .group {
+    margin-bottom: 30px;
+  }
+  .current {
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 0;
+      li {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: $gray-300;
+        margin-bottom: 8px;
+        padding: 8px 8px 8px 12px;
+        border-radius: 4px;
 
-      .btn {
-        margin-left: 8px;
-        text-transform: uppercase;
-        font-size: 0.76rem;
-        font-weight: 600;
-        letter-spacing: 0.02rem;
+        .btn {
+          margin-left: 8px;
+          text-transform: uppercase;
+          font-size: 0.76rem;
+          font-weight: 600;
+          letter-spacing: 0.02rem;
+        }
+      }
+    }
+  }
+  .no-current {
+    .accordion {
+      font-size: 0.9rem;
+      .accordion-header {
+        padding: 0 4px;
+        font-size: 0.9rem;
+        .accordion-button {
+          padding: 12px 8px;
+        }
+      }
+      .accordion-body {
+        padding: 12px;
+      }
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+      li {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: $gray-200;
+        margin-bottom: 8px;
+        padding: 6px 6px 6px 10px;
+        border-radius: 4px;
+
+        .btn {
+          margin-left: 8px;
+          text-transform: uppercase;
+          font-size: 0.7rem;
+          font-weight: 600;
+          letter-spacing: 0.02rem;
+        }
       }
     }
   }
