@@ -3,6 +3,11 @@ import moment from "moment";
 
 export const ExpirationItem = ({ fecha, titulo, descripcion, url }) => {
   const today = moment().format("YYYY-MM-DD");
+
+  if (today > fecha) {
+    return "vencido";
+  }
+
   return (
     <div className="col-md-3">
       <div className="card">
