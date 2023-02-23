@@ -22,102 +22,114 @@ export default function Estadisticas({
       <section className="legislations">
         <div className="container">
           {ejercicios.length ? (
-            <div className="">
-              <h3>Cuenta general del ejercicio</h3>
-              <ul>
-                {ejercicios.map((item) => (
-                  <DownloadItem
-                    key={item.id}
-                    title={item.title}
-                    url={item.url}
-                  />
-                ))}
-              </ul>
+            <div className="group">
+              <div className="current">
+                <h3>Cuenta general del ejercicio</h3>
+                <ul>
+                  {ejercicios.map((item) => (
+                    <DownloadItem
+                      key={item.id}
+                      title={item.title}
+                      url={item.url}
+                    />
+                  ))}
+                </ul>
+              </div>
             </div>
           ) : (
             ""
           )}
           {ejecuciones.length ? (
-            <div className="">
-              <h3>Ejecución Presupuestaria</h3>
-              <ul>
-                {ejecuciones.map((item) => (
-                  <DownloadItem
-                    key={item.id}
-                    title={item.title}
-                    url={item.url}
-                  />
-                ))}
-              </ul>
+            <div className="group">
+              <div className="current">
+                <h3>Ejecución Presupuestaria</h3>
+                <ul>
+                  {ejecuciones.map((item) => (
+                    <DownloadItem
+                      key={item.id}
+                      title={item.title}
+                      url={item.url}
+                    />
+                  ))}
+                </ul>
+              </div>
             </div>
           ) : (
             ""
           )}
           {presupuesto.length ? (
-            <div className="">
-              <h3>Presupuesto</h3>
-              <ul>
-                {presupuesto.map((item) => (
-                  <DownloadItem
-                    key={item.id}
-                    title={item.title}
-                    url={item.url}
-                  />
-                ))}
-              </ul>
+            <div className="group">
+              <div className="current">
+                <h3>Presupuesto</h3>
+                <ul>
+                  {presupuesto.map((item) => (
+                    <DownloadItem
+                      key={item.id}
+                      title={item.title}
+                      url={item.url}
+                    />
+                  ))}
+                </ul>
+              </div>
             </div>
           ) : (
             ""
           )}
           {recaudacion.length ? (
-            <div className="">
-              <h3>Recaudación</h3>
-              <ul>
-                {recaudacion.map((item) => (
-                  <DownloadItem
-                    key={item.id}
-                    title={item.title}
-                    url={item.url}
-                  />
-                ))}
-              </ul>
+            <div className="group">
+              <div className="current">
+                <h3>Recaudación</h3>
+                <ul>
+                  {recaudacion.map((item) => (
+                    <DownloadItem
+                      key={item.id}
+                      title={item.title}
+                      url={item.url}
+                    />
+                  ))}
+                </ul>
+              </div>
             </div>
           ) : (
             ""
           )}
           {deudas.length ? (
-            <div className="">
-              <h3>Reporte de Deuda Municipal</h3>
-              <ul>
-                {deudas.map((item) => (
-                  <DownloadItem
-                    key={item.id}
-                    title={item.title}
-                    url={item.url}
-                  />
-                ))}
-              </ul>
+            <div className="group">
+              <div className="current">
+                <h3>Reporte de Deuda Municipal</h3>
+                <ul>
+                  {deudas.map((item) => (
+                    <DownloadItem
+                      key={item.id}
+                      title={item.title}
+                      url={item.url}
+                    />
+                  ))}
+                </ul>
+              </div>
             </div>
           ) : (
             ""
           )}
           {informes.length ? (
-            <div className="">
-              <h3>Informe Calificación de Riego</h3>
-              <ul>
-                {informes.map((item) => (
-                  <DownloadItem
-                    key={item.id}
-                    title={item.title}
-                    url={item.url}
-                  />
-                ))}
-              </ul>
+            <div className="group">
+              <div className="current">
+                <h3>Informe Calificación de Riego</h3>
+                <ul>
+                  {informes.map((item) => (
+                    <DownloadItem
+                      key={item.id}
+                      title={item.title}
+                      url={item.url}
+                    />
+                  ))}
+                </ul>
+              </div>
             </div>
           ) : (
             ""
           )}
-          <div>
+          <div className="group">
             <h3>Informes Anteriores</h3>
             <a
               href="http://transparencia.riocuarto.gov.ar/"
