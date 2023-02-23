@@ -82,12 +82,12 @@ export default function Ods() {
                 Ord.148-E.29246 - Adhesión ODS
               </a>
               <a
-                href="https://drive.google.com/file/d/1-hcn2itm2OKLy8nc2i9uJkHKM5Mzh6VK/view?usp=sharing"
+                href="https://drive.google.com/file/d/1jGDaaNM2Gd8JrWtQFO8xDoBbCxIXlO0f/view?usp=share_link"
                 className="btn btn-primary text-white me-3 mb-2"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Presupuesto 2022 - Alineación a los ODS
+                Presupuesto 2023 - Alineación a los ODS
               </a>
               <a
                 href="https://drive.google.com/file/d/10DYdxwLWoIM53Bc52hp30oUXuUJ6uRP7/view?usp=sharing"

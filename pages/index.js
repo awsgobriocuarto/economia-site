@@ -5,8 +5,10 @@ import { Panel } from "../components/elements/panel/Panel";
 import Expirations from "../components/elements/expirations/Expirations";
 import Cta from "../components/elements/cta/Cta";
 import PostsLatest from "../components/elements/posts/PostsLatest";
+import fetchExpirations from "../services/fetchExpirations";
 
-export default function Home({ items }) {
+export default function Home({ items, expirations }) {
+  console.log(expirations);
   return (
     <>
       <Head>
@@ -56,7 +58,7 @@ export default function Home({ items }) {
         cta="Mas Información"
         url="/ods"
       />
-      <Expirations />
+      <Expirations expirations={expirations} />
     </>
   );
 }
@@ -66,9 +68,13 @@ export async function getStaticProps() {
     "https://docs.google.com/spreadsheets/d/e/2PACX-1vTksvNMhYA0ZsL3Xy0Xb8sqi4r7kbRwSQZo-HafVvS8Aup5PVJ7c_n-y642TYhZzWZ_DoAu4pZzIv2G/pub?output=csv";
   const response = await getListItems.list({ url });
   const items = response.filter((i) => i.page.toLowerCase().includes("home"));
+
+  const expirations = await fetchExpirations.list();
+
   return {
     props: {
       items,
+      expirations,
     },
     revalidate: 1,
   };

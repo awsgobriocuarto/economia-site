@@ -3,6 +3,11 @@ import moment from "moment";
 
 export const ExpirationItem = ({ fecha, titulo, descripcion, url }) => {
   const today = moment().format("YYYY-MM-DD");
+
+  if (today > fecha) {
+    return "vencido";
+  }
+
   return (
     <div className="col-md-3">
       <div className="card">
@@ -10,7 +15,6 @@ export const ExpirationItem = ({ fecha, titulo, descripcion, url }) => {
           <div>
             <div className="card-month">{moment(fecha).format("MMMM")}</div>
             <div className="card-day">{moment(fecha).format("dddd D")}</div>
-            {/* <div>{moment(fecha).format("DD/MM/YYYY")}</div> */}
           </div>
           <div>
             <i className="fas fa-calendar-alt fa-lg"></i>
