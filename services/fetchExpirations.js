@@ -1,6 +1,13 @@
 import axios from "axios";
 import Papa from "papaparse";
 
+const today = Date.now();
+
+function dateFilter(date) {
+  const expirationDate = Date.parse(date.fecha);
+  return expirationDate >= today;
+}
+
 export default {
   list: async () => {
     return axios
@@ -15,8 +22,9 @@ export default {
               header: true,
               complete: (results) => {
                 const items = results.data;
+                const filteredItems = items.filter(dateFilter);
                 return resolve(
-                  items.map((item) => ({
+                  filteredItems.map((item) => ({
                     ...item,
                   }))
                 );

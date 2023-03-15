@@ -5,7 +5,7 @@ export const ExpirationItem = ({ fecha, titulo, descripcion, url }) => {
   const today = moment().format("YYYY-MM-DD");
 
   if (today > fecha) {
-    return "vencido";
+    return;
   }
 
   return (
