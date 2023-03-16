@@ -8,7 +8,7 @@ import PostsLatest from "../components/elements/posts/PostsLatest";
 import fetchExpirations from "../services/fetchExpirations";
 
 export default function Home({ items, expirations }) {
-  console.log(expirations);
+  //console.log(expirations);
   return (
     <>
       <Head>
