@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import Logo from "../assets/logo-economia.svg";
+import { Nav } from "react-bootstrap";
 
 export default function Navbar() {
   return (
@@ -42,11 +43,6 @@ export default function Navbar() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link href="/compras-web">
-                <a className="nav-link">Compras Web</a>
-              </Link>
-            </li>
-            <li className="nav-item">
               <Link href="/estadisticas">
                 <a className="nav-link">Estadísticas</a>
               </Link>
@@ -65,10 +61,24 @@ export default function Navbar() {
               <a
                 href="https://admin.toteminsight.com/progressiveApp/5f04b1401320d01ab4a513f6/index.jade"
                 target="_blank"
-                className="nav-link special"
+                className="nav-link"
               >
-                Turnos Web <i className="fas fa-calendar-alt"></i>
+                Turnos Web
               </a>
+            </li>
+            <li className="nav-item">
+              <Link
+                href={
+                  process.env.NODE_ENV == "development"
+                    ? "http://localhost:3000"
+                    : "https://comprasweb.economiariocuarto.gob.ar/"
+                }
+                passHref
+              >
+                <Nav.Link className="special">
+                  Compras Web <i class="fas fa-sign-out-alt"></i>
+                </Nav.Link>
+              </Link>
             </li>
           </ul>
         </div>
