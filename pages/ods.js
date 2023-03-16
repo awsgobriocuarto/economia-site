@@ -13,7 +13,7 @@ export default function Ods() {
         <div className="container">
           <div className="row justify-content-between">
             <div className="col-md-3 order-md-1">
-              <a
+              {/* <a
                 href="https://odsriocuarto.gob.ar/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -24,7 +24,7 @@ export default function Ods() {
                   width={600}
                   className="img-fluid"
                 />
-              </a>
+              </a> */}
               <hr className="d-md-none my-4" />
             </div>
             <div className="col-md-8 order-md-0">
