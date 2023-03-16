@@ -103,15 +103,6 @@ export default function mediosDePago() {
               <div className="logo">
                 <img
                   className="img-fluid"
-                  src="../images/mdp-supervielle.png"
-                  alt="banco supervielle"
-                />
-              </div>
-            </div>
-            <div className="col-6 col-md-2">
-              <div className="logo">
-                <img
-                  className="img-fluid"
                   src="../images/mdp-credicoop.png"
                   alt="banco credicoop"
                 />
