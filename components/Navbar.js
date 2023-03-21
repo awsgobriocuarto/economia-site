@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import Logo from "../assets/logo-economia.svg";
+import { Nav } from "react-bootstrap";
 
 export default function Navbar() {
   return (
@@ -37,13 +38,13 @@ export default function Navbar() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link href="/tramites-y-servicios">
-                <a className="nav-link">Trámites y Servicios</a>
+              <Link href="/compras-web">
+                <a className="nav-link">Compras Web</a>
               </Link>
             </li>
             <li className="nav-item">
-              <Link href="/compras-web">
-                <a className="nav-link">Compras Web</a>
+              <Link href="/tramites-y-servicios">
+                <a className="nav-link">Trámites y Servicios</a>
               </Link>
             </li>
             <li className="nav-item">
@@ -67,8 +68,22 @@ export default function Navbar() {
                 target="_blank"
                 className="nav-link special"
               >
-                Turnos Web <i className="fas fa-calendar-alt"></i>
+                Turnos Web
               </a>
+            </li>
+            <li className="nav-item d-none">
+              <Link
+                href={
+                  process.env.NODE_ENV == "development"
+                    ? "http://localhost:3000"
+                    : "https://comprasweb.economiariocuarto.gob.ar/"
+                }
+                passHref
+              >
+                <Nav.Link className="special">
+                  Compras Web <i class="fas fa-sign-out-alt"></i>
+                </Nav.Link>
+              </Link>
             </li>
           </ul>
         </div>
