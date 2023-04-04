@@ -2,8 +2,11 @@ import Head from "next/head";
 import Header from "../../components/Header";
 import getListItems from "../../services/getListItems";
 import { Panel } from "../../components/elements/panel/Panel";
+import fetchExpirations from "../../services/fetchExpirations";
+import Expirations from "../../components/elements/expirations/Expirations";
 
-export default function pagosYDeudas({ items }) {
+export default function pagosYDeudas({ items, expirations }) {
+  // console.log(expirations);
   return (
     <>
       <Head>
@@ -16,6 +19,7 @@ export default function pagosYDeudas({ items }) {
           <Panel items={items} />
         </div>
       </section>
+      <Expirations expirations={expirations} />
     </>
   );
 }
@@ -27,9 +31,12 @@ export async function getStaticProps() {
   const items = response.filter((i) =>
     i.page.toLowerCase().includes("deudas-y-pagos")
   );
+
+  const expirations = await fetchExpirations.list();
   return {
     props: {
       items,
+      expirations,
     },
     revalidate: 1,
   };
