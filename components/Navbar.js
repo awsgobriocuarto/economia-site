@@ -37,7 +37,7 @@ export default function Navbar() {
                 <a className="nav-link">Pagos y Deudas</a>
               </Link>
             </li>
-            <li className="nav-item">
+            <li className="nav-item d-none">
               <Link href="/compras-web">
                 <a className="nav-link">Compras Web</a>
               </Link>
@@ -66,12 +66,12 @@ export default function Navbar() {
               <a
                 href="https://admin.toteminsight.com/progressiveApp/5f04b1401320d01ab4a513f6/index.jade"
                 target="_blank"
-                className="nav-link special"
+                className="nav-link"
               >
                 Turnos Web
               </a>
             </li>
-            <li className="nav-item d-none">
+            <li className="nav-item">
               <Link
                 href={
                   process.env.NODE_ENV == "development"
@@ -81,7 +81,7 @@ export default function Navbar() {
                 passHref
               >
                 <Nav.Link className="special">
-                  Compras Web <i class="fas fa-sign-out-alt"></i>
+                  Compras Web <i className="fas fa-sign-out-alt"></i>
                 </Nav.Link>
               </Link>
             </li>
