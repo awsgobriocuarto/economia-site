@@ -23,6 +23,12 @@ export default {
               complete: (results) => {
                 const items = results.data;
                 const filteredItems = items.filter(dateFilter);
+
+                // sort by date
+                filteredItems.sort(function (a, b) {
+                  return new Date(a.fecha) - new Date(b.fecha);
+                });
+
                 return resolve(
                   filteredItems.map((item) => ({
                     ...item,

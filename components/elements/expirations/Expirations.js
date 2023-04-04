@@ -12,7 +12,7 @@ export default function Expirations({ expirations }) {
         <h2>Vencimientos</h2>
         <div className="row">
           {expirations.map((expiration, index) => (
-            <ExpirationItem key={expiration.title + index} {...expiration} />
+            <ExpirationItem key={expiration.titulo + index} {...expiration} />
           ))}
         </div>
       </div>
