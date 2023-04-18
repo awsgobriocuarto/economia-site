@@ -133,7 +133,7 @@ export default function Estadisticas({
           {realidad.length ? (
             <div className='group'>
               <div className='current'>
-                <h3>Informe de Realidad Económica</h3>
+                <h3>Informe de Actividad Económica</h3>
                 <ul>
                   {realidad.map((item) => (
                     <DownloadItem
