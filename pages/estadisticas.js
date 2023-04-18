@@ -1,8 +1,8 @@
-import React from "react";
-import Head from "next/head";
-import Header from "../components/Header";
-import getListEstatistics from "../services/getListEstatistics";
-import DownloadItem from "../components/DownloadItem";
+import React from 'react'
+import Head from 'next/head'
+import Header from '../components/Header'
+import getListEstatistics from '../services/getListEstatistics'
+import DownloadItem from '../components/DownloadItem'
 
 export default function Estadisticas({
   ejercicios,
@@ -11,6 +11,7 @@ export default function Estadisticas({
   recaudacion,
   informes,
   deudas,
+  realidad
 }) {
   return (
     <>
@@ -18,12 +19,12 @@ export default function Estadisticas({
         <title>Sec. de Economia Río Cuarto - Estadísticas</title>
       </Head>
 
-      <Header title="Estadísticas" subtitle="" />
-      <section className="legislations">
-        <div className="container">
+      <Header title='Estadísticas' subtitle='' />
+      <section className='legislations'>
+        <div className='container'>
           {ejercicios.length ? (
-            <div className="group">
-              <div className="current">
+            <div className='group'>
+              <div className='current'>
                 <h3>Cuenta general del ejercicio</h3>
                 <ul>
                   {ejercicios.map((item) => (
@@ -37,11 +38,11 @@ export default function Estadisticas({
               </div>
             </div>
           ) : (
-            ""
+            ''
           )}
           {ejecuciones.length ? (
-            <div className="group">
-              <div className="current">
+            <div className='group'>
+              <div className='current'>
                 <h3>Ejecución Presupuestaria</h3>
                 <ul>
                   {ejecuciones.map((item) => (
@@ -55,11 +56,11 @@ export default function Estadisticas({
               </div>
             </div>
           ) : (
-            ""
+            ''
           )}
           {presupuesto.length ? (
-            <div className="group">
-              <div className="current">
+            <div className='group'>
+              <div className='current'>
                 <h3>Presupuesto</h3>
                 <ul>
                   {presupuesto.map((item) => (
@@ -73,11 +74,11 @@ export default function Estadisticas({
               </div>
             </div>
           ) : (
-            ""
+            ''
           )}
           {recaudacion.length ? (
-            <div className="group">
-              <div className="current">
+            <div className='group'>
+              <div className='current'>
                 <h3>Recaudación</h3>
                 <ul>
                   {recaudacion.map((item) => (
@@ -91,11 +92,11 @@ export default function Estadisticas({
               </div>
             </div>
           ) : (
-            ""
+            ''
           )}
           {deudas.length ? (
-            <div className="group">
-              <div className="current">
+            <div className='group'>
+              <div className='current'>
                 <h3>Reporte de Deuda Municipal</h3>
                 <ul>
                   {deudas.map((item) => (
@@ -109,11 +110,11 @@ export default function Estadisticas({
               </div>
             </div>
           ) : (
-            ""
+            ''
           )}
           {informes.length ? (
-            <div className="group">
-              <div className="current">
+            <div className='group'>
+              <div className='current'>
                 <h3>Informe Calificación de Riego</h3>
                 <ul>
                   {informes.map((item) => (
@@ -127,14 +128,32 @@ export default function Estadisticas({
               </div>
             </div>
           ) : (
-            ""
+            ''
           )}
-          <div className="group">
+          {realidad.length ? (
+            <div className='group'>
+              <div className='current'>
+                <h3>Informe de Realidad Económica</h3>
+                <ul>
+                  {realidad.map((item) => (
+                    <DownloadItem
+                      key={item.id}
+                      title={item.title}
+                      url={item.url}
+                    />
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ) : (
+            ''
+          )}
+          <div className='group'>
             <h3>Informes Anteriores</h3>
             <a
-              href="http://transparencia.riocuarto.gov.ar/"
-              target="_blank"
-              className="btn btn-secondary"
+              href='http://transparencia.riocuarto.gov.ar/'
+              target='_blank'
+              className='btn btn-secondary'
             >
               Consultar
             </a>
@@ -142,31 +161,34 @@ export default function Estadisticas({
         </div>
       </section>
     </>
-  );
+  )
 }
 
 export async function getStaticProps() {
-  const response = await getListEstatistics.list();
-  const items = response;
+  const response = await getListEstatistics.list()
+  const items = response
 
   const ejercicios = response.filter((i) =>
-    i.category.toLowerCase().includes("ejercicio")
-  );
+    i.category.toLowerCase().includes('ejercicio')
+  )
   const ejecuciones = response.filter((i) =>
-    i.category.toLowerCase().includes("ejecucion")
-  );
+    i.category.toLowerCase().includes('ejecucion')
+  )
   const presupuesto = response.filter((i) =>
-    i.category.toLowerCase().includes("presupuesto")
-  );
+    i.category.toLowerCase().includes('presupuesto')
+  )
   const recaudacion = response.filter((i) =>
-    i.category.toLowerCase().includes("recaudacion")
-  );
+    i.category.toLowerCase().includes('recaudacion')
+  )
   const informes = response.filter((i) =>
-    i.category.toLowerCase().includes("informes")
-  );
+    i.category.toLowerCase().includes('informes')
+  )
   const deudas = response.filter((i) =>
-    i.category.toLowerCase().includes("deudas")
-  );
+    i.category.toLowerCase().includes('deudas')
+  )
+  const realidad = response.filter((i) =>
+    i.category.toLowerCase().includes('realidad')
+  )
   return {
     props: {
       items,
@@ -176,7 +198,8 @@ export async function getStaticProps() {
       recaudacion,
       informes,
       deudas,
+      realidad
     },
-    revalidate: 1,
-  };
+    revalidate: 1
+  }
 }
