@@ -1,5 +1,5 @@
-import Head from "next/head";
-import Header from "../components/Header";
+import Head from 'next/head'
+import Header from '../components/Header'
 
 export default function Ods() {
   return (
@@ -8,36 +8,36 @@ export default function Ods() {
         <title>Sec. de Economia Río Cuarto - Ods</title>
       </Head>
 
-      <Header title="Ods" subtitle="Objetivos de Desarrollo Sostenible" />
-      <div className="pages">
-        <div className="container">
-          <div className="row justify-content-between">
-            <div className="col-md-3 order-md-1">
-              {/* <a
-                href="https://odsriocuarto.gob.ar/"
-                target="_blank"
-                rel="noopener noreferrer"
+      <Header title='Ods' subtitle='Objetivos de Desarrollo Sostenible' />
+      <div className='pages'>
+        <div className='container'>
+          <div className='row justify-content-between'>
+            <div className='col-md-3 order-md-1'>
+              <a
+                href='https://odsriocuarto.gob.ar/'
+                target='_blank'
+                rel='noopener noreferrer'
               >
                 <img
-                  src="./images/portal-ods.jpg"
-                  alt=""
+                  src='./images/portal-ods.jpg'
+                  alt=''
                   width={600}
-                  className="img-fluid"
+                  className='img-fluid'
                 />
-              </a> */}
-              <hr className="d-md-none my-4" />
+              </a>
+              <hr className='d-md-none my-4' />
             </div>
-            <div className="col-md-8 order-md-0">
+            <div className='col-md-8 order-md-0'>
               <img
-                src="./images/ods-logo.png"
-                alt=""
+                src='./images/ods-logo.png'
+                alt=''
                 width={500}
-                className="img-fluid mb-3"
+                className='img-fluid mb-3'
               />
               <h2>
                 Río Cuarto adhirió a los Objetivos de Desarrollo Sostenible
               </h2>
-              <p className="lead">
+              <p className='lead'>
                 El Concejo Deliberante de Río Cuarto aprobó la adhesión a los
                 Objetivos para el Desarrollo Sostenible que componen la Agenda
                 2030, adoptados por los estados miembros de la Organización de
@@ -70,38 +70,38 @@ export default function Ods() {
                 ciudad de Río Cuarto pueda dar cuenta en el nivel local y
                 regional de los avances en la implementación de la Agenda 2030.
               </p>
-              <h4 className="mt-5 mb-3">
+              <h4 className='mt-5 mb-3'>
                 Presupuesto 2022 - Alineación a los ODS
               </h4>
               <a
-                href="https://drive.google.com/file/d/1-kxdS0qgjEc_8AOyEZUT4MNzmd8vAdB0/view?usp=sharing"
-                className="btn btn-primary text-white me-3 mb-2"
-                target="_blank"
-                rel="noopener noreferrer"
+                href='https://drive.google.com/file/d/1-kxdS0qgjEc_8AOyEZUT4MNzmd8vAdB0/view?usp=sharing'
+                className='btn btn-primary text-white me-3 mb-2'
+                target='_blank'
+                rel='noopener noreferrer'
               >
                 Ord.148-E.29246 - Adhesión ODS
               </a>
               <a
-                href="https://drive.google.com/file/d/1jGDaaNM2Gd8JrWtQFO8xDoBbCxIXlO0f/view?usp=share_link"
-                className="btn btn-primary text-white me-3 mb-2"
-                target="_blank"
-                rel="noopener noreferrer"
+                href='https://drive.google.com/file/d/1jGDaaNM2Gd8JrWtQFO8xDoBbCxIXlO0f/view?usp=share_link'
+                className='btn btn-primary text-white me-3 mb-2'
+                target='_blank'
+                rel='noopener noreferrer'
               >
                 Presupuesto 2023 - Alineación a los ODS
               </a>
               <a
-                href="https://drive.google.com/file/d/10DYdxwLWoIM53Bc52hp30oUXuUJ6uRP7/view?usp=sharing"
-                className="btn btn-primary text-white me-3 mb-2"
-                target="_blank"
-                rel="noopener noreferrer"
+                href='https://drive.google.com/file/d/10DYdxwLWoIM53Bc52hp30oUXuUJ6uRP7/view?usp=sharing'
+                className='btn btn-primary text-white me-3 mb-2'
+                target='_blank'
+                rel='noopener noreferrer'
               >
                 Agenda 2030 y ODS
               </a>
-              <h4 className="mt-5 mb-3">ODS: ¿Qué son y cómo conseguirlos?</h4>
-              <div className="ratio ratio-16x9">
+              <h4 className='mt-5 mb-3'>ODS: ¿Qué son y cómo conseguirlos?</h4>
+              <div className='ratio ratio-16x9'>
                 <iframe
-                  src="https://www.youtube.com/embed/MCKH5xk8X-g?rel=0"
-                  title="YouTube video"
+                  src='https://www.youtube.com/embed/MCKH5xk8X-g?rel=0'
+                  title='YouTube video'
                   allowFullScreen
                 ></iframe>
               </div>
@@ -110,5 +110,5 @@ export default function Ods() {
         </div>
       </div>
     </>
-  );
+  )
 }
