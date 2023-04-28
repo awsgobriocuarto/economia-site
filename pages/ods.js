@@ -61,7 +61,7 @@ export default function Ods() {
                 cambio climático y fortalecen las políticas de protección del
                 ambiente.
               </p>
-              <p>
+              <p className='mb-4'>
                 En esta línea que cada uno de los programas que se están
                 ejecutando desde las diversas áreas que conforman el municipio
                 ya están vinculados con el ODS que corresponda. De esta manera
@@ -70,10 +70,7 @@ export default function Ods() {
                 ciudad de Río Cuarto pueda dar cuenta en el nivel local y
                 regional de los avances en la implementación de la Agenda 2030.
               </p>
-              <h4 className='mt-5 mb-3'>
-                Presupuesto 2022 - Alineación a los ODS
-              </h4>
-              <a
+               <a
                 href='https://drive.google.com/file/d/1-kxdS0qgjEc_8AOyEZUT4MNzmd8vAdB0/view?usp=sharing'
                 className='btn btn-primary text-white me-3 mb-2'
                 target='_blank'
@@ -82,20 +79,43 @@ export default function Ods() {
                 Ord.148-E.29246 - Adhesión ODS
               </a>
               <a
-                href='https://drive.google.com/file/d/1jGDaaNM2Gd8JrWtQFO8xDoBbCxIXlO0f/view?usp=share_link'
-                className='btn btn-primary text-white me-3 mb-2'
-                target='_blank'
-                rel='noopener noreferrer'
-              >
-                Presupuesto 2023 - Alineación a los ODS
-              </a>
-              <a
                 href='https://drive.google.com/file/d/10DYdxwLWoIM53Bc52hp30oUXuUJ6uRP7/view?usp=sharing'
                 className='btn btn-primary text-white me-3 mb-2'
                 target='_blank'
                 rel='noopener noreferrer'
               >
                 Agenda 2030 y ODS
+              </a>
+              <h4 className='mt-5 mb-3'>
+                Presupuestos alineados a los ODS de la Agenda
+              </h4>
+
+              <h5 className='mt-4'>Informes de Alineación a los ODS</h5>
+              <a
+                href='https://drive.google.com/file/d/1jGDaaNM2Gd8JrWtQFO8xDoBbCxIXlO0f/view?usp=share_link'
+                className='btn btn-primary text-white me-3 mb-2'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                Informe de Alineación 2023
+              </a>
+              <a
+                href='https://drive.google.com/file/d/1-hcn2itm2OKLy8nc2i9uJkHKM5Mzh6VK/view?usp=share_link'
+                className='btn btn-primary text-white me-3 mb-2'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                Informe de Alineación 2022
+              </a>
+
+              <h5 className='mt-4'>Informes de Contribución a los ODS</h5>
+              <a
+                href='https://drive.google.com/file/d/1coBl3r0a2ubEbHUJA6CZMypoIwcrSt7o/view?usp=share_link'
+                className='btn btn-primary text-white me-3 mb-2'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                Informe de Contribución 2022
               </a>
               <h4 className='mt-5 mb-3'>ODS: ¿Qué son y cómo conseguirlos?</h4>
               <div className='ratio ratio-16x9'>
