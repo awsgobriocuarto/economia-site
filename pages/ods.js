@@ -110,7 +110,7 @@ export default function Ods() {
 
               <h5 className='mt-4'>Informes de Contribución a los ODS</h5>
               <a
-                href='https://drive.google.com/file/d/1coBl3r0a2ubEbHUJA6CZMypoIwcrSt7o/view?usp=share_link'
+                href='https://drive.google.com/file/d/1TMZWcLx8lYicmAEKe0i2HzkXicAALpID/view'
                 className='btn btn-primary text-white me-3 mb-2'
                 target='_blank'
                 rel='noopener noreferrer'
