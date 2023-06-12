@@ -6,6 +6,7 @@ import Expirations from '../components/elements/expirations/Expirations'
 import Cta from '../components/elements/cta/Cta'
 import PostsLatest from '../components/elements/posts/PostsLatest'
 import fetchExpirations from '../services/fetchExpirations'
+import BannerTop from '../components/BannerTop'
 
 export default function Home({ items, expirations }) {
   //console.log(expirations);
@@ -15,7 +16,15 @@ export default function Home({ items, expirations }) {
         <title>Sec. de Economia Río Cuarto</title>
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <Slider />
+
+      <div className="row g-0">
+        <div className="col-md-2 order-1">
+          <BannerTop />
+        </div>
+        <div className="col-md-10 order-2">
+          <Slider />
+        </div>
+      </div>
 
       <div className='container'>
         <div className='banner secondary mb-3'>
