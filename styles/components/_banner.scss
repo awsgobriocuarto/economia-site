@@ -50,15 +50,17 @@
 
   display: flex;
   justify-content: center;
+  align-items: flex-start;
   flex-direction: column;
 
   .lead {
     margin-bottom: 20px;
+    font-size: 1.1rem;
   }
 
   .ods {
     background-color: #fff;
-    margin-top: 10px;
+    margin-top: 30px;
     width: 90%;
     padding: 10px 15px;
   }

@@ -18,10 +18,10 @@ export default function Home({ items, expirations }) {
       </Head>
 
       <div className="row g-0">
-        <div className="col-md-2 order-1">
+        <div className="col-md-4 col-lg-3 col-xl-2 order-1">
           <BannerTop />
         </div>
-        <div className="col-md-10 order-2">
+        <div className="col-md-8 col-lg-9 col-xl-10 order-2">
           <Slider />
         </div>
       </div>
