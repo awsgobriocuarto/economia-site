@@ -66,6 +66,7 @@ export default function Navbar() {
               <a
                 href="https://admin.toteminsight.com/progressiveApp/5f04b1401320d01ab4a513f6/index.jade"
                 target="_blank"
+                rel="noopener noreferrer"
                 className="nav-link"
               >
                 Turnos Web
@@ -75,7 +76,7 @@ export default function Navbar() {
               <Link
                 href={
                   process.env.NODE_ENV == "development"
-                    ? "http://localhost:3000"
+                    ? "http://localhost:3001"
                     : "https://comprasweb.economiariocuarto.gob.ar/"
                 }
                 passHref
