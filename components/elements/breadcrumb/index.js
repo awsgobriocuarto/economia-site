@@ -31,7 +31,7 @@ const Breadcrumbs = ({ title }) => {
       });
       setBreadcrumbs(pathArray);
     }
-  }, [router]);
+  }, [router, linkPath]);
 
   if (!breadcrumbs) {
     return null;
@@ -42,7 +42,8 @@ const Breadcrumbs = ({ title }) => {
       <nav aria-label="breadcrumbs">
         <ol className="breadcrumb">
           <li className="breadcrumb-item">
-            <a href="/">Home</a>
+            {/* <a href="/">Home</a> */}
+            <Link href="/">Home</Link>
           </li>
           {breadcrumbs.map((breadcrumb, i) => {
             return (
