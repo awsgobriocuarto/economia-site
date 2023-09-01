@@ -11,11 +11,12 @@ export default function mediosDePago() {
       <Header title="Medios de Pago" subtitle="" />
       <section className="medios-pagos">
         <div className="container">
-          <h5>Pagá Online a través de "Pagos 360"</h5>
+          <h5>Pagá Online a través de Pagos 360</h5>
           <h6>Servicios Adheridos</h6>
           <div className="row medios-pagos-group">
             <div className="col-6 col-md-2">
               <div className="logo">
+                {/* eslint-disable */}
                 <img
                   className="img-fluid"
                   src="../images/mdp-pago-mis-cuentas.png"

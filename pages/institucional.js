@@ -332,7 +332,7 @@ export default function Institucional() {
                 <li>Asegurar una correcta presupuestación a los fines de garantizar la ejecución del plan de gobierno definido, buscando maximizar el impacto de los planes estratégicos a través de una eficiente distribución de los recursos públicos.</li>
                 <li>Dar seguimiento permanente, analizar e interpretar la ejecución presupuestaria de cada área de gobierno</li>
                 <li>Desarrollar e implementar mecanismos y metodologías de evaluación, análisis y control del gasto para el Gobierno de la Ciudad de Río Cuarto, enfocándose en la rentabilidad social del gasto.</li>
-                <li>Realizar la evaluación ex–post de los principales programas y proyectos del Gobierno de la Ciudad de Río Cuarto.</li>
+                <li>Realizar la evaluación expost de los principales programas y proyectos del Gobierno de la Ciudad de Río Cuarto.</li>
                 <li>Coordinar la correcta implementación del Plan de Acción del Gobierno en el presupuesto general de gastos y cálculos de recursos en coordinación con la Subdirección General de Presupuesto y Unidades Ejecutoras</li>
                 <li>Elaborar informes respecto del desarrollo y desempeño de las distintas actividades y/o áreas del Gobierno, para el seguimiento, el aporte en la comunicación de acciones y en la toma de decisiones por parte de su titular.</li>
               </ol>
