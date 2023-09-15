@@ -8,6 +8,7 @@ export default function PostCard({ post }) {
       <div className="col-md-6 col-lg-4 col-xl-3">
         <div className="card">
           <div className="card-image">
+            {/* eslint-disable-next-line */}
             <img src={post.main_picture.small} alt="" />
           </div>
           <div className="card-body">

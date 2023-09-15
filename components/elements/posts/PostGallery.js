@@ -11,10 +11,12 @@ export default function PostGallery({ images }) {
       >
         <div className="carousel-inner">
           <div className="carousel-item active">
+            {/* eslint-disable-next-line */}
             <img src={images.main_picture.medium} className="image" alt="..." />
           </div>
           {images.gallery.map((image, index) => (
             <div key={index} className="carousel-item">
+              {/* eslint-disable-next-line */}
               <img src={image.medium} className="image" alt="..." />
             </div>
           ))}

@@ -11,9 +11,8 @@ import PostsLatest from "../../components/elements/posts/PostsLatest";
 export default function Noticias() {
   const [news, setNews] = useState(false);
   const router = useRouter();
-  const { id, slug } = router.query;
+  const { id } = router.query;
 
-  // console.log({ id, slug });
 
   const { loading, isError, post } = useSinglePost({ id });
 
@@ -52,6 +51,7 @@ export default function Noticias() {
                       {post?.media?.gallery?.length ? (
                         <PostGallery images={post?.media} />
                       ) : (
+                        //  eslint-disable-next-line
                         <img
                           className="cover"
                           src={post?.media.main_picture.large}

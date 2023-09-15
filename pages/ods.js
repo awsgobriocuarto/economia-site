@@ -18,6 +18,7 @@ export default function Ods() {
                 target='_blank'
                 rel='noopener noreferrer'
               >
+                {/* eslint-disable-next-line */}
                 <img
                   src='./images/portal-ods.jpg'
                   alt=''
@@ -28,6 +29,7 @@ export default function Ods() {
               <hr className='d-md-none my-4' />
             </div>
             <div className='col-md-8 order-md-0'>
+              {/* eslint-disable-next-line */}
               <img
                 src='./images/ods-logo.png'
                 alt=''
@@ -70,7 +72,7 @@ export default function Ods() {
                 ciudad de Río Cuarto pueda dar cuenta en el nivel local y
                 regional de los avances en la implementación de la Agenda 2030.
               </p>
-               <a
+              <a
                 href='https://drive.google.com/file/d/1-kxdS0qgjEc_8AOyEZUT4MNzmd8vAdB0/view?usp=sharing'
                 className='btn btn-primary text-white me-3 mb-2'
                 target='_blank'
