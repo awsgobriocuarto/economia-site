@@ -24,6 +24,7 @@ export default function Sustentabilidad() {
                 las Naciones Unidas (ONU) en la Cumbre Mundial realizada en el
                 año 2015.
               </p>
+              {/* eslint-disable-next-line */}
               <img
                 src='./images/ods-logo.png'
                 alt=''
@@ -111,6 +112,7 @@ export default function Sustentabilidad() {
                   target='_blank'
                   rel='noopener noreferrer'
                 >
+                  {/* eslint-disable-next-line */}
                   <img
                     src='./images/portal-ods.jpg'
                     alt=''

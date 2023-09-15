@@ -14,6 +14,7 @@ export const Slider = () => {
           <Carousel>
             {slides.map((slide, index) => (
               <Carousel.Item key={index} interval={4000}>
+                {/* eslint-disable-next-line */}
                 <img src={slide.file} alt="" className="d-block w-100" />
                 <Carousel.Caption>
                   <h5 className="display-4">{slide.title}</h5>
