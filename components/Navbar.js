@@ -48,8 +48,8 @@ export default function Navbar() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link href="/estadisticas">
-                <a className="nav-link">Estadísticas</a>
+              <Link href="/transparencia">
+                <a className="nav-link">Transparencia</a>
               </Link>
             </li>
             <li className="nav-item">
