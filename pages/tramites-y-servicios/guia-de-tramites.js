@@ -60,7 +60,7 @@ export default function GuiaDeTramites({ items }) {
             </div>
             <div>
               <form
-                action="http://tramites.riocuarto.gov.ar/lista.php"
+                action="https://tramites.riocuarto.gov.ar/lista.php"
                 method="post"
                 target="_blank"
               >
