@@ -1,7 +1,14 @@
 import Link from "next/link";
 import PropTypes from "prop-types";
 
-export default function Cta({ title, text, cta, url, urlExternal = false }) {
+export default function Cta({
+  title,
+  text,
+  cta,
+  url,
+  urlExternal = false,
+  icon = false,
+}) {
   return (
     <section className="cta">
       <div className="container">
@@ -17,11 +24,15 @@ export default function Cta({ title, text, cta, url, urlExternal = false }) {
               rel="noopener noreferrer"
               className="btn btn-lg btn-primary text-white"
             >
+              {icon ? <i className={icon}></i> : ""}
               {cta}
             </a>
           ) : (
             <Link href={url}>
-              <a className="btn btn-lg btn-primary text-white">{cta}</a>
+              <a className="btn btn-lg btn-primary text-white">
+                {icon ? <i className={icon}></i> : ""}
+                {cta}
+              </a>
             </Link>
           )}
         </div>
