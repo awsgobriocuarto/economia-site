@@ -33,6 +33,22 @@ export default function Sustentabilidad() {
                 width={300}
                 className="img-fluid mb-3"
               />
+              <div className="mb-5">
+                <h5 className="mt-4 mb-2">Accedé al Portal de ODS</h5>
+                <a
+                  href="https://ods2023.odsriocuarto.gob.ar/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {/* eslint-disable-next-line */}
+                  <img
+                    src="./images/portal-ods.jpg"
+                    alt=""
+                    width={240}
+                    className="img-fluid"
+                  />
+                </a>
+              </div>
               <p>
                 Acompañamos el cumplimiento de la agenda 2030 que definió la
                 ONU, y en este sentido, Río Cuarto adecua su política de
@@ -107,22 +123,6 @@ export default function Sustentabilidad() {
                 Informe de Contribución 2022
               </a>
 
-              <div>
-                <h5 className="mt-4 mb-2">Accedé al Portal de ODS</h5>
-                <a
-                  href="https://ods2023.odsriocuarto.gob.ar/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {/* eslint-disable-next-line */}
-                  <img
-                    src="./images/portal-ods.jpg"
-                    alt=""
-                    width={240}
-                    className="img-fluid"
-                  />
-                </a>
-              </div>
               <h4 className="mt-5 mb-3">ODS: ¿Qué son y cómo conseguirlos?</h4>
               <div className="ratio ratio-16x9">
                 <iframe
