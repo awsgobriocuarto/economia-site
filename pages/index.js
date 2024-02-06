@@ -27,23 +27,50 @@ export default function Home({ items, expirations }) {
       </div>
 
       <div className="container">
-        <div className="banner secondary mb-3">
-          <div>
-            <h3 className="mb-3 mb-sm-0">Domicilio Tributario Electrónico</h3>
-            <p className="lead d-none d-sm-block">
-              Domicilio web, seguro y gratuito para recibir comunicaciones
-              oficiales del Gobierno de Río Cuarto
-            </p>
+        <div className="row">
+          <div className="col-md-6">
+            <div className="banner banner-box secondary mb-3">
+              <div>
+                <h4 className="mb-2 mb-md-1">
+                  Domicilio Tributario Electrónico
+                </h4>
+                <p className="lead">
+                  Domicilio web, seguro y gratuito para recibir comunicaciones
+                  oficiales del Gobierno de Río Cuarto
+                </p>
+              </div>
+              <div>
+                <a
+                  className="btn btn-primary text-white text-uppercase"
+                  href="http://cidi.riocuarto.gov.ar/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Adherite Ahora
+                </a>
+              </div>
+            </div>
           </div>
-          <div>
-            <a
-              className="btn btn-primary text-white text-uppercase"
-              href="http://cidi.riocuarto.gov.ar/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Adherite Ahora
-            </a>
+          <div className="col-md-6">
+            <div className="banner banner-box primary mb-3">
+              <div>
+                <h4 className="mb-2 mb-md-1">Contanos tu experiencia</h4>
+                <p className="lead">
+                  Déjanos tus sugerencias, quejas o felicitaciones sobre el
+                  servicio de atención al contribuyente.
+                </p>
+              </div>
+              <div>
+                <a
+                  className="btn btn-secondary text-white text-uppercase"
+                  href="https://forms.gle/tE9ANvStj7eAyFKb9"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Accede Aquí
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>

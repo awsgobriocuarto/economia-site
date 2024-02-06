@@ -6,7 +6,7 @@ import { Nav } from "react-bootstrap";
 export default function Navbar() {
   return (
     <nav className="navbar navbar-expand-xl navbar-light bg-light sticky-top">
-      <div className="container">
+      <div className="container-fluid">
         <Link href="/">
           <a className="navbar-brand">
             <Image src={Logo} alt="logo economia" />
