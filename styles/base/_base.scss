@@ -8,7 +8,8 @@ body {
   background-color: #f5f5f5;
 }
 
-main {}
+main {
+}
 
 section {
   padding-top: 60px;
@@ -70,6 +71,11 @@ footer {
   }
 }
 
+.notification {
+  padding: 30px;
+  background-color: $info;
+}
+
 @media (max-width: 767px) {
   body {
     margin-bottom: 340px;
@@ -128,6 +134,4 @@ footer {
       }
     }
   }
-
-
 }
