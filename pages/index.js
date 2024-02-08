@@ -8,7 +8,7 @@ import PostsLatest from "../components/elements/posts/PostsLatest";
 import fetchExpirations from "../services/fetchExpirations";
 import BannerTop from "../components/BannerTop";
 import Image from "next/image";
-import Notification from "../components/Notification";
+// import Notification from "../components/Notification";
 
 export default function Home({ items, expirations }) {
   //console.log(expirations);
@@ -18,8 +18,6 @@ export default function Home({ items, expirations }) {
         <title>Sec. de Economia Río Cuarto</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <Notification />
 
       <div className="row g-0">
         <div className="col-md-4 col-lg-3 col-xl-2 order-1">
