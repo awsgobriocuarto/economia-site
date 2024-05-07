@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Header from "../../components/Header";
-import getListFormalities from "../../services/getListFormalities";
+import { getFormalities } from "../../services/getFormalities";
 
 export default function GuiaDeTramites({ items }) {
   return (
@@ -35,7 +35,7 @@ export default function GuiaDeTramites({ items }) {
                       )}
                       {item.urlMore ? (
                         <a
-                          href={item.urlMore}
+                          href={`https://tramites.riocuarto.gob.ar/tramites/${item.urlMore}`}
                           target="_blank"
                           className="btn btn-dark"
                         >
@@ -92,9 +92,8 @@ export default function GuiaDeTramites({ items }) {
 }
 
 export async function getStaticProps() {
-  const response = await getListFormalities.list();
-  const items = response;
-  console.log(response);
+  const data = await getFormalities();
+  const items = data;
   return {
     props: {
       items,
