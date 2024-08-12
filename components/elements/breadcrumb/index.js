@@ -31,7 +31,7 @@ const Breadcrumbs = ({ title }) => {
       });
       setBreadcrumbs(pathArray);
     }
-  }, [router]);
+  }, [router, linkPath]);
 
   if (!breadcrumbs) {
     return null;
