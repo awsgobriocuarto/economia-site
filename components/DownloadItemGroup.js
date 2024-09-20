@@ -12,6 +12,7 @@ export default function DownloadItemGroup({ items }) {
           title={item.title}
           url={item.url}
           status={item.status}
+          completed={item.completed ? item.completed : ""}
         />
       ))}
     </ul>

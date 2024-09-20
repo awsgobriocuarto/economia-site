@@ -3,12 +3,14 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 
 const convertBreadcrumb = (string) => {
-  return string
-    .replace(/-/g, " ")
-    .replace(/oe/g, "ö")
-    .replace(/ae/g, "ä")
-    .replace(/ue/g, "ü")
-    .toLowerCase();
+  return (
+    string
+      .replace(/-/g, " ")
+      .replace(/oe/g, "ö")
+      .replace(/ae/g, "ä")
+      // .replace(/ue/g, "ü")
+      .toLowerCase()
+  );
 };
 
 const Breadcrumbs = ({ title }) => {
