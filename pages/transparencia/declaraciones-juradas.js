@@ -14,16 +14,6 @@ export default function DeclaracionesJuradas({
   tribunal,
   concejales,
 }) {
-  console.log(
-    intendente,
-    secretarios,
-    sub,
-    directores,
-    fiscales,
-    tribunal,
-    concejales
-  );
-
   return (
     <>
       <Head>
@@ -104,6 +94,18 @@ export default function DeclaracionesJuradas({
           ) : (
             ""
           )}
+          <hr />
+          <div className="py-3">
+            <h5>Declaracion Juradas Anteriores</h5>
+            <a
+              href="https://drive.google.com/drive/folders/1j1YENTh5nLKMFsTmr19az-1OdC-01XNP?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-dark"
+            >
+              Ver más
+            </a>
+          </div>
         </div>
       </section>
     </>
