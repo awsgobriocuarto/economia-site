@@ -31,15 +31,7 @@ export default function Presupuesto({
                 <DownloadItemGroup items={ejercicios} />
               </div>
               <div className="no-current">
-                {/* <DownloadItemGroupOlds items={ejercicios} /> */}
-                <a
-                  href="https://drive.google.com/drive/folders/1kA_QCn9aUPyoxGaLNZ-U4RHtABl0DCwO?usp=sharing"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-sm btn-dark mt-2"
-                >
-                  Ver anteriores
-                </a>
+                <DownloadItemGroupOlds items={ejercicios} />
               </div>
             </div>
           ) : (
