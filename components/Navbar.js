@@ -9,7 +9,13 @@ export default function Navbar() {
       <div className="container-fluid">
         <Link href="/">
           <a className="navbar-brand">
-            <Image src={Logo} alt="logo economia" />
+            {/* <Image src={Logo} alt="logo economia" /> */}
+            <Image
+              src="/images/logo-economia-new.png"
+              width="423"
+              height="113"
+              alt="logo economia"
+            />
           </a>
         </Link>
 

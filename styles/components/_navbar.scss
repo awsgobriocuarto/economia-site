@@ -1,10 +1,12 @@
 .navbar {
-  padding: 20px 15px;
+  //padding: 20px 15px;
+  height: 100px;
+
   font-family: "Univia", sans-serif;
   z-index: 9999;
   .navbar-brand {
     padding: 0;
-    width: 180px;
+    width: 220px;
     line-height: 0;
   }
   .navbar-toggler {
