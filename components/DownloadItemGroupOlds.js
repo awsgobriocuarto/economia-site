@@ -5,6 +5,11 @@ export default function DownloadItemGroupOlds({ items }) {
   const itemsFiltered = items.filter(
     (item) => item.status.toLowerCase() === "no vigente"
   );
+
+  if (itemsFiltered.length == 0) {
+    return '';
+  }
+
   return (
     <Accordion>
       <Accordion.Item eventKey="0">
