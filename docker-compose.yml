@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  app:
+    container_name: nextjs_dev
+    build:
+      context: .
+      dockerfile: Dockerfile # Usa el Dockerfile de desarrollo
+    volumes:
+      - .:/app # Mapea el código fuente para hot reload
+      - /app/node_modules # Evita que los módulos de Node.js en el host sobrescriban los del contenedor
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
