@@ -41,13 +41,6 @@ const persons = [
     img: "https://res.cloudinary.com/gobriocuarto/image/upload/v1669128766/Economia/Web/institucional-lorena-ricotto_wcfllm.png",
   },
   {
-    id: 4,
-    name: "Cra. Mónica Anelo",
-    position: "Dirección Gral. de Estadísticas, Control de Calidad y Procesos.",
-    cv: "https://drive.google.com/file/d/1r9ema7ENPKJ-5BMdPyb3a1q-Omkf0-7Y/view?usp=share_link",
-    img: "https://res.cloudinary.com/gobriocuarto/image/upload/v1677165074/Economia/Web/monica-anelo_wr1nze.png",
-  },
-  {
     id: 5,
     name: "Cr. Hernán Avanzini",
     position: "Dirección de Gestión Tributaria",
