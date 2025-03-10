@@ -54,6 +54,13 @@ const persons = [
     cv: "https://drive.google.com/file/d/1CVzqYkVte339wYYtHtMn5V_Dv1KPNke_/view?usp=share_link",
     img: "https://res.cloudinary.com/gobriocuarto/image/upload/v1669128626/Economia/Web/institucional-hernan-avanzini_esn2h0.png",
   },
+  {
+    id: 6,
+    name: "Eduarco Ochoa",
+    position: "Dirección Gral. de Informática",
+    cv: "https://drive.google.com/file/d/102njAAL0qmAbu8dHiXMQBOdExc5r-Ja4/view?usp=sharing",
+    img: "https://res.cloudinary.com/gobriocuarto/image/upload/v1741620322/Economia/Web/institucional-eduardo-ochoa.jpg",
+  },
 ];
 
 export default function Institucional() {
