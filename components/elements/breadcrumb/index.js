@@ -36,7 +36,7 @@ const Breadcrumbs = ({ title }) => {
       // inicializa breadcrumbs como un array vacío.
       setBreadcrumbs([]);
     }
-  }, [router.asPath]); // <-- ¡La clave está aquí! Solo depende de router.asPath.
+  }, [router.asPath, router]); // <-- ¡La clave está aquí! Solo depende de router.asPath.
   // Como router.asPath es una cadena (primitiva), solo cambia
   // cuando la URL realmente navega, evitando el bucle infinito.
 
