@@ -1,5 +1,5 @@
 import React from "react";
-import Breadcrumbs from "./elements/breadcrumb";
+// import Breadcrumbs from "./elements/breadcrumb";
 
 export default function Header({ title, subtitle }) {
   return (
@@ -10,7 +10,7 @@ export default function Header({ title, subtitle }) {
           <p className="lead">{subtitle}</p>
         </div>
       </header>
-      <Breadcrumbs />
+      {/* <Breadcrumbs /> */}
     </>
   );
 }

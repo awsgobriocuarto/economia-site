@@ -33,15 +33,15 @@ export default function InformacionEconomicaFinanciera({
                 <DownloadItemGroup items={ejercicios} />
               </div>
               <div className="no-current">
-                <DownloadItemGroupOlds items={ejercicios} />
-                {/* <a
+                {/* <DownloadItemGroupOlds items={ejercicios} /> */}
+                <a
                   href="https://drive.google.com/drive/folders/1kA_QCn9aUPyoxGaLNZ-U4RHtABl0DCwO?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-sm btn-dark mt-2"
                 >
                   Ver anteriores
-                </a> */}
+                </a>
               </div>
             </div>
           ) : (
@@ -54,15 +54,15 @@ export default function InformacionEconomicaFinanciera({
                 <DownloadItemGroup items={ejecuciones} />
               </div>
               <div className="no-current">
-                <DownloadItemGroupOlds items={ejecuciones} />
-                {/* <a
+                {/* <DownloadItemGroupOlds items={ejecuciones} /> */}
+                <a
                   href="https://drive.google.com/drive/folders/1UgqlgbsyQJtb5Swj1Dzj3bIw09JsSaVa?usp=drive_link"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-sm btn-dark mt-2"
                 >
                   Ver anteriores
-                </a> */}
+                </a>
               </div>
             </div>
           ) : (
@@ -75,15 +75,15 @@ export default function InformacionEconomicaFinanciera({
                 <DownloadItemGroup items={presupuesto} />
               </div>
               <div className="no-current">
-                <DownloadItemGroupOlds items={presupuesto} />
-                {/* <a
+                {/* <DownloadItemGroupOlds items={presupuesto} /> */}
+                <a
                   href="https://drive.google.com/drive/folders/18Kz6q4z3g_Vkp6XmeUIICyVQrhNJbYbi?usp=drive_link"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-sm btn-dark mt-2"
                 >
                   Ver anteriores
-                </a> */}
+                </a>
               </div>
             </div>
           ) : (
@@ -96,15 +96,15 @@ export default function InformacionEconomicaFinanciera({
                 <DownloadItemGroup items={recaudacion} />
               </div>
               <div className="no-current">
-                <DownloadItemGroupOlds items={recaudacion} />
-                {/* <a
+                {/* <DownloadItemGroupOlds items={recaudacion} /> */}
+                <a
                   href="https://drive.google.com/drive/folders/1gxlzZpKnQaodffDCQm-CIoPzJTGHcMed?usp=drive_link"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-sm btn-dark mt-2"
                 >
                   Ver anteriores
-                </a> */}
+                </a>
               </div>
             </div>
           ) : (
@@ -117,15 +117,15 @@ export default function InformacionEconomicaFinanciera({
                 <DownloadItemGroup items={deudas} />
               </div>
               <div className="no-current">
-                <DownloadItemGroupOlds items={deudas} />
-                {/* <a
+                {/* <DownloadItemGroupOlds items={deudas} /> */}
+                <a
                   href="https://drive.google.com/drive/folders/1p9Y3C015S7to8uj15XZ8DAreW7M31Hsx?usp=drive_link"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-sm btn-dark mt-2"
                 >
                   Ver anteriores
-                </a> */}
+                </a>
               </div>
             </div>
           ) : (
@@ -138,15 +138,15 @@ export default function InformacionEconomicaFinanciera({
                 <DownloadItemGroup items={informes} />
               </div>
               <div className="no-current">
-                <DownloadItemGroupOlds items={informes} />
-                {/* <a
+                {/* <DownloadItemGroupOlds items={informes} /> */}
+                <a
                   href="https://drive.google.com/drive/folders/1W4od223WJMg4ua_NNBrupesAhDwrypHR?usp=drive_link"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-sm btn-dark mt-2"
                 >
                   Ver anteriores
-                </a> */}
+                </a>
               </div>
             </div>
           ) : (
@@ -159,15 +159,15 @@ export default function InformacionEconomicaFinanciera({
                 <DownloadItemGroup items={realidad} />
               </div>
               <div className="no-current">
-                <DownloadItemGroupOlds items={realidad} />
-                {/* <a
+                {/* <DownloadItemGroupOlds items={realidad} /> */}
+                <a
                   href="https://drive.google.com/drive/folders/1GCkaO0zPAEJ0oGI3Qj4C_39D_8n5A7mV?usp=drive_link"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-sm btn-dark mt-2"
                 >
                   Ver anteriores
-                </a> */}
+                </a>
               </div>
             </div>
           ) : (

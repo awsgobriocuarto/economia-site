@@ -1,3 +1,14 @@
+const API_BASE_URL = process.env.API_BASE_URL;
+const API_VERSION = process.env.API_VERSION;
+const API_TOKEN = process.env.API_TOKEN;
+
+if (!API_BASE_URL || !API_TOKEN) {
+  throw new Error("API_BASE_URL o API_TOKEN no están definidas en el entorno");
+}
+
+const API_URL = `${API_BASE_URL}/api${API_VERSION ? `/${API_VERSION}` : ""}`;
+
+
 const fromApiResponseToPosts = (apiResponse) => {
   const data = apiResponse;
   if (Array.isArray(data)) {
@@ -19,8 +30,7 @@ const fromApiResponseToPosts = (apiResponse) => {
 };
 
 export function getFormalities() {
-  const API_URL = "https://admin.tramitesdev.riocuarto.gob.ar";
-  const API_TOKEN = "Bearer 1|Dn58lwU4vJcuXXSMtdAyYBhyc5NZyRXWZFNgMney";
+
   const API_OPTIONS = {
     headers: {
       Authorization: API_TOKEN,
@@ -29,7 +39,7 @@ export function getFormalities() {
   };
 
   return fetch(
-    `${API_URL}/api/tramites?area=secretaria-de-economia`,
+    `${API_URL}/tramites?area=secretaria-de-economia-e-innovacion`,
     API_OPTIONS
   )
     .then((res) => res.json())

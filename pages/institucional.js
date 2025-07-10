@@ -41,18 +41,18 @@ const persons = [
     img: "https://res.cloudinary.com/gobriocuarto/image/upload/v1669128766/Economia/Web/institucional-lorena-ricotto_wcfllm.png",
   },
   {
-    id: 4,
-    name: "Cra. Mónica Anelo",
-    position: "Dirección Gral. de Estadísticas, Control de Calidad y Procesos.",
-    cv: "https://drive.google.com/file/d/1r9ema7ENPKJ-5BMdPyb3a1q-Omkf0-7Y/view?usp=share_link",
-    img: "https://res.cloudinary.com/gobriocuarto/image/upload/v1677165074/Economia/Web/monica-anelo_wr1nze.png",
-  },
-  {
     id: 5,
     name: "Cr. Hernán Avanzini",
     position: "Dirección de Gestión Tributaria",
     cv: "https://drive.google.com/file/d/1CVzqYkVte339wYYtHtMn5V_Dv1KPNke_/view?usp=share_link",
     img: "https://res.cloudinary.com/gobriocuarto/image/upload/v1669128626/Economia/Web/institucional-hernan-avanzini_esn2h0.png",
+  },
+  {
+    id: 6,
+    name: "Eduarco Ochoa",
+    position: "Dirección Gral. de Informática",
+    cv: "https://drive.google.com/file/d/102njAAL0qmAbu8dHiXMQBOdExc5r-Ja4/view?usp=sharing",
+    img: "https://res.cloudinary.com/gobriocuarto/image/upload/v1741620322/Economia/Web/institucional-eduardo-ochoa.jpg",
   },
 ];
 
@@ -311,31 +311,19 @@ export default function Institucional() {
                   presupuestaria municipal.
                 </li>
               </ol>
-              <h5>Dirección General de Estadística, Control de Calidad y Procesos</h5>
+              <h5>Dirección General de Informática</h5>
               <ol>
-                <li>Medir y evaluar la calidad de los servicios y prestaciones que brindan las diferentes áreas del Municipio de forma centralizada, independiente y multidimensional, generando una visión integral, con foco en el vecino.</li>
-                <li>Determinar, medir y evaluar la alineación de los proyectos del Gobierno con los Objetivos de Desarrollo Sostenible definidos por la ONU y su grado de cumplimiento</li>
-                <li>Acompañar activamente a la planificación, para garantizar la confiabilidad y la consistencia de los planes operativos anuales a implementarse, y a la evaluación del gasto, para seguir la ejecución del presupuesto de gestión orientada a resultados.</li>
-                <li>Fomentar la coordinación entre las diferentes jurisdicciones para garantizar que los proyectos sean exitosos eficientizando el gasto.</li>
-                <li>Acercar la información requerida por diferentes interlocutores del Gobierno para la evaluación y el seguimiento del Plan de Gobierno.</li>
-                <li>Asistir a todas las áreas en la definición de sus planes estratégicos y prioriza los proyectos en función de los ejes de gestión y compromisos públicos</li>
-                <li>Determinar indicadores de calidad, su metodología de medición y metas objetivo para promover la mejora en la prestación de los servicios que brinda el Gobierno de la Ciudad de Río Cuarto, en coordinación con las áreas competentes.</li>
-                <li>Elaborar indicadores de medición de contribución a los ODS en coordinación con las áreas competentes.</li>
-                <li>Monitorear los indicadores y coordinar los relevamientos para obtener mediciones objetivas de forma periódica.</li>
-                <li>Realizar evaluaciones de impacto y retroalimentar a las áreas de Planificación y ejecución 48</li>
-                <li>Documentar y monitorear las variables que permitan generar la información para la evaluación de los servicios, obteniendo mediciones de forma periódica.</li>
-                <li>Realizar un diagnóstico de la capacidad de gestión en términos de impacto en la calidad de vida del ciudadano.</li>
-                <li>Estandarizar la medición de la calidad de los servicios para lograr un nivel de servicio homogéneo al ciudadano, y facilitar la colaboración entre jurisdicciones para compartir mejores prácticas.</li>
-                <li>Evaluar los servicios que presta el Gobierno de la Ciudad de Río Cuarto desde la experiencia del ciudadano, en coordinación con las áreas competentes.</li>
-                <li>Asistir a las áreas evaluadas para lograr las mejoras que se propongan, generando herramientas basadas en metodologías de experiencia de usuario.</li>
-                <li>Desarrollar y sistematizar con rigurosidad intervenciones para apoyar a las áreas de gobierno en la mejora de su performance en programas y proyectos.</li>
-                <li>Asegurar una correcta presupuestación a los fines de garantizar la ejecución del plan de gobierno definido, buscando maximizar el impacto de los planes estratégicos a través de una eficiente distribución de los recursos públicos.</li>
-                <li>Dar seguimiento permanente, analizar e interpretar la ejecución presupuestaria de cada área de gobierno</li>
-                <li>Desarrollar e implementar mecanismos y metodologías de evaluación, análisis y control del gasto para el Gobierno de la Ciudad de Río Cuarto, enfocándose en la rentabilidad social del gasto.</li>
-                <li>Realizar la evaluación expost de los principales programas y proyectos del Gobierno de la Ciudad de Río Cuarto.</li>
-                <li>Coordinar la correcta implementación del Plan de Acción del Gobierno en el presupuesto general de gastos y cálculos de recursos en coordinación con la Subdirección General de Presupuesto y Unidades Ejecutoras</li>
-                <li>Elaborar informes respecto del desarrollo y desempeño de las distintas actividades y/o áreas del Gobierno, para el seguimiento, el aporte en la comunicación de acciones y en la toma de decisiones por parte de su titular.</li>
+                <li>
+                  Proveer soluciones de tecnología de la información que faciliten los objetivos en los distintos sectores.
+                </li>
+                <li>
+                  Definir junto a su equipo y superiores las características técnicas y la adecuación de los sistemas, hardware y red, así como las características de los sistemas de comunicación.
+                </li>
+                <li>
+                  Planificar, dirigir y controlar los recursos informáticos del área a cargo.
+                </li>
               </ol>
+
             </div>
           </div>
         </div>
