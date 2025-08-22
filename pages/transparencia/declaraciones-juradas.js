@@ -1,99 +1,47 @@
 import React from "react";
 import Head from "next/head";
 import Header from "../../components/Header";
-import DownloadItemGroup from "../../components/DownloadItemGroup";
-import DownloadItemGroupOlds from "../../components/DownloadItemGroupOlds";
-import fetchDDJJ from "../../services/fetchDDJJ";
+import { getDeclarations } from "../../services/fetchDDJJApi";
 
-export default function DeclaracionesJuradas({
-  intendente,
-  secretarios,
-  sub,
-  directores,
-  fiscales,
-  tribunal,
-  concejales,
-}) {
+export default function DeclaracionesJuradas({ items }) {
+  console.log(items);
+
   return (
     <>
       <Head>
         <title>Sec. de Economia Río Cuarto - Declaraciones Juradas</title>
       </Head>
 
-      <Header title="Declaraciones Juradas" subtitle="" />
+      <Header title="Declaraciones Juradas 2025" subtitle="" />
 
       <section className="legislations">
         <div className="container">
-          {intendente.length ? (
-            <div className="group">
+          {items.map((item) => (
+            <div className="group" key={item.id}>
               <div className="current">
-                <h3>Intendente</h3>
-                <DownloadItemGroup items={intendente} />
+                <h3>{item.name}</h3>
+                {item.users.map((user) => (
+                  <ul key={user.id}>
+                    <li className="">
+                      <span className="text-uppercase">{user.name}</span>
+                      {user.declarations.length == 0 ? <span className="btn btn-warning disabled">pendiente</span> : (
+                        <>
+                          {user.declarations.map((declaration) => (
+                            <span key={declaration.id}>
+                              <a href={declaration.public_url} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
+                                descargar
+                              </a>
+                            </span>
+                          ))}
+                        </>
+                      )}
+
+                    </li>
+                  </ul>
+                ))}
               </div>
             </div>
-          ) : (
-            ""
-          )}
-          {secretarios.length ? (
-            <div className="group">
-              <div className="current">
-                <h3>Secretarios</h3>
-                <DownloadItemGroup items={secretarios} />
-              </div>
-            </div>
-          ) : (
-            ""
-          )}
-          {sub.length ? (
-            <div className="group">
-              <div className="current">
-                <h3>Subsecretarios</h3>
-                <DownloadItemGroup items={sub} />
-              </div>
-            </div>
-          ) : (
-            ""
-          )}
-          {directores.length ? (
-            <div className="group">
-              <div className="current">
-                <h3>Directores</h3>
-                <DownloadItemGroup items={directores} />
-              </div>
-            </div>
-          ) : (
-            ""
-          )}
-          {fiscales.length ? (
-            <div className="group">
-              <div className="current">
-                <h3>Fiscales</h3>
-                <DownloadItemGroup items={fiscales} />
-              </div>
-            </div>
-          ) : (
-            ""
-          )}
-          {tribunal.length ? (
-            <div className="group">
-              <div className="current">
-                <h3>Tribunal de Cuentas</h3>
-                <DownloadItemGroup items={tribunal} />
-              </div>
-            </div>
-          ) : (
-            ""
-          )}
-          {concejales.length ? (
-            <div className="group">
-              <div className="current">
-                <h3>Concejales</h3>
-                <DownloadItemGroup items={concejales} />
-              </div>
-            </div>
-          ) : (
-            ""
-          )}
+          ))}
           <hr />
           <div className="py-3">
             <h5>Declaracion Juradas Anteriores</h5>
@@ -107,46 +55,19 @@ export default function DeclaracionesJuradas({
             </a>
           </div>
         </div>
-      </section>
+      </section >
     </>
   );
 }
 
 export async function getStaticProps() {
-  const response = await fetchDDJJ.list();
-  const items = response;
 
-  const intendente = response.filter((i) =>
-    i.category.toLowerCase().includes("intendente")
-  );
-  const secretarios = response.filter((i) =>
-    i.category.toLowerCase().includes("secretarios")
-  );
-  const sub = response.filter((i) => i.category.toLowerCase().includes("sub"));
-  const directores = response.filter((i) =>
-    i.category.toLowerCase().includes("directores")
-  );
-  const fiscales = response.filter((i) =>
-    i.category.toLowerCase().includes("fiscales")
-  );
-  const tribunal = response.filter((i) =>
-    i.category.toLowerCase().includes("tribunal")
-  );
-  const concejales = response.filter((i) =>
-    i.category.toLowerCase().includes("concejales")
-  );
+  const items = await getDeclarations();
+
 
   return {
     props: {
-      items,
-      intendente,
-      secretarios,
-      sub,
-      directores,
-      fiscales,
-      tribunal,
-      concejales,
-    },
-    revalidate: 1,
+      items
+    }
   };
 }
