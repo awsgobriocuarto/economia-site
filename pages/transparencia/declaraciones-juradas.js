@@ -2,6 +2,7 @@ import React from "react";
 import Head from "next/head";
 import Header from "../../components/Header";
 import { getDeclarations } from "../../services/fetchDDJJApi";
+import DownloadItemDDJJ from "../../components/DownloadItemDDJJ";
 
 export default function DeclaracionesJuradas({ items }) {
   console.log(items);
@@ -19,26 +20,37 @@ export default function DeclaracionesJuradas({ items }) {
           {items.map((item) => (
             <div className="group" key={item.id}>
               <div className="current">
-                <h3>{item.name}</h3>
-                {item.users.map((user) => (
-                  <ul key={user.id}>
-                    <li className="">
-                      <span className="text-uppercase">{user.name}</span>
-                      {user.declarations.length == 0 ? <span className="btn btn-warning disabled">pendiente</span> : (
-                        <>
-                          {user.declarations.map((declaration) => (
-                            <span key={declaration.id}>
-                              <a href={declaration.public_url} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
-                                descargar
-                              </a>
-                            </span>
-                          ))}
-                        </>
-                      )}
+                <h3 className="text-primary">{item.name}</h3>
+                <ul className="mb-3">
+                  {item.users.map((user) => (
+                    <React.Fragment key={user.id}>
+                      <DownloadItemDDJJ name={user.name} state={user.declarations ? user.declarations.state : ""} url={user.declarations ? user.declarations.public_url : ""} />
+                    </React.Fragment>
+                  ))}
+                </ul>
+                {item.children.length == 0 ? "" : (
+                  <ul className="">
+                    {item.children.map((child) => (
+                      <React.Fragment key={child.id}>
 
-                    </li>
+                        {child.users.length == 0 ? "" : (
+                          <>
+                            <h5>
+                              {child.name}
+                            </h5>
+                            <ul>
+                              {child.users.map((user) => (
+                                <React.Fragment key={user.id}>
+                                  <DownloadItemDDJJ name={user.name} state={user.declarations ? user.declarations.state : ""} url={user.declarations ? user.declarations.public_url : ""} />
+                                </React.Fragment>
+                              ))}
+                            </ul>
+                          </>
+                        )}</React.Fragment>
+
+                    ))}
                   </ul>
-                ))}
+                )}
               </div>
             </div>
           ))}

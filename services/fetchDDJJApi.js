@@ -1,5 +1,5 @@
 export function getDeclarations() {
-  const apiURL = `https://ddjjdev.gobiernoriocuarto.gob.ar/api/position`;
+  const apiURL = `https://ddjj.gobiernoriocuarto.gob.ar/api/position`;
   return fetch(apiURL)
     .then((res) => res.json())
     .catch((error) => {
