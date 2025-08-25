@@ -3,8 +3,15 @@ import Head from "next/head";
 import Header from "../../components/Header";
 import { getDeclarations } from "../../services/fetchDDJJApi";
 import DownloadItemDDJJ from "../../components/DownloadItemDDJJ";
+import { useDeclarations } from "../../hooks/useDeclarations";
+import Spinner from "../../components/elements/spinner/Spinner";
 
-export default function DeclaracionesJuradas({ items }) {
+
+export default function DeclaracionesJuradas() {
+  const { declarations, loading } = useDeclarations();
+
+  const items = declarations;
+
   console.log(items);
 
   return (
@@ -15,8 +22,13 @@ export default function DeclaracionesJuradas({ items }) {
 
       <Header title="Declaraciones Juradas 2025" subtitle="" />
 
+
+
       <section className="legislations">
         <div className="container">
+
+          {loading && <Spinner />}
+
           {items.map((item) => (
             <div className="group" key={item.id}>
               <div className="current">
@@ -72,14 +84,14 @@ export default function DeclaracionesJuradas({ items }) {
   );
 }
 
-export async function getStaticProps() {
+// export async function getStaticProps() {
 
-  const items = await getDeclarations();
+//   const items = await getDeclarations();
 
 
-  return {
-    props: {
-      items
-    }
-  };
-}
+//   return {
+//     props: {
+//       items
+//     }
+//   };
+// }
