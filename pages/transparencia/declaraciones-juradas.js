@@ -4,8 +4,7 @@ import Header from "../../components/Header";
 import { getDeclarations } from "../../services/fetchDDJJApi";
 import DownloadItemDDJJ from "../../components/DownloadItemDDJJ";
 import { useDeclarations } from "../../hooks/useDeclarations";
-import Spinner from "../../components/elements/spinner/Spinner";
-
+import { Spinner } from "react-bootstrap";
 
 export default function DeclaracionesJuradas() {
   const { declarations, loading } = useDeclarations();
@@ -26,9 +25,7 @@ export default function DeclaracionesJuradas() {
 
       <section className="legislations">
         <div className="container">
-
           {loading && <Spinner />}
-
           {items.map((item) => (
             <div className="group" key={item.id}>
               <div className="current">
