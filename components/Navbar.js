@@ -68,6 +68,11 @@ export default function Navbar() {
                 <a className="nav-link">Sustentabilidad</a>
               </Link>
             </li>
+            <li className="nav-item">
+              <Link href="/innovacion">
+                <a className="nav-link">Innovación</a>
+              </Link>
+            </li>
             {/* <li className="nav-item">
               <Link href="/ods">
                 <a className="nav-link">ODS</a>
