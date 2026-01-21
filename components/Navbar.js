@@ -5,13 +5,13 @@ import { Nav } from "react-bootstrap";
 
 export default function Navbar() {
   return (
-    <nav className="navbar navbar-expand-xl navbar-light bg-light sticky-top">
+    <nav className="navbar navbar-expand-xl navbar-light bg-secondary sticky-top">
       <div className="container-fluid">
         <Link href="/">
           <a className="navbar-brand">
             {/* <Image src={Logo} alt="logo economia" /> */}
             <Image
-              src="/images/logo-economia-new.png"
+              src="/images/logo-economia-ok.png"
               width="423"
               height="113"
               alt="logo economia"

@@ -9,7 +9,7 @@ export default function Expirations({ expirations }) {
   return (
     <section className="expirations">
       <div className="container">
-        <h2>Vencimientos</h2>
+        <h2>Próximos vencimientos</h2>
         <div className="row">
           {expirations.map((expiration, index) => (
             <ExpirationItem key={expiration.titulo + index} {...expiration} />

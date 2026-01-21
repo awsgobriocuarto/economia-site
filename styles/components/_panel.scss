@@ -4,24 +4,27 @@
   color: $gray-700;
   box-shadow: 0 0 8px $gray-200;
   margin-bottom: 30px;
-  background-color: #fff;
+  background-color: white;
   border-radius: 6px;
+
   &:hover {
     color: $gray-900;
     box-shadow: 0 0 8px $gray-300;
 
     .panel-item {
       border-color: $primary;
+
       .icon {
         border-color: $primary;
         color: $primary;
       }
     }
   }
+
   .panel-item {
     padding: 1.6rem;
     // border: 1px solid $gray-200;
-    border-right: 12px solid $gray-300;
+    border-right: 12px solid $secondary;
     border-radius: 6px;
 
     // display: flex;
@@ -29,6 +32,7 @@
     display: grid;
     grid-template-columns: 74px 1fr;
     align-items: center;
+
     .icon {
       border: 1px solid $gray-300;
       border-radius: 9999px;
@@ -39,6 +43,7 @@
       align-items: center;
       justify-content: center;
     }
+
     p {
       margin-bottom: 0;
       text-transform: uppercase;
@@ -52,6 +57,7 @@
 @media (max-width: 767px) {
   .panel {
     margin-bottom: 15px;
+
     .panel-item {
       padding: 1.2rem;
       border-right: 12px solid $gray-300;
@@ -60,6 +66,7 @@
       display: grid;
       grid-template-columns: 74px 1fr;
       align-items: center;
+
       .icon {
         border: 1px solid $gray-300;
         border-radius: 9999px;
@@ -70,6 +77,7 @@
         align-items: center;
         justify-content: center;
       }
+
       p {
         margin-bottom: 0;
         text-transform: uppercase;

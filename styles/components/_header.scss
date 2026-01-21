@@ -1,11 +1,7 @@
 header {
   min-height: 120px;
-  background: rgb(235, 126, 57);
-  background: linear-gradient(
-    -45deg,
-    rgba(235, 126, 57, 1) 0%,
-    rgba(0, 63, 162, 1) 100%
-  );
+  background: $secondary;
+
 
   color: white;
   display: flex;
@@ -17,6 +13,7 @@ header {
     font-size: 1.8rem;
     margin-bottom: 0px;
   }
+
   .lead {
     margin-bottom: 0;
   }
@@ -25,14 +22,8 @@ header {
 @media (max-width: 767px) {
   header {
     min-height: 100px;
-    background: rgb(235, 126, 57);
-    background: linear-gradient(
-      -45deg,
-      rgba(235, 126, 57, 1) 0%,
-      rgba(0, 63, 162, 1) 100%
-    );
-
-    color: white;
+    background: $secondary;
+    color: $primary;
     display: flex;
     align-items: center;
 
@@ -42,6 +33,7 @@ header {
       font-size: 1.4rem;
       margin-bottom: 0px;
     }
+
     .lead {
       margin-bottom: 0;
     }

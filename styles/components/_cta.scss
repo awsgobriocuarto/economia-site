@@ -1,7 +1,8 @@
 .cta {
-  background-color: $secondary;
+  background-color: $primary;
   padding-top: 40px;
   padding-bottom: 40px;
+
   .container {
     // gap: 20px;
     // padding: 0 10%;
@@ -9,20 +10,24 @@
     align-items: center;
     justify-content: space-between;
   }
+
   &-body {
     color: inherit;
   }
+
   &-title {
     font-weight: 700;
     font-size: 2rem;
     color: white;
   }
+
   &-text {
     font-weight: 500;
     font-size: 1.2rem;
     color: white;
     margin-bottom: 8px;
   }
+
   &-button {
     text-transform: uppercase;
   }
@@ -32,16 +37,20 @@
   .cta {
     padding-top: 60px;
     padding-bottom: 60px;
+
     .container {
       display: flex;
       flex-direction: column;
     }
+
     &-body {
       text-align: center;
     }
+
     &-title {
       font-size: 1.8rem;
     }
+
     &-text {
       font-size: 1.1rem;
       margin-bottom: 30px;

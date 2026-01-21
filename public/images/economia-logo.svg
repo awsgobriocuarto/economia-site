@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2978.01 1675.13">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="cls-1" x="989.9" y="728.47" width="800" height="233.55"/>
+    </clipPath>
+  </defs>
+  <g class="cls-2">
+    <image width="8000" height="4500" transform="scale(.37)" xlink:href="RGB_Isolotipo principal - Negativo.png"/>
+  </g>
+</svg>

@@ -1,29 +1,23 @@
 import axios from "axios";
-import Papa from "papaparse";
 
 export default {
   list: async () => {
     return axios
       .get(
-        "https://docs.google.com/spreadsheets/d/e/2PACX-1vTbkYiA-WUsEpMjucZ-4rdk6ctYAWKaMXYEfQKIjLg69Y-3MMhGDbs7WABRsdCLxhBKe4HI7mDyCERC/pub?output=csv",
-        { responseType: "blob" }
+        "https://script.google.com/macros/s/AKfycbzuMFJ-6cnbzQxiwQa2bi2wW29IfQPwdxzfy59dA8rQpUQ_fuQAz1ctxQHBMHhXlCxjQQ/exec?section=fetchTransparency"
       )
-      .then(
-        (response) =>
-          new Promise((resolve, reject) => {
-            Papa.parse(response.data, {
-              header: true,
-              complete: (results) => {
-                const items = results.data;
-                return resolve(
-                  items.map((item) => ({
-                    ...item,
-                  }))
-                );
-              },
-              error: (error) => reject(error.message),
-            });
-          })
-      );
+      .then((response) => {
+        const items = response.data;
+        if (Array.isArray(items)) {
+          return items.map((item) => ({
+            ...item,
+          }));
+        }
+        return [];
+      })
+      .catch((error) => {
+        console.error("Error fetching Transparency: ", error);
+        return [];
+      });
   },
 };

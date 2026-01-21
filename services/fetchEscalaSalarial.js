@@ -1,29 +1,23 @@
 import axios from "axios";
-import Papa from "papaparse";
 
 export default {
   list: async () => {
     return axios
       .get(
-        "https://docs.google.com/spreadsheets/d/e/2PACX-1vSQAkqqe84boctfrd57Ij-d5aujuVlE3olqT0tRV7D7qeS8kcUEMqNrw0d9l6GeKFKMmrEYn_AKtCBd/pub?output=csv",
-        { responseType: "blob" }
+        "https://script.google.com/macros/s/AKfycbzuMFJ-6cnbzQxiwQa2bi2wW29IfQPwdxzfy59dA8rQpUQ_fuQAz1ctxQHBMHhXlCxjQQ/exec?section=fetchEscalaSalarial"
       )
-      .then(
-        (response) =>
-          new Promise((resolve, reject) => {
-            Papa.parse(response.data, {
-              header: true,
-              complete: (results) => {
-                const items = results.data;
-                return resolve(
-                  items.map((item) => ({
-                    ...item,
-                  }))
-                );
-              },
-              error: (error) => reject(error.message),
-            });
-          })
-      );
+      .then((response) => {
+        const items = response.data;
+        if (Array.isArray(items)) {
+          return items.map((item) => ({
+            ...item,
+          }));
+        }
+        return [];
+      })
+      .catch((error) => {
+        console.error("Error fetching Escala Salarial: ", error);
+        return [];
+      });
   },
 };
