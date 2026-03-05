@@ -63,11 +63,12 @@ export default function Navbar() {
                 <a className="nav-link">Legislación</a>
               </Link>
             </li>
+            {/* </li>
             <li className="nav-item">
               <Link href="/sustentabilidad">
                 <a className="nav-link">Sustentabilidad</a>
               </Link>
-            </li>
+            </li> */}
             {/* <li className="nav-item">
               <Link href="/ods">
                 <a className="nav-link">ODS</a>
