@@ -5,7 +5,7 @@ export default function Footer() {
     <footer>
       <div className="container">
         <div>
-          <h6>Secretaría de Economía</h6>
+          <h6>Secretaria de Economía e Innovación</h6>
           <p>Constitución 988. Córdoba, Argentina.</p>
           <p>Municipalidad de Río Cuarto</p>
         </div>
