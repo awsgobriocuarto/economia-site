@@ -134,7 +134,7 @@ export default function InformacionEconomicaFinanciera({
           {informes.length ? (
             <div className="group">
               <div className="current">
-                <h3>Informe Calificación de Riego</h3>
+                <h3>Informe Calificación de Riesgo</h3>
                 <DownloadItemGroup items={informes} />
               </div>
               <div className="no-current">
