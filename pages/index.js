@@ -6,7 +6,6 @@ import Expirations from "../components/elements/expirations/Expirations";
 import Cta from "../components/elements/cta/Cta";
 import PostsLatest from "../components/elements/posts/PostsLatest";
 import fetchExpirations from "../services/fetchExpirations";
-import BannerTop from "../components/BannerTop";
 import Image from "next/image";
 // import Notification from "../components/Notification";
 
@@ -19,14 +18,7 @@ export default function Home({ items, expirations }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="row g-0">
-        <div className="col-md-4 col-lg-3 col-xl-2 order-1">
-          <BannerTop />
-        </div>
-        <div className="col-md-8 col-lg-9 col-xl-10 order-2">
-          <Slider />
-        </div>
-      </div>
+      <Slider />
 
       <div className="container">
         <div className="row">
