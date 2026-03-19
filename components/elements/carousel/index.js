@@ -17,29 +17,31 @@ export const Slider = () => {
                 {/* eslint-disable-next-line */}
                 <img src={slide.file} alt="" className="d-block w-100" />
                 <Carousel.Caption>
-                  <h5 className="display-4">{slide.title}</h5>
-                  <p>{slide.summary}</p>
-                  {slide.link_type && (
-                    <>
-                      {slide.link_type === "_blank" ? (
-                        <>
-                          <a
-                            href={slide.href}
-                            target="_blank"
-                            className="btn btn-light"
-                          >
-                            Ver más
-                          </a>
-                        </>
-                      ) : (
-                        <>
-                          <Link href={slide.href}>
-                            <a className="btn btn-light">Ver más</a>
-                          </Link>
-                        </>
-                      )}
-                    </>
-                  )}
+                  <div className="container">
+                    <h5 className="display-4">{slide.title}</h5>
+                    <p>{slide.summary}</p>
+                    {slide.link_type && (
+                      <>
+                        {slide.link_type === "_blank" ? (
+                          <>
+                            <a
+                              href={slide.href}
+                              target="_blank"
+                              className="btn btn-light"
+                            >
+                              Ver más
+                            </a>
+                          </>
+                        ) : (
+                          <>
+                            <Link href={slide.href}>
+                              <a className="btn btn-light">Ver más</a>
+                            </Link>
+                          </>
+                        )}
+                      </>
+                    )}
+                  </div>
                 </Carousel.Caption>
               </Carousel.Item>
             ))}
