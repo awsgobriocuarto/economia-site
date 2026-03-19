@@ -1,3 +1,4 @@
+/*
 import Head from "next/head";
 import Header from "../../components/Header";
 import { getFormalities } from "../../services/getFormalities";
@@ -18,7 +19,9 @@ export default function GuiaDeTramites({ items }) {
                 <div className="card-body">
                   <div className="row">
                     <div className="col-lg-8 col-xl-9 mb-3 mb-lg-0">
-                      <h5 className="card-title text-secondary">{item.title}</h5>
+                      <h5 className="card-title text-secondary">
+                        {item.title}
+                      </h5>
                       <div className="card-text">{item.description}</div>
                     </div>
                     <div className="col-lg-4 col-xl-3 ">
@@ -52,7 +55,9 @@ export default function GuiaDeTramites({ items }) {
               </div>
             ))
           ) : (
-            <div className="alert alert-info">No se encontraron trámites disponibles en este momento.</div>
+            <div className="alert alert-info">
+              No se encontraron trámites disponibles en este momento.
+            </div>
           )}
           <div className="banner secondary">
             <div>
@@ -64,7 +69,7 @@ export default function GuiaDeTramites({ items }) {
             </div>
             <div>
               <form
-                action="https://tramites.riocuarto.gov.ar/lista.php"
+                action="https://tramites.riocuarto.gov.ar/"
                 method="post"
                 target="_blank"
               >
@@ -104,4 +109,9 @@ export async function getStaticProps() {
     },
     revalidate: 1,
   };
+}
+*/
+
+export default function GuiaDeTramites() {
+  return null;
 }
