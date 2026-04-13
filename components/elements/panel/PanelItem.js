@@ -22,11 +22,16 @@ export const PanelItem = ({ item }) => {
               className="panel animate__animated animate__fadeIn"
               onClick={() => handleEventClick(item.title)}
             >
-              <div className="panel-item">
-                <div className="icon">
+              <div className="panel-item-horizontal">
+                <div className="icon-side">
                   <i className={`fas fa-2x ${item.iconUrl}`}></i>
                 </div>
-                <p>{item.title}</p>
+                <div className="text-side">
+                  <p>{item.title}</p>
+                </div>
+                <div className="chevron-side">
+                  <i className="fas fa-chevron-right"></i>
+                </div>
               </div>
             </a>
           </Link>

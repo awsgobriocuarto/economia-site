@@ -1,59 +1,149 @@
+// ===== CTA - CALL TO ACTION =====
 .cta {
-  background-color: $primary;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  background: linear-gradient(135deg, $primary 0%, darken($primary, 8%) 100%);
+  padding-top: 60px;
+  padding-bottom: 60px;
+  position: relative;
+  overflow: hidden;
+
+  // Elemento decorativo
+  &::before {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: -40px;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    pointer-events: none;
+  }
 
   .container {
-    // gap: 20px;
-    // padding: 0 10%;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
+    z-index: 1;
+  }
+
+  &-content {
+    flex: 1;
+  }
+
+  &-icon {
+    height: 70px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
   }
 
   &-body {
-    color: inherit;
+    color: white;
   }
 
   &-title {
-    font-weight: 700;
-    font-size: 2rem;
-    color: white;
+    font-weight: 800;
+    font-size: 2.2rem;
+    line-height: 1.1;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: -0.02rem;
   }
 
   &-text {
-    font-weight: 500;
+    font-weight: 400;
     font-size: 1.2rem;
-    color: white;
-    margin-bottom: 8px;
+    margin-bottom: 0;
+    opacity: 0.9;
   }
 
   &-button {
-    text-transform: uppercase;
+    margin-left: 40px;
+    flex-shrink: 0;
+
+    .btn {
+      padding: 1rem 2.5rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06rem;
+      font-size: 0.9rem;
+      border-radius: 8px;
+      background: white;
+      color: $primary;
+      border: none;
+      transition: all 0.25s ease;
+
+      i {
+        margin-right: 8px;
+      }
+
+      &:hover {
+        background: rgba(255,255,255,0.92);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        color: darken($primary, 8%);
+      }
+    }
+  }
+
+  // Variante azul (para CTA ODS)
+  &.cta-secondary {
+    background: linear-gradient(135deg, $secondary 0%, darken($secondary, 12%) 100%);
+
+    .cta-button .btn {
+      color: $secondary;
+
+      &:hover {
+        color: darken($secondary, 10%);
+      }
+    }
   }
 }
 
 @media screen and (max-width: 767px) {
   .cta {
-    padding-top: 60px;
-    padding-bottom: 60px;
+    padding-top: 50px;
+    padding-bottom: 50px;
 
     .container {
       display: flex;
       flex-direction: column;
+      text-align: center;
+    }
+
+    &-content {
+      .cta-content {
+        flex-direction: column;
+
+        .cta-icon {
+          margin-bottom: 16px;
+        }
+      }
     }
 
     &-body {
       text-align: center;
+      margin-bottom: 8px;
     }
 
     &-title {
-      font-size: 1.8rem;
+      font-size: 1.7rem;
     }
 
     &-text {
-      font-size: 1.1rem;
-      margin-bottom: 30px;
+      font-size: 1.05rem;
+      margin-bottom: 28px;
+    }
+
+    &-button {
+      margin-left: 0;
+      margin-top: 4px;
+
+      .btn {
+        width: 100%;
+        max-width: 280px;
+      }
     }
   }
 }

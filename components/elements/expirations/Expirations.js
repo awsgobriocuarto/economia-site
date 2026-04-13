@@ -1,5 +1,6 @@
 import React from "react";
 import { ExpirationItem } from "./ExpirationItem";
+import SectionHeader from "../../SectionHeader";
 
 export default function Expirations({ expirations }) {
   if (expirations.length == 0) {
@@ -7,9 +8,13 @@ export default function Expirations({ expirations }) {
   }
 
   return (
-    <section className="expirations">
+    <section className="expirations py-5">
       <div className="container">
-        <h2>Próximos vencimientos</h2>
+        <SectionHeader 
+          title="VENCIMIENTOS" 
+          subtitle="PRÓXIMOS VENCIMIENTOS" 
+          bgImage="/images/section-bg-vencimientos.png"
+        />
         <div className="row">
           {expirations.map((expiration, index) => (
             <ExpirationItem key={expiration.titulo + index} {...expiration} />

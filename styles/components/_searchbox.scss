@@ -1,0 +1,288 @@
+// =============================================
+// HERO FULL (carousel full-width)
+// =============================================
+.hero-full {
+  width: 100%;
+  
+  .carousel-item img {
+    height: 520px;
+    object-fit: cover;
+  }
+}
+
+// =============================================
+// PORTAL SEARCH SECTION
+// =============================================
+.portal-search-section {
+    background-color: #fbfbfc;
+    padding-bottom: 1.5rem !important;
+    
+    .portal-title {
+        font-weight: 800;
+        font-size: 3.5rem;
+        color: #1a2840;
+        letter-spacing: -0.06rem;
+        margin-bottom: 2.5rem !important;
+    }
+}
+
+// =============================================
+// SEARCH BOX — Portal Mode (Limpio y prominente)
+// =============================================
+.search-box-portal {
+  max-width: 900px;
+  margin: 0 auto;
+
+  .sb-wrapper {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 8px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+      transition: border-color 0.2s, box-shadow 0.2s;
+
+      &:focus-within {
+          border-color: #0099db;
+          box-shadow: 0 10px 30px rgba(0, 153, 219, 0.1);
+      }
+  }
+
+  .sb-input-wrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    
+    .sb-input {
+      border: none;
+      padding: 0.8rem 1.5rem;
+      font-size: 1.25rem;
+      color: #2d3748;
+      width: 100%;
+      height: 60px;
+      background: transparent;
+
+      &::placeholder {
+        color: #a0aec0;
+      }
+
+      &:focus {
+        box-shadow: none;
+        outline: none;
+      }
+    }
+    
+    .sb-clear-btn {
+        background: none;
+        border: none;
+        color: #cbd5e0;
+        font-size: 1.2rem;
+        padding: 0 15px;
+        cursor: pointer;
+        transition: color 0.2s;
+        &:hover { color: #718096; }
+    }
+  }
+
+  .sb-btn {
+    background-color: #0099db;
+    border-color: #0099db;
+    color: white;
+    padding: 0 3rem;
+    font-weight: 700;
+    font-size: 1.35rem;
+    border-radius: 8px;
+    height: 60px;
+    margin-left: 10px; // Espacio entre input y botón
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; // Evita que el botón se achique
+
+    &:hover {
+      background-color: darken(#0099db, 8%);
+      transform: translateY(-1px);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+  }
+}
+
+// =============================================
+// SEARCH BOX — Overlay Mode (glassmorphism)
+// =============================================
+.search-box-overlay {
+  .sb-wrapper {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 18px 22px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  }
+  // ... (rest of overlay styles)
+}
+
+// =============================================
+// QUICK ACCESS PORTAL (colorful boxes)
+// =============================================
+.quick-access-portal-section {
+    background-color: #fbfbfc;
+}
+
+.quick-access-portal-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+
+    // Asegura que los enlaces que envuelven las cajas no tengan subrayado ni bordes
+    a {
+        text-decoration: none !important;
+        border: none !important;
+        outline: none !important;
+        box-shadow: none !important;
+
+        &:hover, &:focus, &:active {
+            text-decoration: none !important;
+            border: none !important;
+        }
+    }
+}
+
+
+.quick-access-box {
+    display: flex;
+    align-items: center;
+    padding: 42px 24px;
+    border-radius: 14px;
+    color: white;
+    text-decoration: none !important;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    height: 100%;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    outline: none !important; // Quita la línea naranja de enfoque
+    border: none !important;
+
+    &:hover, &:focus, &:active {
+        transform: translateY(-6px);
+        filter: brightness(1.08);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+        outline: none !important;
+        text-decoration: none !important;
+        
+        * {
+            text-decoration: none !important;
+        }
+    }
+
+    * {
+        text-decoration: none !important;
+    }
+
+
+
+    .qa-box-icon {
+        font-size: 2.6rem;
+        margin-right: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 55px;
+        filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+    }
+
+    .qa-box-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .qa-box-title {
+        font-weight: 800;
+        font-size: 1.25rem;
+        line-height: 1;
+        text-transform: uppercase;
+        letter-spacing: -0.01rem;
+    }
+
+    .qa-box-subtitle {
+        font-size: 0.88rem;
+        font-weight: 500;
+        opacity: 0.95;
+        margin-top: 4px;
+    }
+}
+
+// =============================================
+// DROPDOWN DE RESULTADOS
+// =============================================
+.sb-dropdown {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 0;
+  right: 0;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  z-index: 9999;
+  overflow: hidden;
+  animation: sbDropIn 0.2s ease;
+
+  &-header { padding: 12px 18px; font-size: 0.85rem; color: #888; border-bottom: 1px solid #f0f0f0; background: #fafafa; }
+  &-footer { padding: 10px 18px; font-size: 0.75rem; color: #bbb; border-top: 1px solid #f0f0f0; background: #fafafa; text-align: center; }
+}
+
+.sb-list {
+  list-style: none; margin: 0; padding: 8px 0; max-height: 400px; overflow-y: auto;
+}
+
+.sb-item {
+  display: flex; align-items: center; gap: 14px; padding: 12px 18px; cursor: pointer; transition: background 0.15s;
+  &:hover, &--active { background: #f7f9fc; }
+  &-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+  &-body { flex: 1; min-width: 0; }
+  &-title { font-size: 0.95rem; font-weight: 700; color: #2d3748; display: flex; align-items: center; gap: 8px; }
+  &-desc { font-size: 0.8rem; color: #718096; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+}
+
+.sb-badge {
+  font-size: 0.65rem; font-weight: 800; color: white; padding: 3px 8px; border-radius: 20px; text-transform: uppercase;
+}
+
+// =============================================
+// RESPONSIVE
+// =============================================
+@media (max-width: 1200px) {
+    .portal-search-section .portal-title { font-size: 2.5rem; }
+}
+
+@media (max-width: 991px) {
+    .quick-access-portal-grid { grid-template-columns: repeat(2, 1fr); }
+    .portal-search-section .portal-title { font-size: 2.2rem; }
+}
+
+@media (max-width: 767px) {
+    .hero-full .carousel-item img { height: 350px; }
+    .portal-search-section .portal-title { 
+        font-size: 1.8rem; 
+        text-align: center;
+        margin-bottom: 2rem !important;
+    }
+
+    .search-box-portal {
+        .sb-wrapper { flex-direction: column; gap: 10px; padding: 10px; }
+        .sb-btn { width: 100%; height: 50px; }
+    }
+    .quick-access-box { padding: 18px 15px; }
+}
+
+@media (max-width: 575px) {
+    .quick-access-portal-grid { grid-template-columns: 1fr; }
+}

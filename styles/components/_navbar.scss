@@ -1,111 +1,185 @@
+// ===== NAVBAR REDISEÑADA - ESTILO PORTAL MUNICIPAL =====
+
 .navbar {
-  //padding: 20px 15px;
-  height: 100px;
+  height: 80px;
   background: $secondary;
   font-family: "Inter", sans-serif;
-  z-index: 9999;
+  z-index: 9998;
+  padding: 0 0;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+
+  .container-fluid {
+    padding: 0 30px;
+  }
 
   .navbar-brand {
-    padding: 10px;
-    width: 220px;
+    padding: 8px 0;
+    width: 260px;
     line-height: 0;
-    margin-left: 30px;
+    margin-left: 20px;
+    flex-shrink: 0;
+  }
+
+  .navbar-divider {
+    width: 1px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 0 20px;
+    flex-shrink: 0;
   }
 
   .navbar-toggler {
     border: none;
     margin-bottom: 0;
+    color: white;
+    padding: 8px;
+
+    &:focus {
+      box-shadow: none;
+    }
+
+    .navbar-toggler-icon {
+      filter: brightness(0) invert(1);
+    }
   }
 
   &-nav {
     .nav-item {
       .nav-link {
-        padding: 0.4rem 0.5rem;
-        font-weight: 600;
-        color: white;
+        padding: 6px 12px;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.9);
         text-transform: uppercase;
-        font-size: 0.86rem;
-        letter-spacing: 0.01rem;
+        font-size: 0.78rem;
+        letter-spacing: 0.04rem;
         text-align: center;
-        // }
         display: flex;
         align-items: center;
         justify-content: center;
+        border-radius: 6px;
+        margin: 0 2px;
+        transition: all 0.2s ease;
+        white-space: nowrap;
 
         .fas {
           padding-bottom: 2px;
           margin-left: 6px;
+
         }
 
         &:hover,
         &:active {
-          color: $primary;
+          color: white;
+          background: rgba(255, 255, 255, 0.12);
         }
+      }
+
+      // Opción activa
+      &.active .nav-link {
+        color: $primary;
+        background: rgba(255, 255, 255, 0.1);
       }
 
       .special {
         background: $primary;
-        color: white;
-        margin-left: 0.8rem;
+        color: white !important;
+        border-radius: 6px;
+        margin-left: 8px;
+        font-weight: 700;
 
         &:hover,
         &:active {
-          background: $primary;
-          color: white;
+          background: darken($primary, 8%) !important;
+          color: white !important;
         }
       }
     }
   }
 }
 
+// ===== RESPONSIVE TABLET =====
 @media (max-width: 767px) {
   .navbar {
+    height: 70px;
+
     .navbar-brand {
-      width: 160px;
+      width: 120px; // Aún más pequeño por pedido del usuario
+      margin-left: 0;
+
+      img {
+        width: 100% !important;
+        height: auto !important;
+      }
+    }
+
+    .w-100-mobile {
+      width: 100% !important;
+    }
+
+    .container-fluid {
+      padding: 0 16px;
     }
   }
 }
 
-@media (max-width: 1199px) {
-  .navbar {
-    padding: 10px 0px;
+// ===== OFFCANVAS (Menú Lateral) =====
+.offcanvas {
+  &-end {
+    background-color: $info; // Celeste
+    width: 300px;
+    border-left: none;
+  }
 
-    .navbar-brand {}
+  &-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1rem 1.5rem;
 
-    .navbar-collapse {
-      margin-top: 8px;
+    .offcanvas-logo img {
+      filter: brightness(0) invert(1);
     }
+  }
 
-    &-nav {
+  &-body {
+    padding: 1rem 0;
+
+    .navbar-nav {
       .nav-item {
+        width: 100%;
+
         .nav-link {
-          justify-content: start;
-          border-bottom: 1px solid lighten($color: $primary, $amount: 30);
+          padding: 15px 25px !important;
+          color: white !important;
+          font-weight: 600;
+          font-size: 1rem !important;
+          text-align: left !important;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+          &:hover {
+            background: rgba(255, 255, 255, 0.1);
+          }
         }
 
         .special {
-          margin-top: 6px;
-          border-bottom: none;
-          margin-left: 0rem;
+          margin: 20px 25px 0 !important;
+          background: white !important;
+          color: $info !important;
+          justify-content: center !important;
+          font-weight: 800;
         }
       }
     }
   }
 }
 
-@media (min-width: 1200px) and (max-width: 1399px) {
+
+// ===== RESPONSIVE DESKTOP XL =====
+@media (min-width: 1200px) and (max-width: 1499px) {
   .navbar {
-    .navbar-brand {}
-
-    .navbar-toggler {
-      border: none;
-    }
-
     &-nav {
       .nav-item {
         .nav-link {
-          padding: 0.4rem 0.4rem;
-          letter-spacing: 0rem;
+          padding: 6px 8px;
+          font-size: 0.74rem;
         }
       }
     }

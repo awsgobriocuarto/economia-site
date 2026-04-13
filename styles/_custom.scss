@@ -1,28 +1,48 @@
-//## Poppins
-// @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
-// $font-family-base: "Poppins", sans-serif;
+// ===== MANUAL DE MARCA - MUNICIPALIDAD DE RÍO CUARTO =====
+// Colores institucionales del Manual de Marca Municipal
+// Fuente tipográfica oficial: Inter
 
-//## Roboto
-// @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
-// $font-family-base: "Roboto", sans-serif;
-
-//## Lato
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap");
+//## Inter (tipografía oficial del Manual de Marca)
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap");
 $font-family-base: "Inter", sans-serif;
 
-//## Univia
-// $font-family-base: "Univia", sans-serif;
-
+// ===== PALETA INSTITUCIONAL =====
+// Azul municipal (color principal institucional)
 $blue: #009DE0 !default;
-$purple: #8c78cf !default;
-$red: #dd463c !default;
-$orange: #eb7e39 !default;
-$yellow: #f1bd4a !default;
+// Azul medio (variante secundaria)
+$blue-light: #009DE0 !default;
+// Naranja institucional (acento y CTAs)
+$orange: #E8651A !default;
+// Verde ODS
 $green: #4eba74 !default;
+// Rojo alerta
+$red: #dd463c !default;
+// Amarillo
+$yellow: #f1bd4a !default;
+// Cyan
 $cyan: #4ba6de !default;
+// Gris oscuro texto
+$gray-dark: #1a2840 !default;
 
-$primary: $orange;
-$secondary: $blue;
-$info: $cyan;
+// ===== ASIGNACIÓN DE ROLES =====
+$primary: $orange; // Naranja — botones, CTAs, acentos
+$secondary: $blue; // Azul municipal — navbar, footer, íconos
+$info: $blue-light; // Azul claro
+$dark: $gray-dark; // Texto oscuro
+
+// ===== TIPOGRAFÍA =====
+$headings-font-weight: 700;
+$font-weight-base: 400;
+$line-height-base: 1.6;
+
+// ===== BORDES =====
+$border-radius: 0.5rem;
+$border-radius-lg: 0.75rem;
+
+// ===== BOTONES =====
+$btn-border-radius: 0.5rem;
+$btn-font-weight: 600;
+$btn-padding-y: 0.6rem;
+$btn-padding-x: 1.5rem;
 
 // $enable-rounded: false;

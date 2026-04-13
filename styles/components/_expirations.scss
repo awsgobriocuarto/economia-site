@@ -1,53 +1,144 @@
 .expirations {
-  .card {
-    margin-bottom: 30px;
-  }
-  .card-header {
-    height: 80px;
-    font-weight: 700;
-    background-color: $primary;
-    color: white;
-    text-transform: uppercase;
+  .expiration-card-horizontal {
+    text-decoration: none;
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid #dee2e6;
+    overflow: hidden;
+    height: 110px;
+    transition: all 0.3s ease;
+    color: inherit;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    &:hover {
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transform: translateY(-2px);
+
+      .info-side .action {
+        background-color: darken($primary, 10%);
+        transform: scale(1.1);
+      }
+    }
+
+    .date-side {
+      background-color: $secondary;
+      width: 90px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-transform: uppercase;
+
+      .month {
+        font-size: 0.9rem;
+        font-weight: 300;
+        line-height: 1;
+      }
+
+      .day {
+        font-size: 2rem;
+        font-weight: 800;
+        line-height: 1.1;
+      }
+    }
+
+    .info-side {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      padding: 0 1.2rem;
+      position: relative;
+
+      .text-content {
+        flex: 1;
+        overflow: hidden;
+
+        .ante-title {
+          display: block;
+          font-size: 0.75rem;
+          color: #6c757d;
+          text-transform: uppercase;
+          margin-bottom: 2px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .title {
+          font-size: 1.05rem;
+          font-weight: 700;
+          margin-bottom: 4px;
+          line-height: 1.2;
+          color: #212529;
+          display: -webkit-box;
+          -webkit-line-clamp: 1;
+          line-clamp: 1;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+
+        .countdown {
+          .badge {
+            font-size: 0.7rem;
+            font-weight: 400;
+            padding: 4px 8px;
+          }
+        }
+      }
+
+      .action {
+        margin-left: 10px;
+        background-color: $primary; // Naranja
+        color: white;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+        i {
+          font-size: 0.9rem;
+        }
+      }
+    }
   }
-  .card-month {
-    font-weight: 300;
-    line-height: 1.2rem;
-    letter-spacing: 0.04rem;
-  }
-  .card-day {
-    font-size: 1.1rem;
-    line-height: 1.6rem;
-    letter-spacing: 0.08rem;
-    font-weight: 600;
-  }
-  .card-body {
-    height: 180px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-  }
-  .card-antetitle {
-    text-transform: uppercase;
-    // color: $gray-800;
-    font-size: 0.78rem;
-    margin-bottom: 2px;
-  }
-  .card-title {
-    text-transform: uppercase;
-    font-size: 1.1rem;
-    font-weight: 700;
-    // color: $primary;
-    margin-bottom: 12px;
-  }
-  .card-countdown {
-    margin-bottom: 20px;
-    .badge {
-      font-weight: 400;
+}
+
+@media (max-width: 767px) {
+  .expirations {
+    .expiration-card-horizontal {
+      height: 90px;
+
+      .date-side {
+        width: 70px;
+
+        .day {
+          font-size: 1.5rem;
+        }
+
+        .month {
+          font-size: 0.8rem;
+        }
+      }
+
+      .info-side {
+        padding: 0 0.8rem;
+
+        .text-content {
+          .title {
+            font-size: 0.95rem;
+          }
+        }
+
+        .action {
+          width: 30px;
+          height: 30px;
+        }
+      }
     }
   }
 }

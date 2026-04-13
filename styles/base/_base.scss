@@ -1,20 +1,23 @@
+
+// ===== BASE GLOBAL =====
 html {
   min-height: 100vh;
   position: relative;
+  scroll-behavior: smooth;
 }
 
 body {
-  margin-bottom: 120px;
-  background-color: #f5f5f5;
+  margin-bottom: 280px;
+  background-color: #f4f6f9;
+  color: $gray-dark;
 }
 
 main {}
 
+// ===== SECCIONES =====
 section {
-  padding-top: 60px;
+  padding-top: 70px;
   padding-bottom: 80px;
-
-  // background-color: pink;
 
   h2 {
     font-weight: 400;
@@ -24,64 +27,177 @@ section {
   }
 }
 
+// ===== FOOTER REDISEÑADO (estilo portal municipal) =====
 footer {
   color: white;
-  background-color: $secondary;
+  background: linear-gradient(135deg, darken($secondary, 5%) 0%, darken($secondary, 15%) 100%);
   position: absolute;
   bottom: 0;
   width: 100%;
+  border-top: 4px solid $primary;
 
-  .container {
-    height: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  .footer-main {
+    padding: 40px 0 30px;
 
-    a {
-      text-decoration: none;
+    .footer-brand {
+      img {
+        height: 52px;
+        width: auto;
+        filter: brightness(0) invert(1);
+        margin-bottom: 16px;
+      }
+
+      p {
+        font-size: 0.85rem;
+        opacity: 0.75;
+        margin-bottom: 4px;
+        line-height: 1.4;
+      }
     }
 
     h6 {
-      margin-bottom: 4px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.55);
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
     }
 
-    p {
-      margin-bottom: 0;
+    a {
+      color: rgba(255, 255, 255, 0.85);
+      text-decoration: none;
       font-size: 0.9rem;
+      display: block;
+      margin-bottom: 8px;
+      transition: color 0.2s ease, padding-left 0.2s ease;
+
+      i {
+        margin-right: 8px;
+        color: $primary;
+        font-size: 0.85rem;
+      }
+
+      &:hover {
+        color: white;
+        padding-left: 4px;
+      }
     }
 
-    ul {
-      margin-bottom: 0;
-      list-style: none;
-      padding: 0;
-
+    .social-links {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
+      gap: 12px;
+      margin-top: 8px;
 
-      li {
-        padding: 0 4px;
+      a {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        margin-bottom: 0;
+        padding-left: 0;
+        transition: background 0.2s ease, transform 0.2s ease;
 
-        a {
-          padding: 8px;
+        i {
+          margin: 0;
+          color: white;
         }
+
+        &:hover {
+          background: $primary;
+          transform: translateY(-2px);
+          padding-left: 0;
+        }
+      }
+    }
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 14px 0;
+    font-size: 0.8rem;
+    opacity: 0.6;
+    text-align: center;
+  }
+}
+
+// ===== BARRA SUPERIOR (topbar) =====
+.topbar {
+  background-color: darken($secondary, 12%);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.78rem;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  .container-fluid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    a {
+      color: rgba(255, 255, 255, 0.75);
+      text-decoration: none;
+      font-size: 0.78rem;
+      transition: color 0.2s;
+
+      i {
+        margin-right: 4px;
+        color: $primary;
+      }
+
+      &:hover {
+        color: white;
+      }
+    }
+  }
+
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    a {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: color 0.2s;
+
+      &:hover {
+        color: $primary;
       }
     }
   }
 }
 
+// ===== NOTIFICACIÓN =====
 .notification {
   padding: 30px;
   background-color: $info;
 }
 
+// Secciones de la home movidas a estilos específicos en componentes
+
 @media (max-width: 767px) {
   body {
-    margin-bottom: 340px;
+    margin-bottom: 520px;
   }
 
   section {
-    padding-top: 60px;
+    padding-top: 50px;
     padding-bottom: 60px;
 
     h2 {
@@ -89,48 +205,13 @@ footer {
     }
   }
 
+  .topbar {
+    display: none;
+  }
+
   footer {
-    color: white;
-    background-color: $dark;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-
-    .container {
-      height: 340px;
-      padding: 20px 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-      text-align: center;
-
-      h6 {
-        margin-bottom: 4px;
-      }
-
-      p {
-        margin-bottom: 0;
-        font-size: 0.9rem;
-      }
-
-      ul {
-        margin-bottom: 0;
-        list-style: none;
-        padding: 0;
-
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-
-        li {
-          padding: 0 4px;
-
-          a {
-            padding: 8px;
-          }
-        }
-      }
+    .footer-main {
+      padding: 30px 0 20px;
     }
   }
 }

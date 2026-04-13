@@ -10,11 +10,14 @@ export default function Cta({
   icon = false,
 }) {
   return (
-    <section className="cta">
+    <section className="cta py-5">
       <div className="container">
-        <div className="cta-body">
-          <div className="cta-title">{title}</div>
-          <p className="cta-text">{text}</p>
+        <div className="cta-content d-flex align-items-center">
+          <img src="/images/icono-titulos.webp" alt="" className="cta-icon me-4" />
+          <div className="cta-body">
+            <div className="cta-title">{title}</div>
+            <p className="cta-text">{text}</p>
+          </div>
         </div>
         <div className="cta-button">
           {urlExternal ? (
@@ -22,14 +25,14 @@ export default function Cta({
               href={url}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-lg btn-primary text-white"
+              className="btn btn-lg btn-secondary text-white"
             >
               {icon ? <i className={icon}></i> : ""}
               {cta}
             </a>
           ) : (
             <Link href={url}>
-              <a className="btn btn-lg btn-primary text-white">
+              <a className="btn btn-lg btn-secondary text-white">
                 {icon ? <i className={icon}></i> : ""}
                 {cta}
               </a>

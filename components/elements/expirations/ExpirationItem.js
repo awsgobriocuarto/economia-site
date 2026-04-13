@@ -9,44 +9,32 @@ export const ExpirationItem = ({ fecha, titulo, descripcion, url }) => {
   }
 
   return (
-    <div className="col-md-3">
-      <div className="card">
-        <div className="card-header">
-          <div>
-            <div className="card-month">{moment(fecha).format("MMMM")}</div>
-            <div className="card-day">{moment(fecha).format("dddd D")}</div>
+    <div className="col-md-6 col-lg-4 mb-4">
+      <a
+        href={url}
+        target="_blank"
+        rel="noreferrer noopener"
+        className="expiration-card-horizontal"
+      >
+        <div className="date-side">
+          <span className="month">{moment(fecha).format("MMM")}</span>
+          <span className="day">{moment(fecha).format("D")}</span>
+        </div>
+        <div className="info-side">
+          <div className="text-content">
+            <span className="ante-title">{descripcion}</span>
+            <h4 className="title">{titulo}</h4>
+            <div className="countdown">
+              <span className={Math.abs(moment(fecha).diff(today, 'days')) > 7 ? "badge bg-secondary" : "badge bg-danger"}>
+                Vence {moment(fecha).endOf("day").fromNow()}
+              </span>
+            </div>
           </div>
-          <div>
-            <i className="fas fa-calendar-alt fa-lg"></i>
+          <div className="action">
+            <i className="fas fa-chevron-right"></i>
           </div>
         </div>
-        <div className="card-body">
-          <div className="card-antetitle">{descripcion}</div>
-          <h3 className="card-title">{titulo}</h3>
-          <div className="card-countdown">
-            <span
-              className={
-                Math.abs(
-                  moment(fecha).format("DDDD") - moment(today).format("DDDD")
-                ) > "7"
-                  ? "badge bg-secondary"
-                  : "badge bg-danger"
-              }
-            >
-              Vence {moment(fecha).endOf("day").fromNow()}{" "}
-            </span>
-          </div>
-
-          <a
-            href={url}
-            className="btn btn-sm btn-dark"
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            Consultar
-          </a>
-        </div>
-      </div>
+      </a>
     </div>
   );
 };

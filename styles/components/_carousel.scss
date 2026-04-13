@@ -1,76 +1,171 @@
-.carousel {
-  &-inner {
-  }
-  &-item {
-    background-color: darken($secondary, 20%);
-    img {
-      height: 500px;
-      object-fit: cover;
-      // filter: grayscale(1);
-      // opacity: 0.4;
-    }
-  }
-  &-indicators {
-    justify-content: start;
-    [data-bs-target] {
-      margin-left: 4px;
-      margin-right: 4px;
-    }
-  }
-  &-caption {
-    bottom: 0;
-    padding-top: 4rem;
-    text-align: left;
-    height: 100%;
-    background: rgb(2, 0, 36);
-    background: linear-gradient(
-      90deg,
-      rgba(2, 0, 36, 0) 0%,
-      rgba(2, 0, 36, 0.3) 10%,
-      rgba(2, 0, 36, 0) 100%
-    );
+// =============================================
+// HERO CAROUSEL SPLIT (Imagen + Contenido)
+// =============================================
+.hero-split-container {
+    width: 100%;
+    background: #1a2840;
+    overflow: hidden;
 
-    text-shadow: 0 0 12px rgba(#000, 0.4);
+    .hero-carousel {
+        height: 520px;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-
-    h5 {
-      text-transform: uppercase;
-      font-weight: 400;
+        @media (max-width: 991px) { height: auto; }
     }
-
-    p {
-      font-size: 1.2rem;
-      margin-bottom: 30px;
-    }
-  }
-  &-control-prev {
-    // background-color: green;
-  }
-  &-control-next {
-    // background-color: yellow;
-  }
 }
 
-@media (max-width: 767px) {
-  .carousel {
-    &-inner {
+.hero-slide {
+    display: flex;
+    width: 100%;
+    height: 520px;
+
+    @media (max-width: 991px) {
+        flex-direction: column;
+        height: auto;
     }
-    &-item {
-      img {
-        height: 400px;
-      }
+}
+
+.hero-image-side {
+    flex: 0 0 62%;
+    width: 62%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
-    &-caption {
-      padding-top: 0rem;
-      justify-content: end;
-      p {
-        font-size: 1.1rem;
+
+    @media (max-width: 991px) {
+        flex: 0 0 100%;
+        width: 100%;
+        height: 300px;
+    }
+}
+
+.hero-content-side {
+    flex: 1;
+    background-color: #343a40; // Gris oscuro institucional
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0 5% 0 4%;
+    color: white;
+    z-index: 1;
+
+    @media (max-width: 991px) {
+        padding: 40px 20px;
+        min-height: 250px;
+    }
+
+    .sh-overlay-dark {
+        display: none; // No necesario con el fondo sólido
+    }
+}
+
+.hero-text-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 100%;
+
+    .hero-title {
+        font-size: 2.6rem;
+        font-weight: 800;
+        line-height: 1.2;
         margin-bottom: 24px;
-      }
+        text-transform: uppercase;
+        letter-spacing: -0.04rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+
+        @media (max-width: 1400px) { font-size: 2.1rem; }
+        @media (max-width: 1200px) { font-size: 1.8rem; }
     }
-  }
+
+
+    .hero-excerpt {
+        font-size: 1.15rem;
+        font-weight: 400;
+        opacity: 0.85;
+        line-height: 1.5;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .hero-btn {
+        border-width: 2px;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        padding-left: 25px;
+        padding-right: 25px;
+        transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+        &:hover {
+            background: white;
+            color: #343a40;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+    }
+}
+
+// Icono institucional vertical a la derecha
+.hero-institutional-icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.3; // Sutil como en la referencia
+    z-index: 0;
+
+    img {
+        height: 120px;
+        width: auto;
+        filter: brightness(0) invert(1);
+    }
+
+    @media (max-width: 1200px) { display: none; }
+}
+
+// Estilos de navegación de Bootstrap
+.hero-carousel {
+    .carousel-indicators {
+        justify-content: flex-start;
+        margin-left: 64%; // Alineado con el inicio del contenido
+        margin-bottom: 25px;
+
+        @media (max-width: 991px) { margin-left: 15px; }
+
+        button {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: white;
+            opacity: 0.4;
+            margin: 0 5px;
+
+            &.active {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+        }
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 60px;
+        opacity: 0; // Se muestran solo en hover
+        transition: opacity 0.3s;
+    }
+
+    &:hover .carousel-control-prev,
+    &:hover .carousel-control-next {
+        opacity: 0.7;
+    }
 }

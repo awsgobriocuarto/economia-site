@@ -1,10 +1,13 @@
 import propTypes from "prop-types";
 import { PanelItem } from "./PanelItem";
+import SectionHeader from "../../SectionHeader";
 
-export const Panel = ({ items, title = "" }) => {
+export const Panel = ({ items, title = "", subtitle = "", bgImage }) => {
   return (
     <>
-      {title && <h2>{title}</h2>}
+      {title && (
+        <SectionHeader title={title} subtitle={subtitle} bgImage={bgImage} />
+      )}
 
       <div className="row">
         {items.map((item) => (
@@ -17,4 +20,6 @@ export const Panel = ({ items, title = "" }) => {
 
 Panel.propTypes = {
   items: propTypes.array.isRequired,
+  title: propTypes.string,
+  subtitle: propTypes.string,
 };
