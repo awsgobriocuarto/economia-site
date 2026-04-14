@@ -30,7 +30,7 @@ section {
 // ===== FOOTER REDISEÑADO (estilo portal municipal) =====
 footer {
   color: white;
-  background: linear-gradient(135deg, darken($secondary, 5%) 0%, darken($secondary, 15%) 100%);
+  background: $secondary;
   position: absolute;
   bottom: 0;
   width: 100%;

@@ -44,10 +44,10 @@ const quickAccessItems = [
   },
   {
     id: "qa4",
-    title: "WhatsApp",
-    subtitle: "Atención al vecino",
-    icon: "fa-comments",
-    url: "https://wa.me/+5493584121879",
+    title: "Compras Web",
+    subtitle: "Ingresar a la web",
+    icon: "fa-gavel",
+    url: "https://comprasweb.economiariocuarto.gob.ar/",
     external: true,
     bgColor: "#00cc66"
   },

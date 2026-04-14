@@ -1,39 +1,6 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
-import Link from 'next/link';
-
-// =============================================
-// ÍNDICE ESTÁTICO — Secciones, trámites y páginas internas
-// =============================================
-const STATIC_INDEX = [
-  // Secciones internas
-  { type: 'seccion', title: 'Inicio', description: 'Página principal de Economía', url: '/', icon: 'fa-home' },
-  { type: 'seccion', title: 'Institucional', description: 'Autoridades y estructura de la Secretaría de Economía', url: '/institucional', icon: 'fa-university' },
-  { type: 'seccion', title: 'Pagos y Deudas', description: 'Consultá y pagá tus deudas municipales', url: '/pagos-y-deudas', icon: 'fa-credit-card' },
-  { type: 'seccion', title: 'Trámites y Servicios', description: 'Catálogo completo de trámites digitales', url: '/tramites-y-servicios', icon: 'fa-tasks' },
-  { type: 'seccion', title: 'Transparencia', description: 'Información pública y rendición de cuentas', url: '/transparencia', icon: 'fa-eye' },
-  { type: 'seccion', title: 'Legislación', description: 'Ordenanzas, decretos y normativas municipales', url: '/legislacion', icon: 'fa-gavel' },
-  { type: 'seccion', title: 'Noticias', description: 'Últimas novedades de la Secretaría', url: '/noticias', icon: 'fa-newspaper' },
-  { type: 'seccion', title: 'Estadísticas', description: 'Datos y estadísticas de gestión municipal', url: '/estadisticas', icon: 'fa-chart-bar' },
-  { type: 'seccion', title: 'ODS - Desarrollo Sostenible', description: 'Objetivos de Desarrollo Sostenible - Agenda 2030', url: '/ods', icon: 'fa-leaf' },
-
-  // Trámites frecuentes (externos)
-  { type: 'tramite', title: 'Licencia de Conducir', description: 'Renovación y obtención de licencia de conducir', url: 'https://tramites.riocuarto.gov.ar/tramite/6/licencia-de-conducir', external: true, icon: 'fa-id-card' },
-  { type: 'tramite', title: 'Impresión de Cedulones', description: 'Imprimí tu cedulón de pago de tasas municipales', url: 'https://economia.riocuarto.gov.ar/', external: true, icon: 'fa-print' },
-  { type: 'tramite', title: 'Libre Deuda Municipal', description: 'Certificado de libre deuda de multas y tránsito', url: 'https://tramites.riocuarto.gov.ar/tramite/49/libre-deuda-de-multas-personales-y-de-transito', external: true, icon: 'fa-file-invoice' },
-  { type: 'tramite', title: 'Turnos Online', description: 'Solicitá turno para atención presencial', url: 'https://turnos.riocuarto.gov.ar/', external: true, icon: 'fa-calendar-check' },
-  { type: 'tramite', title: 'Habilitación Comercial', description: 'Habilitación de comercio clase I, II y III', url: 'https://tramites.riocuarto.gov.ar/tramite/10/habilitacion-comercial-clase-i-ii-y-iii', external: true, icon: 'fa-store' },
-  { type: 'tramite', title: 'Consulta de Expedientes', description: 'Consultá el estado de tu expediente municipal', url: 'https://tramites.riocuarto.gov.ar/tramite/11/consulta-de-expedientes', external: true, icon: 'fa-search' },
-  { type: 'tramite', title: 'Baja de Automotores', description: 'Baja de vehículos del padrón municipal', url: 'https://tramites.riocuarto.gov.ar/tramite/2/baja-de-automotores', external: true, icon: 'fa-car' },
-  { type: 'tramite', title: 'Plan de Pagos', description: 'Regularizá tu deuda municipal en cuotas', url: 'https://economia.riocuarto.gov.ar/', external: true, icon: 'fa-hand-holding-usd' },
-  { type: 'tramite', title: 'Catastro y Obras Privadas', description: 'Aprobación de planos de obra privada', url: 'https://tramites.riocuarto.gov.ar/tramite/1/aprobacion-de-planos-de-obra-privada', external: true, icon: 'fa-building' },
-  { type: 'tramite', title: 'Domicilio Tributario Electrónico', description: 'Adherite al CIDI para recibir notificaciones oficiales', url: 'http://cidi.riocuarto.gov.ar/', external: true, icon: 'fa-envelope-open-text' },
-  { type: 'tramite', title: 'Compras Web', description: 'Plataforma de compras y licitaciones públicas', url: 'https://comprasweb.economiariocuarto.gob.ar/', external: true, icon: 'fa-shopping-cart' },
-  { type: 'tramite', title: 'Atención WhatsApp', description: 'Consultá al equipo por WhatsApp', url: 'https://wa.me/+5493584121879', external: true, icon: 'fa-whatsapp' },
-
-  // Contacto
-  { type: 'contacto', title: 'Teléfono 0800 444 5454', description: 'Línea gratuita de atención al vecino', url: 'tel:08004445454', external: true, icon: 'fa-phone-alt' },
-  { type: 'contacto', title: 'Dirección: Constitución 988', description: 'Oficinas de la Secretaría de Economía, Río Cuarto', url: 'https://goo.gl/maps/tu-link-aqui', external: true, icon: 'fa-map-marker-alt' },
-];
+import React, { useState, useEffect, useRef } from 'react';
+import { STATIC_INDEX, searchItems } from '../lib/searchIndex';
+import { useRouter } from 'next/router';
 
 // Etiquetas visibles por tipo
 const TYPE_LABELS = {
@@ -44,30 +11,10 @@ const TYPE_LABELS = {
 };
 
 // =============================================
-// FUNCIÓN DE BÚSQUEDA
-// =============================================
-function searchItems(query, items) {
-  if (!query || query.trim().length < 2) return [];
-  const q = query.toLowerCase().trim();
-  const words = q.split(/\s+/);
-
-  return items
-    .map((item) => {
-      const hay = `${item.title} ${item.description || ''}`.toLowerCase();
-      const exactMatch = hay.includes(q);
-      const wordMatches = words.filter((w) => hay.includes(w)).length;
-      const score = (exactMatch ? 10 : 0) + wordMatches * 2 + (hay.startsWith(q) ? 5 : 0);
-      return { ...item, score };
-    })
-    .filter((item) => item.score > 0)
-    .sort((a, b) => b.score - a.score)
-    .slice(0, 8);
-}
-
-// =============================================
 // COMPONENTE SearchBox
 // =============================================
 const SearchBox = ({ overlay }) => {
+  const router = useRouter();
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
@@ -91,6 +38,8 @@ const SearchBox = ({ overlay }) => {
           title: p.title,
           description: p.excerpt || '',
           url: `/noticias/${p.slug}?id=${p.id}`,
+          thumbnail: p.thumbnail,
+          date: p.date_published,
           external: false,
           icon: 'fa-newspaper',
         }));
@@ -103,7 +52,7 @@ const SearchBox = ({ overlay }) => {
   // Busca cuando cambia el query
   useEffect(() => {
     if (query.trim().length >= 2) {
-      const found = searchItems(query, allItems);
+      const found = searchItems(query, allItems).slice(0, 8);
       setResults(found);
       setIsOpen(found.length > 0);
       setActiveIndex(-1);
@@ -126,7 +75,7 @@ const SearchBox = ({ overlay }) => {
   }, []);
 
   const handleKeyDown = (e) => {
-    if (!isOpen) return;
+    if (!isOpen && e.key !== 'Enter') return;
     if (e.key === 'ArrowDown') {
       e.preventDefault();
       setActiveIndex((i) => Math.min(i + 1, results.length - 1));
@@ -137,9 +86,18 @@ const SearchBox = ({ overlay }) => {
       setIsOpen(false);
       setActiveIndex(-1);
       inputRef.current?.blur();
-    } else if (e.key === 'Enter' && activeIndex >= 0) {
-      e.preventDefault();
-      navigateTo(results[activeIndex]);
+    } else if (e.key === 'Enter') {
+      if (activeIndex >= 0) {
+        e.preventDefault();
+        navigateTo(results[activeIndex]);
+      } else {
+        // Redirigir a página de búsqueda si no hay item seleccionado y hay query
+        if (query.trim().length >= 2) {
+          e.preventDefault();
+          router.push(`/buscar?q=${encodeURIComponent(query)}`);
+          setIsOpen(false);
+        }
+      }
     }
   };
 
@@ -149,7 +107,7 @@ const SearchBox = ({ overlay }) => {
     if (item.external) {
       window.open(item.url, '_blank', 'noopener,noreferrer');
     } else {
-      window.location.href = item.url;
+      router.push(item.url);
     }
   };
 
@@ -157,8 +115,9 @@ const SearchBox = ({ overlay }) => {
     e.preventDefault();
     if (activeIndex >= 0 && results[activeIndex]) {
       navigateTo(results[activeIndex]);
-    } else if (results.length > 0) {
-      navigateTo(results[0]);
+    } else if (query.trim().length >= 2) {
+      router.push(`/buscar?q=${encodeURIComponent(query)}`);
+      setIsOpen(false);
     }
   };
 
@@ -188,7 +147,7 @@ const SearchBox = ({ overlay }) => {
                 id="search-input-main"
                 type="text"
                 className="form-control sb-input"
-                placeholder="¿Qué estas buscando? (ej: Carnet, Cedulón, Habilitación)"
+                placeholder="¿Qué estás buscando? (ej: trámites, pagos, licitaciones)"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 onKeyDown={handleKeyDown}

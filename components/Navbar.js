@@ -76,21 +76,7 @@ export default function Navbar() {
                     <a className="nav-link" data-bs-dismiss="offcanvas">Legislación</a>
                   </Link>
                 </li>
-                <li className="nav-item">
-                  <a
-                    href={
-                      process.env.NODE_ENV === "development"
-                        ? "http://localhost:3001"
-                        : "https://comprasweb.economiariocuarto.gob.ar/"
-                    }
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="nav-link special"
-                    data-bs-dismiss="offcanvas"
-                  >
-                    Compras Web <i className="fas fa-sign-out-alt"></i>
-                  </a>
-                </li>
+
               </ul>
             </div>
           </div>
