@@ -90,15 +90,16 @@ export default function Navbar() {
                   }
                   passHref
                 >
-                  <Nav.Link className="special">
+                  <a className="nav-link special">
                     Compras Web <i className="fas fa-sign-out-alt"></i>
-                  </Nav.Link>
+                  </a>
                 </Link>
               </li>
             </ul>
           </div>
         </div>
       </nav>
-      );
+    </>
+  );
 }
 
