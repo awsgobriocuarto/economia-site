@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Link from 'next/link';
+import Image from 'next/image';
 import { STATIC_INDEX, searchItems } from '../lib/searchIndex';
 
 export default function SearchResults() {
@@ -84,7 +85,7 @@ export default function SearchResults() {
             </form>
             <div className="mt-3">
               <span className="text-muted fw-bold">Término de búsqueda: </span>
-              <span className="text-primary fw-bold" style={{ color: '#E8651A !important' }}>"{query}"</span>
+              <span className="text-primary fw-bold" style={{ color: '#E8651A !important' }}>&quot;{query}&quot;</span>
             </div>
           </div>
         </div>
@@ -128,9 +129,9 @@ export default function SearchResults() {
                     <Link href={item.url} key={idx}>
                         <a className="text-decoration-none d-block mb-3 p-2 rounded search-news-item" style={{ transition: 'background 0.2s' }}>
                             <div className="d-flex gap-3">
-                                <div style={{ width: '80px', height: '80px', flexShrink: 0, borderRadius: '8px', overflow: 'hidden', backgroundColor: '#eee' }}>
+                                <div style={{ width: '80px', height: '80px', flexShrink: 0, borderRadius: '8px', overflow: 'hidden', backgroundColor: '#eee', position: 'relative' }}>
                                     {item.thumbnail ? (
-                                        <img src={item.thumbnail} alt={item.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                        <Image src={item.thumbnail} alt={item.title} layout="fill" objectFit="cover" />
                                     ) : (
                                         <div className="h-100 w-100 d-flex align-items-center justify-content-center text-muted">
                                             <i className="fas fa-image"></i>

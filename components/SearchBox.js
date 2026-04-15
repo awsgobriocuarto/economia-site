@@ -154,7 +154,6 @@ const SearchBox = ({ overlay }) => {
                 onFocus={() => results.length > 0 && setIsOpen(true)}
                 aria-autocomplete="list"
                 aria-controls="sb-results"
-                aria-expanded={isOpen}
               />
               {query && (
                 <button
@@ -176,7 +175,7 @@ const SearchBox = ({ overlay }) => {
           {isOpen && results.length > 0 && (
             <div className="sb-dropdown" id="sb-results" role="listbox" ref={dropdownRef}>
               <div className="sb-dropdown-header">
-                <span>{results.length} resultado{results.length !== 1 ? 's' : ''} para "<strong>{query}</strong>"</span>
+                <span>{results.length} resultado{results.length !== 1 ? 's' : ''} para &quot;<strong>{query}</strong>&quot;</span>
               </div>
               <ul className="sb-list">
                 {results.map((item, idx) => {
@@ -223,7 +222,7 @@ const SearchBox = ({ overlay }) => {
             <div className="sb-dropdown">
               <div className="sb-no-results">
                 <i className="fas fa-search-minus"></i>
-                <p>No se encontraron resultados para "<strong>{query}</strong>"</p>
+                <p>No se encontraron resultados para &quot;<strong>{query}</strong>&quot;</p>
                 <span>Intentá buscar: trámites, pagos, noticias, licencia...</span>
               </div>
             </div>
