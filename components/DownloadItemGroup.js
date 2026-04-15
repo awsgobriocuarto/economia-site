@@ -2,7 +2,7 @@ import DownloadItem from "./DownloadItem";
 
 export default function DownloadItemGroup({ items }) {
   const itemsFiltered = items.filter(
-    (item) => item.status.toLowerCase() === "vigente"
+    (item) => item.status?.toLowerCase() === "vigente"
   );
   return (
     <ul>

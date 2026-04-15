@@ -98,19 +98,19 @@ export async function getStaticProps() {
   const items = response;
 
   const codigo = response.filter((i) =>
-    i.category.toLowerCase().includes("codigo")
+    i.category?.toLowerCase().includes("codigo")
   );
   const ordenanza = response.filter((i) =>
-    i.category.toLowerCase().includes("ordenanza")
+    i.category?.toLowerCase().includes("ordenanza")
   );
   const decretos = response.filter((i) =>
-    i.category.toLowerCase().includes("decretos")
+    i.category?.toLowerCase().includes("decretos")
   );
   const agenda = response.filter((i) =>
-    i.category.toLowerCase().includes("agenda")
+    i.category?.toLowerCase().includes("agenda")
   );
   const planes = response.filter((i) =>
-    i.category.toLowerCase().includes("planes")
+    i.category?.toLowerCase().includes("planes")
   );
   return {
     props: {

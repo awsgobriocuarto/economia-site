@@ -3,7 +3,7 @@ import Accordion from "react-bootstrap/Accordion";
 
 export default function DownloadItemGroupOlds({ items }) {
   const itemsFiltered = items.filter(
-    (item) => item.status.toLowerCase() === "no vigente"
+    (item) => item.status?.toLowerCase() === "no vigente"
   );
 
   if (itemsFiltered.length == 0) {

@@ -134,25 +134,25 @@ export async function getStaticProps() {
   const items = response;
 
   const ejercicios = response.filter((i) =>
-    i.category.toLowerCase().includes("ejercicio")
+    i.category?.toLowerCase().includes("ejercicio")
   );
   const ejecuciones = response.filter((i) =>
-    i.category.toLowerCase().includes("ejecucion")
+    i.category?.toLowerCase().includes("ejecucion")
   );
   const presupuesto = response.filter((i) =>
-    i.category.toLowerCase().includes("presupuesto")
+    i.category?.toLowerCase().includes("presupuesto")
   );
   const recaudacion = response.filter((i) =>
-    i.category.toLowerCase().includes("recaudacion")
+    i.category?.toLowerCase().includes("recaudacion")
   );
   const informes = response.filter((i) =>
-    i.category.toLowerCase().includes("informes")
+    i.category?.toLowerCase().includes("informes")
   );
   const deudas = response.filter((i) =>
-    i.category.toLowerCase().includes("deuda")
+    i.category?.toLowerCase().includes("deuda")
   );
   const realidad = response.filter((i) =>
-    i.category.toLowerCase().includes("realidad")
+    i.category?.toLowerCase().includes("realidad")
   );
   return {
     props: {
