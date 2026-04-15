@@ -2,7 +2,7 @@ import Head from "next/head";
 import Header from "../../components/Header";
 import { getFormalities } from "../../services/getFormalities";
 
-export default function GuiaDeTramites({ items }) {
+export default function GuiaDeTramites({ items = [] }) {
   return (
     <>
       <Head>
@@ -92,12 +92,17 @@ export default function GuiaDeTramites({ items }) {
 }
 
 export async function getStaticProps() {
-  const data = await getFormalities();
-  const items = data;
+  let items = [];
+  try {
+    const data = await getFormalities();
+    items = Array.isArray(data) ? data : [];
+  } catch (error) {
+    console.error("Error fetching formalities:", error);
+  }
   return {
     props: {
       items,
     },
-    revalidate: 1,
+    revalidate: 60,
   };
 }

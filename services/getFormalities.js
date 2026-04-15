@@ -46,5 +46,6 @@ export function getFormalities() {
     .then(fromApiResponseToPosts)
     .catch((error) => {
       console.error("Error: ", error);
+      return [];
     });
 }
