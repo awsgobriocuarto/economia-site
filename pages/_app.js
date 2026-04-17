@@ -38,6 +38,12 @@ function MyApp({ Component, pageProps }) {
       <Layout>
         <Component {...pageProps} />
       </Layout>
+
+      {/* Agregamos el tracker de WebMetrics */}
+      <Script
+        src="https://analitica.leandrodev.com.ar/tracker.js"
+        strategy="afterInteractive"
+      />
     </>
   );
 }
