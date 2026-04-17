@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Header from "../components/Header";
+import SectionHeader from "../components/SectionHeader";
 import InstitutionalCard from "../components/InstitutionalCard";
 
 const officials = [
@@ -18,6 +18,7 @@ const officials = [
     img: "https://res.cloudinary.com/gobriocuarto/image/upload/v1666284223/Economia/Web/institucional-irina-therzagui_yxure1.png",
   },
 ];
+
 const persons = [
   {
     id: 1,
@@ -41,18 +42,85 @@ const persons = [
     img: "https://res.cloudinary.com/gobriocuarto/image/upload/v1669128766/Economia/Web/institucional-lorena-ricotto_wcfllm.png",
   },
   {
-    id: 5,
+    id: 4,
     name: "Cr. Hernán Avanzini",
     position: "Dirección de Gestión Tributaria",
     cv: "https://drive.google.com/file/d/1CVzqYkVte339wYYtHtMn5V_Dv1KPNke_/view?usp=share_link",
     img: "https://res.cloudinary.com/gobriocuarto/image/upload/v1669128626/Economia/Web/institucional-hernan-avanzini_esn2h0.png",
   },
   {
-    id: 6,
-    name: "Eduarco Ochoa",
+    id: 5,
+    name: "Eduardo Ochoa",
     position: "Dirección Gral. de Informática",
     cv: "https://drive.google.com/file/d/102njAAL0qmAbu8dHiXMQBOdExc5r-Ja4/view?usp=sharing",
     img: "https://res.cloudinary.com/gobriocuarto/image/upload/v1741620322/Economia/Web/institucional-eduardo-ochoa.jpg",
+  },
+];
+
+const competencias = [
+  "Elaborar anualmente el Proyecto de Presupuesto de Gastos y Recursos en función de los lineamientos generales del Departamento Ejecutivo Municipal, así como la Ordenanza Tarifaria Anual.",
+  "Confeccionar anualmente la Cuenta General del Ejercicio conteniendo el estado de la ejecución presupuestaria y el estado de situación patrimonial del ejercicio.",
+  "Promover y generar una cultura estratégica tributaria alineada con los objetivos de la recaudación y los lineamientos generales de la gestión.",
+  "Señalar las normas administrativas, económicas y financieras de la administración municipal y proponer las adecuaciones correspondientes.",
+  "Proponer, participar y coadyuvar en la elaboración de políticas económicas que hagan al interés general de la comunidad.",
+  "Coordinar la elaboración de propuestas y formular alternativas para la fijación de políticas y medidas de carácter municipal.",
+  "Asistir al Intendente en la coordinación de políticas y medidas con otros organismos referidos a la programación económica de la Región, la Provincia y la Nación.",
+];
+
+const direcciones = [
+  {
+    id: "recursos",
+    icon: "fa-coins",
+    title: "Dirección Gral. de Recursos",
+    items: [
+      "Proponer normas generales para reglamentar el cumplimiento de los deberes formales y dictar resoluciones interpretativas de normas fiscales.",
+      "Supervisar directamente al personal de la Dirección General de Recursos, aplicando las sanciones previstas en el Estatuto Municipal.",
+      "Aplicar las disposiciones de las Ordenanzas que rigen la relación jurídica-tributaria y demás normas obligatorias.",
+      "Establecer mecanismos de control de la recaudación y coordinar la distribución de cedulones y notificaciones.",
+    ],
+  },
+  {
+    id: "tributaria",
+    icon: "fa-file-invoice-dollar",
+    title: "Dirección Gral. de Gestión Tributaria",
+    items: [
+      "Coordinar y fortalecer acciones para optimizar los niveles de recaudación, generando una conducta tributaria de cumplimiento voluntario.",
+      "Ejecutar procesos de medición de resultados, planes y proyectos del área conforme a las directivas del DEM.",
+      "Promover la digitalización de trámites y procedimientos, tanto internos como externos.",
+      "Detectar omisión y evasión de tributos mediante distintos procedimientos y gestionar el cobro judicial.",
+    ],
+  },
+  {
+    id: "administrativa",
+    icon: "fa-landmark",
+    title: "Dirección Gral. Administrativa",
+    items: [
+      "Asegurar la legalidad en el manejo de los fondos del patrimonio público y garantizar la transparencia fiscal.",
+      "Procurar el correcto desarrollo de las tareas administrativas relativas a la Ejecución del Presupuesto de Gasto y Cálculo de Recursos.",
+      "Llevar la Contabilidad Presupuestaria y Patrimonial de la Administración Central del Municipio.",
+      "Administrar los RRHH de la Dirección y supervisar las comunicaciones internas relativas a faltas y sanciones.",
+    ],
+  },
+  {
+    id: "finanzas",
+    icon: "fa-chart-line",
+    title: "Dirección Gral. de Finanzas y Gestión",
+    items: [
+      "Realizar el proceso de programación financiera municipal planteando distintos escenarios sobre el flujo de fondos proyectado.",
+      "Recomendar a la Secretaría sobre las mejores opciones de inversión de fondos temporalmente ociosos.",
+      "Indagar sobre las distintas opciones de financiamiento disponibles para el sector público.",
+      "Elaborar indicadores e informes sobre la actividad económica local y la ejecución presupuestaria municipal.",
+    ],
+  },
+  {
+    id: "informatica",
+    icon: "fa-laptop-code",
+    title: "Dirección Gral. de Informática",
+    items: [
+      "Proveer soluciones de tecnología de la información que faciliten los objetivos en los distintos sectores.",
+      "Definir las características técnicas y la adecuación de sistemas, hardware, red y comunicaciones.",
+      "Planificar, dirigir y controlar los recursos informáticos del área a cargo.",
+    ],
   },
 ];
 
@@ -60,26 +128,102 @@ export default function Institucional() {
   return (
     <>
       <Head>
-        <title>Sec. de Economia Río Cuarto - Institucional</title>
+        <title>Institucional — Secretaría de Economía · Municipalidad de Río Cuarto</title>
+        <meta
+          name="description"
+          content="Conocé la estructura institucional, competencias y direcciones generales de la Secretaría de Economía de la Municipalidad de Río Cuarto."
+        />
       </Head>
 
-      <Header title="Institucional" subtitle="" />
-      <section className="institutional">
+      {/* ===== SECTION HEADER ===== */}
+      <div className="container">
+        <SectionHeader
+          title="Institucional"
+          subtitle="Secretaría de Economía · Municipalidad de Río Cuarto"
+          bgImage="/images/institucional-bg.png"
+        />
+      </div>
+
+      {/* ===== MAIN CONTENT ===== */}
+      <section className="institutional py-4">
         <div className="container">
-          <div className="row justify-content-betwenn">
-            <div className="col-md-4 order-0 order-md-1">
-              <h4 className="mb-3">Organigrama</h4>
-              <div className="institutional__group">
-                <div className="row justify-content-center">
+          <div className="row g-5">
+
+            {/* ===== COLUMNA IZQUIERDA: CONTENIDO ===== */}
+            <div className="col-lg-7 order-1 order-lg-0">
+
+              {/* Etiqueta + título */}
+              <p className="inst-label">SECRETARÍA DE ECONOMÍA</p>
+              <h1 className="inst-main-title">
+                Competencias y Funciones
+              </h1>
+              <p className="inst-intro">
+                La Secretaría de Economía de la Municipalidad de Río Cuarto tiene a su cargo
+                la administración y planificación financiera, tributaria e informática del
+                municipio. Según lo establecido por el artículo 7° de la Carta Orgánica
+                Municipal, sus principales competencias son:
+              </p>
+
+              {/* Lista de competencias */}
+              <ul className="inst-competencias-list mb-5">
+                {competencias.map((item, i) => (
+                  <li key={i} className="inst-competencias-list__item">
+                    <span className="inst-competencias-list__bullet">
+                      <i className="fas fa-check-circle"></i>
+                    </span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Divisor */}
+              <div className="inst-section-divider mb-4">
+                <h2 className="inst-section-title">
+                  <i className="fas fa-sitemap me-2"></i>
+                  Misiones y Funciones por Dirección
+                </h2>
+              </div>
+
+              {/* Cards de direcciones */}
+              <div className="inst-directions">
+                {direcciones.map((dir) => (
+                  <div key={dir.id} className="inst-direction-card">
+                    <div className="inst-direction-card__header">
+                      <div className="inst-direction-card__icon">
+                        <i className={`fas fa-fw ${dir.icon}`}></i>
+                      </div>
+                      <h3 className="inst-direction-card__title">{dir.title}</h3>
+                    </div>
+                    <ul className="inst-direction-card__list">
+                      {dir.items.map((item, i) => (
+                        <li key={i}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* ===== COLUMNA DERECHA: ORGANIGRAMA ===== */}
+            <div className="col-lg-5 order-0 order-lg-1">
+              <div className="inst-organigrama">
+                <h2 className="inst-organigrama__title">
+                  <i className="fas fa-users me-2"></i>Organigrama
+                </h2>
+
+                {/* Autoridades */}
+                <p className="inst-organigrama__group-label">Autoridades</p>
+                <div className="row g-3 mb-4">
                   {officials.map((official) => (
                     <div key={official.id} className="col-6">
                       <InstitutionalCard data={official} />
                     </div>
                   ))}
                 </div>
-              </div>
-              <div className="institutional__group">
-                <div className="row justify-content-center">
+
+                {/* Directores */}
+                <p className="inst-organigrama__group-label">Direcciones Generales</p>
+                <div className="row g-3">
                   {persons.map((person) => (
                     <div key={person.id} className="col-6">
                       <InstitutionalCard data={person} />
@@ -88,243 +232,7 @@ export default function Institucional() {
                 </div>
               </div>
             </div>
-            <div className="col-md-8 order-1 order-md-0">
-              <h4>Competencias de la Secretaría de Economía</h4>
-              <p>
-                Compete a la Secretaría de Economía de la Municipalidad de Río
-                Cuarto, según lo establece el artículo 7° de la Carta Orgánica
-                Municipal:
-              </p>
-              <ol className="mb-5">
-                <li>
-                  Elaborar anualmente el Proyecto de Presupuesto de Gastos y
-                  Recursos en función de los lineamientos generales que
-                  establezca el Departamento Ejecutivo Municipal, así como la
-                  Ordenanza Tarifaria Anual, para su posterior elevación al
-                  Concejo De
-                </li>
-                <li>
-                  Confeccionar anualmente la Cuenta General del Ejercicio
-                  conteniendo el estado de la ejecución presupuestaria y el
-                  estado de situación patrimonial del ejercici
-                </li>
-                <li>
-                  Promover y generar una cultura estratégica tributaria
-                  alineadas con los objetivos de la recaudación y los
-                  lineamientos generales de la gestión
-                </li>
-                <li>
-                  Señalar las normas administrativas, económicas y financieras
-                  de la administración municipal y proponer las adecuaciones
-                  correspondientes que emanan del pacto financiero y de las
-                  disposiciones legales de la
-                </li>
-                <li>
-                  Proponer, participar, coadyuvar en la elaboración de políticas
-                  económicas que hagan al interés general de la
-                </li>
-                <li>
-                  Coordinar la elaboración de propuestas y formular alternativas
-                  para la fijación de políticas y medidas de carácter municipal
-                  en el marco de la política económica p
-                </li>
-                <li>
-                  Asistir al Intendente en la coordinación de políticas y
-                  medidas con otros organismos referidos a la programación
-                  económica de la Región, la Provincia y la Nación.
-                </li>
-              </ol>
-              <h4 className="mb-3">
-                Misiones y Funciones de cada Dirección General de la Secretaría
-                de Economía
-              </h4>
-              <h5>Dirección General de Recursos</h5>
-              <ol className="mb-3">
-                <li>
-                  Proponer el dictado de normas generales obligatorias para
-                  reglamentar el cumplimiento de los deberes formales y el
-                  dictado de resoluciones interpretativas de las normas
-                  fiscales.
-                </li>
-                <li>
-                  Ejercer una supervisión directa sobre todo el personal que
-                  depende de la Dirección General de Recursos, en cuanto al
-                  cumplimiento de sus funciones aplicando, cuando correspondiere
-                  las sanciones previstas en el Estatuto del Empleado Municipal.
-                </li>
-                <li>
-                  Aplicar las disposiciones contenidas en las Ordenanzas que
-                  rigen la relación jurídica-tributaria y demás normas
-                  obligatorias para la administración pública municipal.
-                </li>
-                <li> Establecer mecanismos de control de la recaudación.</li>
-                <li>
-                  Solicitar los informes de las inspecciones periódicas
-                  realizadas por las distintas reparticiones involucradas en la
-                  habilitación y control de los locales afectados al Comercio,
-                  Industria, Empresas de Servicios y Diversiones y Espectáculos
-                  Públicos.
-                </li>
-                <li>
-                  Registrar requerimientos efectuados por niveles superiores,
-                  procurando el cumplimiento de los plazos establecidos.
-                </li>
-                <li>
-                  Controlar el cumplimiento de las órdenes de tareas por parte
-                  de los distintos sectores que integran la Dirección y aspectos
-                  formales de los comprobantes que deben ser conformados por la
-                  Dirección General de Recursos.
-                </li>
-                <li>
-                  Elaborar proyectos de informes de expedientes, disposiciones y
-                  resoluciones de su competencia. Asimismo verificar y elaborar
-                  informes de resultados cuantitativos y cualitativos de la
-                  implementación de los distintos programas de recaudación.
-                </li>
-                <li>
-                  Controlar el movimiento, registración, tramitación y archivo
-                  de la documentación de la Dirección General de Recursos.
-                </li>
-                <li>
-                  Coordinar y controlar el microemprendimiento de la
-                  distribución de cedulones, notificaciones, relevamiento
-                  inmobiliario y actualización de padrones.
-                </li>
-              </ol>
-              <h5>Dirección General de Gestión Tributaria</h5>
-              <ol className="mb-3">
-                <li>
-                  Coordinar y fortalecer los instrumentos y acciones tendientes
-                  a optimizar los niveles de recaudación, generando una conducta
-                  tributaria de cumplimiento voluntario, mediante el control de
-                  la evasión y la gestión de cobro de las contribuciones
-                  municipales.
-                </li>
-                <li>
-                  Ejecutar procesos y medición de resultados, planes, programas
-                  y proyectos del área de su competencia, elaborados conforme a
-                  las directivas que imparta el DEM.
-                </li>
-                <li>
-                  Emplear Herramientas de Gestión: Diagnóstico y análisis de
-                  situación.
-                </li>
-                <li>
-                  Promover la digitalización de trámites y procedimientos, tanto
-                  internos como externos.
-                </li>
-                <li>
-                  Detectar omisión y evasión de los tributos municipales
-                  mediante distintos procedimientos. Fiscalizar el cumplimiento
-                  de las obligaciones tributarias. Gestionar el cobro de los
-                  tributos municipales.
-                </li>
-                <li>
-                  Promover el inicio de los cobros judiciales mediante la
-                  elevación de los Certificados de Deuda a la Fiscalía.
-                </li>
-              </ol>
-              <h5>Dirección General Administrativa</h5>
-              <ol className="mb-3">
-                <li>
-                  Asegurar la legalidad en el manejo de los fondos del
-                  patrimonio público y garantizando la transparencia fiscal;
-                </li>
-                <li>
-                  Procurar el correcto desarrollo de todas las tareas
-                  administrativas relativas a la Ejecución del Presupuesto del
-                  Gasto y el Cálculo de Recursos en sus aspectos económicos,
-                  financieros y contables. Es el órgano de ejecución técnica en
-                  materia de gastos dentro del Municipio y en los aspectos de
-                  recaudación en lo que respecta a facilitar los medios de pago
-                  a los contribuyentes.
-                </li>
-                <li>
-                  Llevar a través de sus dependencias la Contabilidad
-                  Presupuestaria y Patrimonial de la Administración Central del
-                  Municipio y consolidada con el resto del Sector Público
-                  Municipal, con arreglo a la Ordenanza de Administración
-                  Financiera.
-                </li>
-                <li>
-                  Ajustar todo el proceso Contable y los Sistemas de
-                  Registración a las normas e instrucciones emanadas de la
-                  Secretaría de Economía y la Subsecretaria de Hacienda.
-                </li>
-                <li>
-                  Controlar la regularidad y exactitud de las operaciones
-                  contables y sus registros. Participar en conjunto con la
-                  Subdirección General de Presupuesto, en el dictado de
-                  normativa sobre los procedimientos necesarios para la
-                  formulación del anteproyecto de Presupuesto de cada año.
-                </li>
-                <li>
-                  Producir informes técnicos solicitados en materia
-                  presupuestaria y financiera.
-                </li>
-                <li>
-                  Intervenir en las formalidades y procedimientos de los
-                  convenios firmados con entidades bancarias, empresas dedicadas
-                  al cobro de tributos, traslado de valores o dedicadas a medios
-                  electrónicos de pago, tanto para los cobros como los pagos que
-                  realice el Municipio.
-                </li>
-                <li>
-                  Administrar los RRHH de la Dirección, controlarlos, supervisar
-                  las comunicaciones internas de la misma en relación a las
-                  faltas, sanciones y toda documentación emanada de la
-                  Subsecretaría de RRHH.
-                </li>
-                <li>
-                  Asistir en interpretación normativa y legal a las
-                  reparticiones de su dependencia, en materia de contrataciones,
-                  uso de clasificadores, registros presupuestarios y contables y
-                  cancelación de acreencias y pasivos municipales.
-                </li>
-              </ol>
-              <h5>Dirección General de Finanzas y Gestión</h5>
-              <ol>
-                <li>
-                  Realizar el proceso de programación financiera municipal
-                  planteando distintos escenarios acerca del flujo de fondos
-                  proyectado.
-                </li>
-                <li>
-                  Recomendar a la Secretaría sobre las mejores opciones sobre
-                  inversiones de fondos temporalmente ociosos a fin de evitar la
-                  pérdida de poder adquisitivo.
-                </li>
-                <li>
-                  Realizar la programación de pagos mensuales en función de la
-                  disponibilidad de fondos.
-                </li>
-                Indagar
-                <li>
-                  sobre las distintas opciones de financiamiento disponibles
-                  para el sector público y recomendar a la Secretaría su
-                  posibilidad de uso para financiar los distintos programas
-                  municipales.
-                </li>
-                <li>
-                  Elaborar indicadores e informes tanto sobre diversas aristas
-                  de la actividad económica local como de ejecución
-                  presupuestaria municipal.
-                </li>
-              </ol>
-              <h5>Dirección General de Informática</h5>
-              <ol>
-                <li>
-                  Proveer soluciones de tecnología de la información que faciliten los objetivos en los distintos sectores.
-                </li>
-                <li>
-                  Definir junto a su equipo y superiores las características técnicas y la adecuación de los sistemas, hardware y red, así como las características de los sistemas de comunicación.
-                </li>
-                <li>
-                  Planificar, dirigir y controlar los recursos informáticos del área a cargo.
-                </li>
-              </ol>
 
-            </div>
           </div>
         </div>
       </section>

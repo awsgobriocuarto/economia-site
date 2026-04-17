@@ -1,68 +1,280 @@
-.institutional {
-  // background-color: orange;
+// =============================================
+// INSTITUCIONAL — Estilos modernos
+// Portal municipal · Sec. de Economía
+// =============================================
 
-  &__group {
-    margin-bottom: 50px;
+// ── Etiqueta superior ────────────────────────
+.inst-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+  color: $primary;
+  margin-bottom: 8px;
+}
+
+// ── Título principal ─────────────────────────
+.inst-main-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: $dark;
+  line-height: 1.15;
+  margin-bottom: 16px;
+  letter-spacing: -0.03rem;
+}
+
+// ── Intro ────────────────────────────────────
+.inst-intro {
+  font-size: 1rem;
+  color: #475569;
+  line-height: 1.75;
+  margin-bottom: 28px;
+  border-left: 3px solid $primary;
+  padding-left: 16px;
+}
+
+// ── Lista de competencias ────────────────────
+.inst-competencias-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  &__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 0.95rem;
+    color: #374151;
+    line-height: 1.6;
+    background: #f8fafc;
+    border-radius: 10px;
+    padding: 12px 16px;
+    border: 1px solid #e2e8f0;
+    transition: border-color 0.2s, background 0.2s;
+
+    &:hover {
+      background: #f0f7ff;
+      border-color: rgba($primary, 0.3);
+    }
   }
 
-  h4 {
+  &__bullet {
+    flex-shrink: 0;
+    margin-top: 2px;
     color: $primary;
+    font-size: 1rem;
+  }
+}
+
+// ── Divisor de sección ───────────────────────
+.inst-section-divider {
+  border-top: 2px solid #e2e8f0;
+  padding-top: 24px;
+}
+
+.inst-section-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: $secondary;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  margin: 0;
+
+  i { color: $primary; }
+}
+
+// ── Cards de Direcciones ─────────────────────
+.inst-directions {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.inst-direction-card {
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.2s, transform 0.2s;
+
+  &:hover {
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.09);
+    transform: translateY(-2px);
   }
 
-  .card {
-    text-align: center;
-    margin-bottom: 20px;
-    .card-img-top {
-      img {
-        object-fit: cover;
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 20px;
+    background: linear-gradient(135deg, $primary 0%, darken($primary, 12%) 100%);
+  }
+
+  &__icon {
+    width: 38px;
+    height: 38px;
+    background: rgba(255,255,255, 0.18);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: #fff;
+    flex-shrink: 0;
+  }
+
+  &__title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+    line-height: 1.3;
+  }
+
+  &__list {
+    padding: 16px 20px 16px 36px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    li {
+      font-size: 0.88rem;
+      color: #475569;
+      line-height: 1.6;
+      padding-left: 4px;
+
+      &::marker {
+        color: $primary;
       }
-    }
-    .card-body {
-      padding: 15px 8px;
-      min-height: 120px;
-      // background-color: teal;
-    }
-    .card-title {
-      font-size: 0.9rem;
-      letter-spacing: -0.01rem;
-      color: $secondary;
-      margin-bottom: 4px;
-    }
-    .card-text {
-      font-size: 0.76rem;
-      margin-bottom: 0;
     }
   }
 }
 
+// ── Organigrama (columna derecha) ────────────
+.inst-organigrama {
+  position: sticky;
+  top: 90px;
+
+  &__title {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: $primary;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba($primary, 0.15);
+
+    i { opacity: 0.75; }
+  }
+
+  &__group-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12rem;
+    color: #94a3b8;
+    margin-bottom: 10px;
+  }
+}
+
+// ── InstitutionalCard ────────────────────────
+.institutional {
+
+  .card {
+    border: none;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    transition: box-shadow 0.25s, transform 0.25s;
+    text-align: center;
+
+    &:hover {
+      box-shadow: 0 8px 28px rgba(0,0,0,0.13);
+      transform: translateY(-3px);
+
+      .card-img-top img,
+      .card-img-top span {
+        transform: scale(1.04);
+      }
+    }
+
+    .card-img-top {
+      overflow: hidden;
+      background: #f1f5f9;
+
+      img, span {
+        display: block;
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        object-position: top center;
+        transition: transform 0.35s ease;
+      }
+    }
+
+    .card-body {
+      padding: 12px 10px 14px;
+    }
+
+    .card-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: $secondary;
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
+
+    .card-text {
+      font-size: 0.74rem;
+      color: $primary;
+      font-weight: 500;
+      margin-bottom: 6px;
+      line-height: 1.35;
+    }
+
+    a {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: $primary;
+      text-decoration: none;
+      opacity: 0.75;
+      text-transform: uppercase;
+      letter-spacing: 0.05rem;
+
+      &:hover { opacity: 1; }
+    }
+  }
+}
+
+// ── Responsive ───────────────────────────────
+@media (max-width: 991px) {
+  .inst-organigrama {
+    position: static;
+    margin-bottom: 40px;
+  }
+
+  .inst-main-title {
+    font-size: 1.6rem;
+  }
+}
+
 @media (max-width: 767px) {
-  .institutional {
-    // background-color: orange;
+  .inst-main-title {
+    font-size: 1.4rem;
+  }
 
-    &__group {
-      margin-bottom: 50px;
-    }
+  .inst-direction-card {
+    &__header { padding: 14px 16px; }
+    &__list { padding: 14px 16px 14px 32px; }
+  }
 
-    .card {
-      text-align: center;
-      margin-bottom: 20px;
-      .card-img-top {
-        // width: 100px;
-        // height: auto;
-        // margin: auto;
-      }
-      .card-body {
-        padding: 15px 4px;
-      }
-      .card-title {
-        font-size: 0.98rem;
-        // text-transform: uppercase;
-        color: $primary;
-      }
-      .card-text {
-        // font-size: 1rem;
-        letter-spacing: 0.02rem;
-      }
-    }
+  .institutional .card .card-img-top {
+    img, span { height: 120px; }
   }
 }
