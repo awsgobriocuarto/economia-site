@@ -1,57 +1,92 @@
 import React from "react";
 import Head from "next/head";
 import Header from "../../components/Header";
-import DownloadItemGroup from "../../components/DownloadItemGroup";
-import fetchBoletinOficial from "../../services/fetchBoletinOficial";
+import DownloadItem from "../../components/DownloadItem";
 import fetchEscalaSalarial from "../../services/fetchEscalaSalarial";
 
 export default function EscalaSalarial({ items }) {
+  // Filtramos las escalas vigentes
+  const vigentes = items.filter((item) => {
+    const status = (item.status || item.Status || item.vigente || item.Vigente || "").toString().toLowerCase().trim();
+    return status === "vigente" || status === "true" || status === "1" || item.vigente === true;
+  });
+
+  const driveLink = "https://drive.google.com/drive/folders/1Q7fZqWjrrZ0NsBqi8ZzzPZIEdEHLjINB?usp=sharing"; // URL de Drive para anteriores
+
   return (
     <>
       <Head>
-        <title>Sec. de Economia Río Cuarto - Escala Salarial</title>
+        <title>Escala Salarial — Secretaría de Economía e Innovación</title>
+        <meta name="description" content="Consulta las escalas salariales vigentes y anteriores de la Municipalidad de Río Cuarto." />
       </Head>
 
-      <Header title="Escala Salarial" subtitle="" />
+      <Header title="Escala Salarial" subtitle="TRANSPARENCIA Y GESTIÓN" />
 
-      <section className="legislations">
+      <section className="legislations py-5">
         <div className="container">
-          {items.length ? (
-            <div className="group">
-              <div className="current">
-                <h3>Escala Salarial</h3>
-                <DownloadItemGroup items={items} />
+          {/* SECCIÓN ESCALAS VIGENTES */}
+          <div className="group mb-5">
+            <h3 className="section-title-modern mb-4">Escala Salarial</h3>
+            {vigentes.length ? (
+              <div className="current-list">
+                {vigentes.map((item, idx) => (
+                  <DownloadItem
+                    key={`vigente-${idx}`}
+                    title={item.title || item.titulo || item.Title || item.Titulo || item.name || item.Name}
+                    url={item.url}
+                  />
+                ))}
               </div>
-            </div>
-          ) : (
-            ""
-          )}
-          <hr />
-          <div className="py-3">
-            <h5>Escalas Salariales Anteriores</h5>
+            ) : (
+              <p className="text-muted">No hay escalas vigentes para mostrar.</p>
+            )}
+          </div>
+
+          <hr className="my-5" />
+
+          {/* SECCIÓN ESCALAS ANTERIORES */}
+          <div className="group">
+            <h3 className="section-title-modern mb-4">Escalas Salariales Anteriores</h3>
+            <p className="text-muted mb-4">Puedes consultar el histórico de escalas salariales en nuestra carpeta de Google Drive.</p>
+            
             <a
-              href="https://drive.google.com/drive/folders/1Q7fZqWjrrZ0NsBqi8ZzzPZIEdEHLjINB?usp=sharing"
+              href={driveLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-dark"
+              className="btn btn-dark btn-lg px-5 py-3 rounded-pill"
+              style={{ fontWeight: 600, fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.05rem' }}
             >
-              Ver más
+              Ver anteriores en Drive
             </a>
           </div>
         </div>
       </section>
+
+      <style jsx>{`
+        .section-title-modern {
+          font-weight: 800;
+          color: #1a2840;
+          font-size: 1.75rem;
+          letter-spacing: -0.02rem;
+        }
+        .current-list {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+        }
+      `}</style>
     </>
   );
 }
 
 export async function getStaticProps() {
   const response = await fetchEscalaSalarial.list();
-  const items = response;
+  const items = response || [];
 
   return {
     props: {
       items,
     },
-    revalidate: 1,
+    revalidate: 60, // Revalidar cada minuto
   };
 }

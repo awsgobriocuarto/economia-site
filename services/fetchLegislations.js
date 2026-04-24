@@ -7,7 +7,13 @@ export default {
         "https://script.google.com/macros/s/AKfycbzuMFJ-6cnbzQxiwQa2bi2wW29IfQPwdxzfy59dA8rQpUQ_fuQAz1ctxQHBMHhXlCxjQQ/exec?section=fetchLegislations"
       )
       .then((response) => {
-        const items = response.data;
+        let items = response.data;
+
+        // Si los datos vienen dentro de una propiedad 'data'
+        if (items && !Array.isArray(items) && Array.isArray(items.data)) {
+          items = items.data;
+        }
+
         if (Array.isArray(items)) {
           return items.map((item) => ({
             ...item,
