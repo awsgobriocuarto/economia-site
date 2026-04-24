@@ -1,6 +1,5 @@
 import React from "react";
 import Head from "next/head";
-import Header from "../../components/Header";
 import DownloadItem from "../../components/DownloadItem";
 import fetchEscalaSalarial from "../../services/fetchEscalaSalarial";
 
@@ -20,7 +19,53 @@ export default function EscalaSalarial({ items }) {
         <meta name="description" content="Consulta las escalas salariales vigentes y anteriores de la Municipalidad de Río Cuarto." />
       </Head>
 
-      <Header title="Escala Salarial" subtitle="TRANSPARENCIA Y GESTIÓN" />
+      <div className="ddjj-header py-5">
+        <div className="container">
+          <div className="d-flex align-items-center gap-4">
+            <img
+              src="/images/icono-titulos.webp"
+              alt=""
+              style={{ height: "85px", width: "auto" }}
+            />
+            <div>
+              <h1 className="ddjj-title">Escala Salarial</h1>
+              <p className="ddjj-subtitle">SECRETARÍA DE ECONOMÍA · MUNICIPALIDAD DE RÍO CUARTO</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <style jsx>{`
+        .ddjj-title {
+          font-size: 2.6rem;
+          font-weight: 800;
+          color: #000;
+          text-transform: uppercase;
+          letter-spacing: -0.04rem;
+          line-height: 1;
+          margin: 0;
+        }
+        .ddjj-subtitle {
+          font-size: 1.15rem;
+          font-weight: 500;
+          color: #000;
+          text-transform: uppercase;
+          letter-spacing: 0.15rem;
+          margin: 6px 0 0;
+        }
+        @media (max-width: 767px) {
+          .ddjj-title {
+            font-size: 1.6rem;
+          }
+          .ddjj-subtitle {
+            font-size: 0.85rem;
+            letter-spacing: 0.05rem;
+          }
+          .ddjj-header img {
+            height: 52px !important;
+          }
+        }
+      `}</style>
 
       <section className="legislations py-5">
         <div className="container">

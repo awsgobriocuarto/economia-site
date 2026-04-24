@@ -4,13 +4,13 @@ import DownloadItemGroup from "../../components/DownloadItemGroup";
 import fetchDDJJ from "../../services/fetchDDJJ";
 
 export default function DeclaracionesJuradas({
-  intendente,
-  secretarios,
-  sub,
-  directores,
-  fiscales,
-  tribunal,
-  concejales,
+  intendente = [],
+  secretarios = [],
+  sub = [],
+  directores = [],
+  fiscales = [],
+  tribunal = [],
+  concejales = [],
 }) {
   return (
     <>
@@ -68,75 +68,61 @@ export default function DeclaracionesJuradas({
 
       <section className="legislations">
         <div className="container">
-          {intendente.length ? (
+          {intendente.length > 0 && (
             <div className="group">
               <div className="current">
                 <h3>Intendente</h3>
                 <DownloadItemGroup items={intendente} />
               </div>
             </div>
-          ) : (
-            ""
           )}
-          {secretarios.length ? (
+          {secretarios.length > 0 && (
             <div className="group">
               <div className="current">
                 <h3>Secretarios</h3>
                 <DownloadItemGroup items={secretarios} />
               </div>
             </div>
-          ) : (
-            ""
           )}
-          {sub.length ? (
+          {sub.length > 0 && (
             <div className="group">
               <div className="current">
                 <h3>Subsecretarios</h3>
                 <DownloadItemGroup items={sub} />
               </div>
             </div>
-          ) : (
-            ""
           )}
-          {directores.length ? (
+          {directores.length > 0 && (
             <div className="group">
               <div className="current">
                 <h3>Directores</h3>
                 <DownloadItemGroup items={directores} />
               </div>
             </div>
-          ) : (
-            ""
           )}
-          {fiscales.length ? (
+          {fiscales.length > 0 && (
             <div className="group">
               <div className="current">
                 <h3>Fiscales</h3>
                 <DownloadItemGroup items={fiscales} />
               </div>
             </div>
-          ) : (
-            ""
           )}
-          {tribunal.length ? (
+          {tribunal.length > 0 && (
             <div className="group">
               <div className="current">
                 <h3>Tribunal de Cuentas</h3>
                 <DownloadItemGroup items={tribunal} />
               </div>
             </div>
-          ) : (
-            ""
           )}
-          {concejales.length ? (
+          {concejales.length > 0 && (
             <div className="group">
               <div className="current">
                 <h3>Concejales</h3>
                 <DownloadItemGroup items={concejales} />
               </div>
             </div>
-          ) : (
-            ""
           )}
           <hr />
           <div className="py-3">
@@ -157,8 +143,13 @@ export default function DeclaracionesJuradas({
 }
 
 export async function getStaticProps() {
-  const response = await fetchDDJJ.list();
-  const items = response || [];
+  let items = [];
+  try {
+    const response = await fetchDDJJ.list();
+    items = response || [];
+  } catch (error) {
+    console.error("Error fetching DDJJ:", error);
+  }
 
   const intendente = items.filter((i) =>
     i.category?.toLowerCase().includes("intendente")

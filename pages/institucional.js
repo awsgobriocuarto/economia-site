@@ -1,5 +1,4 @@
 import Head from "next/head";
-import SectionHeader from "../components/SectionHeader";
 import InstitutionalCard from "../components/InstitutionalCard";
 
 const officials = [
@@ -135,14 +134,53 @@ export default function Institucional() {
         />
       </Head>
 
-      {/* ===== SECTION HEADER ===== */}
-      <div className="container">
-        <SectionHeader
-          title="Institucional"
-          subtitle="Secretaría de Economía · Municipalidad de Río Cuarto"
-          bgImage="/images/institucional-bg.png"
-        />
+      <div className="ddjj-header py-5">
+        <div className="container">
+          <div className="d-flex align-items-center gap-4">
+            <img
+              src="/images/icono-titulos.webp"
+              alt=""
+              style={{ height: "85px", width: "auto" }}
+            />
+            <div>
+              <h1 className="ddjj-title">Institucional</h1>
+              <p className="ddjj-subtitle">SECRETARÍA DE ECONOMÍA · MUNICIPALIDAD DE RÍO CUARTO</p>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <style jsx>{`
+        .ddjj-title {
+          font-size: 2.6rem;
+          font-weight: 800;
+          color: #000;
+          text-transform: uppercase;
+          letter-spacing: -0.04rem;
+          line-height: 1;
+          margin: 0;
+        }
+        .ddjj-subtitle {
+          font-size: 1.15rem;
+          font-weight: 500;
+          color: #000;
+          text-transform: uppercase;
+          letter-spacing: 0.15rem;
+          margin: 6px 0 0;
+        }
+        @media (max-width: 767px) {
+          .ddjj-title {
+            font-size: 1.6rem;
+          }
+          .ddjj-subtitle {
+            font-size: 0.85rem;
+            letter-spacing: 0.05rem;
+          }
+          .ddjj-header img {
+            height: 52px !important;
+          }
+        }
+      `}</style>
 
       {/* ===== MAIN CONTENT ===== */}
       <section className="institutional py-4">
