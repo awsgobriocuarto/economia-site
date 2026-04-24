@@ -1,68 +1,143 @@
 import React from "react";
 import Head from "next/head";
-import Header from "../../components/Header";
-import { getDeclarations } from "../../services/fetchDDJJApi";
-import DownloadItemDDJJ from "../../components/DownloadItemDDJJ";
-import { useDeclarations } from "../../hooks/useDeclarations";
-import { Spinner } from "react-bootstrap";
+import DownloadItemGroup from "../../components/DownloadItemGroup";
+import fetchDDJJ from "../../services/fetchDDJJ";
 
-export default function DeclaracionesJuradas() {
-  const { declarations, loading } = useDeclarations();
-
-  const items = declarations;
-
-  console.log(items);
-
+export default function DeclaracionesJuradas({
+  intendente,
+  secretarios,
+  sub,
+  directores,
+  fiscales,
+  tribunal,
+  concejales,
+}) {
   return (
     <>
       <Head>
         <title>Sec. de Economia Río Cuarto - Declaraciones Juradas</title>
       </Head>
 
-      <Header title="Declaraciones Juradas 2025" subtitle="" />
+      <div className="ddjj-header py-5">
+        <div className="container">
+          <div className="d-flex align-items-center gap-4">
+            <img
+              src="/images/icono-titulos.webp"
+              alt=""
+              style={{ height: "85px", width: "auto" }}
+            />
+            <div>
+              <h1 className="ddjj-title">Declaraciones Juradas</h1>
+              <p className="ddjj-subtitle">SECRETARÍA DE ECONOMÍA · MUNICIPALIDAD DE RÍO CUARTO</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-
+      <style jsx>{`
+        .ddjj-title {
+          font-size: 2.6rem;
+          font-weight: 800;
+          color: #000;
+          text-transform: uppercase;
+          letter-spacing: -0.04rem;
+          line-height: 1;
+          margin: 0;
+        }
+        .ddjj-subtitle {
+          font-size: 1.15rem;
+          font-weight: 500;
+          color: #000;
+          text-transform: uppercase;
+          letter-spacing: 0.15rem;
+          margin: 6px 0 0;
+        }
+        @media (max-width: 767px) {
+          .ddjj-title {
+            font-size: 1.6rem;
+          }
+          .ddjj-subtitle {
+            font-size: 0.85rem;
+            letter-spacing: 0.05rem;
+          }
+          .ddjj-header img {
+            height: 52px !important;
+          }
+        }
+      `}</style>
 
       <section className="legislations">
         <div className="container">
-          {loading && <Spinner />}
-          {items.map((item) => (
-            <div className="group" key={item.id}>
+          {intendente.length ? (
+            <div className="group">
               <div className="current">
-                <h3 className="text-primary">{item.name}</h3>
-                <ul className="mb-3">
-                  {item.users.map((user) => (
-                    <React.Fragment key={user.id}>
-                      <DownloadItemDDJJ name={user.name} state={user.declarations ? user.declarations.state : ""} url={user.declarations ? user.declarations.public_url : ""} />
-                    </React.Fragment>
-                  ))}
-                </ul>
-                {item.children.length == 0 ? "" : (
-                  <ul className="">
-                    {item.children.map((child) => (
-                      <React.Fragment key={child.id}>
-
-                        {child.users.length == 0 ? "" : (
-                          <>
-                            <h5>
-                              {child.name}
-                            </h5>
-                            <ul>
-                              {child.users.map((user) => (
-                                <React.Fragment key={user.id}>
-                                  <DownloadItemDDJJ name={user.name} state={user.declarations ? user.declarations.state : ""} url={user.declarations ? user.declarations.public_url : ""} />
-                                </React.Fragment>
-                              ))}
-                            </ul>
-                          </>
-                        )}</React.Fragment>
-
-                    ))}
-                  </ul>
-                )}
+                <h3>Intendente</h3>
+                <DownloadItemGroup items={intendente} />
               </div>
             </div>
-          ))}
+          ) : (
+            ""
+          )}
+          {secretarios.length ? (
+            <div className="group">
+              <div className="current">
+                <h3>Secretarios</h3>
+                <DownloadItemGroup items={secretarios} />
+              </div>
+            </div>
+          ) : (
+            ""
+          )}
+          {sub.length ? (
+            <div className="group">
+              <div className="current">
+                <h3>Subsecretarios</h3>
+                <DownloadItemGroup items={sub} />
+              </div>
+            </div>
+          ) : (
+            ""
+          )}
+          {directores.length ? (
+            <div className="group">
+              <div className="current">
+                <h3>Directores</h3>
+                <DownloadItemGroup items={directores} />
+              </div>
+            </div>
+          ) : (
+            ""
+          )}
+          {fiscales.length ? (
+            <div className="group">
+              <div className="current">
+                <h3>Fiscales</h3>
+                <DownloadItemGroup items={fiscales} />
+              </div>
+            </div>
+          ) : (
+            ""
+          )}
+          {tribunal.length ? (
+            <div className="group">
+              <div className="current">
+                <h3>Tribunal de Cuentas</h3>
+                <DownloadItemGroup items={tribunal} />
+              </div>
+            </div>
+          ) : (
+            ""
+          )}
+          {concejales.length ? (
+            <div className="group">
+              <div className="current">
+                <h3>Concejales</h3>
+                <DownloadItemGroup items={concejales} />
+              </div>
+            </div>
+          ) : (
+            ""
+          )}
           <hr />
           <div className="py-3">
             <h5>Declaracion Juradas Anteriores</h5>
@@ -76,19 +151,45 @@ export default function DeclaracionesJuradas() {
             </a>
           </div>
         </div>
-      </section >
+      </section>
     </>
   );
 }
 
-// export async function getStaticProps() {
+export async function getStaticProps() {
+  const response = await fetchDDJJ.list();
+  const items = response || [];
 
-//   const items = await getDeclarations();
+  const intendente = items.filter((i) =>
+    i.category?.toLowerCase().includes("intendente")
+  );
+  const secretarios = items.filter((i) =>
+    i.category?.toLowerCase().includes("secretarios")
+  );
+  const sub = items.filter((i) => i.category?.toLowerCase().includes("sub"));
+  const directores = items.filter((i) =>
+    i.category?.toLowerCase().includes("directores")
+  );
+  const fiscales = items.filter((i) =>
+    i.category?.toLowerCase().includes("fiscales")
+  );
+  const tribunal = items.filter((i) =>
+    i.category?.toLowerCase().includes("tribunal")
+  );
+  const concejales = items.filter((i) =>
+    i.category?.toLowerCase().includes("concejales")
+  );
 
-
-//   return {
-//     props: {
-//       items
-//     }
-//   };
-// }
+  return {
+    props: {
+      intendente,
+      secretarios,
+      sub,
+      directores,
+      fiscales,
+      tribunal,
+      concejales,
+    },
+    revalidate: 60,
+  };
+}
