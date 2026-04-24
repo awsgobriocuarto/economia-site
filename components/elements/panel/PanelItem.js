@@ -15,7 +15,7 @@ export const PanelItem = ({ item }) => {
   return (
     <>
       {item.title && (
-        <div className="col-md-6 col-lg-5 col-xl-4">
+        <div className="col-12 col-md-6 col-lg-5 col-xl-4 mb-3">
           <Link href={item.url ? item.url : "/"}>
             <a
               target={item.urlExternal ? "_blank" : "_self"}

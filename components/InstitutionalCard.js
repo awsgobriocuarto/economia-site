@@ -6,6 +6,7 @@ export default function InstitutionalCard({ data }) {
       <div className="card-img-top">
         {/* eslint-disable-next-line */}
         <img
+          className="img-fluid w-100"
           src={
             data.img ||
             "https://res.cloudinary.com/gobriocuarto/image/upload/v1666284220/Economia/Web/profile-man_kq8t1r.jpg"

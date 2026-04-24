@@ -9,7 +9,7 @@ export const ExpirationItem = ({ fecha, titulo, descripcion, url }) => {
   }
 
   return (
-    <div className="col-md-6 col-lg-4 mb-4">
+    <div className="col-12 col-md-6 col-lg-4 mb-4">
       <a
         href={url}
         target="_blank"

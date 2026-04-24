@@ -183,7 +183,7 @@ export default function Home({ items, expirations }) {
       <section className="pb-5 pt-0" style={{ background: 'white' }}>
         <div className="container">
           <div className="row g-3">
-            <div className="col-md-6">
+            <div className="col-12 col-md-6">
               <div className="banner banner-box secondary mb-3">
                 <div>
                   <h4 className="mb-2 mb-md-1">
@@ -208,7 +208,7 @@ export default function Home({ items, expirations }) {
                 </div>
               </div>
             </div>
-            <div className="col-md-6">
+            <div className="col-12 col-md-6">
               <div className="banner banner-box primary mb-3">
                 <div>
                   <h4 className="mb-2 mb-md-1">Contanos tu experiencia</h4>

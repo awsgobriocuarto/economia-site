@@ -4,12 +4,15 @@ html {
   min-height: 100vh;
   position: relative;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   margin-bottom: 280px;
   background-color: #f4f6f9;
   color: $gray-dark;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 main {}

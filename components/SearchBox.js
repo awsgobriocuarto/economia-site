@@ -138,9 +138,8 @@ const SearchBox = ({ overlay }) => {
       className={overlay ? 'search-box-overlay' : 'search-box-portal pt-4 pb-2 mb-4'}
       ref={containerRef}
     >
-      <div className="container">
         <div className="sb-wrapper">
-          <form onSubmit={handleSubmit} className="d-flex w-100" autoComplete="off">
+          <form onSubmit={handleSubmit} className="d-flex flex-column flex-md-row w-100" autoComplete="off">
             <div className="sb-input-wrapper flex-grow-1 position-relative">
               <input
                 ref={inputRef}
@@ -228,7 +227,6 @@ const SearchBox = ({ overlay }) => {
             </div>
           )}
         </div>
-      </div>
     </div>
   );
 };
