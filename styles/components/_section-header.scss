@@ -121,14 +121,14 @@
   .section-header {
     height: 180px;
     border-radius: 20px;
-    margin: 0 10px 25px;
+    margin: 0 0 30px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 
     &__overlay {
         background: linear-gradient(
           to top,
-          rgba($dark, 0.85) 0%,
-          rgba($dark, 0.4) 100%
+          rgba(0, 0, 0, 0.85) 0%,
+          rgba(0, 0, 0, 0.4) 100%
         );
     }
 

@@ -120,9 +120,11 @@ export default function Home({ items, expirations }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {/* ===== HERO: SLIDER FULL-WIDTH ===== */}
-      <div className="hero-full">
-        <Slider />
+      {/* ===== HERO: SLIDER ===== */}
+      <div className="hero-section-container pt-3">
+        <div className="container">
+          <Slider />
+        </div>
       </div>
 
       {/* ===== PORTAL SEARCH SECTION ===== */}
