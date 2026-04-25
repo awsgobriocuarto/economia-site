@@ -121,10 +121,8 @@ export default function Home({ items, expirations }) {
       </Head>
 
       {/* ===== HERO: SLIDER ===== */}
-      <div className="hero-section-container pt-3">
-        <div className="container">
-          <Slider />
-        </div>
+      <div className="hero-section-container">
+        <Slider />
       </div>
 
       {/* ===== PORTAL SEARCH SECTION ===== */}
@@ -140,7 +138,7 @@ export default function Home({ items, expirations }) {
       </section>
 
       {/* ===== ACCESOS RÁPIDOS ===== */}
-      <section className="quick-access-portal-section pb-5">
+      <section className="quick-access-portal-section py-5">
         <div className="container">
             <div className="quick-access-portal-grid">
                 {quickAccessItems.map((item) => (
@@ -157,7 +155,6 @@ export default function Home({ items, expirations }) {
             items={randomFormalities}
             title="TRÁMITES Y SERVICIOS"
             subtitle="RESOLVÉ TUS GESTIONES ONLINE"
-            bgImage="/images/section-bg-tramites.jpg"
           />
           <div className="text-center mt-4">
             <Link href="/tramites-y-servicios">
@@ -176,13 +173,12 @@ export default function Home({ items, expirations }) {
             items={items}
             title="GESTIONES"
             subtitle="OTRAS GESTIONES MUNICIPALES"
-            bgImage="/images/section-bg-gestiones.png"
           />
         </div>
       </section>
 
       {/* ===== BANNERS CTA: DOMICILIO ELECTRÓNICO + EXPERIENCIA ===== */}
-      <section className="pb-5 pt-0" style={{ background: 'white' }}>
+      <section className="py-5" style={{ background: 'white' }}>
         <div className="container">
           <div className="row g-3">
             <div className="col-12 col-md-6">

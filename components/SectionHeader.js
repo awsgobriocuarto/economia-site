@@ -2,25 +2,20 @@ import PropTypes from "prop-types";
 
 /**
  * SectionHeader
- * Encabezado de sección con foto de fondo, overlay oscuro,
- * ícono institucional, título y subtítulo — estilo portal municipal.
- *
- * Props:
- *   title      — Título principal (obligatorio)
- *   subtitle   — Subtítulo (opcional)
- *   bgImage    — Ruta de la imagen de fondo (ej: "/images/section-bg-tramites.png")
- *   className  — Clase adicional opcional
+ * Encabezado de sección versátil.
+ * Si tiene bgImage: Estilo Hero (foto + overlay + texto blanco).
+ * Si NO tiene bgImage: Estilo Limpio (texto negro + ícono + sin fondo).
  */
 export default function SectionHeader({ title, subtitle, bgImage, className = "" }) {
+  const isClean = !bgImage;
+
   return (
     <div
-      className={`section-header ${className}`}
+      className={`section-header ${isClean ? "section-header--clean" : ""} ${className}`}
       style={bgImage ? { backgroundImage: `url(${bgImage})` } : {}}
     >
-      <div className="section-header__overlay" />
+      {!isClean && <div className="section-header__overlay" />}
       <div className="section-header__content">
-        {/* Ícono institucional del Manual de Marca */}
-        {/* eslint-disable-next-line */}
         <img
           src="/images/icono-titulos.webp"
           alt=""
@@ -33,6 +28,44 @@ export default function SectionHeader({ title, subtitle, bgImage, className = ""
           )}
         </div>
       </div>
+
+      <style jsx>{`
+        .section-header--clean {
+          background: transparent !important;
+          height: auto !important;
+          padding: 40px 0 !important;
+          box-shadow: none !important;
+          margin-bottom: 20px !important;
+        }
+        .section-header--clean :global(.section-header__content) {
+          padding: 0 !important;
+          gap: 25px !important;
+        }
+        .section-header--clean :global(.section-header__icon) {
+          filter: none !important;
+          height: 70px !important;
+        }
+        .section-header--clean :global(.section-header__title) {
+          color: #000 !important;
+          text-shadow: none !important;
+          font-size: 2.2rem !important;
+        }
+        .section-header--clean :global(.section-header__subtitle) {
+          color: #666 !important;
+          text-shadow: none !important;
+          font-size: 1rem !important;
+          margin-top: 4px !important;
+        }
+
+        @media (max-width: 767px) {
+          .section-header--clean :global(.section-header__title) {
+            font-size: 1.5rem !important;
+          }
+          .section-header--clean :global(.section-header__icon) {
+            height: 50px !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }

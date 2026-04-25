@@ -1,34 +1,35 @@
 // .barcolor {
-//   top: 100px;
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
 //   display: grid;
 //   grid-template-columns: repeat(6, 1fr);
+//   z-index: 10000;
 // }
 // .barcolor .item {
-//   height: 6px;
+//   height: 5px;
 // }
 // .barcolor .item-1 {
-//   background-color: $blue;
+//   background-color: #009DE0;
 // }
 // .barcolor .item-2 {
-//   background-color: $purple;
+//   background-color: #6a3d9a;
 // }
 // .barcolor .item-3 {
-//   background-color: $red;
+//   background-color: #E8651A;
 // }
 // .barcolor .item-4 {
-//   background-color: $orange;
+//   background-color: #f1bd4a;
 // }
 // .barcolor .item-5 {
-//   background-color: $yellow;
+//   background-color: #dd463c;
 // }
 // .barcolor .item-6 {
-//   background-color: $green;
+//   background-color: #4eba74;
 // }
 
 // @media (max-width: 1199px) {
-//   .barcolor {
-//     top: 83px;
-//   }
 //   .barcolor .item {
 //     height: 4px;
 //   }

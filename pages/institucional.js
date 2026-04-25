@@ -1,5 +1,8 @@
+import React, { useState } from "react";
 import Head from "next/head";
 import InstitutionalCard from "../components/InstitutionalCard";
+import SectionHeader from "../components/SectionHeader";
+import { Modal } from "react-bootstrap";
 
 const officials = [
   {
@@ -124,6 +127,19 @@ const direcciones = [
 ];
 
 export default function Institucional() {
+  const [showModal, setShowModal] = useState(false);
+  const [activeDir, setActiveDir] = useState(null);
+
+  const handleOpenModal = (dir) => {
+    setActiveDir(dir);
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+    setActiveDir(null);
+  };
+
   return (
     <>
       <Head>
@@ -134,56 +150,80 @@ export default function Institucional() {
         />
       </Head>
 
-      <div className="ddjj-header py-5">
-        <div className="container">
-          <div className="d-flex align-items-center gap-4">
-            <img
-              src="/images/icono-titulos.webp"
-              alt=""
-              style={{ height: "85px", width: "auto" }}
-            />
-            <div>
-              <h1 className="ddjj-title">Institucional</h1>
-              <p className="ddjj-subtitle">SECRETARÍA DE ECONOMÍA · MUNICIPALIDAD DE RÍO CUARTO</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <SectionHeader title="Institucional" subtitle="SECRETARÍA DE ECONOMÍA · MUNICIPALIDAD DE RÍO CUARTO" />
 
       <style jsx>{`
-        .ddjj-title {
-          font-size: 2.6rem;
+        .inst-direction-card-interactive {
+          background: #fff;
+          border: 1px solid #e2e8f0;
+          border-radius: 12px;
+          padding: 24px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          justify-content: center;
+          gap: 15px;
+          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .inst-direction-card-interactive:hover {
+          transform: translateY(-5px);
+          border-color: #003366;
+          box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .inst-direction-card-interactive__icon {
+          width: 60px;
+          height: 60px;
+          background: #f1f5f9;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.5rem;
+          color: #003366;
+          transition: all 0.3s ease;
+        }
+        .inst-direction-card-interactive:hover .inst-direction-card-interactive__icon {
+          background: #003366;
+          color: #fff;
+        }
+        .inst-direction-card-interactive__title {
+          font-size: 1.1rem;
+          font-weight: 700;
+          margin: 0;
+          color: #1a202c;
+        }
+        .inst-modal-title {
           font-weight: 800;
-          color: #000;
           text-transform: uppercase;
-          letter-spacing: -0.04rem;
-          line-height: 1;
+          color: #003366;
+        }
+        .inst-modal-list {
+          list-style: none;
+          padding: 0;
           margin: 0;
         }
-        .ddjj-subtitle {
-          font-size: 1.15rem;
-          font-weight: 500;
-          color: #000;
-          text-transform: uppercase;
-          letter-spacing: 0.15rem;
-          margin: 6px 0 0;
+        .inst-modal-list li {
+          position: relative;
+          padding-left: 25px;
+          margin-bottom: 15px;
+          line-height: 1.5;
+          color: #4a5568;
         }
-        @media (max-width: 767px) {
-          .ddjj-title {
-            font-size: 1.6rem;
-          }
-          .ddjj-subtitle {
-            font-size: 0.85rem;
-            letter-spacing: 0.05rem;
-          }
-          .ddjj-header img {
-            height: 52px !important;
-          }
+        .inst-modal-list li::before {
+          content: "→";
+          position: absolute;
+          left: 0;
+          color: #003366;
+          font-weight: bold;
         }
       `}</style>
 
       {/* ===== MAIN CONTENT ===== */}
-      <section className="institutional py-4">
+      <section className="institutional py-5">
         <div className="container">
           <div className="row g-5">
 
@@ -222,21 +262,19 @@ export default function Institucional() {
                 </h2>
               </div>
 
-              {/* Cards de direcciones */}
-              <div className="inst-directions">
+              {/* Grid de Direcciones Interactivas */}
+              <div className="row g-4 mb-5">
                 {direcciones.map((dir) => (
-                  <div key={dir.id} className="inst-direction-card">
-                    <div className="inst-direction-card__header">
-                      <div className="inst-direction-card__icon">
+                  <div key={dir.id} className="col-md-6 col-xl-4">
+                    <div 
+                      className="inst-direction-card-interactive"
+                      onClick={() => handleOpenModal(dir)}
+                    >
+                      <div className="inst-direction-card-interactive__icon">
                         <i className={`fas fa-fw ${dir.icon}`}></i>
                       </div>
-                      <h3 className="inst-direction-card__title">{dir.title}</h3>
+                      <h3 className="inst-direction-card-interactive__title">{dir.title}</h3>
                     </div>
-                    <ul className="inst-direction-card__list">
-                      {dir.items.map((item, i) => (
-                        <li key={i}>{item}</li>
-                      ))}
-                    </ul>
                   </div>
                 ))}
               </div>
@@ -274,6 +312,35 @@ export default function Institucional() {
           </div>
         </div>
       </section>
+
+      {/* Modal para Misiones y Funciones */}
+      <Modal 
+        show={showModal} 
+        onHide={handleCloseModal}
+        centered
+        size="lg"
+      >
+        <Modal.Header closeButton className="border-0 pb-0">
+          <Modal.Title className="inst-modal-title">
+            {activeDir?.title}
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="pt-4">
+          <h6 className="mb-4 text-muted text-uppercase fw-bold" style={{ letterSpacing: '0.1rem', fontSize: '0.75rem' }}>
+            Misiones y Funciones Principales
+          </h6>
+          <ul className="inst-modal-list">
+            {activeDir?.items.map((item, i) => (
+              <li key={i}>{item}</li>
+            ))}
+          </ul>
+        </Modal.Body>
+        <Modal.Footer className="border-0">
+          <button className="btn btn-dark px-4 py-2 rounded-pill" onClick={handleCloseModal}>
+            Cerrar
+          </button>
+        </Modal.Footer>
+      </Modal>
     </>
   );
 }

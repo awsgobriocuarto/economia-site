@@ -58,7 +58,6 @@ export default function InnovationLatest() {
         <SectionHeader
           title="DESARROLLOS INNOVACIÓN"
           subtitle="SISTEMAS Y TECNOLOGÍA AL SERVICIO DEL VECINO"
-          bgImage="/images/section-bg-innovacion.png"
         />
 
         <div className="carousel-news-container">

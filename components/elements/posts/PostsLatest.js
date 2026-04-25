@@ -21,7 +21,6 @@ export default function PostsLatest({ limit }) {
         <SectionHeader 
           title="NOVEDADES" 
           subtitle="NOTICIAS Y ANUNCIOS DE LA CIUDAD" 
-          bgImage="/images/section-bg-novedades.png"
         />
         
         <div className="carousel-news-container">

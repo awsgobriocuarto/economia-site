@@ -103,8 +103,9 @@
     height: 70px;
 
     .navbar-brand {
-      width: 120px; // Aún más pequeño por pedido del usuario
+      width: 180px; // Aumentado para mejor legibilidad
       margin-left: 0;
+      justify-content: flex-start !important; // Alineado a la izquierda
 
       img {
         width: 100% !important;
@@ -113,7 +114,7 @@
     }
 
     .w-100-mobile {
-      width: 100% !important;
+      width: auto !important; // Dejamos que el ancho lo de el logo
     }
 
     .container-fluid {
