@@ -59,7 +59,6 @@ export default function Innovacion() {
           <SectionHeader 
             title="INNOVACIÓN" 
             subtitle="SISTEMAS Y DESARROLLOS TECNOLÓGICOS" 
-            bgImage="/images/section-bg-innovacion.png"
           />
         </div>
 

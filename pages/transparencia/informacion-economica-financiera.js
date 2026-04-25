@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import Header from "../../components/Header";
+import SectionHeader from "../../components/SectionHeader";
 import fetchTransparency from "../../services/fetchTransparency";
 import DownloadItemGroup from "../../components/DownloadItemGroup";
 import DownloadItemGroupOlds from "../../components/DownloadItemGroupOlds";
@@ -22,9 +22,9 @@ export default function InformacionEconomicaFinanciera({
         </title>
       </Head>
 
-      <Header title="Información Económica y Financiera" subtitle="" />
+      <SectionHeader title="Información Económica y Financiera" subtitle="SECRETARÍA DE ECONOMÍA · MUNICIPALIDAD DE RÍO CUARTO" />
 
-      <section className="legislations">
+      <section className="legislations py-5">
         <div className="container">
           {ejercicios.length ? (
             <div className="group">

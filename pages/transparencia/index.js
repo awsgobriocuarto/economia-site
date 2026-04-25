@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { Panel } from "../../components/elements/panel/Panel";
-import Header from "../../components/Header";
+import SectionHeader from "../../components/SectionHeader";
 
 import getListItems from "../../services/getListItems";
 
@@ -11,9 +11,9 @@ export default function Transparencia({ items }) {
         <title>Sec. de Economia Río Cuarto - Transparencia</title>
       </Head>
 
-      <Header title="Transparencia" subtitle="" />
+      <SectionHeader title="Transparencia" subtitle="SECRETARÍA DE ECONOMÍA · MUNICIPALIDAD DE RÍO CUARTO" />
 
-      <section>
+      <section className="py-5">
         <div className="container">
           <Panel items={items} />
           <div className="banner secondary">

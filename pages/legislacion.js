@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import Header from "../components/Header";
+import SectionHeader from "../components/SectionHeader";
 import fetchLegislations from "../services/fetchLegislations";
 import DownloadItemGroup from "../components/DownloadItemGroup";
 import DownloadItemGroupOlds from "../components/DownloadItemGroupOlds";
@@ -18,8 +18,8 @@ export default function Legislacion({
         <title>Sec. de Economia Río Cuarto - Legislación</title>
       </Head>
 
-      <Header title="Legislacion" subtitle="" />
-      <section className="legislations">
+      <SectionHeader title="Legislación" subtitle="SECRETARÍA DE ECONOMÍA · MUNICIPALIDAD DE RÍO CUARTO" />
+      <section className="legislations py-5">
         <div className="container">
           {codigo.length ? (
             <div className="group">

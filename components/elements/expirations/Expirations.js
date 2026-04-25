@@ -13,7 +13,6 @@ export default function Expirations({ expirations }) {
         <SectionHeader 
           title="VENCIMIENTOS" 
           subtitle="PRÓXIMOS VENCIMIENTOS" 
-          bgImage="/images/section-bg-vencimientos.png"
         />
         <div className="row">
           {expirations.map((expiration, index) => (
