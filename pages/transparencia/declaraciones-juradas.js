@@ -19,10 +19,9 @@ export default function DeclaracionesJuradas({
         <title>Sec. de Economia Río Cuarto - Declaraciones Juradas</title>
       </Head>
 
-      <SectionHeader title="Declaraciones Juradas" subtitle="SECRETARÍA DE ECONOMÍA · MUNICIPALIDAD DE RÍO CUARTO" />
-
       <section className="legislations py-5">
         <div className="container">
+          <SectionHeader title="Declaraciones Juradas" className="mb-5" />
           {intendente.length > 0 && (
             <div className="group">
               <div className="current">

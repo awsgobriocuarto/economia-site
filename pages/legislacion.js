@@ -18,9 +18,9 @@ export default function Legislacion({
         <title>Sec. de Economia Río Cuarto - Legislación</title>
       </Head>
 
-      <SectionHeader title="Legislación" subtitle="SECRETARÍA DE ECONOMÍA · MUNICIPALIDAD DE RÍO CUARTO" />
       <section className="legislations py-5">
         <div className="container">
+          <SectionHeader title="Legislación" className="mb-5" />
           {codigo.length ? (
             <div className="group">
               <h3>Código Tributario Municipal</h3>

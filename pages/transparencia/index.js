@@ -11,10 +11,9 @@ export default function Transparencia({ items }) {
         <title>Sec. de Economia Río Cuarto - Transparencia</title>
       </Head>
 
-      <SectionHeader title="Transparencia" subtitle="SECRETARÍA DE ECONOMÍA · MUNICIPALIDAD DE RÍO CUARTO" />
-
       <section className="py-5">
         <div className="container">
+          <SectionHeader title="Transparencia" className="mb-5" />
           <Panel items={items} />
           <div className="banner secondary">
             <div>

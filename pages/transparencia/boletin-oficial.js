@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import Header from "../../components/Header";
+import SectionHeader from "../../components/SectionHeader";
 import DownloadItemGroup from "../../components/DownloadItemGroup";
 import fetchBoletinOficial from "../../services/fetchBoletinOficial";
 
@@ -11,14 +11,12 @@ export default function BoletinOficial({ items }) {
         <title>Sec. de Economia Río Cuarto - Boletín Oficial</title>
       </Head>
 
-      <Header title="Boletín Oficial" subtitle="" />
-
-      <section className="legislations">
+      <section className="legislations py-5">
         <div className="container">
           {items.length ? (
             <div className="group">
               <div className="current">
-                <h3>Boletin Oficial</h3>
+                <SectionHeader title="Boletín Oficial" className="mb-4" />
                 <DownloadItemGroup items={items} />
               </div>
             </div>

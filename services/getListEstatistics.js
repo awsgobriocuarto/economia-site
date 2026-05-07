@@ -6,7 +6,7 @@ export default {
     return axios
       .get(
         "https://docs.google.com/spreadsheets/d/e/2PACX-1vT8oZGriiLOycllJVj9yCR6F4od0U8OwEyy9thp9r41CvlTTVV3fB0lrdlNH8-aTgx0sSJizLFFMsK3/pub?output=csv",
-        { responseType: "blob" }
+
       )
       .then(
         (response) =>

@@ -16,6 +16,12 @@
     transform: translateY(-4px);
     border-color: #0099db;
 
+    .icon-side {
+      background-color: #0099db;
+      color: white;
+      transform: rotate(-5deg) scale(1.05);
+    }
+
     .chevron-side {
         transform: translateX(4px);
     }
@@ -29,16 +35,18 @@
     background-color: white;
 
     .icon-side {
-      width: 50px;
-      height: 50px;
+      width: 60px;
+      height: 60px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #0099db; // Azul icon
-      background-color: transparent; // Clean look like screenshot
+      color: #0099db; 
+      background-color: #f1f5f9; 
+      border-radius: 14px;
+      transition: all 0.3s ease;
 
       i {
-        font-size: 2rem;
+        font-size: 1.5rem;
       }
     }
 

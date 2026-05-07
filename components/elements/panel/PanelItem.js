@@ -3,6 +3,22 @@ import Link from "next/link";
 
 export const PanelItem = ({ item }) => {
   const router = useRouter();
+
+  const getIcon = (title, iconUrl) => {
+    const t = title.toLowerCase();
+    if (t.includes("boletín")) return "fa-newspaper";
+    if (t.includes("escala")) return "fa-money-bill-wave";
+    if (t.includes("declaraciones")) return "fa-file-signature";
+    if (t.includes("legislación") || t.includes("ordenanza")) return "fa-balance-scale";
+    if (t.includes("económica") || t.includes("financiera")) return "fa-chart-pie";
+    if (t.includes("presupuesto")) return "fa-calculator";
+    if (t.includes("expedientes")) return "fa-search-location";
+    if (t.includes("cedulón") || t.includes("digital")) return "fa-tablet-alt";
+    
+    // Return provided icon if exists, else default
+    return iconUrl || "fa-file-alt";
+  };
+
   const handleEventClick = (button = "") => {
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
@@ -12,6 +28,9 @@ export const PanelItem = ({ item }) => {
       path: router.pathname,
     });
   };
+
+  const currentIcon = getIcon(item.title || "", item.iconUrl);
+
   return (
     <>
       {item.title && (
@@ -24,7 +43,7 @@ export const PanelItem = ({ item }) => {
             >
               <div className="panel-item-horizontal">
                 <div className="icon-side">
-                  <i className={`fas fa-2x ${item.iconUrl}`}></i>
+                  <i className={`fas fa-2x ${currentIcon}`}></i>
                 </div>
                 <div className="text-side">
                   <p>{item.title}</p>

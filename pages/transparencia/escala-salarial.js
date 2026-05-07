@@ -20,13 +20,11 @@ export default function EscalaSalarial({ items }) {
         <meta name="description" content="Consulta las escalas salariales vigentes y anteriores de la Municipalidad de Río Cuarto." />
       </Head>
 
-      <SectionHeader title="Escala Salarial" subtitle="SECRETARÍA DE ECONOMÍA · MUNICIPALIDAD DE RÍO CUARTO" />
-
       <section className="legislations py-5">
         <div className="container">
           {/* SECCIÓN ESCALAS VIGENTES */}
           <div className="group mb-5">
-            <h3 className="section-title-modern mb-4">Escala Salarial</h3>
+            <SectionHeader title="Escala Salarial" className="mb-4" />
             {vigentes.length ? (
               <div className="current-list">
                 {vigentes.map((item, idx) => (

@@ -22,10 +22,9 @@ export default function InformacionEconomicaFinanciera({
         </title>
       </Head>
 
-      <SectionHeader title="Información Económica y Financiera" subtitle="SECRETARÍA DE ECONOMÍA · MUNICIPALIDAD DE RÍO CUARTO" />
-
       <section className="legislations py-5">
         <div className="container">
+          <SectionHeader title="Información Económica y Financiera" className="mb-5" />
           {ejercicios.length ? (
             <div className="group">
               <div className="current">
