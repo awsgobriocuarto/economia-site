@@ -4,7 +4,7 @@ export default {
   list: async () => {
     return axios
       .get(
-        "https://script.google.com/macros/s/AKfycbzuMFJ-6cnbzQxiwQa2bi2wW29IfQPwdxzfy59dA8rQpUQ_fuQAz1ctxQHBMHhXlCxjQQ/exec?section=fetchBoletinOficial"
+        "https://script.google.com/macros/s/AKfycbx0KK4zSjV5ihJg0UjT1-v26UlE_9evWIRYcsNds6gW4yqaOlc8gYGMWcPBHGEA-51y/exec?sheet=boletin_oficial"
       )
       .then((response) => {
         let items = response.data;
