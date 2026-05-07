@@ -20,7 +20,7 @@ export default function PostsLatest({ limit }) {
       <div className="container position-relative">
         <SectionHeader 
           title="NOVEDADES" 
-          subtitle="NOTICIAS Y ANUNCIOS DE LA CIUDAD" 
+          className="mb-5"
         />
         
         <div className="carousel-news-container">

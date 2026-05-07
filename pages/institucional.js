@@ -150,7 +150,7 @@ export default function Institucional() {
         />
       </Head>
 
-      <SectionHeader title="Institucional" subtitle="SECRETARÍA DE ECONOMÍA · MUNICIPALIDAD DE RÍO CUARTO" />
+
 
       <style jsx>{`
         .inst-direction-card-interactive {
@@ -225,10 +225,11 @@ export default function Institucional() {
       {/* ===== MAIN CONTENT ===== */}
       <section className="institutional py-5">
         <div className="container">
+          <SectionHeader title="Institucional" className="mb-5" />
           <div className="row g-5">
 
             {/* ===== COLUMNA IZQUIERDA: CONTENIDO ===== */}
-            <div className="col-lg-7 order-1 order-lg-0">
+            <div className="col-lg-7">
 
               {/* Etiqueta + título */}
               <p className="inst-label">SECRETARÍA DE ECONOMÍA</p>
@@ -281,7 +282,7 @@ export default function Institucional() {
             </div>
 
             {/* ===== COLUMNA DERECHA: ORGANIGRAMA ===== */}
-            <div className="col-lg-5 order-0 order-lg-1">
+            <div className="col-lg-5">
               <div className="inst-organigrama">
                 <h2 className="inst-organigrama__title">
                   <i className="fas fa-users me-2"></i>Organigrama

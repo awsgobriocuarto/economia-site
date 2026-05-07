@@ -57,7 +57,7 @@ export default function InnovationLatest() {
       <div className="container position-relative">
         <SectionHeader
           title="DESARROLLOS INNOVACIÓN"
-          subtitle="SISTEMAS Y TECNOLOGÍA AL SERVICIO DEL VECINO"
+          className="mb-5"
         />
 
         <div className="carousel-news-container">

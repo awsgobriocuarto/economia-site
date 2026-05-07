@@ -8,7 +8,7 @@ html {
 }
 
 body {
-  margin-bottom: 280px;
+  margin-bottom: 380px;
   background-color: #f4f6f9;
   color: $gray-dark;
   overflow-x: hidden;
@@ -38,6 +38,7 @@ footer {
   bottom: 0;
   width: 100%;
   border-top: 4px solid $primary;
+  margin-top: 100px;
 
   .footer-main {
     padding: 40px 0 30px;
@@ -196,7 +197,7 @@ footer {
 
 @media (max-width: 767px) {
   body {
-    margin-bottom: 520px;
+    margin-bottom: 620px;
   }
 
   section {

@@ -6,7 +6,7 @@ export const Panel = ({ items, title = "", subtitle = "", bgImage }) => {
   return (
     <>
       {title && (
-        <SectionHeader title={title} subtitle={subtitle} bgImage={bgImage} />
+        <SectionHeader title={title} className="mb-5" />
       )}
 
       <div className="row">

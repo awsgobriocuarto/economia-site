@@ -12,7 +12,7 @@ export default function Expirations({ expirations }) {
       <div className="container">
         <SectionHeader 
           title="VENCIMIENTOS" 
-          subtitle="PRÓXIMOS VENCIMIENTOS" 
+          className="mb-5"
         />
         <div className="row">
           {expirations.map((expiration, index) => (
