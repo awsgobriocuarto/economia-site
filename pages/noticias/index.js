@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Posts from "../../components/elements/posts/Posts";
-import Header from "../../components/Header";
+import SectionHeader from "../../components/SectionHeader";
 
 export default function Noticias() {
   return (
@@ -9,8 +9,11 @@ export default function Noticias() {
         <title>Sec. de Economia Río Cuarto - Novedades</title>
       </Head>
 
-      <Header title="Novedades" subtitle="" />
-      <Posts />
+      <SectionHeader title="Novedades" />
+
+      <div className="pt-0 pb-5">
+        <Posts />
+      </div>
     </>
   );
 }

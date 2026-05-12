@@ -20,7 +20,6 @@ export default function Posts({ limit }) {
   return (
     <section className="news">
       <div className="container">
-        <h2>Novedades</h2>
         <div className="row mb-5">
           {posts?.map((post) => (
             <PostCard key={post.id} post={post} />

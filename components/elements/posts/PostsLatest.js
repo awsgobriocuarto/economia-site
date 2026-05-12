@@ -4,7 +4,7 @@ import { usePosts } from "../../../hooks/usePosts";
 import PostCard from "./PostCard";
 import SectionHeader from "../../SectionHeader";
 
-export default function PostsLatest({ limit }) {
+export default function PostsLatest({ limit, title = "NOVEDADES" }) {
   const { loading, posts } = usePosts({ limit });
 
   if (posts?.length == 0) {
@@ -15,7 +15,7 @@ export default function PostsLatest({ limit }) {
     <section className="news py-5">
       <div className="container position-relative">
         <SectionHeader 
-          title="NOVEDADES" 
+          title={title} 
           className="mb-5"
         />
         

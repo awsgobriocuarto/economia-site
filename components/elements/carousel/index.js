@@ -25,22 +25,19 @@ export const Slider = () => {
                     </div>
 
 
-                  <div className="hero-content-side">
-                    <div className="sh-overlay-dark" />
-                    <div className="hero-text-inner">
-                      <h2 className="hero-title">{post.title}</h2>
-                      <p className="hero-excerpt">{post.excerpt}</p>
-                      <Link href={`/noticias/${post.slug}?id=${post.id}`}>
-                        <a className="hero-btn-circle">
-                          <i className="fas fa-plus"></i>
-                        </a>
-                      </Link>
-                    </div>
-                    {/* Ícono institucional decorativo en el lateral derecho */}
-                    <div className="hero-institutional-icon">
-                        <img src="/images/icono-titulos.webp" alt="" />
-                    </div>
-                  </div>
+                  <Link href={`/noticias/${post.slug}?id=${post.id}`}>
+                    <a className="hero-content-side">
+                      <div className="sh-overlay-dark" />
+                      <div className="hero-text-inner">
+                        <h2 className="hero-title">{post.title}</h2>
+                        <p className="hero-excerpt">{post.excerpt}</p>
+                      </div>
+                      {/* Ícono institucional decorativo en el lateral derecho */}
+                      <div className="hero-institutional-icon">
+                          <img src="/images/icono-titulos.webp" alt="" />
+                      </div>
+                    </a>
+                  </Link>
                 </div>
               </Carousel.Item>
             ))}
