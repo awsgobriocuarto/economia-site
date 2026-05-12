@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import getListItems from "../services/getListItems";
@@ -115,6 +115,36 @@ export default function Home({ items, expirations }) {
     setRandomFormalities(finalSelection.sort(() => 0.5 - Math.random()));
   }, []);
 
+  const processedItems = useMemo(() => {
+    if (!items) return [];
+    return items
+      .filter((item) => item.title !== "Trámites Online" && item.title !== "Compras Web")
+      .map((item) => {
+        if (item.title === "Tramites y Servicios") {
+          return {
+            ...item,
+            url: "https://www.riocuarto.gob.ar/tramites?area=economia-e-innovacion",
+            urlExternal: true,
+          };
+        }
+        if (item.title === "Portal de Transparencia") {
+          return {
+            ...item,
+            url: "/transparencia",
+            urlExternal: false,
+          };
+        }
+        if (item.title === "Seguimiento de Expedientes") {
+          return {
+            ...item,
+            url: "/transparencia/seguimiento-de-expedientes",
+            urlExternal: false,
+          };
+        }
+        return item;
+      });
+  }, [items]);
+
   return (
     <>
       <Head>
@@ -165,7 +195,7 @@ export default function Home({ items, expirations }) {
       <section className="py-5" style={{ background: 'white' }}>
         <div className="container">
           <Panel
-            items={items}
+            items={processedItems}
             title="GESTIONES"
             subtitle="OTRAS GESTIONES MUNICIPALES"
           />

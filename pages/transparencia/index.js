@@ -11,11 +11,11 @@ export default function Transparencia({ items }) {
         <title>Sec. de Economia Río Cuarto - Transparencia</title>
       </Head>
 
-      <section className="py-5">
+      <section className="pt-5 pb-5">
         <div className="container">
-          <SectionHeader title="Transparencia" className="mb-5" />
+          <SectionHeader title="TRANSPARENCIA" />
           <Panel items={items} />
-          <div className="banner secondary">
+          <div className="banner secondary mt-5">
             <div>
               <h3>Cedulón Digital</h3>
               <p className="lead">

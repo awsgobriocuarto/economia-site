@@ -17,9 +17,7 @@ export default function servicios({ items }) {
             title="TRÁMITES Y SERVICIOS"
           />
           <Panel items={items} />
-        </div>
-      </section>
-          <div className="banner secondary">
+          <div className="banner secondary mt-5">
             <div>
               <h3>Cedulón Digital</h3>
               <p className="lead">
