@@ -59,7 +59,7 @@ export default function SectionHeader({ title, subtitle, bgImage, className = ""
 
         @media (max-width: 767px) {
           .section-header--clean :global(.section-header__title) {
-            font-size: 1.5rem !important;
+            font-size: 2rem !important;
           }
           .section-header--clean :global(.section-header__icon) {
             height: 50px !important;

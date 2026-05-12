@@ -32,8 +32,20 @@
     }
 
     @media (max-width: 768px) {
-      flex: 0 0 calc(100% - 20px);
-      max-width: calc(100% - 20px);
+      flex: 0 0 85%; // Show a bit of the next card
+      max-width: 85%;
+      scroll-snap-align: center;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .carousel-news-track {
+        padding-left: 7.5% !important;
+        padding-right: 7.5% !important;
+    }
+    .carousel-control-prev-custom,
+    .carousel-control-next-custom {
+        display: none !important;
     }
   }
 

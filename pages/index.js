@@ -203,12 +203,12 @@ export default function Home({ items, expirations }) {
         </div>
       </section>
 
-      {/* ===== BANNERS CTA: DOMICILIO ELECTRÓNICO + EXPERIENCIA ===== */}
-      <section className="py-5" style={{ background: 'white' }}>
+      {/* ===== BANNER CTA: DOMICILIO ELECTRÓNICO ===== */}
+      <section className="pt-5" style={{ background: 'white' }}>
         <div className="container">
-          <div className="row g-3">
-            <div className="col-12 col-md-6">
-              <div className="banner banner-box secondary mb-3">
+          <div className="row">
+            <div className="col-12">
+              <div className="banner banner-box secondary">
                 <div>
                   <h4 className="mb-2 mb-md-1">
                     Domicilio Tributario Electrónico
@@ -232,44 +232,18 @@ export default function Home({ items, expirations }) {
                 </div>
               </div>
             </div>
-            <div className="col-12 col-md-6">
-              <div className="banner banner-box primary mb-3">
-                <div>
-                  <h4 className="mb-2 mb-md-1">Contanos tu experiencia</h4>
-                  <p className="lead">
-                    Déjanos tus sugerencias, quejas o felicitaciones sobre el
-                    servicio de atención al contribuyente.
-                  </p>
-                </div>
-                <div>
-                  <a
-                    className="btn btn-outline-light text-white text-uppercase"
-                    href="https://forms.gle/tE9ANvStj7eAyFKb9"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    id="btn-experiencia"
-                  >
-                    <i className="fas fa-fw fa-star me-2"></i>
-                    Accede Aquí
-                  </a>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
-
+      {/* ===== VENCIMIENTOS ===== */}
+      <Expirations expirations={expirations} />
 
       {/* ===== NOVEDADES ===== */}
       <PostsLatest limit={6} />
 
-      {/* ===== DESARROLLOS INNOVACIÓN ===== */}
+      {/* ===== INNOVACIÓN Y DESARROLLO ===== */}
       <InnovationLatest />
-
-
-      {/* ===== VENCIMIENTOS ===== */}
-      <Expirations expirations={expirations} />
     </>
   );
 }

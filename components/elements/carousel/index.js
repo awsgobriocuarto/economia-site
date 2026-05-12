@@ -11,7 +11,7 @@ export const Slider = () => {
       <div className="hero-split-container">
         {loading && <Spinner />}
         {posts.length ? (
-          <Carousel indicators={true} controls={true} interval={6000} fade={true} className="hero-carousel">
+          <Carousel indicators={false} controls={false} interval={6000} fade={true} className="hero-carousel">
             {posts.map((post, index) => (
               <Carousel.Item key={index}>
                 <div className="hero-slide">
