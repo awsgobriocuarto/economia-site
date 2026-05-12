@@ -31,8 +31,8 @@ export const Slider = () => {
                       <h2 className="hero-title">{post.title}</h2>
                       <p className="hero-excerpt">{post.excerpt}</p>
                       <Link href={`/noticias/${post.slug}?id=${post.id}`}>
-                        <a className="btn btn-outline-light rounded-pill px-4 py-2 mt-4 hero-btn">
-                          Seguir leyendo
+                        <a className="hero-btn-circle">
+                          <i className="fas fa-plus"></i>
                         </a>
                       </Link>
                     </div>

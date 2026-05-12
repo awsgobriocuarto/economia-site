@@ -103,15 +103,15 @@
     height: 70px;
 
     .navbar-brand {
-      width: 150px; // Ajustado para evitar desbordamiento
-      max-width: 60%; // Seguridad extra
+      width: 210px; // Agrandado según pedido
+      max-width: 70%; // Seguridad extra
       margin-left: 0;
       justify-content: flex-start !important;
 
       img {
         width: 100% !important;
         height: auto !important;
-        max-height: 45px; // Evita que crezca demasiado verticalmente
+        max-height: 55px; // Evita que crezca demasiado verticalmente
       }
     }
 
