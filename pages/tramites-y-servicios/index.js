@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { Panel } from "../../components/elements/panel/Panel";
-import Header from "../../components/Header";
+import SectionHeader from "../../components/SectionHeader";
 
 import getListItems from "../../services/getListItems";
 
@@ -11,11 +11,14 @@ export default function servicios({ items }) {
         <title>Sec. de Economia Río Cuarto - Tramites y Servicios</title>
       </Head>
 
-      <Header title="Tramites y Servicios" subtitle="" />
-
-      <section>
+      <section className="pt-5 pb-5">
         <div className="container">
+          <SectionHeader
+            title="TRÁMITES Y SERVICIOS"
+          />
           <Panel items={items} />
+        </div>
+      </section>
           <div className="banner secondary">
             <div>
               <h3>Cedulón Digital</h3>

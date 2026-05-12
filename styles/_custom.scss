@@ -46,3 +46,19 @@ $btn-padding-y: 0.6rem;
 $btn-padding-x: 1.5rem;
 
 // $enable-rounded: false;
+
+// ===== BOTONES PERSONALIZADOS =====
+.btn-outline-municipal {
+    color: #009DE0;
+    background-color: transparent;
+    border: 1px solid #009DE0;
+    transition: all 0.3s ease;
+    font-weight: 600;
+
+    &:hover {
+        background-color: #009DE0;
+        color: white;
+        box-shadow: 0 4px 15px rgba(0, 157, 224, 0.2);
+        transform: translateY(-2px);
+    }
+}

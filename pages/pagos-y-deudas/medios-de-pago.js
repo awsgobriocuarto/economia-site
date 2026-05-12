@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Header from "../../components/Header";
+import SectionHeader from "../../components/SectionHeader";
 
 export default function mediosDePago() {
   return (
@@ -8,9 +8,11 @@ export default function mediosDePago() {
         <title>Sec. de Economia Río Cuarto - Medios de Pago</title>
       </Head>
 
-      <Header title="Medios de Pago" subtitle="" />
-      <section className="medios-pagos">
+      <section className="pt-5 medios-pagos">
         <div className="container">
+          <SectionHeader
+            title="MEDIOS DE PAGO"
+          />
           <h5>Pagá Online a través de Pagos 360</h5>
           <h6>Servicios Adheridos</h6>
           <div className="row medios-pagos-group">

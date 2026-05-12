@@ -15,7 +15,8 @@
 // =============================================
 .portal-search-section {
     background-color: #fbfbfc;
-    padding-bottom: 1.5rem !important;
+    padding-bottom: 0.5rem !important;
+    padding-top: 2rem !important;
     
     .portal-title {
         font-weight: 600;
@@ -87,8 +88,8 @@
   }
 
   .sb-btn {
-    background-color: #0099db;
-    border-color: #0099db;
+    background-color: #E8651A;
+    border-color: #E8651A;
     color: white;
     padding: 0 3rem;
     font-weight: 700;
@@ -103,7 +104,7 @@
     flex-shrink: 0; // Evita que el botón se achique
 
     &:hover {
-      background-color: darken(#0099db, 8%);
+      background-color: darken(#E8651A, 8%);
       transform: translateY(-1px);
     }
 
@@ -156,37 +157,43 @@
 }
 
 
+// Variables de color para facilitar el mantenimiento
+$qa-bg-color: #ffffff;
+$qa-icon-color: #009DE0;
+$qa-text-color: #2d3748;
+$qa-shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.06);
+$qa-shadow-hover: 0 15px 35px rgba(0, 0, 0, 0.12);
+$qa-transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+
 .quick-access-box {
     display: flex;
     align-items: center;
     padding: 42px 24px;
-    border-radius: 14px;
-    color: white;
+    border-radius: 16px; // Bordes ligeramente más suaves
+    background-color: $qa-bg-color;
+    color: $qa-text-color;
     text-decoration: none !important;
-    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: $qa-transition;
     height: 100%;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    outline: none !important; // Quita la línea naranja de enfoque
-    border: none !important;
+    box-shadow: $qa-shadow-soft;
+    border: 1px solid rgba(0, 0, 0, 0.03); // Borde sutil para definir la forma en fondos blancos
+    outline: none !important;
 
     &:hover, &:focus, &:active {
         transform: translateY(-6px);
-        filter: brightness(1.08);
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
-        outline: none !important;
+        box-shadow: $qa-shadow-hover;
+        background-color: $qa-bg-color;
         text-decoration: none !important;
         
+        .qa-box-icon {
+            transform: scale(1.05);
+        }
+
         * {
             text-decoration: none !important;
         }
     }
-
-    * {
-        text-decoration: none !important;
-    }
-
-
 
     .qa-box-icon {
         font-size: 2.6rem;
@@ -195,7 +202,8 @@
         align-items: center;
         justify-content: center;
         width: 55px;
-        filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        color: $qa-icon-color;
+        transition: transform 0.3s ease;
     }
 
     .qa-box-text {
@@ -207,16 +215,17 @@
     .qa-box-title {
         font-weight: 800;
         font-size: 1.25rem;
-        line-height: 1;
+        line-height: 1.1;
         text-transform: uppercase;
         letter-spacing: -0.01rem;
+        color: $qa-text-color;
     }
 
     .qa-box-subtitle {
         font-size: 0.88rem;
         font-weight: 500;
-        opacity: 0.95;
-        margin-top: 4px;
+        color: lighten($qa-text-color, 15%);
+        margin-top: 6px;
     }
 }
 

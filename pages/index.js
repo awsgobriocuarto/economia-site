@@ -20,9 +20,8 @@ const quickAccessItems = [
     title: "Pagos y Deudas",
     subtitle: "Pagá tus cuentas",
     icon: "fa-file-invoice-dollar",
-    url: "https://economia.riocuarto.gov.ar/",
+    url: "https://www.riocuarto.gob.ar/tramites?area=economia-e-innovacion&category=pagos-y-deudas",
     external: true,
-    bgColor: "#ff3399"
   },
   {
     id: "qa2",
@@ -31,16 +30,14 @@ const quickAccessItems = [
     icon: "fa-calendar-check",
     url: "https://turnos.riocuarto.gov.ar/",
     external: true,
-    bgColor: "#ff7b25"
   },
   {
     id: "qa3",
     title: "Trámites",
     subtitle: "Gestiones digitales",
     icon: "fa-tasks",
-    url: "/tramites-y-servicios",
-    external: false,
-    bgColor: "#0099db"
+    url: "https://www.riocuarto.gob.ar/tramites?area=economia-e-innovacion",
+    external: true,
   },
   {
     id: "qa4",
@@ -49,7 +46,6 @@ const quickAccessItems = [
     icon: "fa-gavel",
     url: "https://comprasweb.economiariocuarto.gob.ar/",
     external: true,
-    bgColor: "#00cc66"
   },
 ];
 
@@ -57,15 +53,15 @@ const quickAccessItems = [
 // TRÁMITES FRECUENTES
 // =============================================
 const commonFormalities = [
-  { id: "f1", title: "Licencia de Conducir", iconUrl: "fa-id-card", url: "https://tramites.riocuarto.gov.ar/tramite/6/licencia-de-conducir", urlExternal: true },
+  { id: "f1", title: "Inmobiliario: Consulta y Pago", iconUrl: "fa-home", url: "https://app.riocuarto.gov.ar:8443/gestiontributaria/servlet/com.recursos.hceduimpmul?Inmo", urlExternal: true },
   { id: "f2", title: "Impresión de Cedulones", iconUrl: "fa-print", url: "https://economia.riocuarto.gov.ar/", urlExternal: true },
   { id: "f3", title: "Libre Deuda Municipal", iconUrl: "fa-file-invoice", url: "https://tramites.riocuarto.gov.ar/tramite/49/libre-deuda-de-multas-personales-y-de-transito", urlExternal: true },
-  { id: "f4", title: "Turnos Online", iconUrl: "fa-calendar-check", url: "https://turnos.riocuarto.gov.ar/", urlExternal: true },
+  { id: "f4", title: "Inscripción de Proveedores", iconUrl: "fa-handshake", url: "https://www.riocuarto.gob.ar/tramites/inscripcion-de-proveedores", urlExternal: true },
   { id: "f5", title: "Habilitación de Comercio", iconUrl: "fa-store", url: "https://tramites.riocuarto.gov.ar/tramite/10/habilitacion-comercial-clase-i-ii-y-iii", urlExternal: true },
   { id: "f6", title: "Atención al Ciudadano", iconUrl: "fa-user-tie", url: "https://wa.me/+5493584121879", urlExternal: true },
   { id: "f7", title: "Consulta de Expedientes", iconUrl: "fa-search", url: "https://tramites.riocuarto.gov.ar/tramite/11/consulta-de-expedientes", urlExternal: true },
-  { id: "f8", title: "Baja de Vehículos", iconUrl: "fa-car-side", url: "https://tramites.riocuarto.gov.ar/tramite/2/baja-de-automotores", urlExternal: true },
-  { id: "f9", title: "Plan de Pagos", iconUrl: "fa-hand-holding-usd", url: "https://economia.riocuarto.gov.ar/", urlExternal: true },
+  { id: "f8", title: "Comercio/Industria: Consulta y Pago", iconUrl: "fa-industry", url: "https://app.riocuarto.gov.ar:8443/gestiontributaria/servlet/com.recursos.hceduimpmul?Come", urlExternal: true },
+  { id: "f9", title: "Patentes: Consulta y Pago", iconUrl: "fa-car", url: "https://app.riocuarto.gov.ar:8443/gestiontributaria/servlet/com.recursos.hceduimpmul?Pate", urlExternal: true },
   { id: "f10", title: "Catastro y Obras Privadas", iconUrl: "fa-building", url: "https://tramites.riocuarto.gov.ar/tramite/1/aprobacion-de-planos-de-obra-privada", urlExternal: true },
 ];
 
@@ -73,14 +69,16 @@ const commonFormalities = [
 // COMPONENTE DE ACCESO RÁPIDO
 // =============================================
 function QuickAccessItem({ item }) {
+  const { icon, title, subtitle } = item;
+
   const content = (
-    <div className="quick-access-box" style={{ backgroundColor: item.bgColor }}>
+    <div className="quick-access-box">
       <div className="qa-box-icon">
-        <i className={`fas fa-fw ${item.icon}`}></i>
+        <i className={`fas fa-fw ${icon}`} aria-hidden="true"></i>
       </div>
       <div className="qa-box-text">
-        <span className="qa-box-title">{item.title}</span>
-        <span className="qa-box-subtitle">{item.subtitle}</span>
+        <span className="qa-box-title">{title}</span>
+        <span className="qa-box-subtitle">{subtitle}</span>
       </div>
     </div>
   );
@@ -109,7 +107,12 @@ export default function Home({ items, expirations }) {
   const [randomFormalities, setRandomFormalities] = React.useState([]);
 
   React.useEffect(() => {
-    setRandomFormalities([...commonFormalities].sort(() => 0.5 - Math.random()).slice(0, 6));
+    const mandatoryIds = ['f1', 'f8', 'f9', 'f4'];
+    const mandatoryItems = commonFormalities.filter(f => mandatoryIds.includes(f.id));
+    const otherItems = commonFormalities.filter(f => !mandatoryIds.includes(f.id));
+    const shuffledOthers = [...otherItems].sort(() => 0.5 - Math.random()).slice(0, 2);
+    const finalSelection = [...mandatoryItems, ...shuffledOthers];
+    setRandomFormalities(finalSelection.sort(() => 0.5 - Math.random()));
   }, []);
 
   return (
@@ -128,23 +131,22 @@ export default function Home({ items, expirations }) {
       {/* ===== PORTAL SEARCH SECTION ===== */}
       <section className="portal-search-section pt-5 pb-4">
         <div className="container text-center">
-            <h1 className="portal-title mb-4">¡Hola! ¿Cómo podemos ayudarte?</h1>
-            <div className="row justify-content-center">
-                <div className="col-lg-10 col-xl-8">
-                    <SearchBox />
-                </div>
+          <div className="row justify-content-center">
+            <div className="col-lg-10 col-xl-8">
+              <SearchBox />
             </div>
+          </div>
         </div>
       </section>
 
       {/* ===== ACCESOS RÁPIDOS ===== */}
       <section className="quick-access-portal-section py-5">
         <div className="container">
-            <div className="quick-access-portal-grid">
-                {quickAccessItems.map((item) => (
-                    <QuickAccessItem key={item.id} item={item} />
-                ))}
-            </div>
+          <div className="quick-access-portal-grid">
+            {quickAccessItems.map((item) => (
+              <QuickAccessItem key={item.id} item={item} />
+            ))}
+          </div>
         </div>
       </section>
 
@@ -153,16 +155,9 @@ export default function Home({ items, expirations }) {
         <div className="container">
           <Panel
             items={randomFormalities}
-            title="TRÁMITES Y SERVICIOS"
+            title="TRÁMITES MÁS CONSULTADOS"
             subtitle="RESOLVÉ TUS GESTIONES ONLINE"
           />
-          <div className="text-center mt-4">
-            <Link href="/tramites-y-servicios">
-              <a className="btn btn-outline-info btn-lg px-5 py-3 rounded-pill" style={{ fontWeight: 600, borderWidth: '1.5px' }}>
-                Ver todos los Trámites
-              </a>
-            </Link>
-          </div>
         </div>
       </section>
 

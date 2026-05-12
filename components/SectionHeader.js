@@ -32,10 +32,10 @@ export default function SectionHeader({ title, subtitle, bgImage, className = ""
       <style jsx>{`
         .section-header--clean {
           background: transparent !important;
-          height: auto !important;
-          padding: 40px 0 !important;
           box-shadow: none !important;
-          margin-bottom: 20px !important;
+          height: auto !important;
+          padding: 20px 0 !important;
+          margin-bottom: 10px !important;
         }
         .section-header--clean :global(.section-header__content) {
           padding: 0 !important;

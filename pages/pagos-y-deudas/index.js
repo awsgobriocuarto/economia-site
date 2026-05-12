@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Header from "../../components/Header";
+import SectionHeader from "../../components/SectionHeader";
 import getListItems from "../../services/getListItems";
 import { Panel } from "../../components/elements/panel/Panel";
 import fetchExpirations from "../../services/fetchExpirations";
@@ -13,9 +13,11 @@ export default function pagosYDeudas({ items, expirations }) {
         <title>Sec. de Economia Río Cuarto - Pagos y Deudas</title>
       </Head>
 
-      <Header title="Pagos y Deudas" subtitle="" />
-      <section>
+      <section className="pt-5 pb-5">
         <div className="container">
+          <SectionHeader
+            title="PAGOS Y DEUDAS"
+          />
           <Panel items={items} />
         </div>
       </section>
