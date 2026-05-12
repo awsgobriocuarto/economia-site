@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
 
-export const PanelItem = ({ item }) => {
+export const PanelItem = ({ item, variant }) => {
   const router = useRouter();
 
   const getIcon = (title, iconUrl) => {
@@ -38,7 +38,7 @@ export const PanelItem = ({ item }) => {
           <Link href={item.url ? item.url : "/"}>
             <a
               target={item.urlExternal ? "_blank" : "_self"}
-              className="panel animate__animated animate__fadeIn"
+              className={`panel animate__animated animate__fadeIn ${variant === 'gestiones' ? 'panel-gestiones' : ''}`}
               onClick={() => handleEventClick(item.title)}
             >
               <div className="panel-item-horizontal">

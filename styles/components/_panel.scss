@@ -73,6 +73,50 @@
   }
 }
 
+// VARIANT: GESTIONES (Premium style with left border)
+.panel-gestiones {
+  border-left: 6px solid #ff7825 !important;
+  
+  &:hover {
+    border-color: #ff7825 !important;
+    
+    .chevron-side {
+      color: #ff7825 !important;
+      transform: translateX(5px);
+    }
+  }
+
+  .panel-item-horizontal {
+    height: auto !important;
+    min-height: 90px;
+    padding: 20px 24px;
+    
+    .icon-side {
+      background-color: transparent !important;
+      color: #4a5568 !important;
+      width: auto !important;
+      margin-right: 15px;
+      
+      i {
+        font-size: 1.4rem !important;
+      }
+    }
+
+    .text-side {
+      padding: 0 !important;
+      p {
+        font-size: 1.2rem !important;
+        font-weight: 800 !important;
+      }
+    }
+
+    .chevron-side {
+      color: #ff7825 !important;
+      font-size: 1.2rem !important;
+    }
+  }
+}
+
 @media (max-width: 767px) {
   .section-title-container {
     display: none;
@@ -98,6 +142,18 @@
         p {
           font-size: 1rem;
         }
+      }
+    }
+  }
+
+  .panel-gestiones {
+    .panel-item-horizontal {
+      height: auto !important;
+      min-height: 70px;
+      
+      .icon-side {
+        width: auto !important;
+        height: auto !important;
       }
     }
   }

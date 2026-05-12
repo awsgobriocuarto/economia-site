@@ -37,14 +37,13 @@
     }
   }
 
-  // Custom Controls
+  // Custom Controls (Top Right)
   .carousel-control-prev-custom,
   .carousel-control-next-custom {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 50px;
-    height: 50px;
+    top: 55px; // Reduced distance to cards (increased from 5px)
+    width: 44px;
+    height: 44px;
     background: white;
     border: 1px solid #e2e8f0;
     border-radius: 50%;
@@ -52,7 +51,7 @@
     align-items: center;
     justify-content: center;
     color: #0099db;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
     z-index: 10;
     cursor: pointer;
     transition: all 0.2s;
@@ -60,18 +59,29 @@
     &:hover {
       background: #0099db;
       color: white;
-      box-shadow: 0 6px 16px rgba(0, 153, 219, 0.3);
+      box-shadow: 0 6px 16px rgba(0, 153, 219, 0.2);
     }
 
-    &:active { transform: translateY(-50%) scale(0.95); }
+    &:active { transform: scale(0.95); }
   }
 
-  .carousel-control-prev-custom { left: -25px; }
-  .carousel-control-next-custom { right: -25px; }
+  .carousel-control-prev-custom { 
+    right: 70px; 
+    left: auto;
+  }
+  .carousel-control-next-custom { 
+    right: 20px; 
+    left: auto;
+  }
 
-  @media (max-width: 1300px) {
-    .carousel-control-prev-custom { left: 10px; }
-    .carousel-control-next-custom { right: 10px; }
+  @media (max-width: 768px) {
+    .carousel-control-prev-custom,
+    .carousel-control-next-custom {
+        top: auto;
+        bottom: -10px;
+    }
+    .carousel-control-prev-custom { right: auto; left: 35%; }
+    .carousel-control-next-custom { right: 35%; }
   }
 
   .card {

@@ -25,10 +25,10 @@ const quickAccessItems = [
   },
   {
     id: "qa2",
-    title: "Turnos Online",
-    subtitle: "Solicitá tu turno",
-    icon: "fa-calendar-check",
-    url: "https://turnos.riocuarto.gov.ar/",
+    title: "Atención Ciudadana",
+    subtitle: "Contactanos por WhatsApp",
+    icon: "fa-whatsapp",
+    url: "https://api.whatsapp.com/send/?phone=%2B5493584121879&text&type=phone_number&app_absent=0",
     external: true,
   },
   {
@@ -74,7 +74,7 @@ function QuickAccessItem({ item }) {
   const content = (
     <div className="quick-access-box">
       <div className="qa-box-icon">
-        <i className={`fas fa-fw ${icon}`} aria-hidden="true"></i>
+        <i className={`${icon.includes('whatsapp') ? 'fab' : 'fas'} fa-fw ${icon}`} aria-hidden="true"></i>
       </div>
       <div className="qa-box-text">
         <span className="qa-box-title">{title}</span>
@@ -198,6 +198,7 @@ export default function Home({ items, expirations }) {
             items={processedItems}
             title="GESTIONES"
             subtitle="OTRAS GESTIONES MUNICIPALES"
+            variant="gestiones"
           />
         </div>
       </section>

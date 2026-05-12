@@ -2,7 +2,7 @@ import propTypes from "prop-types";
 import { PanelItem } from "./PanelItem";
 import SectionHeader from "../../SectionHeader";
 
-export const Panel = ({ items, title = "", subtitle = "", bgImage }) => {
+export const Panel = ({ items, title = "", subtitle = "", bgImage, variant }) => {
   return (
     <>
       {title && (
@@ -11,7 +11,7 @@ export const Panel = ({ items, title = "", subtitle = "", bgImage }) => {
 
       <div className="row">
         {items.map((item) => (
-          <PanelItem key={item.id} item={item} />
+          <PanelItem key={item.id} item={item} variant={variant} />
         ))}
       </div>
     </>

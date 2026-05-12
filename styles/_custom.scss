@@ -62,3 +62,45 @@ $btn-padding-x: 1.5rem;
         transform: translateY(-2px);
     }
 }
+
+.news-card-more {
+    border: 1px solid #009DE0;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-height: 420px;
+    background: white;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    cursor: pointer;
+    margin-bottom: 24px;
+
+    .icon-plus {
+        font-size: 4.5rem;
+        color: #009DE0;
+        font-weight: 300;
+        line-height: 1;
+    }
+
+    .text-more {
+        font-size: 1.1rem;
+        color: #009DE0;
+        font-weight: 800;
+        text-transform: uppercase;
+        margin-top: 15px;
+    }
+
+    &:hover {
+        background-color: rgba(0, 157, 224, 0.05);
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 157, 224, 0.1);
+        text-decoration: none;
+        
+        .icon-plus, .text-more {
+            color: #009DE0;
+        }
+    }
+}
