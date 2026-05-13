@@ -7,20 +7,18 @@ export default function PostCard({ post, className = "col-md-6 col-lg-4 col-xl-3
     <>
       <div className={className}>
         <Link href={`/noticias/${post.slug}?id=${post.id}`}>
-          <a className="card-clickable-wrapper" style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
+          <a className="card-clickable-wrapper" style={{ textDecoration: 'none', color: 'inherit', display: 'flex', flex: 1, flexDirection: 'column' }}>
             <div className="card h-100 transition-all hover-shadow">
               <div className="card-image">
                 {/* eslint-disable-next-line */}
-                <img src={post.main_picture.small} alt="" style={{ borderRadius: '0' }} />
+                <img src={post.main_picture.small} alt="" />
               </div>
               <div className="card-body">
+                <span className="post-date">
+                  {moment(post.publication_date).format("DD/MM/YYYY")}
+                </span>
                 <h5 className="card-title fw-bold" style={{ color: '#1a2840' }}>{post.title}</h5>
                 <p className="card-text text-muted">{post.excerpt}</p>
-                <div className="card-footer-custom mt-auto">
-                  <span className="card-date text-primary fw-semibold">
-                    {moment(post.publication_date).format("DD/MM/YYYY")}
-                  </span>
-                </div>
               </div>
             </div>
           </a>
@@ -28,10 +26,15 @@ export default function PostCard({ post, className = "col-md-6 col-lg-4 col-xl-3
       </div>
 
       <style jsx>{`
+        .card-clickable-wrapper {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+        }
         .card-clickable-wrapper :global(.card) {
           transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
           border: 1px solid #e2e8f0;
-          border-radius: 0;
+          border-radius: 20px;
         }
         .card-clickable-wrapper:hover :global(.card) {
           transform: translateY(-5px);

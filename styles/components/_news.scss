@@ -24,7 +24,8 @@
     flex: 0 0 calc(33.333% - 16px);
     max-width: calc(33.333% - 16px);
     scroll-snap-align: start;
-    height: auto;
+    display: flex;
+    align-items: stretch;
 
     @media (max-width: 1200px) {
       flex: 0 0 calc(50% - 12px);
@@ -35,6 +36,64 @@
       flex: 0 0 85%; // Show a bit of the next card
       max-width: 85%;
       scroll-snap-align: center;
+    }
+
+    // Tarjeta "Ver más" — mismo tamaño y estilo que las demás cards
+    .news-card-more {
+      flex: 1;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      background-color: #ffffff;
+      border-radius: 20px;
+      border: 1px solid #eef2f6;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+      transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+      cursor: pointer;
+
+      .icon-plus {
+        width: 56px;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f1f8fd;
+        border-radius: 50%;
+        font-size: 2rem;
+        font-weight: 300;
+        color: #0099db;
+        line-height: 1;
+        transition: all 0.3s ease;
+      }
+
+      .text-more {
+        font-size: 1rem;
+        font-weight: 700;
+        color: #2d3748;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        transition: color 0.2s ease;
+      }
+
+      &:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+        border-color: #0099db;
+
+        .icon-plus {
+          background-color: #0099db;
+          color: white;
+          transform: scale(1.1);
+        }
+
+        .text-more {
+          color: #0099db;
+        }
+      }
     }
   }
 
@@ -119,6 +178,7 @@
         width: 100%;
         height: 240px;
         object-fit: cover;
+        border-radius: 20px 20px 0 0;
       }
     }
 
@@ -127,6 +187,16 @@
       flex: 1;
       display: flex;
       flex-direction: column;
+
+      .post-date {
+        display: inline-block;
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        color: #0099db;
+        margin-bottom: 0.6rem;
+      }
 
       .card-title {
         color: #1a2840;
@@ -144,47 +214,12 @@
         font-size: 1.05rem;
         color: #718096;
         line-height: 1.5;
-        margin-bottom: 2rem;
+        margin-bottom: 0;
         display: -webkit-box;
         -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
         overflow: hidden;
         flex: 1;
-      }
-
-      .card-footer-custom {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: auto;
-        padding-top: 1.5rem;
-        border-top: 1px solid #f1f5f9;
-
-        .card-date {
-          font-size: 0.95rem;
-          color: #a0aec0;
-          font-weight: 600;
-        }
-
-        .card-link {
-          color: #0099db;
-          text-decoration: none;
-          font-weight: 800;
-          font-size: 1rem;
-          display: flex;
-          align-items: center;
-          gap: 6px;
-
-          &::after {
-              content: '\f105';
-              font-family: 'Font Awesome 5 Free';
-              font-weight: 900;
-          }
-
-          &:hover {
-            color: darken(#0099db, 15%);
-          }
-        }
       }
     }
   }
