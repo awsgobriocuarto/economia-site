@@ -1,29 +1,35 @@
-import axios from "axios";
-import Papa from "papaparse";
+import axios from 'axios';
+import Papa from 'papaparse';
 
+/**
+ * fetchDDJJ — SERVER SIDE (getStaticProps / API Routes)
+ * Usa variable de entorno privada GOOGLE_SHEET_DDJJ_URL.
+ * NUNCA se ejecuta en el browser.
+ */
 export default {
   list: async () => {
+    const sheetUrl = process.env.GOOGLE_SHEET_DDJJ_URL;
+    if (!sheetUrl) {
+      console.error('[fetchDDJJ] GOOGLE_SHEET_DDJJ_URL no configurada');
+      return [];
+    }
+
     return axios
-      .get(
-        "https://docs.google.com/spreadsheets/d/e/2PACX-1vRJIT-96w8M4D8OF27MUAqIb7j8mdfKEMZzMsgy6AptFdlFwZzjicVEa7_WwTrFwcRJhk_b-Q5o-vns/pub?output=csv",
-        { responseType: "blob" }
-      )
+      .get(sheetUrl, { responseType: 'blob' })
       .then(
         (response) =>
           new Promise((resolve, reject) => {
             Papa.parse(response.data, {
               header: true,
-              complete: (results) => {
-                const items = results.data;
-                return resolve(
-                  items.map((item) => ({
-                    ...item,
-                  }))
-                );
-              },
+              skipEmptyLines: true,
+              complete: (results) => resolve(results.data.map((item) => ({ ...item }))),
               error: (error) => reject(error.message),
             });
           })
-      );
+      )
+      .catch((error) => {
+        console.error('[fetchDDJJ] Error:', error.message);
+        return [];
+      });
   },
 };

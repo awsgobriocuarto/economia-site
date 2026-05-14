@@ -1,6 +1,11 @@
-import axios from "axios";
-import Papa from "papaparse";
+import axios from 'axios';
+import Papa from 'papaparse';
 
+/**
+ * fetchExpirations — SERVER SIDE (getStaticProps)
+ * Usa variable de entorno privada GOOGLE_SHEET_VENCIMIENTOS_URL.
+ * NUNCA se ejecuta en el browser.
+ */
 const today = Date.now();
 
 function dateFilter(date) {
@@ -10,34 +15,34 @@ function dateFilter(date) {
 
 export default {
   list: async () => {
+    const sheetUrl = process.env.GOOGLE_SHEET_VENCIMIENTOS_URL;
+    if (!sheetUrl) {
+      console.error('[fetchExpirations] GOOGLE_SHEET_VENCIMIENTOS_URL no configurada');
+      return [];
+    }
+
     return axios
-      .get(
-        "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ8Qh48E-WY0wG58VljlKgLiTsrtOADoZYaJg7A12D3a_A2QAb0TCbmk7pXoiPZvLPm5WIRe5qNQB2B/pub?output=csv",
-        { responseType: "blob" }
-      )
+      .get(sheetUrl, { responseType: 'blob' })
       .then(
         (response) =>
           new Promise((resolve, reject) => {
             Papa.parse(response.data, {
               header: true,
+              skipEmptyLines: true,
               complete: (results) => {
                 const items = results.data;
-                const filteredItems = items.filter(dateFilter);
-
-                // sort by date
-                filteredItems.sort(function (a, b) {
-                  return new Date(a.fecha) - new Date(b.fecha);
-                });
-
-                return resolve(
-                  filteredItems.map((item) => ({
-                    ...item,
-                  }))
-                );
+                const filteredItems = items
+                  .filter(dateFilter)
+                  .sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
+                resolve(filteredItems.map((item) => ({ ...item })));
               },
               error: (error) => reject(error.message),
             });
           })
-      );
+      )
+      .catch((error) => {
+        console.error('[fetchExpirations] Error:', error.message);
+        return [];
+      });
   },
 };

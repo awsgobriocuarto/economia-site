@@ -1,30 +1,20 @@
+import { apiClient } from '../utils/apiClient';
+
 const fromApiResponseToPosts = (apiResponse) => {
   const { data = [] } = apiResponse;
   if (Array.isArray(data)) {
-    const posts = data.map((post) => {
-      return {
-        ...post,
-        //TODO: format date
-        // publication_date: post.publication_date,
-      };
-    });
-    return posts;
+    return data.map((post) => ({ ...post }));
   }
   return [];
 };
 
-export function getPosts({ page = 1, limit = 9 } = {}) {
-  const apiURL = page
-    ? `https://contenidos.gobiernoriocuarto.gob.ar/api/v1/posts?limit=${limit}&page=${page}`
-    : `https://contenidos.gobiernoriocuarto.gob.ar/api/v1/posts?limit=${limit}`;
-  return fetch(apiURL, {
-    headers: {
-      "Portal-Id": 3,
-    },
-  })
-    .then((res) => res.json())
-    .then(fromApiResponseToPosts)
-    .catch((error) => {
-      console.error("Error: ", error);
-    });
+export async function getPosts({ page = 1, limit = 9 } = {}) {
+  const url = `https://contenidos.gobiernoriocuarto.gob.ar/api/v1/posts?limit=${limit}&page=${page}`;
+  try {
+    const response = await apiClient(url);
+    return fromApiResponseToPosts(response);
+  } catch (error) {
+    console.error('Error en getPosts:', error);
+    return [];
+  }
 }

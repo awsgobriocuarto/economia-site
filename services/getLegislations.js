@@ -1,20 +1,18 @@
-const fromApiResponseToLegislations = (apiResponse) => {
-  const data = apiResponse;
-  if (Array.isArray(data)) {
-    const legislations = data.map((legislation) => {
-      return {
-        ...legislation,
-      };
-    });
-    return legislations;
+/**
+ * getLegislations — CLIENT SIDE
+ * Redirige al API Route interno /api/sheets/legislacion.
+ * La URL real de Google/Heroku NUNCA llega al browser.
+ */
+export async function getLegislations() {
+  try {
+    const res = await fetch('/api/sheets/legislacion');
+    if (!res.ok) {
+      console.error('[getLegislations] Error:', res.status);
+      return [];
+    }
+    return await res.json();
+  } catch (error) {
+    console.error('[getLegislations] Error de red:', error);
+    return [];
   }
-  return [];
-};
-
-export function getLegislations() {
-  const apiURL = `https://atriv.herokuapp.com/legislaciones`;
-
-  return fetch(apiURL)
-    .then((res) => res.json())
-    .then(fromApiResponseToLegislations);
 }

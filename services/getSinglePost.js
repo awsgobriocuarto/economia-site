@@ -1,17 +1,14 @@
+import { apiClient } from '../utils/apiClient';
+
 export async function getSinglePost({ id = null }) {
-  const apiURL = `https://contenidos.gobiernoriocuarto.gob.ar/api/v1/posts/${id}`;
+  if (!id) return null;
 
-  if (!id) {
-    return;
+  const url = `https://contenidos.gobiernoriocuarto.gob.ar/api/v1/posts/${id}`;
+  try {
+    const response = await apiClient(url);
+    return response?.data ?? null;
+  } catch (error) {
+    console.error('Error en getSinglePost:', error);
+    return null;
   }
-
-  return await fetch(apiURL, {
-    headers: {
-      "Portal-Id": 3,
-    },
-  })
-    .then((res) => res.json())
-    .then((response) => {
-      return response.data;
-    });
 }

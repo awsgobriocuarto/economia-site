@@ -1,28 +1,32 @@
-import axios from "axios";
+import axios from 'axios';
 
+/**
+ * fetchBoletinOficial — SERVER SIDE (getStaticProps / API Routes)
+ * Usa variable de entorno privada GOOGLE_SCRIPT_URL.
+ * NUNCA se ejecuta en el browser.
+ */
 export default {
   list: async () => {
+    const scriptUrl = process.env.GOOGLE_SCRIPT_URL;
+    if (!scriptUrl) {
+      console.error('[fetchBoletinOficial] GOOGLE_SCRIPT_URL no configurada');
+      return [];
+    }
+
     return axios
-      .get(
-        "https://script.google.com/macros/s/AKfycbx0KK4zSjV5ihJg0UjT1-v26UlE_9evWIRYcsNds6gW4yqaOlc8gYGMWcPBHGEA-51y/exec?sheet=boletin_oficial"
-      )
+      .get(`${scriptUrl}?sheet=boletin_oficial`)
       .then((response) => {
         let items = response.data;
-
-        // Si los datos vienen dentro de una propiedad 'data'
         if (items && !Array.isArray(items) && Array.isArray(items.data)) {
           items = items.data;
         }
-
         if (Array.isArray(items)) {
-          return items.map((item) => ({
-            ...item,
-          }));
+          return items.map((item) => ({ ...item }));
         }
         return [];
       })
       .catch((error) => {
-        console.error("Error fetching Boletin Oficial: ", error);
+        console.error('[fetchBoletinOficial] Error:', error.message);
         return [];
       });
   },
