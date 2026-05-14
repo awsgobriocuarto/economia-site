@@ -15,7 +15,7 @@ export default function Navbar() {
           <Link href="/">
             <a className="navbar-brand m-0 p-0 d-flex justify-content-center justify-content-xl-start w-100-mobile">
               <Image
-                src="/images/logo-economia-ok.png"
+                src="/images/logo-gob-economia.svg"
                 width="423"
                 height="113"
                 alt="Secretaría de Economía - Municipalidad de Río Cuarto"
@@ -64,9 +64,9 @@ export default function Navbar() {
       </nav>
 
       {/* === MENU LATERAL (OFFCANVAS) === */}
-      <div 
-        className={`offcanvas offcanvas-end ${isOpen ? 'show' : ''}`} 
-        tabIndex="-1" 
+      <div
+        className={`offcanvas offcanvas-end ${isOpen ? 'show' : ''}`}
+        tabIndex="-1"
         id="offcanvasNavbar"
         style={{ visibility: isOpen ? 'visible' : 'hidden' }}
       >
@@ -79,9 +79,9 @@ export default function Navbar() {
               alt="Logo"
             />
           </div>
-          <button 
-            type="button" 
-            className="btn-close btn-close-white text-reset" 
+          <button
+            type="button"
+            className="btn-close btn-close-white text-reset"
             onClick={() => setIsOpen(false)}
             aria-label="Close"
           ></button>
@@ -119,8 +119,8 @@ export default function Navbar() {
 
       {/* Backdrop (fondo oscuro al abrir menú) */}
       {isOpen && (
-        <div 
-          className="offcanvas-backdrop fade show" 
+        <div
+          className="offcanvas-backdrop fade show"
           onClick={() => setIsOpen(false)}
         ></div>
       )}
