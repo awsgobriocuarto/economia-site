@@ -46,6 +46,15 @@
       text-transform: uppercase;
       letter-spacing: 0.04rem;
       padding: 0.6rem 1.5rem;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: $orange !important;
+        border-color: $orange !important;
+        color: white !important;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(232, 101, 26, 0.3);
+      }
     }
   }
 

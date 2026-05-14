@@ -118,7 +118,13 @@ export default function Home({ items, expirations }) {
   const processedItems = useMemo(() => {
     if (!items) return [];
     return items
-      .filter((item) => item.title !== "Trámites Online" && item.title !== "Compras Web")
+      .filter((item) => 
+        item.title !== "Trámites Online" && 
+        item.title !== "Compras Web" &&
+        item.title !== "Pagos y Deudas" &&
+        item.title !== "Seguimiento de Expedientes" &&
+        item.title !== "Tramites y Servicios"
+      )
       .map((item) => {
         if (item.title === "Tramites y Servicios") {
           return {
