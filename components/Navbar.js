@@ -11,7 +11,7 @@ export default function Navbar() {
     <>
       {/* === NAVBAR PRINCIPAL === */}
       <nav className="navbar navbar-expand-xl navbar-light sticky-top">
-        <div className="container-fluid justify-content-between">
+        <div className="container justify-content-between">
           <Link href="/">
             <a className="navbar-brand m-0 p-0 d-flex justify-content-center justify-content-xl-start w-100-mobile">
               <Image

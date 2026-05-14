@@ -1,23 +1,28 @@
 // ===== NAVBAR REDISEÑADA - ESTILO PORTAL MUNICIPAL =====
 
 .navbar {
-  height: 80px;
+  height: 110px; // Aumentado para dar más aire
   background: $secondary;
   font-family: "Inter", sans-serif;
   z-index: 9998;
   padding: 0 0;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
 
-  .container-fluid {
-    padding: 0 30px;
+  .container, .container-fluid {
+    padding: 0 15px;
   }
 
   .navbar-brand {
-    padding: 8px 0;
-    width: 260px;
+    padding: 20px 0; // Aumentado de 8px a 20px
+    width: auto; // Dejamos que crezca según el logo
     line-height: 0;
-    margin-left: 20px;
+    margin-left: 0; // Removido para alinear con el container
     flex-shrink: 0;
+
+    img {
+      height: 70px !important; // Altura fija para escritorio
+      width: auto !important;
+    }
   }
 
   .navbar-divider {
