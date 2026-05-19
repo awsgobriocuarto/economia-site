@@ -74,8 +74,8 @@
 
         &:hover,
         &:active {
-          color: white;
-          background: rgba(255, 255, 255, 0.12);
+          color: white !important;
+          background: $orange !important;
         }
       }
 
@@ -163,7 +163,8 @@
           border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 
           &:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: $orange !important;
+            color: white !important;
           }
         }
 
