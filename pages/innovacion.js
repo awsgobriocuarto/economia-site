@@ -15,15 +15,17 @@ export default function Innovacion() {
       <section className="pt-5 pb-5">
         <div className="container">
           <SectionHeader title="DESARROLLOS E INNOVACIÓN" />
-          
+
           <div className="row g-4 news mt-3">
-            {/* Ocultado temporalmente
-            {innovacionPosts.map((post) => (
-              <PostCard key={post.id} post={post} />
-            ))}
-            */}
+
+            {
+              innovacionPosts.map((post) => (
+                <PostCard key={post.id} post={post} />
+              ))
+            }
+
             <div className="col-12 text-center py-5 my-5">
-               <h4 className="text-muted fw-normal">Próximamente</h4>
+              <h4 className="text-muted fw-normal">Próximamente</h4>
             </div>
           </div>
         </div>
