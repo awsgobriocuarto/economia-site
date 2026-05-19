@@ -6,7 +6,7 @@ export default function PostCard({ post, className = "col-md-6 col-lg-4 col-xl-3
   return (
     <>
       <div className={className}>
-        <Link href={`/noticias/${post.slug}?id=${post.id}`}>
+        <Link href={post.type === "innovacion" ? `/innovacion/${post.slug}?id=${post.id}` : `/noticias/${post.slug}?id=${post.id}`}>
           <a className="card-clickable-wrapper" style={{ textDecoration: 'none', color: 'inherit', display: 'flex', flex: 1, flexDirection: 'column' }}>
             <div className="card h-100 transition-all hover-shadow">
               <div className="card-image">
