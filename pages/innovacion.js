@@ -17,12 +17,11 @@ export default function Innovacion() {
           <SectionHeader title="DESARROLLOS E INNOVACIÓN" />
 
           <div className="row g-4 news mt-3">
-
-            {
+            {/* 
               innovacionPosts.map((post) => (
                 <PostCard key={post.id} post={post} />
               ))
-            }
+            */}
 
             <div className="col-12 text-center py-5 my-5">
               <h4 className="text-muted fw-normal">Próximamente</h4>
