@@ -15,14 +15,14 @@ export const Slider = () => {
             {posts.map((post, index) => (
               <Carousel.Item key={index}>
                 <div className="hero-slide">
-                    <div className="hero-image-side">
-                      {/* eslint-disable-next-line */}
-                      <img 
-                        src={post?.main_picture?.path || post?.main_picture?.original || post?.main_picture?.small || '/images/slide-1.png'} 
-                        alt={post.title} 
-                        onError={(e) => { e.target.src = '/images/slide-1.png'; }}
-                      />
-                    </div>
+                  <div className="hero-image-side">
+                    {/* eslint-disable-next-line */}
+                    <img
+                      src={post?.main_picture?.path || post?.main_picture?.original || post?.main_picture?.small || '/images/slide-1.png'}
+                      alt={post.title}
+                      onError={(e) => { e.target.src = '/images/slide-1.png'; }}
+                    />
+                  </div>
 
 
                   <Link href={`/noticias/${post.slug}?id=${post.id}`}>
@@ -34,7 +34,7 @@ export const Slider = () => {
                       </div>
                       {/* Ícono institucional decorativo en el lateral derecho */}
                       <div className="hero-institutional-icon">
-                          <img src="/images/icono-titulos.webp" alt="" />
+                        <img src="/images/icono-titulos.webp" alt="" />
                       </div>
                     </a>
                   </Link>

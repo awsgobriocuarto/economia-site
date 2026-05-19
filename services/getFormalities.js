@@ -30,7 +30,6 @@ const fromApiResponseToPosts = (apiResponse) => {
 };
 
 export function getFormalities() {
-
   const API_OPTIONS = {
     headers: {
       Authorization: API_TOKEN,
@@ -42,7 +41,12 @@ export function getFormalities() {
     `${API_URL}/tramites?area=secretaria-de-economia-e-innovacion`,
     API_OPTIONS
   )
-    .then((res) => res.json())
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error(`API error: ${res.status} ${res.statusText}`);
+      }
+      return res.json();
+    })
     .then(fromApiResponseToPosts)
     .catch((error) => {
       console.error("Error: ", error);

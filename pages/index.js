@@ -8,8 +8,13 @@ import Expirations from "../components/elements/expirations/Expirations";
 import PostsLatest from "../components/elements/posts/PostsLatest";
 import InnovationLatest from "../components/elements/posts/InnovationLatest";
 import fetchExpirations from "../services/fetchExpirations";
+<<<<<<< HEAD
 // BannerTop removido — hero full-width
 import SearchBox from "../components/SearchBox";
+=======
+import Image from "next/image";
+// import Notification from "../components/Notification";
+>>>>>>> ceeb48c2a970473b062a8b3a2cf691e81f1c3c3c
 
 // =============================================
 // ACCESOS RÁPIDOS — Estilo portal municipal
@@ -118,8 +123,8 @@ export default function Home({ items, expirations }) {
   const processedItems = useMemo(() => {
     if (!items) return [];
     return items
-      .filter((item) => 
-        item.title !== "Trámites Online" && 
+      .filter((item) =>
+        item.title !== "Trámites Online" &&
         item.title !== "Compras Web" &&
         item.title !== "Pagos y Deudas" &&
         item.title !== "Seguimiento de Expedientes" &&
