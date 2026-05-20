@@ -1,0 +1,466 @@
+// ==========================================================================
+// Variables de Estilo (Integración con custom.scss)
+// ==========================================================================
+$chat-green: #00c96b !default;
+$chat-orange: #E8651A !default;
+$chat-blue: #009DE0 !default;
+$chat-white: #ffffff;
+$chat-gray-light: #f8f9fa;
+$chat-gray-border: #e9ecef;
+$chat-text-dark: #212529;
+$chat-text-muted: #6c757d;
+
+// Sombras y Bordes Premium
+$chat-shadow-trigger: 0 8px 24px rgba($chat-green, 0.35);
+$chat-shadow-window: 0 12px 42px rgba(0, 0, 0, 0.16);
+$chat-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+$chat-radius-lg: 18px;
+$chat-radius-md: 12px;
+
+// Control de Capas (Z-Index de nivel de aplicación para evitar solapamientos)
+$chat-zindex-trigger: 99990 !default;
+$chat-zindex-window: 99995 !default;
+
+// Anchos de pantalla para adaptabilidad
+$chat-width-desktop: 380px;
+$chat-width-tablet: 420px; // Un poco más ancho en tablets para mejor lectura
+
+// ==========================================================================
+// Estilos del Disparador (Chat Trigger)
+// ==========================================================================
+.chat-trigger {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, $chat-green 0%, darken($chat-green, 8%) 100%);
+  color: $chat-white;
+  border: none;
+  outline: none;
+  box-shadow: $chat-shadow-trigger;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: $chat-transition;
+  z-index: $chat-zindex-trigger;
+  touch-action: manipulation; // Optimiza el retardo del clic en pantallas táctiles
+
+  span {
+    font-size: 28px;
+    transition: transform 0.3s ease;
+    display: inline-block;
+    line-height: 1;
+  }
+
+  &:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 12px 28px rgba($chat-green, 0.45);
+    background: linear-gradient(135deg, lighten($chat-green, 3%) 0%, darken($chat-green, 5%) 100%);
+
+    span {
+      transform: rotate(5deg) scale(1.1);
+    }
+  }
+
+  &:active {
+    transform: translateY(-1px) scale(0.98);
+  }
+
+  // Ocultar el trigger en móviles/tablets cuando el chat está activo para liberar espacio
+  &.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0);
+  }
+
+  // Ajuste de área segura para dispositivos móviles modernos en modo horizontal
+  @media (max-width: 768px) {
+    bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+    right: calc(24px + env(safe-area-inset-right, 0px));
+  }
+}
+
+// ==========================================================================
+// Ventana de Chat (Chat Window)
+// ==========================================================================
+.chat-window {
+  position: fixed;
+  bottom: 96px; 
+  right: 24px;
+  width: $chat-width-desktop;
+  
+  // Usamos dvh (dynamic viewport height) con fallback de vh para navegadores antiguos
+  height: 600px;
+  height: min(600px, 80vh);
+  height: min(600px, 80dvh);
+  max-width: calc(100vw - 48px);
+  background-color: $chat-white;
+  border-radius: $chat-radius-lg;
+  box-shadow: $chat-shadow-window;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: $chat-zindex-window;
+  transition: $chat-transition;
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  pointer-events: none;
+  backface-visibility: hidden; // Evita parpadeos de renderizado en iOS
+
+  &.is-active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+  }
+
+  // Cabecera del Chat
+  .chat-header {
+    background: linear-gradient(135deg, $chat-orange 0%, darken($chat-orange, 10%) 100%);
+    color: $chat-white;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba($chat-white, 0.1);
+
+    .chat-header-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      .avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: rgba($chat-white, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        border: 2px solid $chat-white;
+        flex-shrink: 0; // Evita que el avatar se deforme si el título es largo
+      }
+
+      .title {
+        margin: 0;
+        font-size: 1.05rem;
+        font-weight: 600;
+        letter-spacing: -0.3px;
+        color: $chat-white;
+        line-height: 1.2;
+      }
+
+      .subtitle {
+        margin: 0;
+        font-size: 0.75rem;
+        opacity: 0.9;
+        color: rgba($chat-white, 0.9);
+      }
+    }
+
+    .close-btn {
+      background: transparent;
+      border: none;
+      color: $chat-white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+      line-height: 1;
+      padding: 8px; // Mayor área táctil
+      margin: -8px;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  // Cuerpo del Chat (Mensajes)
+  .chat-body {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: $chat-gray-light;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; // Desplazamiento inercial ultra-suave en iOS
+
+    // Custom Scrollbar
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: rgba($chat-text-dark, 0.12);
+      border-radius: 10px;
+      &:hover {
+        background: rgba($chat-text-dark, 0.22);
+      }
+    }
+  }
+
+  // Burbujas de Mensaje & Soporte Antirotura de Texto
+  .chat-msg-row {
+    display: flex;
+    width: 100%;
+
+    &.msg-bot {
+      justify-content: flex-start;
+
+      .chat-message {
+        background-color: $chat-white;
+        color: $chat-text-dark;
+        border-bottom-left-radius: 4px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+        border: 1px solid $chat-gray-border;
+      }
+    }
+
+    &.msg-user {
+      justify-content: flex-end;
+
+      .chat-message {
+        background-color: $chat-green;
+        color: $chat-white;
+        border-bottom-right-radius: 4px;
+        box-shadow: 0 4px 12px rgba($chat-green, 0.15);
+      }
+    }
+
+    .chat-message {
+      max-width: 85%;
+      padding: 12px 16px;
+      border-radius: $chat-radius-md;
+      font-size: 0.925rem;
+      line-height: 1.45;
+      position: relative;
+      word-wrap: break-word;
+      
+      // Soporte Antirotura (Word Wrapping)
+      white-space: normal;
+      word-break: break-word;
+      overflow-wrap: break-word;
+
+      p {
+        margin: 0;
+      }
+
+      .chat-msg-time {
+        display: block;
+        font-size: 10px;
+        margin-top: 6px;
+        opacity: 0.65;
+        text-align: right;
+      }
+    }
+  }
+
+  // Contenedor de Botones de Respuesta Rápida (Quick Replies)
+  .quick-replies {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 8px;
+    align-self: flex-start;
+    width: 100%;
+
+    .quick-reply-btn {
+      background-color: $chat-white;
+      border: 1.5px solid $chat-blue;
+      color: $chat-blue;
+      padding: 12px 16px; // Incrementado ligeramente para mejor usabilidad táctil
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: $chat-transition;
+      touch-action: manipulation;
+      
+      // Soporte Antirotura para botones con textos largos
+      white-space: normal;
+      word-break: break-word;
+      overflow-wrap: break-word;
+      text-align: left;
+      max-width: 100%;
+
+      &:hover {
+        background-color: $chat-blue;
+        color: $chat-white;
+        box-shadow: 0 4px 12px rgba($chat-blue, 0.2);
+        transform: translateY(-1px);
+      }
+
+      &:active {
+        transform: translateY(0);
+      }
+    }
+  }
+
+  // Pie del Chat (Input de Texto)
+  .chat-footer {
+    padding: 15px 20px;
+    background-color: $chat-white;
+    border-top: 1px solid $chat-gray-border;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .chat-input {
+      flex: 1;
+      border: 1px solid $chat-gray-border;
+      padding: 12px 16px; // Altura optimizada para inputs móviles
+      border-radius: 24px;
+      font-size: 16px; // Evita el zoom automático molesto en iOS Safari al enfocar
+      outline: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none; // Reseteo de estilos nativos de iOS
+
+      &:focus {
+        border-color: $chat-blue;
+      }
+    }
+
+    .send-btn {
+      background-color: $chat-blue;
+      color: $chat-white;
+      border: none;
+      width: 44px; // Tamaño mínimo recomendado para objetivos táctiles (44px)
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: $chat-transition;
+      flex-shrink: 0;
+
+      &:hover {
+        background-color: darken($chat-blue, 10%);
+        transform: scale(1.05);
+      }
+
+      &:disabled {
+        background-color: lighten($chat-text-muted, 30%);
+        cursor: not-allowed;
+      }
+
+      svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
+  }
+
+  // ==========================================================================
+  // ADAPTABILIDAD Y RESPONSIVIDAD AVANZADA
+  // ==========================================================================
+
+  // 1. Pantallas con poca altura (Laptops pequeñas, pantallas giradas)
+  @media (max-height: 720px) and (min-width: 576px) {
+    bottom: 80px;
+    height: calc(100vh - 120px);
+    height: calc(100dvh - 120px);
+  }
+
+  // 2. Tablets y Pantallas Medianas (576px a 992px) - Optimización de espacio flotante
+  @media (min-width: 576px) and (max-width: 992px) {
+    width: $chat-width-tablet;
+    bottom: 32px;
+    right: 32px;
+    height: min(650px, 75vh);
+    height: min(650px, 75dvh);
+    max-width: calc(100vw - 64px);
+  }
+
+  // 3. Dispositivos Móviles (Vertical - Pantalla Completa Robusta)
+  @media (max-width: 575.98px) {
+    // Posicionamiento absoluto en las 4 esquinas para evitar desbordamientos
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100% !important;
+    height: 100% !important;
+    height: 100dvh !important;
+    max-width: 100% !important;
+    max-height: 100dvh !important;
+    border-radius: 0;
+    
+    // Animación fluida desde abajo hacia arriba
+    transform: translateY(100%);
+    
+    &.is-active {
+      transform: translateY(0);
+    }
+
+    // Adaptación a Safe Areas (Muescas de iPhone/Android)
+    .chat-header {
+      border-radius: 0;
+      padding-top: calc(16px + env(safe-area-inset-top, 0px));
+      padding-left: calc(20px + env(safe-area-inset-left, 0px));
+      padding-right: calc(20px + env(safe-area-inset-right, 0px));
+    }
+
+    .chat-body {
+      padding: 16px;
+      padding-left: calc(16px + env(safe-area-inset-left, 0px));
+      padding-right: calc(16px + env(safe-area-inset-right, 0px));
+    }
+
+    .chat-footer {
+      padding: 12px 16px;
+      // Soporte para barra de gestos inferior de iOS/Android
+      padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+      padding-left: calc(16px + env(safe-area-inset-left, 0px));
+      padding-right: calc(16px + env(safe-area-inset-right, 0px));
+    }
+  }
+
+  // 4. Móviles en Horizontal (Landscape - Altura Crítica)
+  @media (max-height: 480px) and (orientation: landscape) {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100% !important;
+    height: 100% !important;
+    height: 100dvh !important;
+    max-width: 100% !important;
+    max-height: 100dvh !important;
+    border-radius: 0;
+    transform: translateY(100%);
+
+    &.is-active {
+      transform: translateY(0);
+    }
+
+    .chat-header {
+      border-radius: 0;
+      padding: 10px 16px;
+      padding-top: calc(8px + env(safe-area-inset-top, 0px));
+      padding-left: calc(16px + env(safe-area-inset-left, 0px));
+      padding-right: calc(16px + env(safe-area-inset-right, 0px));
+    }
+
+    .chat-body {
+      padding: 12px 16px;
+      padding-left: calc(16px + env(safe-area-inset-left, 0px));
+      padding-right: calc(16px + env(safe-area-inset-right, 0px));
+    }
+
+    .chat-footer {
+      padding: 8px 16px;
+      padding-bottom: calc(8px + env(safe-area-inset-bottom, 0px));
+      padding-left: calc(16px + env(safe-area-inset-left, 0px));
+      padding-right: calc(16px + env(safe-area-inset-right, 0px));
+    }
+  }
+}
