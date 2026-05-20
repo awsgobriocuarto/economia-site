@@ -10,7 +10,7 @@ export default function Layout({ children }) {
       <Navbar />
       <main>{children}</main>
       <Footer />
-      <ChatBubble />
+      {/* <ChatBubble /> */}
     </div>
   );
 }
