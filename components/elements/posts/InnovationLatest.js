@@ -1,10 +1,51 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import PostCard from "./PostCard";
 import SectionHeader from "../../SectionHeader";
-import { innovacionPosts } from "../../../data/innovacionPosts";
+import Spinner from "../spinner/Spinner";
 
 export default function InnovationLatest() {
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    async function fetchPosts() {
+      try {
+        const response = await fetch("/api/innovacion");
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const json = await response.json();
+        
+        // Tomamos los posts de la respuesta proxy
+        setPosts(json.posts || []);
+      } catch (err) {
+        console.error("Error al obtener los posts de innovación:", err);
+        setError(true);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchPosts();
+  }, []);
+
+  if (loading) {
+    return (
+      <section className="news py-5" style={{ background: '#f8f9fc' }}>
+        <div className="container text-center py-5">
+          <Spinner />
+          <p className="text-muted mt-3">Cargando novedades...</p>
+        </div>
+      </section>
+    );
+  }
+
+  if (error || posts.length === 0) {
+    return null; // Ocultamos la sección si hay un error o no hay posts
+  }
+
   return (
     <section className="news py-5" style={{ background: '#f8f9fc' }}>
       <div className="container position-relative">
@@ -15,8 +56,8 @@ export default function InnovationLatest() {
 
         <div className="carousel-news-container">
           <div className="carousel-news-track" id="innovation-track">
-            {innovacionPosts.map((system) => (
-              <PostCard key={system.id} post={system} className="carousel-news-item" />
+            {posts.map((post) => (
+              <PostCard key={post.id} post={post} className="carousel-news-item" />
             ))}
             
             {/* Tarjeta Ver Más */}
@@ -36,6 +77,7 @@ export default function InnovationLatest() {
           onClick={() => {
             document.getElementById('innovation-track').scrollBy({ left: -400, behavior: 'smooth' });
           }}
+          aria-label="Anterior"
         >
           <i className="fas fa-chevron-left"></i>
         </button>
@@ -45,6 +87,7 @@ export default function InnovationLatest() {
           onClick={() => {
             document.getElementById('innovation-track').scrollBy({ left: 400, behavior: 'smooth' });
           }}
+          aria-label="Siguiente"
         >
           <i className="fas fa-chevron-right"></i>
         </button>
