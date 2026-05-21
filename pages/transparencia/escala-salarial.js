@@ -45,16 +45,16 @@ export default function EscalaSalarial({ items }) {
           {/* SECCIÓN ESCALAS ANTERIORES */}
           <div className="group">
             <h3 className="section-title-modern mb-4">Escalas Salariales Anteriores</h3>
-            <p className="text-muted mb-4">Puedes consultar el histórico de escalas salariales en nuestra carpeta de Google Drive.</p>
-            
+            <p className="text-muted mb-4">Consulta el histórico de escalas salariales.</p>
+
             <a
               href={driveLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-dark btn-lg px-5 py-3 rounded-pill"
+              className="btn btn-dark btn-lg px-5 py-2"
               style={{ fontWeight: 600, fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.05rem' }}
             >
-              Ver anteriores en Drive
+              Ver Más
             </a>
           </div>
         </div>
