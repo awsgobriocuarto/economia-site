@@ -63,6 +63,7 @@ const commonFormalities = [
   { id: "f8", title: "Comercio/Industria: Consulta y Pago", iconUrl: "fa-industry", url: "https://app.riocuarto.gov.ar:8443/gestiontributaria/servlet/com.recursos.hceduimpmul?Come", urlExternal: true },
   { id: "f9", title: "Patentes: Consulta y Pago", iconUrl: "fa-car", url: "https://app.riocuarto.gov.ar:8443/gestiontributaria/servlet/com.recursos.hceduimpmul?Pate", urlExternal: true },
   { id: "f10", title: "Catastro y Obras Privadas", iconUrl: "fa-building", url: "https://tramites.riocuarto.gov.ar/tramite/1/aprobacion-de-planos-de-obra-privada", urlExternal: true },
+  { id: "f11", title: "Constancia de Inscripción", iconUrl: "fa-industry", url: "https://app.riocuarto.gov.ar:8443/gestiontributaria/servlet/com.recursos.hcising", urlExternal: true },
 ];
 
 // =============================================
@@ -107,10 +108,10 @@ export default function Home({ items, expirations }) {
   const [randomFormalities, setRandomFormalities] = React.useState([]);
 
   React.useEffect(() => {
-    const mandatoryIds = ['f1', 'f8', 'f9', 'f4'];
+    const mandatoryIds = ['f1', 'f8', 'f9', 'f4', 'f11'];
     const mandatoryItems = commonFormalities.filter(f => mandatoryIds.includes(f.id));
     const otherItems = commonFormalities.filter(f => !mandatoryIds.includes(f.id));
-    const shuffledOthers = [...otherItems].sort(() => 0.5 - Math.random()).slice(0, 2);
+    const shuffledOthers = [...otherItems].sort(() => 0.5 - Math.random()).slice(0, 1);
     const finalSelection = [...mandatoryItems, ...shuffledOthers];
     setRandomFormalities(finalSelection.sort(() => 0.5 - Math.random()));
   }, []);
