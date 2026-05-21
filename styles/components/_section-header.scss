@@ -15,7 +15,7 @@
 
   // Imagen de fondo: cubre todo el banner
   background-size: cover;
-  background-position: center 30%; 
+  background-position: center;
   background-repeat: no-repeat;
   background-color: #1a2840;
 
@@ -23,12 +23,10 @@
   &__overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      to right,
-      rgba(0, 0, 0, 0.8) 0%,
-      rgba(0, 0, 0, 0.4) 60%,
-      rgba(0, 0, 0, 0.2) 100%
-    );
+    background: linear-gradient(to right,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(0, 0, 0, 0.4) 60%,
+        rgba(0, 0, 0, 0.2) 100%);
     z-index: 1;
   }
 
@@ -90,32 +88,32 @@
 // RESPONSIVE
 // =============================================
 @media (max-width: 991px) {
-    .section-header {
-        height: auto;
-        min-height: 140px;
-        padding: 25px 20px;
+  .section-header {
+    height: auto;
+    min-height: 140px;
+    padding: 25px 20px;
 
-        &__content {
-            flex-direction: row;
-            text-align: left;
-            padding: 0 10px;
-            gap: 20px;
-            justify-content: flex-start;
-        }
-
-        &__icon {
-            height: 55px;
-            margin: 0;
-        }
-
-        &__title {
-            font-size: 1.5rem;
-        }
-
-        &__subtitle {
-            font-size: 0.85rem;
-        }
+    &__content {
+      flex-direction: row;
+      text-align: left;
+      padding: 0 10px;
+      gap: 20px;
+      justify-content: flex-start;
     }
+
+    &__icon {
+      height: 55px;
+      margin: 0;
+    }
+
+    &__title {
+      font-size: 1.5rem;
+    }
+
+    &__subtitle {
+      font-size: 0.85rem;
+    }
+  }
 }
 
 @media (max-width: 767px) {
@@ -126,11 +124,9 @@
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 
     &__overlay {
-        background: linear-gradient(
-          to top,
+      background: linear-gradient(to top,
           rgba(0, 0, 0, 0.85) 0%,
-          rgba(0, 0, 0, 0.4) 100%
-        );
+          rgba(0, 0, 0, 0.4) 100%);
     }
 
     &__content {
@@ -155,4 +151,3 @@
     }
   }
 }
-
