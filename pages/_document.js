@@ -27,6 +27,22 @@ export default class MyDocument extends Document {
             integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
             crossOrigin="anonymous"
           ></script>
+          {/* OpenPanel Analytics */}
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.op=window.op||function(){var n=[];return new Proxy(function(){arguments.length&&n.push([].slice.call(arguments))},{get:function(t,r){return"q"===r?n:function(){n.push([r].concat([].slice.call(arguments)))}},has:function(t,r){return"q"===r}});}();
+                window.op('init', {
+                  apiUrl: 'https://open-panel.leandrodev.com.ar/api',
+                  clientId: '5113320e-b3d9-42c2-a589-0a8f7637efd7',
+                  trackScreenViews: true,
+                  trackOutgoingLinks: true,
+                  trackAttributes: true,
+                });
+              `,
+            }}
+          />
+          <script src="https://openpanel.dev/op1.js" defer async />
         </Head>
         <body>
           <noscript>
