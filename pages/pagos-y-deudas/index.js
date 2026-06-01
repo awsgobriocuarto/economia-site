@@ -31,7 +31,8 @@ export async function getStaticProps() {
     "https://docs.google.com/spreadsheets/d/e/2PACX-1vTksvNMhYA0ZsL3Xy0Xb8sqi4r7kbRwSQZo-HafVvS8Aup5PVJ7c_n-y642TYhZzWZ_DoAu4pZzIv2G/pub?output=csv";
   const response = await getListItems.list({ url });
   const items = response.filter((i) =>
-    i.page.toLowerCase().includes("deudas-y-pagos")
+    i.page.toLowerCase().includes("deudas-y-pagos") &&
+    !i.title?.toLowerCase().includes("medios de pago")
   );
 
   const expirations = await fetchExpirations.list();

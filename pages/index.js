@@ -20,7 +20,7 @@ const quickAccessItems = [
     title: "Pagos y Deudas",
     subtitle: "Pagá tus cuentas",
     icon: "fa-file-invoice-dollar",
-    url: "https://www.riocuarto.gob.ar/tramites?area=economia-e-innovacion&category=pagos-y-deudas",
+    url: "https://economiariocuarto.gob.ar/pagos-y-deudas",
     external: true,
   },
   {
