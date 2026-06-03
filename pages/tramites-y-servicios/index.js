@@ -2,9 +2,7 @@ import Head from "next/head";
 import { Panel } from "../../components/elements/panel/Panel";
 import SectionHeader from "../../components/SectionHeader";
 
-import getListItems from "../../services/getListItems";
-
-export default function servicios({ items }) {
+export default function servicios({ categories }) {
   return (
     <>
       <Head>
@@ -16,7 +14,16 @@ export default function servicios({ items }) {
           <SectionHeader
             title="TRÁMITES Y SERVICIOS"
           />
-          <Panel items={items} />
+          
+          {categories && categories.map((category) => (
+            <div key={category.name} className="mb-5">
+              <h2 className="text-primary mb-4" style={{ fontWeight: '700', fontSize: '1.75rem' }}>
+                {category.name}
+              </h2>
+              <Panel items={category.items} />
+            </div>
+          ))}
+
           <div className="banner secondary mt-5">
             <div>
               <h3>Cedulón Digital</h3>
@@ -43,16 +50,65 @@ export default function servicios({ items }) {
 }
 
 export async function getStaticProps() {
-  const url =
-    "https://docs.google.com/spreadsheets/d/e/2PACX-1vTksvNMhYA0ZsL3Xy0Xb8sqi4r7kbRwSQZo-HafVvS8Aup5PVJ7c_n-y642TYhZzWZ_DoAu4pZzIv2G/pub?output=csv";
-  const response = await getListItems.list({ url });
-  const items = response.filter((i) =>
-    i.page.toLowerCase().includes("servicios"),
-  );
+  let categories = [];
+  try {
+    const token = process.env.EXTERNAL_API_TOKEN;
+    const res = await fetch(
+      "https://gestionweb.gobiernoriocuarto.gob.ar/api/v1/procedures?area=3",
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    if (res.ok) {
+      const data = await res.json();
+      const list = Array.isArray(data) ? data : (data.data && Array.isArray(data.data) ? data.data : []);
+      
+      const mappedItems = list.map((item) => ({
+        id: item.id,
+        title: item.title,
+        url: item.url || "/",
+        urlExternal: true,
+        category: item.categories && item.categories.length > 0 ? item.categories[0].name : "Otros Trámites"
+      }));
+
+      const order = [
+        "Ambiente y Sostenibilidad",
+        "Pagos y Deudas",
+        "Proveedores y Licitaciones",
+        "Gestión de Propiedad y Contribuciones",
+        "Habilitaciones, Registros y Licencias",
+        "Tránsito y Movilidad"
+      ];
+
+      categories = order.map(catName => ({
+        name: catName,
+        items: mappedItems.filter(item => item.category === catName)
+      })).filter(cat => cat.items.length > 0);
+
+      // Si hay categorías que no están en el orden establecido, las agregamos al final
+      const uniqueCatsInList = [...new Set(mappedItems.map(item => item.category))];
+      uniqueCatsInList.forEach(catName => {
+        if (!order.includes(catName)) {
+          categories.push({
+            name: catName,
+            items: mappedItems.filter(item => item.category === catName)
+          });
+        }
+      });
+
+    } else {
+      console.error("Error fetching procedures:", res.statusText);
+    }
+  } catch (error) {
+    console.error("Error fetching procedures in getStaticProps:", error);
+  }
+
   return {
     props: {
-      items,
+      categories,
     },
-    revalidate: 1,
+    revalidate: 60,
   };
 }
