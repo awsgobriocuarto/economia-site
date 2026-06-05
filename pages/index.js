@@ -36,8 +36,8 @@ const quickAccessItems = [
     title: "Trámites",
     subtitle: "Gestiones digitales",
     icon: "fa-tasks",
-    url: "/tramites-y-servicios",
-    external: false,
+    url: "https://www.riocuarto.gob.ar/tramites?area=economia-e-innovacion",
+    external: true,
   },
   {
     id: "qa4",
