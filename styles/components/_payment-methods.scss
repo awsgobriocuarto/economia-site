@@ -60,3 +60,109 @@
     }
   }
 }
+
+// ===== DIGITALIZACIÓN DE CAJAS & NUEVOS CANALES =====
+.medios-de-pago-digital {
+  .intro-text {
+    h1 {
+      color: $secondary; // azul municipal
+      font-weight: 700;
+      line-height: 1.25;
+      font-size: 2.2rem;
+      margin-bottom: 25px;
+    }
+    h2 {
+      font-weight: 700;
+      color: $dark;
+      font-size: 1.6rem;
+      margin-bottom: 15px;
+    }
+    p {
+      color: #555;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+  }
+
+  .card-canales {
+    background-color: #fdf8e7; // crema suave de la imagen
+    border: none;
+    border-radius: 20px;
+    padding: 35px 30px;
+    box-shadow: 0 4px 25px rgba(241, 189, 74, 0.08);
+
+    .canal-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      margin-bottom: 28px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .canal-icon-wrapper {
+        flex-shrink: 0;
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        background-color: #f1bd4a; // amarillo dorado
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 1.4rem;
+        box-shadow: 0 4px 10px rgba(241, 189, 74, 0.25);
+      }
+
+      .canal-content {
+        font-size: 0.98rem;
+        line-height: 1.5;
+        color: $dark;
+        margin-bottom: 0;
+
+        strong {
+          color: $secondary; // azul municipal
+          font-style: italic;
+          font-weight: 600;
+          display: inline;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .medios-de-pago-digital {
+    .card-canales {
+      margin-top: 30px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .medios-de-pago-digital {
+    .intro-text {
+      h1 {
+        font-size: 1.8rem;
+        margin-bottom: 18px;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+    }
+    .card-canales {
+      padding: 24px 20px;
+      .canal-item {
+        gap: 15px;
+        margin-bottom: 22px;
+        .canal-icon-wrapper {
+          width: 48px;
+          height: 48px;
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+}
+
