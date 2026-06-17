@@ -10,6 +10,8 @@ import InnovationLatest from "../components/elements/posts/InnovationLatest";
 import fetchExpirations from "../services/fetchExpirations";
 // BannerTop removido — hero full-width
 import SearchBox from "../components/SearchBox";
+import PromoModal from "../components/PromoModal";
+
 
 // =============================================
 // ACCESOS RÁPIDOS — Estilo portal municipal
@@ -198,6 +200,37 @@ export default function Home({ items, expirations }) {
         </div>
       </section>
 
+      {/* ===== BANNER CTA: DIGITALIZACIÓN Y MEDIOS DE PAGO ===== */}
+      <section className="pb-5" style={{ background: '#f4f6f9' }}>
+        <div className="container">
+          <div className="row">
+            <div className="col-12">
+              <div className="banner banner-box orange">
+                <div>
+                  <h4 className="mb-2 mb-md-1">
+                    Digitalización de Cajas y Medios de Pago
+                  </h4>
+                  <p className="lead">
+                    A partir del 1 de julio las cajas municipales se digitalizan por completo. Conocé las opciones de pago digital, cuotas y puntos de cobro presenciales.
+                  </p>
+                </div>
+                <div>
+                  <Link href="/medios-de-pago">
+                    <a
+                      className="btn btn-outline-light text-white text-uppercase"
+                      id="btn-medios-pago-banner"
+                    >
+                      <i className="fas fa-fw fa-credit-card me-2"></i>
+                      Ver Medios de Pago
+                    </a>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ===== GESTIONES ===== */}
       <section className="py-5" style={{ background: 'white' }}>
         <div className="container">
@@ -251,6 +284,9 @@ export default function Home({ items, expirations }) {
 
       {/* ===== INNOVACIÓN Y DESARROLLO ===== */}
       <InnovationLatest />
+
+      {/* ===== POPUP INFORMATIVO DIGITALIZACIÓN ===== */}
+      <PromoModal />
     </>
   );
 }

@@ -70,6 +70,16 @@
     background: $info;
   }
 
+  &.orange {
+    background: linear-gradient(135deg, $orange 0%, darken($orange, 10%) 100%);
+
+    .btn:hover {
+      background-color: white !important;
+      border-color: white !important;
+      color: $orange !important;
+      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+    }
+  }
 
   &.warning {
     background: linear-gradient(135deg, $warning 0%, darken($warning, 10%) 100%);

@@ -166,3 +166,347 @@
   }
 }
 
+// ===== POPUP PROMO MODAL DE DIGITALIZACIÓN =====
+.promo-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(26, 40, 64, 0.65); // gris oscuro semitransparente
+  backdrop-filter: blur(6px); // desenfoque premium
+  z-index: 1100; // sobre el navbar sticky (normalmente z-index 1020-1030)
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.promo-modal-container {
+  background: #ffffff;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 580px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 24px 64px rgba(26, 40, 64, 0.25);
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  // Scrollbar para modales muy largos
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 20px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 20px;
+  }
+
+  .promo-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.25);
+    border: none;
+    color: #ffffff;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.45);
+      transform: scale(1.1);
+    }
+  }
+
+  // Banner cabecera (Azul municipal)
+  .promo-modal-header-banner {
+    background: linear-gradient(135deg, #009DE0 0%, #007bb8 100%);
+    padding: 35px 30px 20px;
+    color: #ffffff;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -20%;
+      width: 140%;
+      height: 140%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .banner-badge {
+      display: inline-block;
+      background-color: #ffffff;
+      color: #009DE0;
+      font-weight: 700;
+      font-size: 0.8rem;
+      padding: 5px 14px;
+      border-radius: 30px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .banner-main-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 20px;
+
+      span.highlight {
+        color: #f1bd4a; // amarillo acento
+        font-style: italic;
+      }
+    }
+  }
+
+  // Cuerpo del modal
+  .promo-modal-body {
+    padding: 30px;
+
+    .info-tag-badge {
+      font-size: 0.75rem;
+      font-weight: 700;
+      background-color: rgba(232, 101, 26, 0.08); // fondo naranja muy claro
+      color: #E8651A; // naranja
+      padding: 5px 12px;
+      border-radius: 30px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .modal-title-heading {
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: #1a2840;
+    }
+
+    .modal-subtitle-text {
+      font-size: 1.1rem;
+    }
+
+    .modal-desc-paragraph {
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    // Listado de canales
+    .channels-mini-list {
+      background-color: #fcf9f2; // fondo crema muy sutil
+      border-radius: 12px;
+      padding: 16px;
+      border: 1px solid rgba(241, 189, 74, 0.15);
+
+      .channel-mini-item {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+
+        .channel-mini-icon {
+          flex-shrink: 0;
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #ffffff;
+          font-size: 0.9rem;
+
+          &.web {
+            background-color: #009DE0; // azul
+          }
+          &.presencial {
+            background-color: #4ba6de; // celeste
+          }
+          &.efectivo {
+            background-color: #f1bd4a; // amarillo
+          }
+        }
+
+        .channel-mini-content {
+          font-size: 0.88rem;
+          color: #1a2840;
+          line-height: 1.4;
+
+          strong {
+            color: #009DE0;
+          }
+        }
+      }
+    }
+  }
+
+  // Footer / Acciones
+  .promo-modal-footer {
+    .btn-mas-info {
+      background-color: #E8651A; // naranja institucional
+      border-color: #E8651A;
+      color: #ffffff;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background-color: #cf530e;
+        border-color: #cf530e;
+        box-shadow: 0 4px 12px rgba(232, 101, 26, 0.35);
+        transform: translateY(-1px);
+      }
+    }
+  }
+}
+
+// Mockup de Notebook en CSS
+.notebook-mockup-container {
+  width: 260px;
+  margin: 0 auto;
+  perspective: 600px;
+  position: relative;
+  z-index: 1;
+
+  .notebook-screen {
+    background-color: #111827;
+    border: 8px solid #1f2937;
+    border-radius: 12px 12px 0 0;
+    width: 220px;
+    height: 125px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    transform: rotateX(10deg);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+
+    .notebook-screen-inner {
+      background: #ffffff;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 6px;
+
+      .mockup-header-bar {
+        border-bottom: 1px solid #e5e7eb;
+        padding-bottom: 4px;
+        margin-bottom: 6px;
+        
+        .mockup-brand {
+          font-size: 8px;
+          color: #009DE0;
+        }
+
+        .mockup-dots span {
+          width: 4px;
+          height: 4px;
+          border-radius: 50%;
+          display: inline-block;
+          background-color: #d1d5db;
+          margin-left: 2px;
+        }
+      }
+
+      .mockup-screen-title {
+        font-size: 10px;
+        font-weight: 800;
+        color: #1f2937;
+        margin-bottom: 6px;
+        text-align: left;
+      }
+
+      .mockup-screen-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4px;
+        flex-grow: 1;
+
+        .mockup-grid-item {
+          background-color: #f3f4f6;
+          border-radius: 4px;
+          font-size: 8px;
+          font-weight: 600;
+          color: #374151;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 2px;
+          border: 1px solid #e5e7eb;
+
+          i {
+            font-size: 8px;
+          }
+        }
+      }
+    }
+  }
+
+  .notebook-base {
+    background-color: #d1d5db;
+    border-top: 1px solid #ffffff;
+    height: 8px;
+    border-radius: 0 0 6px 6px;
+    position: relative;
+    z-index: 2;
+    width: 260px;
+    margin: 0 auto;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 10px;
+      right: 10px;
+      height: 4px;
+      background: rgba(0,0,0,0.2);
+      filter: blur(2px);
+      border-radius: 50%;
+    }
+
+    .notebook-base-notch {
+      background-color: #9ca3af;
+      width: 40px;
+      height: 3px;
+      margin: 0 auto;
+      border-radius: 0 0 3px 3px;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .promo-modal-container {
+    .promo-modal-header-banner {
+      padding: 30px 20px 15px;
+
+      .banner-main-title {
+        font-size: 1.35rem;
+      }
+    }
+    .promo-modal-body {
+      padding: 20px;
+    }
+    .notebook-mockup-container {
+      width: 220px;
+      .notebook-screen {
+        width: 180px;
+        height: 105px;
+      }
+      .notebook-base {
+        width: 220px;
+      }
+    }
+  }
+}
+
+

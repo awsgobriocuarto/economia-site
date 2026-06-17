@@ -31,9 +31,9 @@ export default function MediosDePago() {
 
       {/* Encabezado limpio de la sección */}
       <div className="container pt-4">
-        <SectionHeader 
-          title="Medios de Pago" 
-          subtitle="Información sobre digitalización de cajas y canales de cobro vigentes" 
+        <SectionHeader
+          title="Medios de Pago"
+          subtitle="Información sobre digitalización de cajas y canales de cobro vigentes"
         />
       </div>
 
@@ -95,10 +95,10 @@ export default function MediosDePago() {
               <hr className="my-5 opacity-25" />
               <div className="text-center mb-4">
                 <span className="text-primary text-uppercase font-weight-bold tracking-wider small">
-                  Atención presencial en efectivo
+                  Información Importante
                 </span>
                 <h3 className="h2 font-weight-bold text-dark mt-2 mb-2">
-                  Puntos de Cobro Presenciales Habilitados
+                  Puntos de Cobro En Efectivo
                 </h3>
                 <p className="text-muted max-w-2xl mx-auto">
                   Si optás por pagar en efectivo, podés hacerlo en cualquiera de los siguientes centros autorizados de CES, Rapipago y Cobro Express en Río Cuarto.
