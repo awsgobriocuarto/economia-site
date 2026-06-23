@@ -31,7 +31,7 @@ export default function PromoModal() {
 
   return (
     <div className="promo-modal-overlay" onClick={handleClose}>
-      <div 
+      <div
         className="promo-modal-container animate__animated animate__fadeInUp animate__faster"
         onClick={(e) => e.stopPropagation()} // Detiene la propagación para evitar cerrar al hacer click dentro
       >
@@ -89,7 +89,7 @@ export default function PromoModal() {
             ¡Más opciones y beneficios digitales!
           </p>
           <p className="modal-desc-paragraph text-muted mb-4">
-            Elegí tu medio de pago y aprovechá las promociones vigentes. Recordá que ya no se recibirá efectivo en cajas del Palacio Municipal.
+            Elegí tu medio de pago y aprovechá las promociones vigentes.
           </p>
 
           {/* Canales de Pago Resumidos */}
@@ -128,14 +128,14 @@ export default function PromoModal() {
 
         {/* Botones de acción */}
         <div className="promo-modal-footer d-flex justify-content-end align-items-center bg-light p-3 border-top gap-2">
-          <button 
-            className="btn btn-outline-secondary px-4 font-weight-bold" 
+          <button
+            className="btn btn-outline-secondary px-4 font-weight-bold"
             onClick={handleClose}
             type="button"
           >
             Cerrar
           </button>
-          <button 
+          <button
             className="btn btn-primary px-4 btn-mas-info d-flex align-items-center gap-2 font-weight-bold shadow-sm"
             onClick={handleMoreInfo}
             type="button"
