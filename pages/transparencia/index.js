@@ -15,25 +15,6 @@ export default function Transparencia({ items }) {
         <div className="container">
           <SectionHeader title="TRANSPARENCIA" />
           <Panel items={items} />
-          <div className="banner secondary mt-5">
-            <div>
-              <h3>Cedulón Digital</h3>
-              <p className="lead">
-                Consulta la cantidad de contribuyentes que ya se adhirieron al
-                programa #AhoraDigital
-              </p>
-            </div>
-            <div>
-              <a
-                className="btn btn-primary text-white text-uppercase"
-                href="https://app.riocuarto.gov.ar:8443/gestiontributaria/servlet/com.recursos.statscedulon"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Consultar Datos
-              </a>
-            </div>
-          </div>
         </div>
       </section>
     </>
@@ -44,11 +25,23 @@ export async function getStaticProps() {
   const url =
     "https://docs.google.com/spreadsheets/d/e/2PACX-1vTksvNMhYA0ZsL3Xy0Xb8sqi4r7kbRwSQZo-HafVvS8Aup5PVJ7c_n-y642TYhZzWZ_DoAu4pZzIv2G/pub?output=csv";
   const response = await getListItems.list({ url });
-  const items = response.filter(
+  const filteredItems = response.filter(
     (i) =>
       i.page.toLowerCase().includes("transparencia") &&
       i.title !== "Seguimiento de Expedientes"
   );
+
+  const organigramaItem = {
+    id: "organigrama-municipal",
+    title: "Organigrama Municipal",
+    url: "https://www.riocuarto.gob.ar/areas",
+    urlExternal: true,
+    page: "transparencia",
+    iconUrl: "",
+  };
+
+  const items = [...filteredItems, organigramaItem];
+
   return {
     props: {
       items,

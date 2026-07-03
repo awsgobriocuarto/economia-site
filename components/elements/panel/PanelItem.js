@@ -39,6 +39,7 @@ export const PanelItem = ({ item, variant }) => {
     if (t.includes("económica") || t.includes("financiera")) return "fa-chart-pie";
     if (t.includes("presupuesto")) return "fa-calculator";
     if (t.includes("expedientes")) return "fa-search-location";
+    if (t.includes("organigrama")) return "fa-sitemap";
     if (t.includes("cedulón") || t.includes("digital")) return "fa-tablet-alt";
     
     // Return provided icon if exists, else default
