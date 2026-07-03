@@ -56,7 +56,7 @@ export default class MyDocument extends Document {
           <Main />
           <NextScript />
           {/* EcoBot Chat Widget */}
-          <script src="https://ecobot.leandrodev.com.ar/widget.js" async defer />
+          {/* <script src="https://ecobot.leandrodev.com.ar/widget.js" async defer /> */}
         </body>
       </Html>
     );
