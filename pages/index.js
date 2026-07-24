@@ -10,7 +10,7 @@ import InnovationLatest from "../components/elements/posts/InnovationLatest";
 import fetchExpirations from "../services/fetchExpirations";
 // BannerTop removido — hero full-width
 import SearchBox from "../components/SearchBox";
-import PromoModal from "../components/PromoModal";
+import RedLinkModal from "../components/RedLinkModal";
 
 
 // =============================================
@@ -285,8 +285,8 @@ export default function Home({ items, expirations }) {
       {/* ===== INNOVACIÓN Y DESARROLLO ===== */}
       <InnovationLatest />
 
-      {/* ===== POPUP INFORMATIVO DIGITALIZACIÓN ===== */}
-      <PromoModal />
+      {/* ===== POPUP ALERTA RED LINK ===== */}
+      <RedLinkModal />
     </>
   );
 }
