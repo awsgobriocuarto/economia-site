@@ -4,6 +4,7 @@ import Head from "next/head";
 import SectionHeader from "../../components/SectionHeader";
 import PostsLatest from "../../components/elements/posts/PostsLatest";
 import { mapExternalPost } from "../../utils/mapExternalPost";
+import { getPostCoverImage } from "../../utils/getPostCoverImage";
 
 export default function InnovacionDetalle({ post }) {
   if (!post) {
@@ -14,27 +15,29 @@ export default function InnovacionDetalle({ post }) {
     );
   }
 
+  const coverImage = getPostCoverImage(post);
+
   return (
     <>
       <Head>
         <meta property="og:title" content={post.title} key="ogtitle" />
         <meta property="og:description" content={post.excerpt} key="ogdesc" />
-        <meta
-          property="og:image"
-          content={post.main_picture?.original}
-          key="ogimage"
-        />
+        {coverImage && (
+          <meta property="og:image" content={coverImage} key="ogimage" />
+        )}
         <title>{post.title} - Economía Río Cuarto</title>
       </Head>
 
-      {/* Cabecera Full Width con Imagen - SIN TITULO, SIN BORDES, SIN OVERLAY, SIN ICONO */}
-      <div className="post-header-wrapper">
-        <SectionHeader 
-          title=""
-          bgImage={post.main_picture?.original}
-          className="post-detail-header"
-        />
-      </div>
+      {/* Cabecera Full Width con Imagen */}
+      {coverImage && (
+        <div className="post-header-wrapper">
+          <SectionHeader 
+            title=""
+            bgImage={coverImage}
+            className="post-detail-header"
+          />
+        </div>
+      )}
 
       <div className="post-detail-body py-5">
         <div className="container">
@@ -47,13 +50,27 @@ export default function InnovacionDetalle({ post }) {
                 <div className="divider-h" style={{ width: '40px', height: '2px', background: '#e2e8f0' }}></div>
               </div>
 
-              <h2 className="display-5 fw-bold mb-4" style={{ color: '#1a2840' }}>
+              <h1 className="display-5 fw-bold mb-4" style={{ color: '#1a2840' }}>
                 {post.title}
-              </h2>
+              </h1>
 
-              <p className="lead mb-5 text-muted fw-normal" style={{ fontSize: '1.4rem', lineHeight: '1.6' }}>
-                {post.excerpt}
-              </p>
+              {post.excerpt && (
+                <p className="lead mb-4 text-muted fw-normal" style={{ fontSize: '1.4rem', lineHeight: '1.6' }}>
+                  {post.excerpt}
+                </p>
+              )}
+
+              {/* Imagen de Portada Principal (en el body) */}
+              {coverImage && (
+                <div className="post-cover-main mb-4 text-center">
+                  <img 
+                    src={coverImage} 
+                    alt={post.title || "Imagen de portada"} 
+                    className="img-fluid rounded-3 shadow-sm w-100"
+                    style={{ maxHeight: '500px', objectFit: 'cover' }}
+                  />
+                </div>
+              )}
 
               <div 
                 className="post-content"
@@ -75,7 +92,7 @@ export default function InnovacionDetalle({ post }) {
 
       <style jsx global>{`
         .post-detail-header {
-            min-height: 500px !important;
+            min-height: 400px !important;
             border-radius: 0 !important;
             margin-bottom: 0 !important;
             box-shadow: none !important;
@@ -99,7 +116,7 @@ export default function InnovacionDetalle({ post }) {
 
         @media (max-width: 768px) {
             .post-detail-header {
-                min-height: 350px !important;
+                min-height: 250px !important;
             }
         }
       `}</style>
