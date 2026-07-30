@@ -9,10 +9,12 @@ import PropTypes from "prop-types";
 export default function SectionHeader({ title, subtitle, bgImage, className = "" }) {
   const isClean = !bgImage;
 
+  const formattedBgImage = bgImage ? `url("${bgImage.replace(/"/g, '%22')}")` : undefined;
+
   return (
     <div
       className={`section-header ${isClean ? "section-header--clean" : ""} ${className}`}
-      style={bgImage ? { backgroundImage: `url(${bgImage})` } : {}}
+      style={formattedBgImage ? { backgroundImage: formattedBgImage } : {}}
     >
       {!isClean && <div className="section-header__overlay" />}
       <div className="section-header__content">
