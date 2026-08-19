@@ -1,29 +1,25 @@
 /**
- * fetchDDJJApi — SERVER SIDE
- * Usa variable de entorno privada GOOGLE_SCRIPT_DDJJ_URL.
+ * fetchDDJJApi — SERVER SIDE (getStaticProps / API Routes)
+ * Usa variable de entorno privada DDJJ_API_URL.
  * NUNCA se ejecuta en el browser.
  */
-export function getDeclarations() {
-  const apiURL = process.env.GOOGLE_SCRIPT_DDJJ_URL;
-  if (!apiURL) {
-    console.error('[fetchDDJJApi] GOOGLE_SCRIPT_DDJJ_URL no configurada');
-    return Promise.resolve([]);
-  }
+export default {
+  list: async () => {
+    const apiUrl = process.env.DDJJ_API_URL;
+    if (!apiUrl) {
+      console.error('[fetchDDJJApi] DDJJ_API_URL no configurada');
+      return [];
+    }
 
-  return fetch(apiURL)
-    .then((res) => {
+    try {
+      const res = await fetch(apiUrl);
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      return res.json();
-    })
-    .then((json) => {
-      let items = json;
-      if (items && !Array.isArray(items) && Array.isArray(items.data)) {
-        items = items.data;
-      }
+      const json = await res.json();
+      const items = Array.isArray(json) ? json : json?.data;
       return Array.isArray(items) ? items : [];
-    })
-    .catch((error) => {
+    } catch (error) {
       console.error('[fetchDDJJApi] Error:', error.message);
       return [];
-    });
-}
+    }
+  },
+};

@@ -2,7 +2,7 @@ import React from "react";
 import Head from "next/head";
 import DownloadItemGroup from "../../components/DownloadItemGroup";
 import SectionHeader from "../../components/SectionHeader";
-import fetchDDJJ from "../../services/fetchDDJJ";
+import fetchDDJJApi from "../../services/fetchDDJJApi";
 
 export default function DeclaracionesJuradas({
   intendente = [],
@@ -96,33 +96,47 @@ export default function DeclaracionesJuradas({
   );
 }
 
+const PUBLICADA = 4;
+
 export async function getStaticProps() {
-  let items = [];
+  let raw = [];
   try {
-    const response = await fetchDDJJ.list();
-    items = response || [];
+    raw = await fetchDDJJApi.list();
   } catch (error) {
     console.error("Error fetching DDJJ:", error);
   }
 
+  const items = raw
+    .filter((i) => i.state === PUBLICADA && i.public_url)
+    .map((i) => ({
+      title: i.user?.name || i.user_position || "Declaración Jurada",
+      url: i.public_url,
+      status: "vigente",
+      category: i.user_position || i.user?.position?.name || "",
+    }));
+
   const intendente = items.filter((i) =>
     i.category?.toLowerCase().includes("intendente")
   );
-  const secretarios = items.filter((i) =>
-    i.category?.toLowerCase().includes("secretarios")
-  );
   const sub = items.filter((i) => i.category?.toLowerCase().includes("sub"));
+  const secretarios = items.filter(
+    (i) =>
+      i.category?.toLowerCase().includes("secretar") &&
+      !i.category?.toLowerCase().includes("sub")
+  );
   const directores = items.filter((i) =>
-    i.category?.toLowerCase().includes("directores")
+    i.category?.toLowerCase().includes("director")
   );
   const fiscales = items.filter((i) =>
-    i.category?.toLowerCase().includes("fiscales")
+    i.category?.toLowerCase().includes("fiscal")
   );
   const tribunal = items.filter((i) =>
     i.category?.toLowerCase().includes("tribunal")
   );
-  const concejales = items.filter((i) =>
-    i.category?.toLowerCase().includes("concejales")
+  const concejales = items.filter(
+    (i) =>
+      i.category?.toLowerCase().includes("concejo") ||
+      i.category?.toLowerCase().includes("concejal")
   );
 
   return {
