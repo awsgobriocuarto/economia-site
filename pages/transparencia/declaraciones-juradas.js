@@ -90,6 +90,18 @@ export default function DeclaracionesJuradas({
               Ver más
             </a>
           </div>
+          <hr />
+          <div className="py-3">
+            <h5>Marco Normativo (Ordenanza N° 747/98)</h5>
+            <a
+              href="https://drive.google.com/file/d/1zF7MN_9TH1NQGl2h5UbgPi9FLs3ay7ZC/view?usp=drive_link"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-dark"
+            >
+              Ver Ordenanza
+            </a>
+          </div>
         </div>
       </section>
     </>
