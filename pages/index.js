@@ -286,7 +286,7 @@ export default function Home({ items, expirations }) {
       <InnovationLatest />
 
       {/* ===== POPUP PROMO DIGITALIZACIÓN ===== */}
-      <PromoModal />
+      {/* <PromoModal /> */}
     </>
   );
 }
