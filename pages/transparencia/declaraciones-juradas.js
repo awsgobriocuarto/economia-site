@@ -92,9 +92,9 @@ export default function DeclaracionesJuradas({
           </div>
           <hr />
           <div className="py-3">
-            <h5>Marco Normativo (Ordenanza N° 747/98)</h5>
+            <h5>Marco Normativo (Ordenanza N° 17/16)</h5>
             <a
-              href="https://drive.google.com/file/d/1zF7MN_9TH1NQGl2h5UbgPi9FLs3ay7ZC/view?usp=drive_link"
+              href="https://concejo.riocuarto.gov.ar/texto.php?tipo=ord&id=2016000170&digesto=0"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-dark"
