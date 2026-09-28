@@ -13,9 +13,21 @@ const TYPE_LABELS = {
 // =============================================
 // COMPONENTE SearchBox
 // =============================================
-const SearchBox = ({ overlay }) => {
+const SearchBox = ({
+  overlay,
+  placeholder = "¿Qué estás buscando? (ej: trámites, pagos, licitaciones)",
+  value: controlledValue,
+  onChange: controlledOnChange,
+  onSearch,
+  hideDropdown = false,
+  className = "",
+  idPrefix = "main",
+}) => {
   const router = useRouter();
-  const [query, setQuery] = useState('');
+  const [internalQuery, setInternalQuery] = useState('');
+  const isControlled = controlledValue !== undefined;
+  const query = isControlled ? controlledValue : internalQuery;
+
   const [results, setResults] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(-1);
@@ -25,8 +37,9 @@ const SearchBox = ({ overlay }) => {
   const dropdownRef = useRef(null);
   const containerRef = useRef(null);
 
-  // Carga noticias desde la API al montar el componente
+  // Carga noticias desde la API al montar el componente (solo si no se oculta el dropdown)
   useEffect(() => {
+    if (hideDropdown) return;
     setLoadingPosts(true);
     fetch('https://contenidos.gobiernoriocuarto.gob.ar/api/v1/posts?limit=50', {
       headers: { 'Portal-Id': 3 },
@@ -47,10 +60,11 @@ const SearchBox = ({ overlay }) => {
       })
       .catch(() => {})
       .finally(() => setLoadingPosts(false));
-  }, []);
+  }, [hideDropdown]);
 
-  // Busca cuando cambia el query
+  // Busca cuando cambia el query (solo si el dropdown está habilitado)
   useEffect(() => {
+    if (hideDropdown) return;
     if (query.trim().length >= 2) {
       const found = searchItems(query, allItems).slice(0, 8);
       setResults(found);
@@ -61,10 +75,11 @@ const SearchBox = ({ overlay }) => {
       setIsOpen(false);
       setActiveIndex(-1);
     }
-  }, [query, allItems]);
+  }, [query, allItems, hideDropdown]);
 
-  // Cierra al hacer clic fuera
+  // Cierra al hacer clic fuera (solo si el dropdown está habilitado)
   useEffect(() => {
+    if (hideDropdown) return;
     const handleClick = (e) => {
       if (containerRef.current && !containerRef.current.contains(e.target)) {
         setIsOpen(false);
@@ -72,9 +87,35 @@ const SearchBox = ({ overlay }) => {
     };
     document.addEventListener('mousedown', handleClick);
     return () => document.removeEventListener('mousedown', handleClick);
-  }, []);
+  }, [hideDropdown]);
+
+  const updateQuery = (val) => {
+    if (!isControlled) {
+      setInternalQuery(val);
+    }
+    if (controlledOnChange) {
+      controlledOnChange(val);
+    }
+    if (onSearch) {
+      onSearch(val);
+    }
+  };
+
+  const handleClear = () => {
+    updateQuery('');
+    setResults([]);
+    setIsOpen(false);
+    inputRef.current?.focus();
+  };
 
   const handleKeyDown = (e) => {
+    if (hideDropdown) {
+      if (e.key === 'Escape') {
+        handleClear();
+        inputRef.current?.blur();
+      }
+      return;
+    }
     if (!isOpen && e.key !== 'Enter') return;
     if (e.key === 'ArrowDown') {
       e.preventDefault();
@@ -103,7 +144,7 @@ const SearchBox = ({ overlay }) => {
 
   const navigateTo = (item) => {
     setIsOpen(false);
-    setQuery('');
+    updateQuery('');
     if (item.external) {
       window.open(item.url, '_blank', 'noopener,noreferrer');
     } else {
@@ -113,6 +154,10 @@ const SearchBox = ({ overlay }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (onSearch) {
+      onSearch(query);
+      return;
+    }
     if (activeIndex >= 0 && results[activeIndex]) {
       navigateTo(results[activeIndex]);
     } else if (query.trim().length >= 2) {
@@ -133,9 +178,16 @@ const SearchBox = ({ overlay }) => {
     );
   };
 
+  const containerClass = overlay
+    ? `search-box-overlay ${className}`.trim()
+    : `search-box-portal ${className || 'pt-4 pb-2 mb-4'}`.trim();
+
+  const inputId = idPrefix && idPrefix !== 'main' ? `search-input-${idPrefix}` : 'search-input-main';
+  const buttonId = idPrefix && idPrefix !== 'main' ? `btn-buscar-${idPrefix}` : 'btn-buscar';
+
   return (
     <div
-      className={overlay ? 'search-box-overlay' : 'search-box-portal pt-4 pb-2 mb-4'}
+      className={containerClass}
       ref={containerRef}
     >
         <div className="sb-wrapper">
@@ -143,35 +195,35 @@ const SearchBox = ({ overlay }) => {
             <div className="sb-input-wrapper flex-grow-1 position-relative">
               <input
                 ref={inputRef}
-                id="search-input-main"
+                id={inputId}
                 type="text"
                 className="form-control sb-input"
-                placeholder="¿Qué estás buscando? (ej: trámites, pagos, licitaciones)"
+                placeholder={placeholder}
                 value={query}
-                onChange={(e) => setQuery(e.target.value)}
+                onChange={(e) => updateQuery(e.target.value)}
                 onKeyDown={handleKeyDown}
-                onFocus={() => results.length > 0 && setIsOpen(true)}
-                aria-autocomplete="list"
-                aria-controls="sb-results"
+                onFocus={() => !hideDropdown && results.length > 0 && setIsOpen(true)}
+                aria-autocomplete={hideDropdown ? 'none' : 'list'}
+                aria-controls={hideDropdown ? undefined : 'sb-results'}
               />
               {query && (
                 <button
                   type="button"
                   className="sb-clear-btn"
-                  onClick={() => { setQuery(''); setResults([]); setIsOpen(false); inputRef.current?.focus(); }}
+                  onClick={handleClear}
                   aria-label="Limpiar búsqueda"
                 >
                   <i className="fas fa-times"></i>
                 </button>
               )}
             </div>
-            <button type="submit" className="btn btn-info sb-btn" id="btn-buscar">
+            <button type="submit" className="btn btn-info sb-btn" id={buttonId}>
               Buscar
             </button>
           </form>
 
           {/* DROPDOWN DE RESULTADOS */}
-          {isOpen && results.length > 0 && (
+          {!hideDropdown && isOpen && results.length > 0 && (
             <div className="sb-dropdown" id="sb-results" role="listbox" ref={dropdownRef}>
               <div className="sb-dropdown-header">
                 <span>{results.length} resultado{results.length !== 1 ? 's' : ''} para &quot;<strong>{query}</strong>&quot;</span>
@@ -216,8 +268,8 @@ const SearchBox = ({ overlay }) => {
             </div>
           )}
 
-          {/* Sin resultados */}
-          {isOpen && results.length === 0 && query.length >= 2 && (
+          {/* Sin resultados (solo en modo dropdown) */}
+          {!hideDropdown && isOpen && results.length === 0 && query.length >= 2 && (
             <div className="sb-dropdown">
               <div className="sb-no-results">
                 <i className="fas fa-search-minus"></i>
