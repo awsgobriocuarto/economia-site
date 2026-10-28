@@ -38,7 +38,8 @@ export default function Innovacion({ posts, error }) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps({ res }) {
+  res.setHeader("Cache-Control", "s-maxage=300, stale-while-revalidate=600");
   const apiUrl = process.env.EXTERNAL_API_URL || 'https://gestionweb.gobiernoriocuarto.gob.ar/api/v1/posts';
   const apiToken = process.env.EXTERNAL_API_TOKEN;
 

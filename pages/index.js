@@ -304,6 +304,6 @@ export async function getStaticProps() {
       items,
       expirations,
     },
-    revalidate: 1,
+    revalidate: 300,
   };
 }
