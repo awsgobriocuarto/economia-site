@@ -183,6 +183,28 @@ export default function TramitesYServicios({ categories = [] }) {
   );
 }
 
+// Trámites cuyo link debe apuntar a una URL fija, sin importar lo que devuelva la API.
+// La clave es el título normalizado (minúsculas, sin tildes).
+const normalizeTitle = (text) =>
+  (text || "")
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .trim();
+
+const TRAMITE_URL_OVERRIDES = {
+  "inscripcion de proveedores": "https://www.riocuarto.gob.ar/tramites/inscripcion-de-proveedores",
+  "modificacion de domicilio comercial o anexo de actividad en contribucion sobre comercio e industria":
+    "https://www.riocuarto.gob.ar/tramites/modificacion-de-domicilio-comercial-o-anexo-de-actividad-en-contribucion-sobre-comercio-e-industria",
+  "solicitud de alta en la contribucion sobre comercio e industria":
+    "https://www.riocuarto.gob.ar/tramites/solicitud-de-alta-en-la-contribucion-sobre-comercio-e-industria",
+  "solicitud de baja en la contribucion sobre comercio e industria":
+    "https://www.riocuarto.gob.ar/tramites/solicitud-de-baja-en-la-contribucion-sobre-comercio-e-industria",
+};
+
+const getTramiteUrl = (item) =>
+  TRAMITE_URL_OVERRIDES[normalizeTitle(item.title)] || item.url || "/";
+
 export async function getStaticProps() {
   let categories = [];
   try {
@@ -202,7 +224,7 @@ export async function getStaticProps() {
       const mappedItems = list.map((item) => ({
         id: item.id,
         title: item.title,
-        url: item.url || "/",
+        url: getTramiteUrl(item),
         urlExternal: true,
         category: item.categories && item.categories.length > 0 ? item.categories[0].name : "Otros Trámites"
       }));
